@@ -3,13 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 .portada{
     width: 100%;
     height: 100vh;
 }
 
-.portada img{
+.fondo{
     width: 100%;
     height: 100%;
-    
 }
+
+.logo{
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    border: 1px solid red;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
