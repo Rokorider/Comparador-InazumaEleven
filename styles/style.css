@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Inazuma';
+    src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
+}
+
 .portada{
     width: 100%;
-    height: 100vh;
 }
 
 .fondo{
@@ -15,14 +19,23 @@
 }
 
 .logo{
-    width: 30%;
-    height: 30%;
+    width: 40%;
     position: absolute;
-    border: 1px solid red;
+    top: 2%;
+    left: 5%;
 }
 
 .logo img{
     width: 100%;
     height: 100%;
+}
+
+.titulo{
+    width: 50%;;
+    position: absolute;
+    top: 9%;
+    text-align: center;
+    font-family: 'Inazuma';
+    font-size: 1.3rem;  
 }
 
