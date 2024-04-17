@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 @font-face {
@@ -9,15 +10,14 @@
     src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
 }
 
-.portada{
-    width: 100%;
-}
+
 
 .fondo{
     width: 100%;
     height: 100%;
 }
 
+/*
 .logo{
     width: 40%;
     position: absolute;
@@ -38,4 +38,49 @@
     font-family: 'Inazuma';
     font-size: 1.3rem;  
 }
+*/
 
+/*Prueba para titulo*/
+
+.portada{
+    width: 100%;
+    height: 1000px;
+    background-image: url("../img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.tituloContenedor{
+    width: 50%;
+    height: 45%;
+    top: 60px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+
+.logoImg{
+    height: 300px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.comparadorImg{
+    height: 170px;
+    position: absolute;
+    top:50%;
+    left: 55%;
+    filter: drop-shadow(10px 5px 2px gray);
+
+}
+
+.main{
+    height: 900px;
+    background-image: url("../img/fondoCesped.jpg");
+    border-top: 5px solid #fde812;
+}
+
+.flechTituloContenedor{
+    margin-top: -50px;
+    margin-left: 2%;
+}
