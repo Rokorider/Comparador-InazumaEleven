@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Inazuma';
+    src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
@@ -12,53 +21,62 @@ body {
     background-position: right;
     width: 100vw;
     height: 100vh;
-}
-
-.logo {
-    width: 90%;
-    height: 25%;
-    display: flex;
-    justify-content: center;
-}
-
-.logo img {
-    height: 100%;
+    position: relative;
 }
 
 .cajaInicio {
     height: 60%;
-    width: 25vw;
+    width: 25%;
     background-color: #006265;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 16%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 10%;
+    margin-left: 8%;
+    position: absolute;
 }
-
-.a{
+.tituloContenedor{
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    top: 2%;
+    left: 25%;
+}
+.logoImg{
+    height: 250px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+.comparadorImg{
+    height: 120px;
+    position: absolute;
+    top:55%;
+    left: 55%;
+    filter: drop-shadow(10px 5px 2px gray);
+}
+.inputContenedor{
     width: 80%;
-    height: 70%;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    height: 60%;
+    padding-top: 13%;
 }
 
 .usuario,
 .contrasena {
     width: 100%;
-    height: 40%;
+    height: 50%;
     color: white;
+    margin-top: 20px;
 }
 
 .usuario input,
 .contrasena input {
-    width: 95%;
-    height: 35%;
+    width: 100%;
+    height: 50%;
     font-size: 1.5rem;
     border-radius: 10px;
+    margin-top: 15px;
 }
 
 .iniciarSesion {
@@ -72,6 +90,7 @@ body {
     background-color: #e2550b;
     width: 70%;
     height: 100%;
+    margin-top: 20%;
     color: white;
     font-size: 1.9rem;
     border-radius: 10px;
@@ -79,9 +98,13 @@ body {
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.5s;
+    /*transition: background-color 0.5s;*/
 }
 
 .boton:hover {
     background-color: #ff6c40;
+}
+
+.contrasena,input{
+    border: none;
 }
