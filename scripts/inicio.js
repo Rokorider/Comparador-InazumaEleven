@@ -29,8 +29,65 @@ const imagenesFunciones = {
     },
 };
 
+// Variable para almacenar la secuencia actual de flechas
+let secuenciaFlechas = [];
+let numeroSecuencia = 0;
+
+// Obtener el elemento de audio
+let cancion = document.getElementById('cancion');
+// Función para reproducir la canción
+function reproducirCancion() {
+    cancion.play();
+}
+// Agregar un controlador de eventos de clic al elemento body
+document.body.addEventListener('click', function () {
+    // Reproducir la canción cuando se haga clic en cualquier parte del cuerpo
+    reproducirCancion();
+});
+let cancion2 = document.getElementById('cancion2');
+
 document.addEventListener("keydown", function (event) {
+
+    // Agregar la flecha presionada a la secuencia
+    secuenciaFlechas.push(event.key);
+    // Mantener la secuencia de flechas con una longitud máxima de 4
+    if (secuenciaFlechas.length > 4) {
+        secuenciaFlechas.shift(); // Eliminar el primer elemento de la secuencia si excede la longitud máxima
+    }
+
+    if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "ArrowLeft") {
+
+
+        if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "ArrowLeft") {
+            if (secuenciaFlechas.join("") === "ArrowDownArrowUpArrowRightArrowLeft") {
+                numeroSecuencia++;
+                if (numeroSecuencia === 3) {
+                    document.querySelector(".caja").style.backgroundImage = `url('../img/image0.jpeg')`;
+                    document.querySelector(".caja").style.backgroundColor = "#292929";
+                    document.querySelector(".cajaInicio").style.backgroundColor = "#d93832";
+                    document.querySelector(".boton").style.backgroundColor = "#292929";
+                    numeroSecuencia = 0; // Reiniciar el numeroSecuencia
+                    cancion.pause();
+                    cancion.currentTime = 0;
+                    cancion2.play();
+                } else {
+                    // Cambiar la imagen de fondo por otra que tengas en una variable
+                    document.querySelector(".caja").style.backgroundImage = `url('../img/image2.jpeg')`;
+                    document.querySelector(".caja").style.backgroundColor = "#f59701";
+                    document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
+                    document.querySelector(".boton").style.backgroundColor = "#e2550b";
+
+                }
+                // Reiniciar la secuencia de flechas
+                secuenciaFlechas = [];
+            }
+        }
+    }
+
     if (event.key === "ArrowUp") { // Si se presiona la flecha hacia arriba
+        cancion2.pause();
+        cancion2.currentTime = 0;
+        cancion.play();
         indiceImagen = (indiceImagen + 1) % imagenes.length; // Avanza al siguiente índice de imagen
         const imagenActual = imagenes[indiceImagen]; // Obtiene la URL de la imagen actual
         document.querySelector(".caja").style.backgroundImage = `url('${imagenActual}')`; // Cambia el fondo del div
@@ -43,6 +100,9 @@ document.addEventListener("keydown", function (event) {
             document.querySelector(".caja").style.backgroundColor = "";
         }
     } else if (event.key === "ArrowDown") {
+        cancion2.pause();
+        cancion2.currentTime = 0;
+        cancion.play();
         indiceImagen = (indiceImagen - 1 + imagenes.length) % imagenes.length;
         const imagenActual = imagenes[indiceImagen];
         document.querySelector(".caja").style.backgroundImage = `url('${imagenActual}')`;
@@ -53,9 +113,12 @@ document.addEventListener("keydown", function (event) {
             document.querySelector(".caja").style.backgroundColor = "";
         }
     }
-
-
 });
+
+btnInicioSesion.addEventListener("click", function (event) {
+    window.location.href = "index.html";
+});
+
 
 /*
 btnInicioSesion.addEventListener("click", function(event) {
@@ -63,8 +126,3 @@ btnInicioSesion.addEventListener("click", function(event) {
     document.getElementById("formularioInicio").submit(); // Envía el formulario
 });
 */
-
-btnInicioSesion.addEventListener("click", function (event) {
-    window.location.href = "index.html";
-
-});
