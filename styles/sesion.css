@@ -2,11 +2,13 @@
     font-family: 'Inazuma';
     src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -24,6 +26,35 @@ body {
     position: relative;
 }
 
+.tituloContenedor {
+    width: 40%;
+    height: 30%;
+    position: absolute;
+    top: 2%;
+    left: 25%;
+}
+
+.logoImg {
+    height: 250px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.comparadorImg {
+    height: 120px;
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    filter: drop-shadow(10px 5px 2px gray);
+}
+
+.inputContenedor {
+    width: 80%;
+    height: 60%;
+    padding-top: 13%;
+}
+
 .cajaInicio {
     height: 60%;
     width: 25%;
@@ -36,30 +67,13 @@ body {
     margin-left: 8%;
     position: absolute;
 }
-.tituloContenedor{
-    width: 40%;
-    height: 30%;
-    position: absolute;
-    top: 2%;
-    left: 25%;
-}
-.logoImg{
-    height: 250px;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-}
-.comparadorImg{
-    height: 120px;
-    position: absolute;
-    top:55%;
-    left: 55%;
-    filter: drop-shadow(10px 5px 2px gray);
-}
-.inputContenedor{
-    width: 80%;
-    height: 60%;
-    padding-top: 13%;
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .usuario,
@@ -105,6 +119,7 @@ body {
     background-color: #ff6c40;
 }
 
-.contrasena,input{
+.contrasena,
+input {
     border: none;
 }

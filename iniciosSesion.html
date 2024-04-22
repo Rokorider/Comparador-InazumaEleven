@@ -24,26 +24,27 @@
 
         <div class="cajaInicio">
 
-            <div class="inputContenedor">
+            <form action="inicioSesion.php" method="post" id="formularioInicio">
 
-                <div class="usuario">
-                    <h2>Nombre de Usuario</h2>
-                    <input type="text" name="usuario" id="usuario">
+                <div class="inputContenedor">
+                    <div class="usuario">
+                        <h2>Nombre de Usuario</h2>
+                        <input type="text" name="usuario" id="usuario">
+                    </div>
+
+                    <div class="contrasena">
+                        <h2>Contraseña</h2>
+                        <input type="password" name="contrasena" id="contrasena">
+                    </div>
+
                 </div>
-    
-                <div class="contrasena">
-                    <h2>Contraseña</h2>
-                    <input type="password" name="contrasena" id="contrasena">
+
+                <div class="iniciarSesion">
+                    <div class="boton" id="btnInicioSesion">Iniciar Sesión</div>
                 </div>
 
-            </div>
-
+            </form>
             
-
-            
-            <div class="iniciarSesion">
-                <div class="boton" id="btnInicioSesion">Iniciar Sesión</div>
-            </div>
         </div>
 
     </div>

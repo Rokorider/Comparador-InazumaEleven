@@ -42,23 +42,29 @@ document.addEventListener("keydown", function (event) {
             // Si no hay una función asociada a la imagen actual, eliminar cualquier estilo personalizado
             document.querySelector(".caja").style.backgroundColor = "";
         }
-    }else if(event.key === "ArrowDown"){
-        indiceImagen = (indiceImagen - 1 + imagenes.length) % imagenes.length; 
+    } else if (event.key === "ArrowDown") {
+        indiceImagen = (indiceImagen - 1 + imagenes.length) % imagenes.length;
         const imagenActual = imagenes[indiceImagen];
         document.querySelector(".caja").style.backgroundImage = `url('${imagenActual}')`;
 
-    if (imagenesFunciones.hasOwnProperty(imagenActual)) {
-        imagenesFunciones[imagenActual]();
-    } else {
-        document.querySelector(".caja").style.backgroundColor = "";
-    }
+        if (imagenesFunciones.hasOwnProperty(imagenActual)) {
+            imagenesFunciones[imagenActual]();
+        } else {
+            document.querySelector(".caja").style.backgroundColor = "";
+        }
     }
 
-    
+
 });
 
-btnInicioSesion.addEventListener('click', function () {
-    setTimeout(() => {
-        window.location.href = '../index.html';
-    }, 2000);
+/*
+btnInicioSesion.addEventListener("click", function(event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+    document.getElementById("formularioInicio").submit(); // Envía el formulario
+});
+*/
+
+btnInicioSesion.addEventListener("click", function (event) {
+    window.location.href = "index.html";
+
 });
