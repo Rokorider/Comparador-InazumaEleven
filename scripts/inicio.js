@@ -22,7 +22,7 @@ const imagenesFunciones = {
         document.querySelector(".boton").style.backgroundColor = "#3e3a3d";
     },
     "../img/fondo4.png": function () {
-        document.querySelector(".caja").style.backgroundColor = "#537d8c";
+        document.querySelector(".caja").style.backgroundColor = "#457e8e";
         document.querySelector(".cajaInicio").style.backgroundColor = "#304547";
         document.querySelector(".boton").style.backgroundColor = "#021a58";
 

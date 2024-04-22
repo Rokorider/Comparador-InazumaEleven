@@ -10,15 +10,12 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     background-color: #f59701;
 }
 
 .caja {
     background-image: url('../img/fondo1.png');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
     width: 100vw;
@@ -49,17 +46,13 @@ body {
     filter: drop-shadow(10px 5px 2px gray);
 }
 
-.inputContenedor {
-    width: 80%;
-    height: 60%;
-    padding-top: 13%;
-}
+
 
 .cajaInicio {
     height: 60%;
     width: 25%;
     background-color: #006265;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 16%;
     display: flex;
     flex-direction: column;
@@ -75,7 +68,12 @@ form {
     flex-direction: column;
     align-items: center;
 }
+.formContenedor {
+    width: 80%;
+    height: 60%;
+    margin-top: 10%;
 
+}
 .usuario,
 .contrasena {
     width: 100%;
@@ -92,27 +90,26 @@ form {
     border-radius: 10px;
     margin-top: 15px;
 }
-
-.iniciarSesion {
-    width: 90%;
-    height: 15%;
+.iniciarSesion{
+    background-color: aquamarine;
+    width: 80%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 15%;
 }
-
-.boton {
+.boton{
     background-color: #e2550b;
-    width: 70%;
-    height: 100%;
-    margin-top: 20%;
-    color: white;
+    text-align: center;
+    width: 80%;
+    padding: 15px 20px 15px 20px;
+    margin: auto;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10%;
     font-size: 1.9rem;
     border-radius: 10px;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    /*transition: background-color 0.5s;*/
+    color: white;
 }
 
 .boton:hover {
@@ -122,4 +119,90 @@ form {
 .contrasena,
 input {
     border: none;
+}
+@media screen and (max-width: 767px) {
+    .caja {
+        background-image: url('../img/fondo1.png');
+        background-size:150%;
+        background-repeat: no-repeat;
+        background-position: calc(100% ) calc(100% - 70%);
+    }
+    .tituloContenedor {
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .logoImg {
+        height: 100px;
+        position: absolute;
+    }
+    .comparadorImg {
+        height: 55px;
+        position: absolute;
+        top: 48%;
+        left: 45%;
+        filter: drop-shadow(10px 5px 2px gray);
+    }
+    .formContenedor {
+        width: 80%;
+        height: 60%;
+        padding-top: 13%;
+        position: absolute;
+    }
+    .cajaInicio {
+        height: 40%;
+        width: 100%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 0;
+        border-radius: 45px 45px 0 0;
+
+    }
+    .formContenedor {
+        width: 80%;
+        height: 60%;
+        margin-top: 5%;
+        padding-top: 0;
+    }
+    .formContenedor h2{
+        font-size: 1.3rem;
+    }
+    .usuario,
+    .contrasena {
+        width: 100%;
+        height: 40%;
+        margin-top: 10px;
+    }
+
+    .usuario input,
+    .contrasena input {
+        width: 100%;
+        height: 60%;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        margin-top: 0;
+    }
+    .iniciarSesion{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+    }
+    .boton{
+        background-color: #e2550b;
+        text-align: center;
+        height: 19%;
+        padding: 15px 20px 15px 20px;
+        position: absolute;
+        bottom: 10%;
+        font-size: 1.3rem;
+        border-radius: 10px;
+        color: white;
+    }
+    
+
+
 }
