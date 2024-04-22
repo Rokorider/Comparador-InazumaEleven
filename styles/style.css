@@ -47,7 +47,7 @@
     height: 800px;
     background-image: url("../img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     /*background-attachment: fixed;*/
     border-bottom: 5px solid #fde812;
 

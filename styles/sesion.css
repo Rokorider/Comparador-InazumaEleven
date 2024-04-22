@@ -2,63 +2,75 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f59701;
 }
 
 .caja {
     background-image: url('../img/inazuma_1_3840x2160.png');
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
     width: 100vw;
     height: 100vh;
 }
 
 .logo {
-    border: 1px solid red;
-    width: 30%;
+    width: 90%;
     height: 25%;
+    display: flex;
+    justify-content: center;
 }
 
 .logo img {
-    width: 100%;
     height: 100%;
 }
 
 .cajaInicio {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     height: 60%;
     width: 25vw;
     background-color: #006265;
     border-radius: 10px;
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10%;
+}
+
+.a{
+    width: 80%;
+    height: 70%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .usuario,
-.contrasena{
-    width: 80%;
-    height: 30%;
+.contrasena {
+    width: 100%;
+    height: 40%;
     color: white;
 }
 
 .usuario input,
-.contrasena input{
+.contrasena input {
     width: 95%;
-    height: 30%;
+    height: 35%;
     font-size: 1.5rem;
     border-radius: 10px;
 }
 
-.iniciarSesion{
-    width: 80%;
+.iniciarSesion {
+    width: 90%;
     height: 15%;
     display: flex;
     justify-content: center;
 }
 
-.boton{
+.boton {
     background-color: #e2550b;
-    width: 80%;
+    width: 70%;
     height: 100%;
     color: white;
     font-size: 1.9rem;
@@ -67,4 +79,9 @@ body {
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.5s;
+}
+
+.boton:hover {
+    background-color: #ff6c40;
 }
