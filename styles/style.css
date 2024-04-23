@@ -96,11 +96,13 @@
 
 .btnMusica{
     position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
+    bottom: 1%;
+    right: 1%;
+    width: 80px;
+    height: 80px;
     z-index: 100;
+    border: 1px solid #fde812;
+    cursor: pointer;
 }
 
 .btnMusica img{
