@@ -101,7 +101,6 @@
     width: 80px;
     height: 80px;
     z-index: 100;
-    border: 1px solid #fde812;
     cursor: pointer;
 }
 
@@ -109,3 +108,17 @@
     width: 100%;
     height: 100%;
 }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    animation: rotate 5s linear infinite; /* ajusta la duración y el tipo de animación según lo necesites */
+}
+
