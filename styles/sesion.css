@@ -63,7 +63,7 @@ form {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
 }
 .formContenedor {
     border: 1px solid #000000;
@@ -72,6 +72,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
 }
 .usuario,
 .contrasena {
@@ -143,6 +144,9 @@ input {
         top: 48%;
         left: 45%;
         filter: drop-shadow(10px 5px 2px gray);
+    }
+    form{
+        align-items: center;
     }
     .formContenedor {
         width: 80%;
