@@ -76,24 +76,75 @@
 .main{
     height: 1000px;
     background-color: antiquewhite;
-    background-image: url("../img/bg_chronicle_sp.jpg");
-    padding-top: 400px;
+    background-image: url("../img/football-field.png");
+    padding-top: 700px;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
+/*----Personaje vs personaje----*/
+.comparacionContenedor{
+    height: 500px;
+    width: 80%;
+    position: absolute;
+    z-index: 5;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personaje1, .personaje2{
+    height: 350px;
+    width: 250px;
+    margin: 0 30px 0 30px;
+}
+.personajeIcono1,.personajeIcono2{
+    height: 65%;
+    width: 90%;
+    margin: auto;
+    border: 2px solid black;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.personajeIcono1Img,.personajeIcono2Img{
+    height: 100%;
+    cursor: pointer;
+}
+
+.nombrePersonajeContenedor1,.nombrePersonajeContenedor2{
+    margin: auto;
+    width: 90%;
+    background-color: #004dc2;
+
+}
+.nombrePersonajeContenedor1 p,.nombrePersonajeContenedor2 p{
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+}
+.vsContenedor{
+    height: 400px;
+    width: 250px;
+}
+.vsImg{
+    height: 100%;
+}
 .contenidoContenedor{
     height: 800px;
+    width: 100%;
     background-image: url("../img/fondoCesped.jpg");
     border-top: 5px solid #fde812;
-
+    position: absolute;
 }
 .flechaTituloContenedor{
     margin-top: -50px;
     margin-left: 2%;
 }
 
+/*----Música----*/
 .btnMusica{
     position: fixed;
     bottom: 1%;
