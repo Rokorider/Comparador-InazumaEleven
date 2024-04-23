@@ -35,5 +35,5 @@ if (mysqli_num_rows($query) > 0) {
     $_SESSION['usuario'] = $usuario;
     header("Location: index.php");
 } else {
-    header("Location: iniciosSesion.php");
+    header("Location: inicioSesion.php");
 }
