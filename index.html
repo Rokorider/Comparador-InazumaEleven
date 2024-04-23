@@ -11,6 +11,18 @@
     <title>Comparador Inazuma ELeven</title>
 </head>
 
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    // Si no hay sesión activa, redirigir a la página de inicio de sesión
+    header("Location: iniciosSesion.php");
+    exit; // Detener la ejecución del script
+}
+
+?>
+
 <body>
 
     <section class="portada">
