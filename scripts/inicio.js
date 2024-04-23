@@ -10,21 +10,25 @@ const imagenesFunciones = {
         // Pon aqui el codigo para cambiar los colores de la caja
         document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
         document.querySelector(".boton").style.backgroundColor = "#e2550b";
+        document.querySelector(".registro2").style.color = "#b8371c";
     },
     "../img/fondo2.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#ffb831";
         document.querySelector(".cajaInicio").style.backgroundColor = "#1264a3";
         document.querySelector(".boton").style.backgroundColor = "#9d5735";
+        document.querySelector(".registro2").style.color = "#7f8da2";
     },
     "../img/fondo3.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#fce13a";
         document.querySelector(".cajaInicio").style.backgroundColor = "#297891";
         document.querySelector(".boton").style.backgroundColor = "#3e3a3d";
+        document.querySelector(".registro2").style.color = "#a5c9d2";
     },
     "../img/fondo4.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#457e8e";
         document.querySelector(".cajaInicio").style.backgroundColor = "#304547";
         document.querySelector(".boton").style.backgroundColor = "#021a58";
+        document.querySelector(".registro2").style.color = "#537d8c";
 
     },
 };
@@ -66,6 +70,7 @@ document.addEventListener("keydown", function (event) {
                     document.querySelector(".caja").style.backgroundColor = "#292929";
                     document.querySelector(".cajaInicio").style.backgroundColor = "#d93832";
                     document.querySelector(".boton").style.backgroundColor = "#292929";
+                    document.querySelector(".registro2").style.color = "black";
                     numeroSecuencia = 0; // Reiniciar el numeroSecuencia
                     cancion.pause();
                     cancion.currentTime = 0;

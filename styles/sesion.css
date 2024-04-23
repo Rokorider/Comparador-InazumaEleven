@@ -125,6 +125,12 @@ form {
     font-size: 1.2rem;
 }
 
+.registro2{
+    color: #b8371c;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .contrasena,
 input {
     border: none;
