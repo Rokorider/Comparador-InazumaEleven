@@ -109,6 +109,7 @@
     height: 100%;
 }
 
+/* Keyframes es una regla que permite crear animaciones en CSS */
 @keyframes rotate {
     from {
         transform: rotate(0deg);

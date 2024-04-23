@@ -5,6 +5,7 @@ let reproduciendo = false;
 
 // Función para reproducir o detener la canción
 function reproducirDetenerCancion() {
+    // Si la canción se está reproduciendo, detenerla y establecer el tiempo de reproducción en 0
     if (reproduciendo) {
         cancion.pause();
         cancion.currentTime = 0;
@@ -23,6 +24,6 @@ btnMusica.addEventListener('click', function () {
     reproducirDetenerCancion();
 });
 
-// Al cargar la página, asegúrate de que la imagenMusica no esté girando inicialmente
+// Eliminar la rotación de la imagenMusica cuando se pausa la canción
 imagenMusica.classList.remove('rotating');
 
