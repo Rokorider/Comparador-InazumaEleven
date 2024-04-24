@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prueba.css">
+    <title>Mostrar JSON con JavaScript</title>
+</head>
+<body>
+    <h1>Datos de Usuarios</h1>
+    
+    <!-- Contenedor donde se mostrarán los usuarios -->
+    <div class="contenedorAmiibo" id="contenedorAmiibo"></div>
+
+    <script>
+        // Realizar una solicitud HTTP GET al archivo PHP que devuelve el JSON
+        fetch('prueba.php')
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(data => {
+                // Manipular los datos JSON
+                const contenedorAmiibo = document.getElementById('contenedorAmiibo');
+                data.forEach(usuario => {
+                    // Crear un elemento de lista para cada usuario y añadirlo al contenedorAmiibo
+                    const amiiboItem = document.createElement('div');
+                    amiiboItem.className = 'amiiboItem'; // Agregar una clase para estilizar si es necesario
+                    amiiboItem.innerHTML = `
+                        <div class="textoEImg">
+                            <div class="cajaImg">
+                                <img src="${usuario.imagen}" alt="${usuario.Nombre_Real}">
+
+                            </div>
+                            <div class="cajaInfo">
+                                <div class="nombreAmiibo">
+                                    <h1>${usuario.Nombre_Real}</h1>
+                                </div>
+                                <div class="cajaSerie">
+                                    <h3>Apodo: ${usuario.Apodo}</h3>
+                                </div>
+                                <div class="cajaFecha">
+                                    <h5>Descripción: ${usuario.Descripción}</h5>
+                                </div>
+                                <div class="cajaTipo">
+                                    <h5>Posicion: ${usuario.Posición}</h5>
+                                </div>
+                                <div class="cajaJuego">
+                                    <h5>Elemento: ${usuario.Elemento}</h5>
+                                </div>
+                                <div class="cajaUso">
+                                    <h5>Género: ${usuario.Género}</h5>
+                                </div>
+                            </div>
+                            <div class="cajaBtn">
+                                <div class="btnCerrar" onclick="cerrarVentanaInfo()"></div>
+                            </div>
+                        </div>
+                    `;
+                    contenedorAmiibo.appendChild(amiiboItem);
+                });
+            })
+            .catch(error => {
+                // Manejar errores de la solicitud
+                console.error('Error al obtener los datos de usuarios:', error);
+            });
+    </script>
+
+</body>
+</html>
