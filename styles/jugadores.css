@@ -4,14 +4,24 @@
     box-sizing: border-box;
 }
 
-.jugadores {
+.contenedorJugadores {
     margin: auto;
+    border: 1px solid black;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    gap: 40px;
+}
+
+.escudos {
     border: 1px solid black;
+    margin: auto;
     width: 90%;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
+    padding: 20px;
 }
 
 .tituloJuego {
@@ -19,9 +29,89 @@
     width: 100%;
 }
 
-.jugador {
+.escudo {
     border: 1px solid black;
-    width: 150px;
-    height: 150px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.escudo img {
+    width: 70%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.jugadores {
+    border: 1px solid black;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+} 
+
+.jugador {
+    margin-bottom: 100px;
+    border: 1px solid black;
+    width: 30%;
+    height: 350px;
+}
+
+.infoJugador {
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+
+.estadisticasJugador{
+    width: 100%;
+    height: 70%;
+}
+
+.imgJugador{
+    border: 1px solid white;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #2f477c;
+}
+
+.imgJugador img{
+    width: 100%;
+}
+
+.datosJugador{
+    border: 1px solid red;
+    width: 75%;
+    height: 100%;
+}
+
+.datos1{
+    width: 100%;
+    height: 33%;
+    border-top: 1px solid blue;
+    display: flex;
+}
+
+.nombre{
+    width: 50%;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+.nivel{
+    width: 25%;
+    height: 100%;
+    background-color:bisque;
+}
+
+.posicion{
+    width: 25%;
+    height: 100%;
+    background-color: #928585;
 }
