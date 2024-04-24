@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="img/logo.png" />
+        <link rel="stylesheet" href="styles/normalize.css" />
+        <link rel="stylesheet" href="styles/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+        />
+        <script src="scripts/comparados.js" defer></script>
+        <title>Comparador Inazuma ELeven</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="img/logo.png">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/comparados.js" defer></script>
-    <title>Comparador Inazuma ELeven</title>
-</head>
-
-<?php
+    <?php
 session_start();
 
 // Verificar si el usuario ha iniciado sesión
@@ -23,57 +26,204 @@ if (!isset($_SESSION['usuario'])) {
 
 ?>
 
-<body>
+    <body>
+        <section class="portada">
+            <!--<img class="fondo" src="img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp" alt="Logo Inazuma Eleven">-->
+            <div class="btnMusica" id="btnMusica">
+                <img
+                    src="img/cd-furbol.png"
+                    alt="Logo Inazuma Eleven"
+                    id="imagenMusica"
+                />
+                <audio id="cancion" src="img/cancion2.mp3" loop="true"></audio>
+            </div>
 
-    <section class="portada">
-        <!--<img class="fondo" src="img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp" alt="Logo Inazuma Eleven">-->
-        <div class="btnMusica" id="btnMusica">
-            <img src="img/cd-furbol.png" alt="Logo Inazuma Eleven" id="imagenMusica">
-            <audio id="cancion" src="img/cancion2.mp3"  loop="true" ></audio>
-        </div>
+            <div class="tituloContenedor">
+                <img
+                    src="img/InazumaElevenComparadorLogo.png"
+                    alt="Logo"
+                    class="logoImg"
+                />
+            </div>
+        </section>
 
-        <div class="tituloContenedor">
-            <img src="img/InazumaElevenComparadorLogo.png" alt="Logo" class="logoImg">
-        </div>
-        
-        
-    </section>
-    
-    <section class="main">
-        <div class="comparacionContenedor">
-            <div class="personaje1">
-                <div class="personajeIcono1">
-                    <img src="img/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img">
+        <section class="main">
+            <div class="comparacionContenedor">
+                <div class="personaje1">
+                    <div class="personajeIcono1">
+                        <img
+                            src="img/PlayerDeafultMarkPlus.png"
+                            alt=""
+                            class="personajeIcono1Img"
+                        />
+                    </div>
+                    <div class="nombrePersonajeContenedor1">
+                        <p>???????</p>
+                    </div>
                 </div>
-                <div class="nombrePersonajeContenedor1">
-                    <p>???????</p>
+                <div class="vsContenedor">
+                    <img src="img/VS.png" alt="" class="vsImg" />
+                </div>
+                <div class="personaje2">
+                    <div class="personajeIcono2">
+                        <img
+                            src="img/PlayerDeafultMarkPlus.png"
+                            alt=""
+                            class="personajeIcono2Img"
+                        />
+                    </div>
+                    <div class="nombrePersonajeContenedor2">
+                        <p>???????</p>
+                    </div>
                 </div>
             </div>
-            <div class="vsContenedor">
-                <img src="img/vsImagen.png" alt="" class="vsImg">
-            </div>
-            <div class="personaje2">
-                <div class="personajeIcono2">
-                    <img src="img/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img">
+            <!--Zona de cesped-->
+            <div class="contenidoContenedor">
+                <div class="flechaTituloContenedor">
+                    <img
+                        src="img/flechaAzulnotext.png"
+                        alt=""
+                        class="flechaTituloImg"
+                    />
+                    <img
+                        src="img/Markrunning.gif"
+                        alt=""
+                        class="markCorriendo"
+                    />
                 </div>
-                <div class="nombrePersonajeContenedor2">
-                    <p>???????</p>
+                <div class="seccionStats">
+                    <div class="personajeStat">
+                        <div class="infoPersonaje">
+                            <div class="nombre-genero">
+                                <div class="nombreEnStatCont">
+                                    <p>Nombre</p>
+                                </div>
+                                <div class="imgSexoCont">
+                                    <img src="img/Male.png" alt="" />
+                                </div>
+                            </div>
+                            <div class="descripcion-tipo">
+                                <div class="botonDescripcion">
+                                    <img src="img/boton.png" alt="" />
+                                    <p class="descripcionTxt">Descripción</p>
+                                    <p class="flechaDescripcion">v</p>
+                                </div>
+                                <div class="tipo">
+                                    <div class="elementoCont">
+                                        <img src="img/Elementos/Aire.png" alt="" class="elemento" />
+                                    </div>
+                                    <div class="posicionCont">
+                                        <p>PR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statsPersonaje">
+                            <div class="tiro stat">
+                                <p>Tiro</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="fisico stat">
+                                <p>Físico</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="control stat">
+                                <p>Control</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="defensa stat">
+                                <p>Defensa</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="rapidez stat">
+                                <p>Rapidez</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="aguante stat">
+                                <p>Aguante</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="valor stat">
+                                <p>Valor</p>
+                                <p>Nan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flechasComparacion">
+                        <div class="flechasCont">
+                            <div class="flechaComp"><img src="img/flechas1.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas2.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas1.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas2.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas1.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas2.png" alt=""></div>
+                            <div class="flechaComp"><img src="img/flechas1.png" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="personajeStat">
+                        <div class="infoPersonaje">
+                            <div class="nombre-genero">
+                                <div class="nombreEnStatCont">
+                                    <p>Nombre</p>
+                                </div>
+                                <div class="imgSexoCont">
+                                    <img src="img/Male.png" alt="" />
+                                </div>
+                            </div>
+                            <div class="descripcion-tipo">
+                                <div class="botonDescripcion">
+                                    <img src="img/boton.png" alt="" />
+                                    <p class="descripcionTxt">Descripción</p>
+                                    <p class="flechaDescripcion">v</p>
+                                </div>
+                                <div class="tipo">
+                                    <div class="elementoCont">
+                                        <img src="img/Elementos/Aire.png" alt="" class="elemento" />
+                                    </div>
+                                    <div class="posicionCont">
+                                        <p>PR</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statsPersonaje">
+                            <div class="tiro stat">
+                                <p>Tiro</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="fisico stat">
+                                <p>Físico</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="control stat">
+                                <p>Control</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="defensa stat">
+                                <p>Defensa</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="rapidez stat">
+                                <p>Rapidez</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="aguante stat">
+                                <p>Aguante</p>
+                                <p>Nan</p>
+                            </div>
+                            <div class="valor stat">
+                                <p>Valor</p>
+                                <p>Nan</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="contenidoContenedor">
-            <div class="flechaTituloContenedor">
-                <img src="img/flechaAzulnotext.png" alt="" class="flechaTituloImg">
-                <img src="img/Markrunning.gif" alt="" class="markCorriendo">
+        </section>
+        <footer>
+            <div class="footer">
+                <img src="img/Elementos/Aire.png" alt="" />
             </div>
-        </div>
-        
-    </section>
-
-    <section class="footer">
-
-    </section>
-
-</body>
-
+        </footer>
+    </body>
 </html>

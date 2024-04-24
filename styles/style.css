@@ -4,15 +4,19 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-
 @font-face {
     font-family: 'Inazuma';
     src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
 }
 
-
-
-
+html{
+    
+}
+body{
+    height: 1900px;
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+}
 .portada{
     width: 100%;
     height: 100vh;
@@ -37,7 +41,7 @@
 }
 
 .main{
-    height: 1100px;
+    height: 1700px;
     background-image: url("../img/football-field.png");
     padding-top: 700px;
     background-attachment: fixed;
@@ -102,7 +106,7 @@
     justify-content: center;
     align-items: center;
     background-position: right bottom;
-
+    padding-bottom: 10%;
 }
 .vsImg{
     height: 80%;
@@ -111,11 +115,12 @@
 
 /*---Zona de datos---*/
 .contenidoContenedor{
-    height: 800px;
+    height: 900px;
     width: 100%;
     background-image: url("../img/fondoCesped.jpg");
     border-top: 5px solid #fde812;
     position: absolute;
+    bottom: 0;
 }
 .flechaTituloContenedor{
     margin-top: -50px;
@@ -129,14 +134,173 @@
     width: 100%;
     position: relative;
 }
-
 .markCorriendo{
     height: 120%;
     position: absolute;
     left: 5%;
     bottom: -6%;
-
 }
+.seccionStats{
+    font-family: "Jersey 10", sans-serif;
+    height: 80%;
+    width:70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+}
+.personajeStat{
+    height: 80%;
+    width: 33%;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color:#78aaca ;
+}
+.infoPersonaje{
+    height: 30%;
+    width: 100%;
+    background-color:#78aaca ;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+.nombre-genero{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2f477c;
+    border-bottom: 4px solid #2f91ae;
+}
+.nombreEnStatCont{
+    width: 85%;
+    height: 100%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgSexoCont{
+    width: 15%;
+    height: 100%;
+    background-color:#2f477c ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgSexoCont img{
+    height: 80%;
+    width: 80%;
+}
+.descripcion-tipo{
+    height: 55%;
+    width: 100%;
+    background-color: #539eb5;
+    display: flex;
+    padding: 10px;
+}
+.botonDescripcion{
+    width: 70%;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    font-size: 1.6em;
+    display: flex;
+}
+.botonDescripcion img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.descripcionTxt{
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%);
+}
+.flechaDescripcion{
+    position: absolute;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+}
+@keyframes moveArrow {
+    0% { bottom: -5px; }
+    50% { bottom: 3px; }
+    100% { bottom: -5px; }
+}
+.botonDescripcion:hover .flechaDescripcion {
+    animation: moveArrow 0.8s infinite;
+}
+.tipo{
+    width: 30%;
+    display: flex;
+}
+.elementoCont{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+.posicionCont{
+    border: 5px solid #99c9e2;
+    background-color: #5096b5;
+    width: 100%;
+    height: 50%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.statsPersonaje{
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+}
+.stat, .flechaComp{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+}
+.stat{
+    margin: 5px 0 5px 0; /*espacio entre los div */
+    justify-content: space-between;
+    border-top: 10px solid #2f477c;
+    border-bottom: 3px solid #2f91ae;
+    background-color:#282855 ;
+    font-size: 1.7rem;
+    padding: 0 15% 0 15%;
+}
+
+.flechasComparacion{
+    height: 80%;
+    width: 25%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+}
+.flechasCont{
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.flechaComp{
+    height: 10%;
+    width: 40%;
+    margin: 10px 30% 15px 30%; 
+    justify-content: center;
+}
+
 /*----Música----*/
 .btnMusica{
     position: fixed;
@@ -147,10 +311,20 @@
     z-index: 100;
     cursor: pointer;
 }
-
 .btnMusica img{
     width: 100%;
     height: 100%;
+}
+
+/*---footer---*/
+footer {
+    width: 100%;
+    height: 6%;
+    background-color: #004dc2;
+    border-top: 2px solid #fde812;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0; 
 }
 
 /* Keyframes es una regla que permite crear animaciones en CSS */
@@ -166,8 +340,6 @@
 .rotating {
     animation: rotate 5s linear infinite; /* ajusta la duración y el tipo de animación según lo necesites */
 }
-
-
 
 /* MÓVILES */
 @media screen and (max-width: 767px){
@@ -192,7 +364,6 @@
 }
 .logoImg{
     height: 90%;
-
 }
     .main{
         height: 100%;
@@ -236,7 +407,6 @@
         width: 90%;
         background-color: #004dc2;
         border-radius: 3px;
-    
     }
     .nombrePersonajeContenedor1 p,.nombrePersonajeContenedor2 p{
         text-align: center;
