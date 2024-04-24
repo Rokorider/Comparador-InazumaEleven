@@ -3,9 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
 
 .contenedorJugadores {
@@ -76,7 +76,6 @@
 
 .imgJugador {
     border: 4px solid #282855;
-    border-radius: 10px;
     width: 25%;
     height: 100%;
     display: flex;
@@ -180,7 +179,7 @@
     width: 45%;
     height: 100%;
     background-color: #539eb5;
-    
+
     color: white;
     display: flex;
     justify-content: center;
@@ -191,14 +190,14 @@
     width: 45%;
     height: 100%;
     background-color: #539eb5;
-    
+
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.texto{
+.texto {
     width: 30%;
     height: 100%;
     background-color: #539eb5;
@@ -208,7 +207,7 @@
     align-items: center;
 }
 
-.valor{
+.valor {
     width: 70%;
     height: 100%;
     background-color: #539eb5;
@@ -229,14 +228,14 @@
     display: flex;
 }
 
-.tipo{
+.tipo {
     width: 50%;
     height: 100%;
     background-color: #539eb5;
     display: flex;
 }
 
-.tipoUnidad{
+.tipoUnidad {
     width: 70%;
     height: 100%;
     background-color: #2f477c;
@@ -245,7 +244,7 @@
     align-items: center;
 }
 
-.tipoUnidad p{
+.tipoUnidad p {
     background-color: #282855;
     width: 100%;
     color: white;
@@ -254,7 +253,7 @@
     border-bottom: 4px solid #4884a2;
 }
 
-.unidad{
+.unidad {
     width: 30%;
     height: 100%;
     background-color: #2f477c;
@@ -263,7 +262,7 @@
     align-items: center;
 }
 
-.unidad p{
+.unidad p {
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
@@ -272,23 +271,43 @@
     border-bottom: 4px solid #4884a2;
 }
 
-.tipoUnico{
+.tipoUnico {
     width: 100%;
     height: 100%;
-    background-color: #539eb5;
-    display: flex;
-}
-
-.tipoUnidad p{
     background-color: #282855;
-    width: 100%;
-    color: white;
-    font-size: 1.6rem;
-    text-align: center;
+    display: flex;
+    align-items: center;
     border-bottom: 4px solid #4884a2;
+    border-top: 4px solid #2f477c;
 }
 
-.juego{
+.tipoUnidadUnica {
+    width: 35%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tipoUnidadUnica p{
+    font-size: 1.6rem;
+    color: white;
+}
+
+.unidadUnica {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unidadUnica p{
+    font-size: 1.6rem;
+    color: white;
+}
+
+.juego {
     width: 100%;
     height: 15.1%;
     background-color: #386c8c;
@@ -299,8 +318,51 @@
     align-items: center;
 }
 
-.juego h4{
+.juego h4 {
     color: white;
     font-size: 1.6rem;
 }
 
+.divBtnCargarMas{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnMasInformacion {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
+}
+
+.btnMasInformacion:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btnMasInformacion:focus {
+    outline: none;
+}
+
+.btnMasInformacion {
+    background-image: linear-gradient(to right,
+            #0ba360,
+            #3cba92,
+            #30dd8a,
+            #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
