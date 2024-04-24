@@ -60,12 +60,15 @@ form {
     align-items: center;
     margin-top: 5%;
 }
+.formContenedor h2{
+    font-size: 1.9em;
+}
 .usuario,
 .contrasena {
     width: 80%;
-    height: 50%;
+    height: 37%;
     color: white;
-    margin-top: 10px;
+    margin-top: 5%;
 }
 
 .usuario input,
@@ -73,9 +76,10 @@ form {
     width: 100%;
     max-height: 50%;
     height: 50%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     border-radius: 10px;
     margin-top: 15px;
+    padding: 0 20px 0 20px;
 }
 .iniciarSesion{
     width: 100%;
@@ -88,13 +92,16 @@ form {
     background-color: #e2550b;
     text-align: center;
     width: 80%;
-    padding: 15px 20px 15px 20px;
+    padding: 3% 20px 3% 20px;
     margin: auto;
     cursor: pointer;
     position: absolute;
     font-size: 1.9rem;
     border-radius: 10px;
     color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .boton:hover {
@@ -167,13 +174,14 @@ form {
         background-color: #e2550b;
         text-align: center;
         height: 17%;
-        padding: 10px 20px 15px 20px;
         position: absolute;
         bottom: 17%;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         border-radius: 10px;
         color: white;
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .registro{
         position: absolute;
@@ -216,8 +224,9 @@ form {
     }
     .boton{
         height: 13%;
-        padding: 10px 20px 10px 20px;
-        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
 }

@@ -17,30 +17,6 @@
     height: 100%;
 }
 
-/*
-.logo{
-    width: 40%;
-    position: absolute;
-    top: 2%;
-    left: 5%;
-}
-
-.logo img{
-    width: 100%;
-    height: 100%;
-}
-
-.titulo{
-    width: 50%;;
-    position: absolute;
-    top: 9%;
-    text-align: center;
-    font-family: 'Inazuma';
-    font-size: 1.3rem;  
-}
-*/
-
-/*Prueba para titulo*/
 
 .portada{
     width: 100%;
@@ -53,28 +29,17 @@
 
 }
 .tituloContenedor{
-    width: 50%;
-    height: 45%;
-    top: 60px;
+    width: 51%;
+    height: 51%;
     position: relative;
-    transition: all 0.3s ease;
 }
 .logoImg{
-    height: 300px;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-}
-.comparadorImg{
-    height: 170px;
-    position: absolute;
-    top:55%;
-    left: 55%;
-    filter: drop-shadow(10px 5px 2px gray);
+    height: 100%;
 }
 
 .main{
     height: 1000px;
+
     background-color: antiquewhite;
     background-image: url("../img/football-field.png");
     padding-top: 700px;
@@ -106,19 +71,26 @@
     height: 65%;
     width: 90%;
     margin: auto;
-    border: 2px solid black;
+    border: 4px solid #fde812;
     overflow: hidden;
     margin-bottom: 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
 }
 .personajeIcono1Img,.personajeIcono2Img{
     height: 100%;
     cursor: pointer;
+
 }
 
 .nombrePersonajeContenedor1,.nombrePersonajeContenedor2{
     margin: auto;
     width: 90%;
     background-color: #004dc2;
+    border-radius: 3px;
 
 }
 .nombrePersonajeContenedor1 p,.nombrePersonajeContenedor2 p{
@@ -132,6 +104,7 @@
 .vsImg{
     height: 100%;
 }
+/*---Zona de datos---*/
 .contenidoContenedor{
     height: 800px;
     width: 100%;
@@ -142,8 +115,13 @@
 .flechaTituloContenedor{
     margin-top: -50px;
     margin-left: 2%;
+    width: 50%;
+    height: 14%;
 }
-
+.flechaTituloImg{
+    height: 100%;
+    width: 100%;
+}
 /*----Música----*/
 .btnMusica{
     position: fixed;
@@ -174,3 +152,7 @@
     animation: rotate 5s linear infinite; /* ajusta la duración y el tipo de animación según lo necesites */
 }
 
+@media screen and (max-width: 767px) {
+
+    
+}
