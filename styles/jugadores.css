@@ -331,38 +331,23 @@
     align-items: center;
 }
 
-.btnMasInformacion {
-    width: 160px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    height: 40px;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 50px;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
+.contenedorboton{
+    width: 15%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/boton.png');
+    background-size: 100% 100%;
+    transition: transform 0.5s;
 }
 
-.btnMasInformacion:hover {
-    background-position: 100% 0;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+.btnCargarMas{
+    color: white;
+    font-size: 1.7rem;
+    cursor: url('https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png'), pointer;
 }
 
-.btnMasInformacion:focus {
-    outline: none;
-}
-
-.btnMasInformacion {
-    background-image: linear-gradient(to right,
-            #0ba360,
-            #3cba92,
-            #30dd8a,
-            #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+.contenedorboton:hover{
+    transform: scale(1.1);
 }

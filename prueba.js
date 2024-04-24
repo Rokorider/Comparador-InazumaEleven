@@ -160,26 +160,29 @@ function agregarJugador(jugador, contenedor) {
 
 // Función para mostrar el botón de cargar más
 function mostrarBotonCargar(contenedor) {
-    const divBtnCargarMAs= document.createElement('div');
-    divBtnCargarMAs.className = 'divBtnCargarMas';
-    const botonCargarMas = document.createElement('button');
-    botonCargarMas.textContent = 'Cargar más';
+    const divBtnCargarMas = document.createElement('div');
+    divBtnCargarMas.className = 'divBtnCargarMas'; // Corregido el nombre de la clase
 
-    botonCargarMas.classList.add('btnCargarMas', 'btnMasInformacion');
+    divBtnCargarMas.innerHTML = `
+        <div class="contenedorboton">
+            <p class="btnCargarMas">Cargar más</p>
+        </div>
+    `;
 
-    divBtnCargarMAs.appendChild(botonCargarMas);
+    const botonCargarMas = divBtnCargarMas.querySelector('.btnCargarMas'); // Selecciona el botón correctamente
 
     botonCargarMas.addEventListener('click', () => {
         indice += jugadoresAMostrar;
         mostrarJugadores();
         eliminarBotonCargar(contenedor);
     });
-    contenedor.appendChild(divBtnCargarMAs);
+    contenedor.appendChild(divBtnCargarMas);
 }
 
+
 function eliminarBotonCargar(contenedor) {
-    const botonCargarMas = contenedor.querySelector('.btnCargarMas');
-    botonCargarMas.parentElement.remove();
+    const divBtnCargarMas = contenedor.querySelector('.divBtnCargarMas');
+    divBtnCargarMas.remove();
 }
 
 // Llamar a la función para obtener los datos al cargar la página
