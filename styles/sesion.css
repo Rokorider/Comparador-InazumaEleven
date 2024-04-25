@@ -14,7 +14,7 @@ body {
 }
 
 .caja {
-    background-image: url('../img/fondo1.png');
+    background-image: url('../img/fondos/fondo1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
@@ -128,7 +128,7 @@ form {
 /*DISPOSITIVOS MÓVILES*/
 @media screen and (max-width: 767px) {
     .caja {
-        background-image: url('../img/fondo1.png');
+        background-image: url('../img/fondos/fondo1.png');
         background-size:150%;
         background-repeat: no-repeat;
         background-position: calc(100% ) calc(100% - 70%);
@@ -199,7 +199,7 @@ form {
 /*DISPOSITIVOS TABLET*/
 @media (min-width: 767px) and (max-width: 1024px) {
     .caja {
-        background-image: url('../img/fondo1.png');
+        background-image: url('../img/fondos/fondo1.png');
         background-size:150%;
         background-repeat: no-repeat;
         background-position: calc(100% ) calc(70% - 70%);

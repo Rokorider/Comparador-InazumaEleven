@@ -1,30 +1,30 @@
 let btnInicioSesion = document.getElementById('btnInicioSesion');
 
 
-const imagenes = ["../img/fondo1.png", "../img/fondo2.png", "../img/fondo3.png", "../img/fondo4.png"]; // Array con las URLs de las imágenes
+const imagenes = ["../img/fondos/fondo1.png", "../img/fondos/fondo2.png", "../img/fondos/fondo3.png", "../img/fondos/fondo4.png"]; // Array con las URLs de las imágenes
 let indiceImagen = 0; // Índice de la imagen actual
 
 const imagenesFunciones = {
-    "../img/fondo1.png": function () {
+    "../img/fondos/fondo1.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#f59701";
         // Pon aqui el codigo para cambiar los colores de la caja
         document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
         document.querySelector(".boton").style.backgroundColor = "#e2550b";
         document.querySelector(".registroEnlace").style.color = "#b8371c";
     },
-    "../img/fondo2.png": function () {
+    "../img/fondos/fondo2.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#ffb831";
         document.querySelector(".cajaInicio").style.backgroundColor = "#1264a3";
         document.querySelector(".boton").style.backgroundColor = "#9d5735";
         document.querySelector(".registroEnlace").style.color = "#7f8da2";
     },
-    "../img/fondo3.png": function () {
+    "../img/fondos/fondo3.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#fce13a";
         document.querySelector(".cajaInicio").style.backgroundColor = "#297891";
         document.querySelector(".boton").style.backgroundColor = "#3e3a3d";
         document.querySelector(".registroEnlace").style.color = "#a5c9d2";
     },
-    "../img/fondo4.png": function () {
+    "../img/fondos/fondo4.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#457e8e";
         document.querySelector(".cajaInicio").style.backgroundColor = "#304547";
         document.querySelector(".boton").style.backgroundColor = "#021a58";
