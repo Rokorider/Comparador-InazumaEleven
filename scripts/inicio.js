@@ -55,7 +55,7 @@ document.addEventListener("keydown", function (event) {
             if (secuenciaFlechas.join("") === "ArrowDownArrowUpArrowRightArrowLeft") {
                 numeroSecuencia++;
                 if (numeroSecuencia === 3) {
-                    document.querySelector(".caja").style.backgroundImage = `url('../img/image0.jpeg')`;
+                    document.querySelector(".caja").style.backgroundImage = `url('../img/fondos/image0.jpeg')`;
                     document.querySelector(".caja").style.backgroundColor = "#292929";
                     document.querySelector(".cajaInicio").style.backgroundColor = "#d93832";
                     document.querySelector(".boton").style.backgroundColor = "#292929";
@@ -64,7 +64,7 @@ document.addEventListener("keydown", function (event) {
                     cancion2.play();
                 } else {
                     // Cambiar la imagen de fondo por otra que tengas en una variable
-                    document.querySelector(".caja").style.backgroundImage = `url('../img/image2.jpeg')`;
+                    document.querySelector(".caja").style.backgroundImage = `url('../img/fondos/image2.jpeg')`;
                     document.querySelector(".caja").style.backgroundColor = "#f59701";
                     document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
                     document.querySelector(".boton").style.backgroundColor = "#e2550b";
