@@ -141,7 +141,7 @@ body{
 }
 .seccionStats{
     font-family: "Jersey 10", sans-serif;
-    height: 55%;
+    height: 52%;
     width:70%;
     position: absolute;
     left: 50%;
@@ -251,6 +251,7 @@ body{
     border-radius: 3px;
     z-index: 1; 
     width: 100%;
+    font-size: 1.2rem;
 }
 .botonDescripcion:hover .flechaDescripcion {
     animation: none;
