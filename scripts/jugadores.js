@@ -3,7 +3,7 @@ let jugadores;
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    fetch('prueba.php')
+    fetch('conexionBD.php')
         // Procesar la respuesta como JSON
         .then(function(response) {
             return response.json();
@@ -108,10 +108,10 @@ function agregarJugador(jugador, contenedor) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <img src="img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                        <img src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
                     </div>
                     <div class="elemento">
-                        <img src="img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
+                        <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
                     </div>
                 </div>
                 <!-- Puntos de energía (PE) y puntos de técnica (PT) del jugador -->
