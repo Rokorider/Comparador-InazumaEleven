@@ -207,7 +207,7 @@ function agregarJugador(jugador, contenedor) {
         </div>          
         <!-- Descripción del jugador -->
         <div class="juego">
-            <p class="descripcion">${jugador.Juego}</p>
+            <p class="descripcion">${jugador.Equipo}</p>
         </div>
     `;
     // Agregar el elemento del jugador al contenedor
