@@ -10,13 +10,13 @@ const imagenesFunciones = {
         // Pon aqui el codigo para cambiar los colores de la caja
         document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
         document.querySelector(".boton").style.backgroundColor = "#e2550b";
-        document.querySelector(".registroEnlace").style.color = "#b8371c";
+        document.querySelector(".registroEnlace").style.color = "#f59701";
     },
     "../img/fondos/fondo2.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#ffb831";
         document.querySelector(".cajaInicio").style.backgroundColor = "#1264a3";
-        document.querySelector(".boton").style.backgroundColor = "#9d5735";
-        document.querySelector(".registroEnlace").style.color = "#7f8da2";
+        document.querySelector(".boton").style.backgroundColor = "#7c8ea4"; //#9d5735 antiguo
+        document.querySelector(".registroEnlace").style.color = "#ffb831";
     },
     "../img/fondos/fondo3.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#fce13a";
