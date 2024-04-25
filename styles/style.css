@@ -42,7 +42,6 @@ body {
     height: 100%;
     background-image: url("../img/football-field.png");
     background-size: contain;
-
     position: relative;
 }
 
@@ -121,12 +120,69 @@ body {
 
 /*---Menu pop up---*/
 .menuPopUp {
-    display: block;
-    width: 70%;
-    background-color: rgba(243, 231, 231, 0.7);
+    display: none;
+    width: 60%;
+    height: 60%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #fde812;
     position: absolute;
+    overflow: scroll;
+    color: white;
+    font-family: "Jersey 10", sans-serif;
 }
+.juegoContenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.tituloJuego {
+    background-color: #2f477c;
+    width: 100%;
+    padding: 10px;
+    font-size: 2rem;
+    border: 5px solid #282855;
+}
+.equiposContenedor {
+    display: none;
+    background-color: #539eb5;
+    width: 100%;
+    padding: 10px;
+}
+.contenidoEquipos {
+    margin: auto;
+    width: 100%;
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding: 20px;
+    background-color: #78aaca;
+}
+.equipo {
+    font-size: 1.3rem;
 
+}
+.equipoImg {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.equipoNombre {
+    padding: 0 10px 0 10px;
+    background-color: #282855;
+    border-top: 5px solid #2f477c;
+    border-bottom:3px solid #2f91ae ;
+    text-align: center;
+    margin-top: 5px;
+}
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 1400px;
@@ -498,7 +554,6 @@ body {
 
 /* TABLETS */
 @media (min-width: 767px) and (max-width: 1024px) {
-
     .personaje1,
     .personaje2 {
         width: 30%;

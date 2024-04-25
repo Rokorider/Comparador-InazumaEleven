@@ -3,7 +3,7 @@ let jugadores;
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    fetch('php/conexionBD.php')
+    fetch("php/conexionBD.php")
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
@@ -16,93 +16,107 @@ function obtenerDatos() {
         })
         // Manejar errores en caso de que la solicitud falle
         .catch(function (error) {
-            console.error('Error al obtener los datos de jugadores:', error);
+            console.error("Error al obtener los datos de jugadores:", error);
         });
 }
 
-function obtenerJuegos(){
-    if (jugadores) {
-
-    const juegosUnicos = [...new Set(jugadores.map(jugador => jugador.Juego))];
-    console.log(juegosUnicos)
-    }else {
-        console.log('No se han cargado los datos de los jugadores aún.');
-    }
-}
-function obtenerEquipos() {
-    if (jugadores) {
-       // Obtener una lista de equipos únicos
-    const equiposUnicos = [...new Set(jugadores.map(jugador => jugador.Equipo))];
-    console.log(equiposUnicos)
-    } else {
-        console.log('No se han cargado los datos de los jugadores aún.');
-    }
-}
-
 obtenerDatos();
-
-//Esto es para llamar a la función cuando se carguen todos los datos
-setTimeout(obtenerJuegos,1000)
-setTimeout(obtenerEquipos, 1000);
-
-
 let primerPersonaje = document.getElementById("personajeIcono1Img");
 let segundoPersonaje = document.getElementById("personajeIcono2Img");
 let menuSeleccion = document.getElementById("menuPopUp");
 
-
-
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
 function crearCajaJuegos() {
-    //Limpiar lo que estaba dentro del popUp antes de abrirlo
+    // Limpiar lo que estaba dentro del popUp antes de abrirlo
     menuSeleccion.innerHTML = "";
     if (jugadores) {
-        const juegosUnicos = [...new Set(jugadores.map(jugador => jugador.Juego))];
+        const juegosUnicos = [
+            ...new Set(jugadores.map((jugador) => jugador.Juego)),
+        ];
         // Crear un div por cada juego único
         juegosUnicos.forEach((juego, i) => {
-            const juegoContenedor = document.createElement('div');
-            juegoContenedor.textContent = juego;
-            juegoContenedorClase = `juego`;
+            // Contenedor para el título del juego
+            const tituloJuego = document.createElement("div");
+            tituloJuego.classList.add("tituloJuego");
+            tituloJuego.textContent = juego;
+
+            // Contenedor para el juego y sus equipos
+            const juegoContenedor = document.createElement("div");
             juegoContenedor.id = `juego${i + 1}`;
-            juegoContenedor.classList.add(juegoContenedorClase);
+            juegoContenedor.classList.add("juegoContenedor");
+
+            // Agregar el título y el contenedor del juego al menú de selección
+            juegoContenedor.appendChild(tituloJuego);
             menuSeleccion.appendChild(juegoContenedor);
 
             // Crear un contenedor para los equipos dentro de cada juegoContenedor
-            const contenidoEquipos = document.createElement('div');
-            contenidoEquipos.classList.add('contenidoEquipos');
-            juegoContenedor.appendChild(contenidoEquipos);
+            const equiposContenedor = document.createElement("div");
+            equiposContenedor.classList.add("equiposContenedor"); // Nueva clase
+            juegoContenedor.appendChild(equiposContenedor);
 
             // Para que se abran los equipos del juego que se pulse
-            juegoContenedor.addEventListener('click', () => {
-                // Llamar a una función para crear el contenido cuando se haga clic en el juego
-                crearContenidoJuego(juego, contenidoEquipos);
+            tituloJuego.addEventListener("click", () => {
+                // Verificar el estado actual del contenedor de equipos
+                if (equiposContenedor.style.display === "block") {
+                    // Si está visible, ocultarlo
+                    equiposContenedor.style.display = "none";
+                } else {
+                    // Si está oculto, mostrarlo y crear el contenido de los equipos
+                    equiposContenedor.style.display = "block";
+                    crearContenidoJuego(juego, equiposContenedor);
+                }
             });
         });
     } else {
-        console.log('No se han cargado los datos de los jugadores aún.');
+        console.log("No se han cargado los datos de los jugadores aún.");
     }
 }
-function crearContenidoJuego(juego, contenidoEquipos) {
-    contenidoEquipos.innerHTML = "";
+
+function crearContenidoJuego(juego, equiposContenedor) {
+    equiposContenedor.innerHTML = "";
     console.log(`Se ha pulsado en el juego: ${juego}`);
-    contenidoEquipos.innerHTML = "";
 
     // Obtener equipos únicos usando map y Set
-    const equiposUnicos = [...new Set(jugadores.filter(jugador => jugador.Juego === juego).map(jugador => jugador.Equipo))];
+    const equiposUnicos = [
+        ...new Set(
+            jugadores
+                .filter((jugador) => jugador.Juego === juego)
+                .map((jugador) => jugador.Equipo)
+        ),
+    ];
 
-    equiposUnicos.forEach(equipo => {
-        const equipoDiv = document.createElement('div');
-        equipoDiv.textContent = equipo;
-        equipoDiv.classList.add('equipo');
+    const contenidoEquipos = document.createElement("div");
+    contenidoEquipos.classList.add("contenidoEquipos");
+
+    equiposUnicos.forEach((equipo) => {
+        // Reemplazar espacios en blanco por guiones bajos
+        const equipoURL = equipo.replace(/\s+/g, "_");
+
+        const equipoDiv = document.createElement("div");
+        equipoDiv.classList.add("equipo");
+
+        const imgEquipo = document.createElement("div");
+        imgEquipo.classList.add("equipoImg");
+        imgEquipo.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/InazumaEleven1/Escudos/${equipoURL}.png)`;
+        console.log(
+            `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/InazumaEleven1/Escudos/${equipoURL}.png)`
+        );
+
+        const nombreEquipo = document.createElement("div");
+        nombreEquipo.classList.add("equipoNombre");
+        nombreEquipo.textContent = equipo;
+
+        equipoDiv.appendChild(imgEquipo);
+        equipoDiv.appendChild(nombreEquipo);
+
         contenidoEquipos.appendChild(equipoDiv);
-
-        // Imprimir cada equipo por consola
-        console.log(`Equipo: ${equipo}`);
     });
+
+    equiposContenedor.appendChild(contenidoEquipos);
 }
 
-const juegoContenedor = document.createElement('div');
-juegoContenedor.id = 'juegoContenedor';
+const juegoContenedor = document.createElement("div");
+juegoContenedor.id = "juegoContenedor";
 menuSeleccion.appendChild(juegoContenedor);
 
 function mostrarMenuSeleccion() {
@@ -111,8 +125,8 @@ function mostrarMenuSeleccion() {
     } else {
         menuSeleccion.style.display = "block";
     }
-    console.log("mostrar menu")
-    crearCajaJuegos()
+    console.log("mostrar menu");
+    crearCajaJuegos();
 }
 
 primerPersonaje.addEventListener("click", mostrarMenuSeleccion);
