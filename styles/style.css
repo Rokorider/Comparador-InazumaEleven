@@ -4,6 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+
 @font-face {
     font-family: "Inazuma";
     src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
@@ -14,6 +15,7 @@ body {
     font-family: "Teko", sans-serif;
     font-optical-sizing: auto;
 }
+
 .portada {
     width: 100%;
     height: 100vh;
@@ -24,12 +26,14 @@ body {
     border-bottom: 5px solid #fde812;
     position: relative;
 }
+
 .tituloContenedor {
     width: 51%;
     height: 51%;
     position: absolute;
     left: 0;
 }
+
 .logoImg {
     height: 100%;
 }
@@ -37,10 +41,8 @@ body {
 .main {
     height: 100%;
     background-image: url("../img/football-field.png");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+
     position: relative;
 }
 
@@ -56,6 +58,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .personaje1,
 .personaje2 {
     height: 70%;
@@ -63,6 +66,7 @@ body {
     margin: 0 5% 0 5%;
     padding-top: 5%;
 }
+
 .personajeIcono1,
 .personajeIcono2 {
     width: 75%;
@@ -77,6 +81,7 @@ body {
     border-radius: 5px;
     aspect-ratio: 1 / 1;
 }
+
 .personajeIcono1Img,
 .personajeIcono2Img {
     height: 100%;
@@ -92,11 +97,13 @@ body {
     padding: 10px;
     font-size: 1.4rem;
 }
+
 .nombrePersonajeContenedor1 p,
 .nombrePersonajeContenedor2 p {
     text-align: center;
     padding: 10px 5px 10px 5px;
 }
+
 .vsContenedor {
     height: 100%;
     width: 25%;
@@ -106,27 +113,30 @@ body {
     background-position: right bottom;
     padding-bottom: 20%;
 }
+
 .vsImg {
     height: 60%;
     display: inline-block;
 }
 
 /*---Menu pop up---*/
-.menuPopUp{
+.menuPopUp {
     width: 100%;
     height: 70%;
     background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
 }
+
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 1400px;
     width: 100%;
-    background-image: url("../img/fondoCesped.jpg");
+    background-color: white;
     border-top: 5px solid #fde812;
     position: absolute;
     bottom: 0;
 }
+
 .flechaTituloContenedor {
     margin-top: -50px;
     margin-left: 2%;
@@ -135,17 +145,20 @@ body {
     max-height: 100px;
     position: relative;
 }
+
 .flechaTituloImg {
     height: 100%;
     width: 100%;
     position: relative;
 }
+
 .markCorriendo {
     height: 120%;
     position: absolute;
     left: 5%;
     bottom: -6%;
 }
+
 .seccionStats {
     font-family: "Jersey 10", sans-serif;
     height: 52%;
@@ -158,6 +171,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .personajeStat {
     height: 80%;
     max-height: 600px;
@@ -167,12 +181,14 @@ body {
     color: white;
     background-color: #78aaca;
 }
+
 .infoPersonaje {
     height: 30%;
     width: 100%;
     background-color: #78aaca;
     border-radius: 5px 5px 0 0;
 }
+
 .nombre-genero {
     height: 40%;
     width: 100%;
@@ -182,6 +198,7 @@ body {
     background-color: #2f477c;
     border-bottom: 4px solid #2f91ae;
 }
+
 .nombreEnStatCont {
     width: 85%;
     height: 100%;
@@ -190,6 +207,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .imgSexoCont {
     width: 15%;
     height: 100%;
@@ -198,10 +216,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .imgSexoCont img {
     height: 70%;
     width: 80%;
 }
+
 .descripcion-tipo {
     height: 55%;
     width: 100%;
@@ -209,6 +229,7 @@ body {
     display: flex;
     padding: 10px;
 }
+
 .botonDescripcion {
     width: 70%;
     height: 100%;
@@ -219,14 +240,17 @@ body {
     display: flex;
     display: inline-block;
 }
+
 .botonDescripcion:hover .textoDesplegable {
     display: block;
 }
+
 .botonDescripcion img {
     height: 100%;
     width: 100%;
     position: absolute;
 }
+
 .descripcionTxt {
     position: absolute;
     left: 50%;
@@ -238,13 +262,16 @@ body {
     0% {
         bottom: -5px;
     }
+
     50% {
         bottom: 3px;
     }
+
     100% {
         bottom: -5px;
     }
 }
+
 .flechaDescripcion {
     position: absolute;
     left: 50%;
@@ -252,6 +279,7 @@ body {
     transform: translate(-50%, -50%);
     animation: moveArrow 0.8s infinite;
 }
+
 .textoDesplegable {
     display: none;
     position: absolute;
@@ -266,19 +294,23 @@ body {
     width: 100%;
     font-size: 1.2rem;
 }
+
 .botonDescripcion:hover .flechaDescripcion {
     animation: none;
 }
+
 .tipo {
     width: 30%;
     display: flex;
 }
+
 .elementoCont {
     width: 100%;
     height: 50%;
     display: flex;
     justify-content: center;
 }
+
 .posicionCont {
     border: 5px solid #99c9e2;
     background-color: #5096b5;
@@ -289,12 +321,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .statsPersonaje {
     height: 70%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
+
 .stat,
 .flechaComp {
     display: flex;
@@ -302,8 +336,10 @@ body {
     align-items: center;
     text-align: center;
 }
+
 .stat {
-    margin: 5px 0 5px 0; /*espacio entre los div */
+    margin: 5px 0 5px 0;
+    /*espacio entre los div */
     justify-content: space-between;
     border-top: 10px solid #2f477c;
     border-bottom: 3px solid #2f91ae;
@@ -311,6 +347,7 @@ body {
     font-size: 1.7rem;
     padding: 0 15% 0 15%;
 }
+
 .flechasComparacion {
     height: 80%;
     width: 25%;
@@ -319,18 +356,21 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
 }
+
 .flechasCont {
     height: 70%;
     width: 100%;
     position: absolute;
     bottom: 0;
 }
+
 .flechaComp {
     height: 10%;
     width: 40%;
     margin: 10px 30% 15px 30%;
     justify-content: center;
 }
+
 .seccionGrafica {
     border: 2px solid black;
     height: 30%;
@@ -352,6 +392,7 @@ body {
     z-index: 100;
     cursor: pointer;
 }
+
 .btnMusica img {
     width: 100%;
     height: 100%;
@@ -362,13 +403,15 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
 .rotating {
-    animation: rotate 5s linear infinite; /* ajusta la duración y el tipo de animación según lo necesites */
+    animation: rotate 5s linear infinite;
+    /* ajusta la duración y el tipo de animación según lo necesites */
 }
 
 /* MÓVILES */
@@ -383,32 +426,39 @@ body {
         border-bottom: 5px solid #fde812;
         position: relative;
     }
+
     .tituloContenedor {
         width: 100%;
         height: 30%;
         margin-top: 10%;
         overflow: hidden;
     }
+
     .logoImg {
         height: 90%;
     }
+
     .main {
         height: 100%;
         background-image: url("../img/football-field\ -\ volteado.png");
         background-position: center;
         background-size: cover;
     }
+
     .comparacionContenedor {
         flex-direction: column;
         height: 30%;
-        justify-content: space-between; /* Espacio uniformemente distribuido entre los elementos */
+        justify-content: space-between;
+        /* Espacio uniformemente distribuido entre los elementos */
     }
+
     .personaje1,
     .personaje2 {
         width: 50%;
         height: 60%;
         margin: 10px 0;
     }
+
     .personajeIcono1,
     .personajeIcono2 {
         height: 65%;
@@ -422,6 +472,7 @@ body {
         align-items: center;
         border-radius: 5px;
     }
+
     .vsContenedor {
         height: 30%;
         width: 50%;
@@ -429,6 +480,7 @@ body {
         justify-content: center;
         align-items: center;
     }
+
     .nombrePersonajeContenedor1,
     .nombrePersonajeContenedor2 {
         margin: auto;
@@ -436,14 +488,17 @@ body {
         background-color: #004dc2;
         border-radius: 3px;
     }
+
     .nombrePersonajeContenedor1 p,
     .nombrePersonajeContenedor2 p {
         text-align: center;
         padding: 5px;
     }
 }
+
 /* TABLETS */
 @media (min-width: 767px) and (max-width: 1024px) {
+
     .personaje1,
     .personaje2 {
         width: 30%;

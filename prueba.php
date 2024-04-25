@@ -25,10 +25,10 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-    
+
     // Convertir el array a formato JSON
     $json_data = json_encode($data);
-    
+
     // Devolver el JSON
     header('Content-Type: application/json');
     echo $json_data;
@@ -39,4 +39,3 @@ if ($result->num_rows > 0) {
 
 // Cerrar la conexión a la base de datos
 $connection->close();
-

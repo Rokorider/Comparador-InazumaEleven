@@ -2,9 +2,10 @@
 footer {
     width: 100%;
     height: 6%;
-    background-color: #004dc2;
+    background: rgb(64, 123, 236);
+    background: linear-gradient(90deg, rgba(64, 123, 236, 1) 8%, rgba(62, 140, 210, 1) 29%, rgba(93, 194, 238, 1) 100%);
     border-top: 2px solid #fde812;
     color: #fff;
     text-align: center;
-    padding: 20px 0; 
+    padding: 20px 0;
 }

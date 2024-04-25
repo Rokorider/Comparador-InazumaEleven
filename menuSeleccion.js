@@ -5,17 +5,17 @@ function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
     fetch('prueba.php')
         // Procesar la respuesta como JSON
-        .then(function(response) {
+        .then(function (response) {
             return response.json();
         })
         // Manejar los datos obtenidos
-        .then(function(data) {
+        .then(function (data) {
             // Asignar los datos de los jugadores a la variable global 'jugadores'
             jugadores = data;
             console.log(jugadores);
         })
         // Manejar errores en caso de que la solicitud falle
-        .catch(function(error) {
+        .catch(function (error) {
             console.error('Error al obtener los datos de jugadores:', error);
         });
 }
@@ -24,8 +24,8 @@ function obtenerDatos() {
 function obtnerIdsYcomprobarJugadores() {
     // Agregar un event listener a cada escudo
     let escudos = document.querySelectorAll('.escudo');
-    escudos.forEach(function(escudo) {
-        escudo.addEventListener('click', function() {
+    escudos.forEach(function (escudo) {
+        escudo.addEventListener('click', function () {
             // Obtener el ID del equipo correspondiente al escudo
             let idEquipo = escudo.id;
             // Obtener el contenedor de jugadores
