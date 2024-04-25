@@ -15,12 +15,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
+    background-color: #2f477c;
 }
 
 .escudos {
     border: 1px solid black;
     margin: auto;
-    width: 90%;
+    width: 93%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
