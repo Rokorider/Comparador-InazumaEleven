@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
+}
+
+.contenedorJugadores {
+    margin: auto;
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.escudos {
+    border: 1px solid black;
+    margin: auto;
+    width: 93%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.tituloJuego {
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}
+
+.tituloJuego h1{
+    font-size: 50px;
+}
+
+.escudo {
+    width: 160px;
+    height: 160px;
+    /*border-radius: 50%;*/
+    justify-content: center;
+}
+
+.imagenEscudo{
+    display: flex;
+    height: 75%;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.escudo img {
+    height: 95%;
+    margin: auto;
+    display: flex;
+}
+
+.nombreEscudo{
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    height: 25%;
+    font-size: 1.37rem;
+    border: 1px solid black;
+}
+
+.jugadores {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    border: 1px solid black;
+}
+
+.jugador {
+    width: 30%;
+    max-width: 500PX;
+    height: 350px;
+    border: 6px solid #78aaca;
+    border-radius: 10px;
+}
+
+.infoJugador {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    background-color: #2f477c;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.imgJugador {
+    border: 4px solid #282855;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f477c;
+    border-radius: 10px;
+}
+
+.imgJugador img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.datosJugador {
+    border-top-right-radius: 5px;
+    width: 75%;
+    height: 100%;
+    border-top-right-radius: 10px;
+}
+
+.datos1 {
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 33%;
+    display: flex;
+    border-top-right-radius: 10px;
+}
+
+.nombre {
+    width: 50%;
+    height: 100%;
+    background-color: #2f477c;
+    border-bottom: 4px solid #386c8c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nivel {
+    width: 25%;
+    height: 100%;
+    background-color: #2f477c;
+    color: #90c6dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.posicion {
+    border-top-right-radius: 5px;
+    width: 25%;
+    height: 100%;
+    background-color: #2f477c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.posicionTexto {
+    width: 70%;
+    height: 80%;
+    border: 3px solid #99c9e2;
+    background-color: #5096b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.genero {
+    width: 25%;
+    height: 100%;
+    background-color: #539eb5;
+    border-top-left-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elemento {
+    width: 25%;
+    height: 100%;
+    background-color: #539eb5;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.elemento img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.datos2 {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #539eb5;
+}
+
+.pe {
+    width: 45%;
+    height: 100%;
+    background-color: #539eb5;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pt {
+    width: 45%;
+    height: 100%;
+    background-color: #539eb5;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto {
+    width: 30%;
+    height: 100%;
+    background-color: #539eb5;
+    border-bottom: 4px solid #7ec0d7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.valor {
+    width: 70%;
+    height: 100%;
+    background-color: #539eb5;
+    border-bottom: 4px solid #7ec0d7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estadisticasJugador {
+    width: 100%;
+    height: 55%;
+}
+
+.estadistica {
+    width: 100%;
+    height: 25%;
+    display: flex;
+}
+
+.tipo {
+    width: 50%;
+    height: 100%;
+    background-color: #539eb5;
+    display: flex;
+}
+
+.tipoUnidad {
+    width: 70%;
+    height: 100%;
+    background-color: #2f477c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tipoUnidad p {
+    background-color: #282855;
+    width: 100%;
+    color: white;
+    font-size: 1.6rem;
+    text-align: center;
+    border-bottom: 4px solid #4884a2;
+}
+
+.unidad {
+    width: 30%;
+    height: 100%;
+    background-color: #2f477c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unidad p {
+    width: 100%;
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+    background-color: #282855;
+    border-bottom: 4px solid #4884a2;
+}
+
+.tipoUnico {
+    width: 100%;
+    height: 100%;
+    background-color: #282855;
+    display: flex;
+    align-items: center;
+    border-bottom: 4px solid #4884a2;
+    border-top: 4px solid #2f477c;
+}
+
+.tipoUnidadUnica {
+    width: 35%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tipoUnidadUnica p{
+    font-size: 1.6rem;
+    color: white;
+}
+
+.unidadUnica {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.unidadUnica p{
+    font-size: 1.6rem;
+    color: white;
+}
+
+.juego {
+    width: 100%;
+    height: 15.1%;
+    background-color: #386c8c;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.descripcion {
+    color: white;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.divBtnCargarMas{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorboton{
+    width: 15%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/boton.png');
+    background-size: 100% 100%;
+    transition: transform 0.5s;
+}
+
+.btnCargarMas{
+    color: white;
+    font-size: 1.7rem;
+    cursor: url('https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png'), pointer;
+}
+
+.contenedorboton:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 1400px) {
+    .jugadores{
+        gap: 40px;
+    }
+
+    .jugador {
+        width: 30%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 1114px) {
+
+    .jugador {
+        width: 40%;
+        height: 300px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+
+    .jugador {
+        width: 70%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .jugador {
+        width: 90%;
+        height: 300px;
+    }
+}
+:root {
+    --background-gradient: linear-gradient(178deg, #ffff33 10%, #3333ff);
+    --gray: #34495e;
+    --darkgray: #2c3e50;
+}
+
+.contenedorBuscadores {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+select {
+    appearance: none;
+    border: 0;
+    box-shadow: none;
+    flex: 1;
+    color: #fff;
+    background-color: var(--darkgray);
+    background-image: none;
+    cursor: pointer;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select wrapper */
+.select {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 3em;
+    border-radius: .25em;
+    overflow: hidden;
+}
+
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
