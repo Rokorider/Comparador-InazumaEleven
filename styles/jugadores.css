@@ -81,6 +81,7 @@
 
 .jugador {
     width: 30%;
+    max-width: 500PX;
     height: 350px;
     border: 6px solid #78aaca;
     border-radius: 10px;
@@ -191,8 +192,8 @@
 }
 
 .elemento img {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
@@ -383,15 +384,37 @@
     transform: scale(1.1);
 }
 
-@media screen and (max-width: 1114px) {
-
-    .jugadores {
-        border: 1px solid red;
+@media screen and (max-width: 1400px) {
+    .jugadores{
+        gap: 40px;
     }
+
+    .jugador {
+        width: 30%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 1114px) {
 
     .jugador {
         width: 40%;
         height: 300px;
     }
     
+}
+
+@media screen and (max-width: 767px) {
+
+    .jugador {
+        width: 70%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .jugador {
+        width: 90%;
+        height: 300px;
+    }
 }
