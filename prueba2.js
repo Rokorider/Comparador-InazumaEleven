@@ -108,10 +108,10 @@ function agregarJugador(jugador, contenedor) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <p>${jugador.Género}</p>
+                        <img src="img/Male.png" alt="${jugador.Nombre_Real}">
                     </div>
                     <div class="elemento">
-                        <p>${jugador.Elemento}</p>
+                        <img src="img/Elementos/Aire.png" alt="${jugador.Nombre_Real}">
                     </div>
                 </div>
                 <!-- Puntos de energía (PE) y puntos de técnica (PT) del jugador -->

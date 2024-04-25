@@ -167,6 +167,11 @@
     align-items: center;
 }
 
+.elemento img {
+    width: 36%;
+    object-fit: contain;
+}
+
 .datos2 {
     width: 100%;
     height: 33%;
