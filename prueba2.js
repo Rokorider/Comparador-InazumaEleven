@@ -1,6 +1,5 @@
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
-
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
@@ -13,6 +12,7 @@ function obtenerDatos() {
         .then(function(data) {
             // Asignar los datos de los jugadores a la variable global 'jugadores'
             jugadores = data;
+            console.log(jugadores)
         })
         // Manejar errores en caso de que la solicitud falle
         .catch(function(error) {

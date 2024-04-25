@@ -61,6 +61,7 @@ body {
     height: 70%;
     width: 25%;
     margin: 0 5% 0 5%;
+    padding-top: 5%;
 }
 .personajeIcono1,
 .personajeIcono2 {
@@ -98,18 +99,25 @@ body {
 }
 .vsContenedor {
     height: 100%;
-    width: 15%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-position: right bottom;
-    padding-bottom: 10%;
+    padding-bottom: 20%;
 }
 .vsImg {
-    height: 80%;
+    height: 60%;
     display: inline-block;
 }
 
+/*---Menu pop up---*/
+.menuPopUp{
+    width: 100%;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+}
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 1400px;
@@ -147,7 +155,6 @@ body {
     top: 35%;
     transform: translate(-50%, -50%);
     display: flex;
-    border: 2px solid black;
     justify-content: center;
     align-items: center;
 }
@@ -418,7 +425,6 @@ body {
     .vsContenedor {
         height: 30%;
         width: 50%;
-        background-color: #282855;
         display: flex;
         justify-content: center;
         align-items: center;

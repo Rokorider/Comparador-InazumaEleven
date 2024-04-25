@@ -2,8 +2,8 @@
 
 // Credenciales de la base de datos
 $dbhost = "localhost"; // Servidor de la base de datos
-$dbuser = "ruben"; // Usuario de la base de datos
-$dbpassword = "1234"; // Contraseña de la base de datos
+$dbuser = "yilin"; // Usuario de la base de datos
+$dbpassword = "123"; // Contraseña de la base de datos
 $dbname = "apiinazuma"; // Nombre de la base de datos
 
 
