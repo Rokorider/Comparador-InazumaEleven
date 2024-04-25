@@ -9,7 +9,7 @@ function actualizarContenidoSegunPantalla() {
     let contenedorJugadores = document.getElementById('contenedorJugadores');
 
     // Verificar el ancho de la pantalla
-    if (anchoPantalla < 650) {
+    if (anchoPantalla < 425) {
         // Si el ancho de la pantalla es menor que 425px, borrar el contenido del section
         contenedorJugadores.innerHTML = `
             <div class="contenedorBuscadores">
