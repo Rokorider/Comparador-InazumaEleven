@@ -26,6 +26,8 @@
     justify-content: center;
     gap: 40px;
     padding: 20px;
+    
+    background-image:url(../img/fondos/fondoJugadores.png);
 }
 
 .tituloJuego {
