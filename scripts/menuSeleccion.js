@@ -3,7 +3,7 @@ let jugadores;
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    fetch('prueba.php')
+    fetch('php/conexionBD.php')
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
@@ -20,30 +20,65 @@ function obtenerDatos() {
         });
 }
 
-// Función para inicializar la interfaz
-function obtnerIdsYcomprobarJugadores() {
-    // Agregar un event listener a cada escudo
-    let escudos = document.querySelectorAll('.escudo');
-    escudos.forEach(function (escudo) {
-        escudo.addEventListener('click', function () {
-            // Obtener el ID del equipo correspondiente al escudo
-            let idEquipo = escudo.id;
-            // Obtener el contenedor de jugadores
-            let contenedorJugadores = document.getElementById('jugadores');
-            // Si el contenedor de jugadores está vacío o si se va a mostrar un equipo diferente al que ya está mostrado
-            if (contenedorJugadores.innerHTML === '' || contenedorJugadores.dataset.equipo !== idEquipo) {
-                // Mostrar los jugadores del equipo correspondiente
-                mostrarJugadoresPorEquipo(idEquipo);
-                // Almacenar el ID del equipo en el atributo de datos del contenedor
-                contenedorJugadores.dataset.equipo = idEquipo;
-            } else {
-                // Si el mismo equipo ya está mostrado, eliminar todos los jugadores
-                eliminarJugadores();
-                // Eliminar el atributo de datos del contenedor
-                contenedorJugadores.dataset.equipo = '';
-            }
-        });
-    })
-    // Llamar a la función para obtener los datos de los jugadores
-    obtenerDatos();
+function obtenerJuegos(){
+    if (jugadores) {
+
+    const juegosUnicos = [...new Set(jugadores.map(jugador => jugador.Juego))];
+    console.log(juegosUnicos)
+    }else {
+        console.log('No se han cargado los datos de los jugadores aún.');
+    }
 }
+function obtenerEquipos() {
+    if (jugadores) {
+       // Obtener una lista de equipos únicos
+    const equiposUnicos = [...new Set(jugadores.map(jugador => jugador.Equipo))];
+    console.log(equiposUnicos)
+    } else {
+        console.log('No se han cargado los datos de los jugadores aún.');
+    }
+}
+
+obtenerDatos();
+
+//Esto es para llamar a la función cuando se carguen todos los datos
+setTimeout(obtenerJuegos,1000)
+setTimeout(obtenerEquipos, 1000);
+
+
+let primerPersonaje = document.getElementById("personajeIcono1Img");
+let segundoPersonaje = document.getElementById("personajeIcono2Img");
+let menuSeleccion = document.getElementById("menuPopUp");
+
+
+//Función para obtener la cantidad de juegos y que cree un div por cada juego
+function crearCajaJuegos() {
+    //Liampiar lo que estaba dentro del popUp antes de abrirlo
+    menuSeleccion.innerHTML = "";
+    if (jugadores) {
+        const juegosUnicos = [...new Set(jugadores.map(jugador => jugador.Juego))];
+        // Crear un div por cada juego único
+        juegosUnicos.forEach((juego,i) => {
+            const juegoContenedor = document.createElement('div');
+            juegoContenedor.textContent = juego;
+            juegoContenedorClase= `juego`;
+            juegoContenedor.id = `juego${i+1}`;
+            juegoContenedor.classList.add(juegoContenedorClase);
+            menuSeleccion.appendChild(juegoContenedor);
+        });
+    } else {
+        console.log('No se han cargado los datos de los jugadores aún.');
+    }
+}
+function mostrarMenuSeleccion() {
+    if (menuSeleccion.style.display === "block") {
+        menuSeleccion.style.display = "none";
+    } else {
+        menuSeleccion.style.display = "block";
+    }
+    console.log("mostrar menu")
+    crearCajaJuegos()
+}
+
+primerPersonaje.addEventListener("click", mostrarMenuSeleccion);
+segundoPersonaje.addEventListener("click", mostrarMenuSeleccion);
