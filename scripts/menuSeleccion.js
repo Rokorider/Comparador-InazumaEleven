@@ -51,25 +51,60 @@ let segundoPersonaje = document.getElementById("personajeIcono2Img");
 let menuSeleccion = document.getElementById("menuPopUp");
 
 
+
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
 function crearCajaJuegos() {
-    //Liampiar lo que estaba dentro del popUp antes de abrirlo
+    //Limpiar lo que estaba dentro del popUp antes de abrirlo
     menuSeleccion.innerHTML = "";
     if (jugadores) {
         const juegosUnicos = [...new Set(jugadores.map(jugador => jugador.Juego))];
         // Crear un div por cada juego único
-        juegosUnicos.forEach((juego,i) => {
+        juegosUnicos.forEach((juego, i) => {
             const juegoContenedor = document.createElement('div');
             juegoContenedor.textContent = juego;
-            juegoContenedorClase= `juego`;
-            juegoContenedor.id = `juego${i+1}`;
+            juegoContenedorClase = `juego`;
+            juegoContenedor.id = `juego${i + 1}`;
             juegoContenedor.classList.add(juegoContenedorClase);
             menuSeleccion.appendChild(juegoContenedor);
+
+            // Crear un contenedor para los equipos dentro de cada juegoContenedor
+            const contenidoEquipos = document.createElement('div');
+            contenidoEquipos.classList.add('contenidoEquipos');
+            juegoContenedor.appendChild(contenidoEquipos);
+
+            // Para que se abran los equipos del juego que se pulse
+            juegoContenedor.addEventListener('click', () => {
+                // Llamar a una función para crear el contenido cuando se haga clic en el juego
+                crearContenidoJuego(juego, contenidoEquipos);
+            });
         });
     } else {
         console.log('No se han cargado los datos de los jugadores aún.');
     }
 }
+function crearContenidoJuego(juego, contenidoEquipos) {
+    contenidoEquipos.innerHTML = "";
+    console.log(`Se ha pulsado en el juego: ${juego}`);
+    contenidoEquipos.innerHTML = "";
+
+    // Obtener equipos únicos usando map y Set
+    const equiposUnicos = [...new Set(jugadores.filter(jugador => jugador.Juego === juego).map(jugador => jugador.Equipo))];
+
+    equiposUnicos.forEach(equipo => {
+        const equipoDiv = document.createElement('div');
+        equipoDiv.textContent = equipo;
+        equipoDiv.classList.add('equipo');
+        contenidoEquipos.appendChild(equipoDiv);
+
+        // Imprimir cada equipo por consola
+        console.log(`Equipo: ${equipo}`);
+    });
+}
+
+const juegoContenedor = document.createElement('div');
+juegoContenedor.id = 'juegoContenedor';
+menuSeleccion.appendChild(juegoContenedor);
+
 function mostrarMenuSeleccion() {
     if (menuSeleccion.style.display === "block") {
         menuSeleccion.style.display = "none";
