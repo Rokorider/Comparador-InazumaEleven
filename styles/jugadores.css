@@ -41,8 +41,8 @@
 }
 
 .escudo {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     /*border-radius: 50%;*/
     justify-content: center;
 }
@@ -111,6 +111,7 @@
 .imgJugador img {
     width: 90%;
     height: 90%;
+    object-fit: contain;
 }
 
 .datosJugador {
@@ -192,7 +193,8 @@
 }
 
 .elemento img {
-    width: 36%;
+    width: 30px;
+    height: 30px;
     object-fit: contain;
 }
 
