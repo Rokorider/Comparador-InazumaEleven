@@ -1,7 +1,6 @@
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
 let contenedorJugadores = document.getElementById('contenedorJugadores');
-let pantallaAncha = false; // Inicialmente, asumimos que la pantalla no es ancha
 
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
@@ -62,7 +61,7 @@ function contenidoPantallaGrande() {
             contenedorJuego.appendChild(tituloJuego);
 
             // Agregar evento clic al título del juego para crear o eliminar los escudos
-            tituloJuego.addEventListener('click', function() {
+            tituloJuego.addEventListener('click', function () {
                 let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
                 if (contenedorEscudos) {
                     contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
@@ -157,7 +156,7 @@ function mostrarJugadoresPorEquipoOrdenador(idEquipo) {
     });
 
     // Limpiar el contenedor de jugadores antes de mostrar nuevos jugadores
-    var contenedorJugadores = document.getElementById('jugadores');
+    let contenedorJugadores = document.getElementById('jugadores');
     contenedorJugadores.innerHTML = '';
 
     // Mostrar los jugadores del equipo en el contenedor
@@ -189,10 +188,11 @@ function contenidoMovil(contenedorJugadores) {
                     <select></select>
                 </div>
                 <div class="select" id="buscadorEquipos">
-                    <select></select>
+                    <select>
+                        <option value="">Escoge un Equipo</option>
+                    </select>
                 </div>
             </div>
-            <div id="jugadores"></div>
     `;
 }
 
@@ -300,7 +300,6 @@ function agregarJugador(jugador, contenedor) {
     const jugadorItem = document.createElement('div');
     jugadorItem.className = 'jugador';
     jugadorItem.innerHTML = `
-        <!-- Estructura HTML para mostrar los datos del jugador -->
         <div class="infoJugador">
             <!-- Sección para mostrar la imagen del jugador -->
             <div class="imgJugador">
@@ -437,16 +436,13 @@ function agregarJugador(jugador, contenedor) {
 // Llamar a la función para actualizar el contenido según el tamaño de la pantalla cuando se cargue la página
 window.addEventListener('load', obtenerTamañoPantalla);
 
+let pantallaAncha = false; // Inicialmente, asumimos que la pantalla no es ancha
+let pantallaMovil = false; // Inicialmente, asumimos que la pantalla no es móvil
+
 window.addEventListener('resize', function () {
 
     // Obtener el ancho de la pantalla
     let anchoPantalla = window.innerWidth;
-
-    if (anchoPantalla == 426) {
-        let jugadores = document.getElementById('jugadores');
-        jugadores.innerHTML = '';
-        console.log('hola');
-    }
 
     // Verificar si la pantalla es ancha y si aún no se ha ajustado el contenido
     if (anchoPantalla >= 427 && !pantallaAncha) {
@@ -454,8 +450,16 @@ window.addEventListener('resize', function () {
         contenidoPantallaGrande();
         pantallaAncha = true; // Marcar que el contenido se ha ajustado a pantalla grande
     } else if (anchoPantalla < 427 && pantallaAncha) {
+
+        if (anchoPantalla < 427 && pantallaMovil == false) {
+            let jugadores = document.getElementById('jugadores');
+            jugadores.innerHTML = '';
+            console.log('hola');
+        }
+
         // Llamar a la función para mostrar el contenido de pantalla móvil solo si la pantalla estaba en modo ancho
         contenidoMovil(contenedorJugadores);
         pantallaAncha = false; // Marcar que la pantalla ya no es grande
+        pantallaMovil = true; // Marcar que la pantalla es móvil
     }
 });
