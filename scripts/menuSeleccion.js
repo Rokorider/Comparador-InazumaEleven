@@ -70,6 +70,8 @@ function crearCajaJuegos() {
     }
 }
 
+
+//Crea un div con todos los equipos que hay en un juego
 function crearContenidoJuego(juego, equiposContenedor) {
     equiposContenedor.innerHTML = "";
     console.log(`Se ha pulsado en el juego: ${juego}`);
@@ -112,6 +114,15 @@ function crearContenidoJuego(juego, equiposContenedor) {
 
     equiposContenedor.appendChild(contenidoEquipos);
 }
+
+function crearJugadoresEqupo(equiposContenedor, equipoDiv){
+
+}
+
+
+
+
+
 
 const juegoContenedor = document.createElement("div");
 juegoContenedor.id = "juegoContenedor";

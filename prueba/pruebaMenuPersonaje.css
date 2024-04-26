@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.personajesEquipoCont,.personajesEquipoCont2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.personajesEquipoCont{
+    height: 500px;
+    width: 50%;
+    background-color: #bfbfc1;
+    border-radius: 5px;
+}
+
+.personajesEquipoCont2{
+    background-color: #5f6974;
+    border-radius: 10px 10px 60px 10px;
+    height: 80%;
+    width: 80%;
+    padding: 10px;
+}
+.personajesEquipoCont3{
+    background-color: #778530;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(../img/fondoCesped.jpg);
+    border-radius: 2px;
+    height: 90%;
+    width: 90%;
+}
+.personajesEquipos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+}
+.listaPersonajeCont{
+    height: 75%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+}
+.personajeCont{
+    width: 20%;
+    height: 30%;
+}
+.personajeCont_img{
+    height:100% ;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+}
+.personajeCont_img img{
+    height: 100%;
+    margin-top: 5%;
+}
+.personajeCont_infoCont{
+    height: 30%;
+    width: 90%;
+    margin: auto;
+    background-color: #944239;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+}
+.personaje_nombre{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personajeCont_elemento{
+    height: 100%;
+    width: 30%;
+    background-image: url(../img/Elementos/Aire.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+
+}
