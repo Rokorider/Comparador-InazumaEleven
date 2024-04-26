@@ -1,0 +1,8 @@
+1. En jugadores3 despegable. Aparecen los titulos de los videojuegos y al hacer click se muestran los escudos
+    de los equipo. Similar a lo hecho por yilin en l index.
+2. Estilos para Jugadores3.html
+3. Responsive de jugadores3
+4. Revisar fotos de jugadores y escudos que no funcionan o no coinciden
+5. Pagian para el registro
+6. Header y footer
+7. Codigo php para el logi, registro y el propio de la sesión
