@@ -58,10 +58,8 @@ function crearCajaJuegos() {
             tituloJuego.addEventListener("click", () => {
                 // Verificar el estado actual del contenedor de equipos
                 if (equiposContenedor.style.display === "block") {
-                    // Si está visible, ocultarlo
                     equiposContenedor.style.display = "none";
                 } else {
-                    // Si está oculto, mostrarlo y crear el contenido de los equipos
                     equiposContenedor.style.display = "block";
                     crearContenidoJuego(juego, equiposContenedor);
                 }

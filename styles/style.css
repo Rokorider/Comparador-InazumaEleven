@@ -110,7 +110,7 @@ body {
     justify-content: center;
     align-items: center;
     background-position: right bottom;
-    padding-bottom: 20%;
+    padding-bottom: 10%;
 }
 
 .vsImg {
@@ -118,17 +118,35 @@ body {
     display: inline-block;
 }
 
+
 /*---Menu pop up---*/
 .menuPopUp {
     display: none;
     width: 60%;
-    height: 60%;
+    max-height: 60%;
     background-color: rgb(255, 255, 255);
-    border: 2px solid #fde812;
+    border: 5px solid #78aaca;
     position: absolute;
-    overflow: scroll;
+    overflow-y: scroll;    
     color: white;
     font-family: "Jersey 10", sans-serif;
+}
+.menuPopUp::-webkit-scrollbar {
+    width: 15px; 
+}
+.menuPopUp::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+}
+
+
+.menuPopUp::-webkit-scrollbar-thumb {
+    background-color: #2f477c;
+    border-radius: 6px; 
+}
+
+.menuPopUp::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+
 }
 .juegoContenedor {
     display: flex;
