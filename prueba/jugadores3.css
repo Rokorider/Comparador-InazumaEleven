@@ -10,10 +10,33 @@
 
 .contenedorJugadores {
     margin: auto;
-    border: 1px solid black;
+    border: 4px solid black;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+.contenedorJuego{
+    padding: 10px;
+    width: 90%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.contenedorBuscadores {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 40px;
 }
 
@@ -424,14 +447,7 @@
     --darkgray: #2c3e50;
 }
 
-.contenedorBuscadores {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
+
 
 select {
     appearance: none;
