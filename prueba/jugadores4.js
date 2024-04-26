@@ -41,7 +41,6 @@ function actualizarContenidoSegunPantalla(anchoPantalla) {
         contenidoPantallaGrande(jugadores);
     }
 }
-
 function contenidoPantallaGrande() {
     // Limpiar el contenido existente
     contenedorJugadores.innerHTML = '';
@@ -67,10 +66,17 @@ function contenidoPantallaGrande() {
                 escudo.className = 'escudo';
                 escudo.id = equipo;
 
+                // Añadir otra ID para el nombre del juego
+                escudo.dataset.juego = juego; // Asignar el nombre del juego al atributo dataset
+
+                juego = juego.replace(/\s+/g, "");
+
+                equipo = equipo.replace(/\s+/g, "_");
+
                 let imagenEscudo = document.createElement('div');
                 imagenEscudo.className = 'imagenEscudo';
                 let imagen = document.createElement('img');
-                imagen.src = `../img/Escudos/${equipo}.png`;
+                imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego}/Escudos/${equipo}.png`;
                 imagen.alt = '';
                 imagenEscudo.appendChild(imagen);
 
@@ -94,6 +100,7 @@ function contenidoPantallaGrande() {
         obtnerIdsYcomprobarJugadores();
     });
 }
+
 
 function obtnerIdsYcomprobarJugadores() {
     // Agregar un event listener a cada escudo
