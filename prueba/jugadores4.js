@@ -23,7 +23,7 @@ function obtenerDatos() {
         });
 }
 
-function obtnerTamañoPantalla() {
+function obtenerTamañoPantalla() {
     let anchoPantalla = window.innerWidth;
     actualizarContenidoSegunPantalla(anchoPantalla);
 }
@@ -105,8 +105,8 @@ function contenidoPantallaGrande() {
 function obtnerIdsYcomprobarJugadores() {
     // Agregar un event listener a cada escudo
     let escudos = document.querySelectorAll('.escudo');
-    escudos.forEach(function(escudo) {
-        escudo.addEventListener('click', function() {
+    escudos.forEach(function (escudo) {
+        escudo.addEventListener('click', function () {
             // Obtener el ID del equipo correspondiente al escudo
             let idEquipo = escudo.id;
             // Obtener el contenedor de jugadores
@@ -181,39 +181,39 @@ function contenidoMovil(contenedorJugadores) {
 function llenarBuscadorJuegos() {
     // Obtener el elemento del buscador de juegos
     let buscadorJuegos = document.getElementById('buscadorJuegos').querySelector('select');
-    
+
     // Crear un array para almacenar los juegos únicos
     let juegos = [];
-    
+
     // Iterar sobre los datos de los jugadores para obtener los juegos únicos
-    jugadores.forEach(function(jugador) {
+    jugadores.forEach(function (jugador) {
         // Verificar si el juego del jugador ya está en la lista de juegos
         if (!juegos.includes(jugador.Juego)) {
             // Agregar el juego a la lista de juegos
             juegos.push(jugador.Juego);
         }
     });
-    
+
     // Ordenar los juegos alfabéticamente
     juegos.sort();
-    
+
     // Limpiar el contenido actual del buscador de juegos
     buscadorJuegos.innerHTML = '';
-    
+
     // Agregar la opción por defecto al buscador de juegos
     let defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Escoge un Juego';
     buscadorJuegos.appendChild(defaultOption);
-    
+
     // Agregar las opciones de juegos al buscador de juegos
-    juegos.forEach(function(juego) {
+    juegos.forEach(function (juego) {
         let option = document.createElement('option');
         option.value = juego;
         option.textContent = juego;
         buscadorJuegos.appendChild(option);
     });
-    
+
     // Agregar evento de cambio al buscador de juegos
     buscadorJuegos.addEventListener('change', actualizarEquipos);
 }
@@ -224,35 +224,35 @@ function actualizarEquipos() {
 
     // Obtener el juego seleccionado en el buscador de juegos
     let juegoSeleccionado = this.value;
-    
+
     // Obtener el elemento del buscador de equipos
     let buscadorEquipos = document.getElementById('buscadorEquipos').querySelector('select');
-    
+
     // Filtrar los equipos disponibles para el juego seleccionado
     let equipos = [];
-    jugadores.forEach(function(jugador) {
+    jugadores.forEach(function (jugador) {
         if (jugador.Juego === juegoSeleccionado && !equipos.includes(jugador.Equipo)) {
             equipos.push(jugador.Equipo);
         }
     });
-    
+
     // Limpiar el contenido actual del buscador de equipos
     buscadorEquipos.innerHTML = '';
-    
+
     // Agregar la opción por defecto al buscador de equipos
     let defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.textContent = 'Escoge un Equipo';
     buscadorEquipos.appendChild(defaultOption);
-    
+
     // Agregar las opciones de equipos al buscador de equipos
-    equipos.forEach(function(equipo) {
+    equipos.forEach(function (equipo) {
         let option = document.createElement('option');
         option.value = equipo;
         option.textContent = equipo;
         buscadorEquipos.appendChild(option);
     });
-    
+
     // Agregar evento de cambio al buscador de equipos
     buscadorEquipos.addEventListener('change', mostrarJugadoresPorEquipoMovil);
 }
@@ -269,7 +269,7 @@ function mostrarJugadoresPorEquipoMovil() {
     contenedorJugadores.innerHTML = '';
 
     // Filtrar los jugadores que pertenecen al equipo seleccionado y mostrarlos
-    jugadores.forEach(function(jugador) {
+    jugadores.forEach(function (jugador) {
         if (jugador.Equipo === equipoSeleccionado) {
             agregarJugador(jugador, contenedorJugadores);
         }
@@ -416,20 +416,27 @@ function agregarJugador(jugador, contenedor) {
 }
 
 // Llamar a la función para actualizar el contenido según el tamaño de la pantalla cuando se cargue la página
-window.addEventListener('load', obtnerTamañoPantalla);
+window.addEventListener('load', obtenerTamañoPantalla);
 
 window.addEventListener('resize', function () {
+
+    // Obtener el ancho de la pantalla
     let anchoPantalla = window.innerWidth;
+
+    if (anchoPantalla == 426) {
+        let jugadores = document.getElementById('jugadores');
+        jugadores.innerHTML = '';
+        console.log('hola');
+    }
 
     // Verificar si la pantalla es ancha y si aún no se ha ajustado el contenido
     if (anchoPantalla >= 427 && !pantallaAncha) {
-        contenidoPantallaGrande(jugadores);
+        // Llamar a la función para mostrar el contenido de pantalla grande
+        contenidoPantallaGrande();
         pantallaAncha = true; // Marcar que el contenido se ha ajustado a pantalla grande
-    } else if (anchoPantalla < 427) {
+    } else if (anchoPantalla < 427 && pantallaAncha) {
+        // Llamar a la función para mostrar el contenido de pantalla móvil solo si la pantalla estaba en modo ancho
         contenidoMovil(contenedorJugadores);
         pantallaAncha = false; // Marcar que la pantalla ya no es grande
     }
 });
-
-
-
