@@ -16,14 +16,14 @@
 
 .contenedorJugadores {
     margin: auto;
-    border: 4px solid black;
+    border: 1px solid black;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-bottom: 30px;
+    margin-block: 30px;
 }
 
 .contenedorJuego {
@@ -54,18 +54,33 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    padding: 20px;
+    padding: 1.6%;
 }
 
 .tituloJuego {
-    border: 1px solid black;
     width: 100%;
-    text-align: center;
-    height: 50px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #282855;
+    background-color: #2f477c;
+}
+
+.contenedorEscudos{
+    border: 1px solid black;
+    background-color: #78aaca;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 1.6%;
 }
 
 .tituloJuego h1 {
     font-size: 50px;
+    color: white;
 }
 
 .escudo {
@@ -106,6 +121,7 @@
     justify-content: center;
     gap: 50px;
     border: 1px solid black;
+    margin-block: 30px;
 }
 
 .jugador {

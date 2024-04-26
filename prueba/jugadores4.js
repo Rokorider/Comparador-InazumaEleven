@@ -41,6 +41,7 @@ function actualizarContenidoSegunPantalla(anchoPantalla) {
         contenidoPantallaGrande(jugadores);
     }
 }
+
 function contenidoPantallaGrande() {
     // Limpiar el contenido existente
     contenedorJugadores.innerHTML = '';
@@ -54,53 +55,70 @@ function contenidoPantallaGrande() {
         juegosUnicos.forEach(juego => {
             // Crear un contenedor para este juego
             let contenedorJuego = document.createElement('div');
-            contenedorJuego.className = 'contenedorJuego';
-            contenedorJuego.id = juego; // Establecer el ID del contenedor como el nombre del juego
+            contenedorJuego.className = 'escudos'; // Cambio de nombre de clase
+            let tituloJuego = document.createElement('div');
+            tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
+            tituloJuego.innerHTML = `<h1>${juego}</h1>`; // Rellenando el título con el nombre del juego
+            contenedorJuego.appendChild(tituloJuego);
 
-            // Obtener los equipos únicos para este juego
-            let equiposUnicos = new Set(jugadores.filter(jugador => jugador.Juego === juego).map(jugador => jugador.Equipo));
+            // Agregar evento clic al título del juego para crear o eliminar los escudos
+            tituloJuego.addEventListener('click', function() {
+                let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
+                if (contenedorEscudos) {
+                    contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
+                } else {
+                    // Crear un contenedor para los escudos de este juego
+                    contenedorEscudos = document.createElement('div');
+                    contenedorEscudos.className = 'contenedorEscudos'; // Agregando clase para los escudos
 
-            // Crear elementos para cada equipo y agregarlos al contenedor
-            equiposUnicos.forEach(equipo => {
-                let escudo = document.createElement('div');
-                escudo.className = 'escudo';
-                escudo.id = equipo;
+                    // Filtrar jugadores por el juego actual
+                    let jugadoresDeEsteJuego = jugadores.filter(jugador => jugador.Juego === juego);
 
-                // Añadir otra ID para el nombre del juego
-                escudo.dataset.juego = juego; // Asignar el nombre del juego al atributo dataset
+                    // Crear un conjunto para evitar equipos duplicados
+                    let equiposUnicos = new Set();
 
-                juego = juego.replace(/\s+/g, "");
+                    // Iterar sobre cada jugador de este juego
+                    jugadoresDeEsteJuego.forEach(jugador => {
+                        // Agregar equipo al conjunto de equipos únicos
+                        equiposUnicos.add(jugador.Equipo);
+                    });
 
-                equipo = equipo.replace(/\s+/g, "_");
+                    // Iterar sobre cada equipo único
+                    equiposUnicos.forEach(equipo => {
+                        let escudo = document.createElement('div');
+                        escudo.className = 'escudo';
+                        escudo.id = equipo; // Usar el nombre del equipo como ID
 
-                let imagenEscudo = document.createElement('div');
-                imagenEscudo.className = 'imagenEscudo';
-                let imagen = document.createElement('img');
-                imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego}/Escudos/${equipo}.png`;
-                imagen.alt = '';
-                imagenEscudo.appendChild(imagen);
+                        let imagenEscudo = document.createElement('div');
+                        imagenEscudo.className = 'imagenEscudo';
+                        let imagen = document.createElement('img');
+                        imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipo.replace(/\s+/g, "_")}.png`;
+                        imagen.alt = '';
+                        imagenEscudo.appendChild(imagen);
 
-                let nombreEscudo = document.createElement('div');
-                nombreEscudo.className = 'nombreEscudo';
-                let nombre = document.createElement('p');
-                nombre.textContent = equipo;
-                nombreEscudo.appendChild(nombre);
+                        let nombreEscudo = document.createElement('div');
+                        nombreEscudo.className = 'nombreEscudo';
+                        let nombre = document.createElement('p');
+                        nombre.textContent = equipo;
+                        nombreEscudo.appendChild(nombre);
 
-                escudo.appendChild(imagenEscudo);
-                escudo.appendChild(nombreEscudo);
+                        escudo.appendChild(imagenEscudo);
+                        escudo.appendChild(nombreEscudo);
 
-                contenedorJuego.appendChild(escudo);
+                        contenedorEscudos.appendChild(escudo);
+                    });
+
+                    contenedorJuego.appendChild(contenedorEscudos); // Agregar contenedor de escudos
+                    // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
+                    obtnerIdsYcomprobarJugadores();
+                }
             });
 
             // Agregar el contenedor del juego al contenedor principal
             contenedorJugadores.appendChild(contenedorJuego);
         });
-
-        // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
-        obtnerIdsYcomprobarJugadores();
     });
 }
-
 
 function obtnerIdsYcomprobarJugadores() {
     // Agregar un event listener a cada escudo
@@ -114,6 +132,7 @@ function obtnerIdsYcomprobarJugadores() {
 
             // Si el contenedor de jugadores está vacío o si se va a mostrar un equipo diferente al que ya está mostrado
             if (contenedorJugadores.innerHTML === '' || contenedorJugadores.dataset.equipo !== idEquipo) {
+                console.log('Obteniendo IDs y comprobando jugadores');
                 // Mostrar los jugadores del equipo correspondiente
                 mostrarJugadoresPorEquipoOrdenador(idEquipo);
                 // Almacenar el ID del equipo en el atributo de datos del contenedor
@@ -126,8 +145,8 @@ function obtnerIdsYcomprobarJugadores() {
             }
         });
     });
-
 }
+
 
 // Función para mostrar los jugadores del equipo correspondiente al escudo
 function mostrarJugadoresPorEquipoOrdenador(idEquipo) {
