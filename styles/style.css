@@ -121,7 +121,7 @@ body {
 /*---Menu pop up---*/
 .menuPopUp {
     display: none;
-    width: 65%;
+    width: 70%;
     max-height: 80%;
     background-color: rgb(255, 255, 255);
     border: 5px solid #78aaca;
@@ -194,21 +194,37 @@ body {
     text-align: center;
     margin-top: 5px;
 }
+
 /*contenedor de personajes*/
-.contenidoJuegoContenedor{
-    background-color: orange;
-    height: 400px;
-    width: 100%;
+.contenidoJuegoContenedor,.contenidoJuegoContenedor2,.contenidoJuego_personajesCont{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.contenidoJuegoContenedor2{
-    background-color: rgb(15, 72, 23);
-    height: 90%;
-    width: 90%;
-    overflow: scroll;
+.contenidoJuegoContenedor{
+    background-color: #5f6974;
+    width: 100%;
+
 }
+.contenidoJuegoContenedor2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url("../img/fondoCesped.jpg");
+    width: 85%;
+    margin: 3% 0 3% 0;
+}
+.contenidoJuego_personajesCont{
+    border: 2px solid black;
+    width: 90%;
+    height: 90%;
+    flex-wrap: wrap;
+    max-width: 100%;
+    max-height: 100%;
+    gap: 5%;
+    margin: 5% 0 5% 0;
+}
+.personajeCont{
+    border: 2px solid black;
+}
+
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 1400px;
