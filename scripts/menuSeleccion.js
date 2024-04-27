@@ -20,8 +20,8 @@ function obtenerDatos() {
 }
 
 obtenerDatos();
-let primerPersonaje = document.getElementById("personajeIcono1Img");
-let segundoPersonaje = document.getElementById("personajeIcono2Img");
+let primerPersonaje = document.getElementById("personaje1");
+let segundoPersonaje = document.getElementById("personaje2");
 let menuSeleccion = document.getElementById("menuPopUp");
 
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
@@ -61,6 +61,7 @@ function crearCajaJuegos() {
                 } else {
                     equiposContenedor.style.display = "block";
                     crearContenidoJuego(juego, equiposContenedor);
+                    
                 }
             });
         });
@@ -73,8 +74,6 @@ function crearCajaJuegos() {
 function crearContenidoJuego(juego, equiposContenedor) {
     equiposContenedor.innerHTML = "";
 
-
-    // Obtener equipos únicos usando map y Set
     const equiposUnicos = [
         ...new Set(
             jugadores
@@ -132,10 +131,6 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
     const contenidoJuegoContenedor2 = document.createElement("div");
     contenidoJuegoContenedor2.classList.add("contenidoJuegoContenedor2");
 
-    const contenidoJuego_emblema = document.createElement("div");
-    contenidoJuego_emblema.classList.add("contenidoJuego_emblema");
-    contenidoJuegoContenedor2.appendChild(contenidoJuego_emblema);
-
     const contenidoJuego_personajesCont = document.createElement("div");
     contenidoJuego_personajesCont.classList.add("contenidoJuego_personajesCont");
     contenidoJuegoContenedor2.appendChild(contenidoJuego_personajesCont);
@@ -175,30 +170,56 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
         personajeCont.appendChild(personajeImgCont);
         personajeCont.appendChild(personajeInfo);
         contenidoJuego_personajesCont.appendChild(personajeCont);
+
+        //cerrar el pop up cuando seleccione el personaje
+        personajeCont.addEventListener("click", () => {
+            menuSeleccion.style.display="none"
+            console.log(jugador.Apodo)
+            seleccionPersonaje(jugador);
+        });
     });
 
     contenidoJuegoContenedor.appendChild(contenidoJuegoContenedor2);
 
-    
     // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
 }
 
+function seleccionPersonaje(jugador, personaje) {
+
+    if (personaje === "primer") {
+        console.log("Elegiste al primer personaje:", jugador.Apodo);
+        const nombrePersonajeContenedor1 = document.querySelector('.nombrePersonajeContenedor1 p');
+        nombrePersonajeContenedor1.textContent = jugador.Apodo;
+    } else if (personaje === "segundo") {
+        console.log("Elegiste al segundo personaje:", jugador.Apodo);
+        const nombrePersonajeContenedor2 = document.querySelector('.nombrePersonajeContenedor2 p');
+        nombrePersonajeContenedor2.textContent = jugador.Apodo;
+    } 
+}
 
 
 const juegoContenedor = document.createElement("div");
 juegoContenedor.id = "juegoContenedor";
 menuSeleccion.appendChild(juegoContenedor);
 
-function mostrarMenuSeleccion() {
+function mostrarMenuSeleccion(personaje) {
     if (menuSeleccion.style.display === "block") {
         menuSeleccion.style.display = "none";
+        menuSeleccion.style.overflowY = "hidden";
     } else {
         menuSeleccion.style.display = "block";
+        menuSeleccion.style.overflowY = "auto";
     }
-    console.log("mostrar menu");
+    
+    if (personaje === "primer") {
+        console.log("Elegiste el primer personaje");
+
+    } else if (personaje === "segundo") {
+        console.log("Elegiste el segundo personaje");
+    } 
+    
     crearCajaJuegos();
 }
-
-primerPersonaje.addEventListener("click", mostrarMenuSeleccion);
-segundoPersonaje.addEventListener("click", mostrarMenuSeleccion);
+primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
+segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo"));
