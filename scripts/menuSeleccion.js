@@ -25,7 +25,7 @@ let segundoPersonaje = document.getElementById("personaje2");
 let menuSeleccion = document.getElementById("menuPopUp");
 
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
-function crearCajaJuegos() {
+function crearCajaJuegos(personaje) {
     // Limpiar lo que estaba dentro del popUp antes de abrirlo
     menuSeleccion.innerHTML = "";
     if (jugadores) {
@@ -60,7 +60,7 @@ function crearCajaJuegos() {
                     equiposContenedor.style.display = "none";
                 } else {
                     equiposContenedor.style.display = "block";
-                    crearContenidoJuego(juego, equiposContenedor);
+                    crearContenidoJuego(juego, equiposContenedor,personaje);
                     
                 }
             });
@@ -71,7 +71,7 @@ function crearCajaJuegos() {
 }
 
 // Crea un div con todos los equipos que hay en un juego
-function crearContenidoJuego(juego, equiposContenedor) {
+function crearContenidoJuego(juego, equiposContenedor,personaje) {
     equiposContenedor.innerHTML = "";
 
     const equiposUnicos = [
@@ -108,7 +108,7 @@ function crearContenidoJuego(juego, equiposContenedor) {
 
         equipoDiv.addEventListener("click", () => {
             // Crear jugadores del equipo al hacer clic en el equipoDiv
-            crearJugadoresEquipo(equipo,equipoURL,juegoURL,equipoDiv);
+            crearJugadoresEquipo(equipo,equipoURL,juegoURL,equipoDiv,personaje);
             equipoDiv.style.width="100%";
             contenidoEquipos.style.padding="0 10% 0 10%"
             
@@ -120,7 +120,7 @@ function crearContenidoJuego(juego, equiposContenedor) {
 
 
 
-function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
+function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,personaje) {
     const jugadoresEquipo = jugadores.filter(
         (jugador) => jugador.Equipo === equipo
     );
@@ -175,7 +175,7 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display="none"
             console.log(jugador.Apodo)
-            seleccionPersonaje(jugador);
+            seleccionPersonaje(jugador,juegoURL,equipoURL,personaje);
         });
     });
 
@@ -185,14 +185,17 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
 }
 
-function seleccionPersonaje(jugador, personaje) {
+//función para cambiar el contenido del contenedor de personaje1 y 2
+function seleccionPersonaje(jugador,juegoURL,equipoURL, personaje) {
 
     if (personaje === "primer") {
-        console.log("Elegiste al primer personaje:", jugador.Apodo);
+        const personajeIcono1Img=document.querySelector('.personajeIcono1Img');
+        personajeIcono1Img.src=`https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`
         const nombrePersonajeContenedor1 = document.querySelector('.nombrePersonajeContenedor1 p');
         nombrePersonajeContenedor1.textContent = jugador.Apodo;
     } else if (personaje === "segundo") {
-        console.log("Elegiste al segundo personaje:", jugador.Apodo);
+        const personajeIcono2Img=document.querySelector('.personajeIcono2Img');
+        personajeIcono2Img.src=`https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`
         const nombrePersonajeContenedor2 = document.querySelector('.nombrePersonajeContenedor2 p');
         nombrePersonajeContenedor2.textContent = jugador.Apodo;
     } 
@@ -214,12 +217,14 @@ function mostrarMenuSeleccion(personaje) {
     
     if (personaje === "primer") {
         console.log("Elegiste el primer personaje");
+        crearCajaJuegos(personaje);
 
     } else if (personaje === "segundo") {
         console.log("Elegiste el segundo personaje");
+        crearCajaJuegos(personaje);
     } 
     
-    crearCajaJuegos();
+    
 }
 primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
 segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo"));
