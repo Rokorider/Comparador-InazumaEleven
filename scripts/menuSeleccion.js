@@ -72,7 +72,7 @@ function crearCajaJuegos() {
 // Crea un div con todos los equipos que hay en un juego
 function crearContenidoJuego(juego, equiposContenedor) {
     equiposContenedor.innerHTML = "";
-    console.log(`Se ha pulsado en el juego: ${juego}`);
+
 
     // Obtener equipos únicos usando map y Set
     const equiposUnicos = [
@@ -112,7 +112,6 @@ function crearContenidoJuego(juego, equiposContenedor) {
             crearJugadoresEquipo(equipo,equipoURL,juegoURL,equipoDiv);
             equipoDiv.style.width="100%";
             contenidoEquipos.style.padding="0 10% 0 10%"
-
             
         });
     });
@@ -149,18 +148,20 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
 
         const personajeImgCont = document.createElement("div");
         personajeImgCont.classList.add("personajeImgCont");
+        personajeImgCont.style.backgroundImage=`url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`
 
+        /*
         const personajeImg = document.createElement("img");
         personajeImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
 
         personajeImgCont.appendChild(personajeImg);
-
+*/
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
 
         const personajeInfo_elemento = document.createElement("div");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.style.backgroundImage = `url("img/${jugador.Elemento}.png")`;
+        personajeInfo_elemento.style.backgroundImage = `url("../img/Elementos/${jugador.Elemento}.png")`;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -178,12 +179,7 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos) {
 
     contenidoJuegoContenedor.appendChild(contenidoJuegoContenedor2);
 
-    // Eliminar los jugadores anteriores antes de añadir los nuevos
-    const jugadoresAnteriores = contenidoEquipos.querySelector(".contenidoJuegoContenedor");
-    if (jugadoresAnteriores) {
-        jugadoresAnteriores.remove();
-    }
-
+    
     // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
 }
