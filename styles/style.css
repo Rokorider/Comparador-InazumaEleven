@@ -118,12 +118,11 @@ body {
     display: inline-block;
 }
 
-
 /*---Menu pop up---*/
 .menuPopUp {
     display: none;
-    width: 60%;
-    max-height: 60%;
+    width: 65%;
+    max-height: 80%;
     background-color: rgb(255, 255, 255);
     border: 5px solid #78aaca;
     position: absolute;
@@ -195,8 +194,21 @@ body {
     text-align: center;
     margin-top: 5px;
 }
-
-
+/*contenedor de personajes*/
+.contenidoJuegoContenedor{
+    background-color: orange;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenidoJuegoContenedor2{
+    background-color: rgb(15, 72, 23);
+    height: 90%;
+    width: 90%;
+    overflow: scroll;
+}
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 1400px;
