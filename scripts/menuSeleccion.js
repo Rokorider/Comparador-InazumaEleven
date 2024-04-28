@@ -60,8 +60,7 @@ function crearCajaJuegos(personaje) {
                     equiposContenedor.style.display = "none";
                 } else {
                     equiposContenedor.style.display = "block";
-                    crearContenidoJuego(juego, equiposContenedor,personaje);
-                    
+                    crearContenidoJuego(juego, equiposContenedor, personaje);
                 }
             });
         });
@@ -71,7 +70,7 @@ function crearCajaJuegos(personaje) {
 }
 
 // Crea un div con todos los equipos que hay en un juego
-function crearContenidoJuego(juego, equiposContenedor,personaje) {
+function crearContenidoJuego(juego, equiposContenedor, personaje) {
     equiposContenedor.innerHTML = "";
 
     const equiposUnicos = [
@@ -108,19 +107,28 @@ function crearContenidoJuego(juego, equiposContenedor,personaje) {
 
         equipoDiv.addEventListener("click", () => {
             // Crear jugadores del equipo al hacer clic en el equipoDiv
-            crearJugadoresEquipo(equipo,equipoURL,juegoURL,equipoDiv,personaje);
-            equipoDiv.style.width="100%";
-            contenidoEquipos.style.padding="0 10% 0 10%"
-            
+            crearJugadoresEquipo(
+                equipo,
+                equipoURL,
+                juegoURL,
+                equipoDiv,
+                personaje
+            );
+            equipoDiv.style.width = "100%";
+            contenidoEquipos.style.padding = "0 10% 0 10%";
         });
     });
 
     equiposContenedor.appendChild(contenidoEquipos);
 }
 
-
-
-function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,personaje) {
+function crearJugadoresEquipo(
+    equipo,
+    equipoURL,
+    juegoURL,
+    contenidoEquipos,
+    personaje
+) {
     const jugadoresEquipo = jugadores.filter(
         (jugador) => jugador.Equipo === equipo
     );
@@ -132,18 +140,18 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,pers
     contenidoJuegoContenedor2.classList.add("contenidoJuegoContenedor2");
 
     const contenidoJuego_personajesCont = document.createElement("div");
-    contenidoJuego_personajesCont.classList.add("contenidoJuego_personajesCont");
+    contenidoJuego_personajesCont.classList.add(
+        "contenidoJuego_personajesCont"
+    );
     contenidoJuegoContenedor2.appendChild(contenidoJuego_personajesCont);
 
-
     jugadoresEquipo.forEach((jugador) => {
-
         const personajeCont = document.createElement("div");
         personajeCont.classList.add("personajeCont");
 
         const personajeImgCont = document.createElement("div");
         personajeImgCont.classList.add("personajeImgCont");
-        personajeImgCont.style.backgroundImage=`url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`
+        personajeImgCont.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`;
 
         /*
         const personajeImg = document.createElement("img");
@@ -156,7 +164,7 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,pers
 
         const personajeInfo_elemento = document.createElement("div");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.style.backgroundImage = `url("../img/Elementos/${jugador.Elemento}.png")`;
+        personajeInfo_elemento.style.backgroundImage = `url("img/Elementos/${jugador.Elemento}.png")`;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -173,9 +181,9 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,pers
 
         //cerrar el pop up cuando seleccione el personaje
         personajeCont.addEventListener("click", () => {
-            menuSeleccion.style.display="none"
-            console.log(jugador.Apodo)
-            seleccionPersonaje(jugador,juegoURL,equipoURL,personaje);
+            menuSeleccion.style.display = "none";
+            console.log(jugador.Apodo);
+            seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
     });
 
@@ -186,20 +194,47 @@ function crearJugadoresEquipo(equipo, equipoURL, juegoURL, contenidoEquipos,pers
 }
 
 //función para cambiar el contenido del contenedor de personaje1 y 2
-function seleccionPersonaje(jugador,juegoURL,equipoURL, personaje) {
-
+function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
+    let personajeNum;
     if (personaje === "primer") {
-        const personajeIcono1Img=document.querySelector('.personajeIcono1Img');
-        personajeIcono1Img.src=`https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`
-        const nombrePersonajeContenedor1 = document.querySelector('.nombrePersonajeContenedor1 p');
-        nombrePersonajeContenedor1.textContent = jugador.Apodo;
+        personajeNum = 1;
     } else if (personaje === "segundo") {
-        const personajeIcono2Img=document.querySelector('.personajeIcono2Img');
-        personajeIcono2Img.src=`https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`
-        const nombrePersonajeContenedor2 = document.querySelector('.nombrePersonajeContenedor2 p');
-        nombrePersonajeContenedor2.textContent = jugador.Apodo;
-    } 
+        personajeNum = 2;
+    }
+    const personajeIconoImg = document.querySelector(`.personajeIcono${personajeNum}Img`);
+    personajeIconoImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
+    const nombrePersonajeContenedor = document.querySelector(`.nombrePersonajeContenedor${personajeNum} p`);
+    nombrePersonajeContenedor.textContent = jugador.Apodo;
+    const personajeNombre=document.querySelector(`.nombre_${personajeNum} `)
+    personajeNombre.textContent=jugador.Nombre_Real;
+    const personajeDescripcion=document.querySelector(`.descripcion_${personajeNum} `)
+    personajeDescripcion.textContent=jugador.Descripción;
+    const sexoPersonaje=document.querySelector(`.sexoPersonaje_${personajeNum} `)
+    sexoPersonaje.src=`img/generos/${jugador.Género}.png`
+    const elementoPersonaje=document.querySelector(`.elemento_${personajeNum} `)
+    elementoPersonaje.src=`img/Elementos/${jugador.Elemento}.png`
+    const personajePosicion=document.querySelector(`.posicion_${personajeNum} `)
+    personajePosicion.textContent=jugador.Posición;
+
+    const tiro=document.querySelector(`.tiro_${personajeNum}`);
+    tiro.textContent=jugador.Tiro
+    const fisico=document.querySelector(`.fisico_${personajeNum}`);
+    fisico.textContent=jugador.Físico
+    const control=document.querySelector(`.control_${personajeNum}`);
+    control.textContent=jugador.Control
+    const defensa=document.querySelector(`.defensa_${personajeNum}`);
+    defensa.textContent=jugador.Defensa
+    const rapidez=document.querySelector(`.rapidez_${personajeNum}`);
+    rapidez.textContent=jugador.Rapidez
+    const aguante=document.querySelector(`.aguante_${personajeNum}`);
+    aguante.textContent=jugador.Aguante
+    const valor=document.querySelector(`.valor_${personajeNum}`);
+    valor.textContent=jugador.Valor
 }
+
+
+
+
 
 
 const juegoContenedor = document.createElement("div");
@@ -214,17 +249,16 @@ function mostrarMenuSeleccion(personaje) {
         menuSeleccion.style.display = "block";
         menuSeleccion.style.overflowY = "auto";
     }
-    
+
     if (personaje === "primer") {
         console.log("Elegiste el primer personaje");
         crearCajaJuegos(personaje);
-
     } else if (personaje === "segundo") {
         console.log("Elegiste el segundo personaje");
         crearCajaJuegos(personaje);
-    } 
-    
-    
+    }
 }
 primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
-segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo"));
+segundoPersonaje.addEventListener("click", () =>
+    mostrarMenuSeleccion("segundo")
+);
