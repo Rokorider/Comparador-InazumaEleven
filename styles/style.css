@@ -20,26 +20,53 @@ body {
 .portada {
     width: 100%;
     height: 100vh;
-    background-image: url("../img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
-    border-bottom: 5px solid #fde812;
+    overflow: hidden;
+}
+
+
+
+#parallax {
     position: relative;
+    width: 100%;
+    height: 100vh;
 }
 
-.tituloContenedor {
-    width: 51%;
-    height: 51%;
+.img {
     position: absolute;
-    left: 0;
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.logoImg {
+.img2 {
+    background-image: url('../img/portada_recortada.png');
+    background-size: contain;
+    background-position: right;
+    width: 95%;
     height: 100%;
+    margin-top: 30px;
+
 }
 
+.img3 {
+    background-image: url('../img/logo/InazumaElevenComparadorLogo.png');
+    width: 60%;
+    height: 60%;
+    margin-top: 50px;
+    background-size: contain;
 
+}
+
+.img1 {
+    background-image: url('../img/flechaAzul.png');
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: bottom;
+    transform: translate(-100%, -100%);
+
+}
 
 /*----Personaje vs personaje----*/
 .campoComparacion{

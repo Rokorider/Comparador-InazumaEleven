@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="styles/normalize.css" />
         <link rel="stylesheet" href="styles/header.css" />
         <link rel="stylesheet" href="styles/footer.css" />
-        <link rel="stylesheet" href="styles/header.css">
         <link rel="stylesheet" href="styles/style.css" />
         <link
             rel="stylesheet"
@@ -15,6 +14,7 @@
         />
         <script src="scripts/comparados.js" defer></script>
         <script src="scripts/menuSeleccion.js" defer></script>
+        <script src="scripts/portadaParallax.js" defer></script>
         <title>Comparador Inazuma ELeven</title>
     </head>
 
@@ -32,10 +32,12 @@ if (!isset($_SESSION['usuario'])) {
 
     <body>
         <header>
-
         </header>
-        <section class="portada">
-            <!--<img class="fondo" src="img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp" alt="Logo Inazuma Eleven">-->
+        <section class="portada" id="parallax">
+            <div class="img img1" data-depth="0.002"></div>
+            <div class="img img2" data-depth="0.007"></div>
+            <div class="img img3" data-depth="0.015"></div>
+
             <div class="btnMusica" id="btnMusica">
                 <img
                     src="img/cd-furbol.png"
@@ -48,7 +50,7 @@ if (!isset($_SESSION['usuario'])) {
                     loop="true"
                 ></audio>
             </div>
-
+            <!--
             <div class="tituloContenedor">
                 <img
                     src="img/logo/InazumaElevenComparadorLogo.png"
@@ -56,6 +58,7 @@ if (!isset($_SESSION['usuario'])) {
                     class="logoImg"
                 />
             </div>
+            -->
         </section>
         <section class="main">
             <div class="campoComparacion">
