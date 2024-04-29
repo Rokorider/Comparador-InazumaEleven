@@ -5,5 +5,63 @@ header{
     position: fixed;
     top: 0;
     z-index: 100;
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoNav{
+    width: 10%;
+    height: 100%
+}
+
+.logoNav img{
+    width: 100%;
+    height: 100%;
+}
+
+nav{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    gap: 120px;
+}
+
+nav ul li{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.5s;
+}
+
+.cerrarSesion{
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cerrarSesion img{
+    width: 80%;
 }
