@@ -1,0 +1,15 @@
+.menuPopUp::-webkit-scrollbar {
+    width: 15px; 
+
+}
+.menuPopUp::-webkit-scrollbar-track {
+    background-color: #262624; 
+    border-radius: 10px;
+}
+.menuPopUp::-webkit-scrollbar-thumb {
+    background-color: #5f6974;
+    border-radius: 6px; 
+}
+.menuPopUp::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}

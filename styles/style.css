@@ -160,21 +160,7 @@ body {
     border-radius: 20px;
     box-shadow: 15px 15px #4f4f51 ;
 }
-.menuPopUp::-webkit-scrollbar {
-    width: 15px; 
 
-}
-.menuPopUp::-webkit-scrollbar-track {
-    background-color: #262624; 
-    border-radius: 10px;
-}
-.menuPopUp::-webkit-scrollbar-thumb {
-    background-color: #5f6974;
-    border-radius: 6px; 
-}
-.menuPopUp::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
 .juegoContenedor {
     display: flex;
     justify-content: center;
