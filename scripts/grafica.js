@@ -1,16 +1,21 @@
 const etiquetas = ['Tiro', 'Físico', 'Control', 'Defensa', 'Rapidez', 'Aguante', 'Valor'];
 const grafica = document.getElementById('grafica');
-const personaje1=document.getElementById("apodoPersonaje1");
-const personaje2=document.getElementById("apodoPersonaje2");
+
 let datasetss = [];
 
+// Función para obtener los datos de la API
 function obtenerDatos() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
     fetch("php/conexionBD.php")
+        // Procesar la respuesta como JSON
         .then(function(response) {
             return response.json();
         })
+        // Manejar los datos obtenidos
         .then(function(data) {
+            // Asignar los datos de los jugadores a la variable global 'jugadores'
             jugadores = data;
+            // Llamar a la función para imprimir los IDs después de obtener los datos
             obtenerStatsJugadores();
         })
         .catch(function(error) {
@@ -51,4 +56,3 @@ function obtenerStatsJugadores() {
 
 // Llamar a la función para obtener los datos de la API
 obtenerDatos();
-console.log(personaje1)
