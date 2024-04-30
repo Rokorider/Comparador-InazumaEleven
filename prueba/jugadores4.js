@@ -91,11 +91,12 @@ function contenidoPantallaGrande() {
                         let imagenEscudo = document.createElement('div');
                         imagenEscudo.className = 'imagenEscudo';
                         let imagen = document.createElement('img');
+                        
+                        // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
                         equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
                         equipoModificado = equipoModificado.replace(/'/g, '');
-
-                        // Reemplazar espacios en blanco por guiones bajos
                         equipoModificado = equipoModificado.replace(/\s+/g, '_');
+
                         imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`;
                         imagen.alt = '';
                         imagenEscudo.appendChild(imagen);
