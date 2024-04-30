@@ -280,7 +280,7 @@ body {
 
 /*---Zona de datos---*/
 .contenidoContenedor {
-    height: 1400px;
+    height: 1500px;
     width: 100%;
     background-color: white;
     border-top: 5px solid #fde812;
@@ -315,7 +315,7 @@ body {
     width: 80%;
     position: absolute;
     left: 50%;
-    top: 35%;
+    top: 30%;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
@@ -527,7 +527,7 @@ body {
     width: 30%;
     position: absolute;
     left: 50%;
-    top: 80%;
+    top: 70%;
     transform: translate(-50%, -50%);
     display: flex;
 }

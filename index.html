@@ -16,6 +16,8 @@
         <script src="scripts/comparados.js" defer></script>
         <script src="scripts/menuSeleccion.js" defer></script>
         <script src="scripts/portadaParallax.js" defer></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+        <script src="scripts/grafica.js" defer></script>
         <title>Comparador Inazuma ELeven</title>
     </head>
 
@@ -94,7 +96,7 @@ if (!isset($_SESSION['usuario'])) {
                             />
                         </div>
                         <div class="nombrePersonajeContenedor1">
-                            <p>???????</p>
+                            <p class="apodoPersonaje1">???????</p>
                         </div>
                     </div>
                     <div class="vsContenedor">
@@ -109,7 +111,7 @@ if (!isset($_SESSION['usuario'])) {
                             />
                         </div>
                         <div class="nombrePersonajeContenedor2">
-                            <p>???????</p>
+                            <p class="apodoPersonaje2">???????</p>
                         </div>
                     </div>
                     <!--Menu para seleccionar personaje-->
@@ -332,7 +334,9 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                     </div>
                 </div>
-                <div class="seccionGrafica"></div>
+                <div class="seccionGrafica" id="seccionGrafica">
+                    <canvas id="grafica"></canvas>
+                </div>
             </div>
         </section>
         <footer>

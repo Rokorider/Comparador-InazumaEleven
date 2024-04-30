@@ -86,7 +86,8 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
     equiposUnicos.forEach((equipo) => {
         // Reemplazar espacios en blanco por guiones bajos
-        const equipoURL = equipo.replace(/\s+/g, "_");
+        const equipoURL=  equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, "_").replace("'", "");
+        
         const juegoURL = juego.replace(/\s+/g, "");
 
         const equipoDiv = document.createElement("equipoDiv");
@@ -153,12 +154,6 @@ function crearJugadoresEquipo(
         personajeImgCont.classList.add("personajeImgCont");
         personajeImgCont.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`;
 
-        /*
-        const personajeImg = document.createElement("img");
-        personajeImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
-
-        personajeImgCont.appendChild(personajeImg);
-*/
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
 
