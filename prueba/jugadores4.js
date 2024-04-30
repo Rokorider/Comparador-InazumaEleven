@@ -102,7 +102,7 @@ function contenidoPantallaGrande() {
                                 imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`;
                             }
 
-                        imagen.alt = '';
+                        imagen.alt = equipo;
                         imagenEscudo.appendChild(imagen);
 
                         let nombreEscudo = document.createElement('div');
