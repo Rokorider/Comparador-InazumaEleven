@@ -47,7 +47,10 @@
 }
 
 .escudos {
-    border: 1px solid black;
+    border: 5px solid #78aaca;
+    background-color: #78aaca;
+    box-shadow: 4px 4px #539eb5;
+    border-radius: 5px;
     margin: auto;
     width: 93%;
     display: flex;
@@ -68,8 +71,8 @@
 }
 
 .contenedorEscudos{
-    border: 1px solid black;
-    background-color: #78aaca;
+    border: 3px solid #2f477c;
+    background-color: #77C5C9       ;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -84,9 +87,8 @@
 }
 
 .escudo {
-    width: 160px;
-    height: 160px;
-    /*border-radius: 50%;*/
+    width: 190px;
+    height: 210px;
     justify-content: center;
 }
 
@@ -94,23 +96,23 @@
     display: flex;
     height: 75%;
     width: 100%;
-    border: 1px solid black;
 }
 
 .escudo img {
-    height: 95%;
+    height: 75%;
     margin: auto;
     display: flex;
 }
 
 .nombreEscudo {
     text-align: center;
-    margin: 0;
-    padding: 5px;
+    padding-top: 12px;
     width: 100%;
     height: 25%;
     font-size: 1.37rem;
-    border: 1px solid black;
+    background-color: #78aaca;
+    border:3px solid #2f477c;
+    box-shadow: 4px 4px #2f477c;
 }
 
 .jugadores {
