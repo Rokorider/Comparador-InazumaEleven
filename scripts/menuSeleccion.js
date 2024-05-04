@@ -1,3 +1,6 @@
+import { contenidoGrafica } from './grafica.js';
+import { establecerJugadores } from './grafica.js';
+
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
 // Función para obtener los datos de la API
@@ -177,7 +180,6 @@ function crearJugadoresEquipo(
         //cerrar el pop up cuando seleccione el personaje
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display = "none";
-            console.log(jugador.Apodo);
             seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
     });
@@ -193,8 +195,10 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     let personajeNum;
     if (personaje === "primer") {
         personajeNum = 1;
+        establecerJugadores(jugador.Apodo,personajeNum)
     } else if (personaje === "segundo") {
         personajeNum = 2;
+        establecerJugadores(jugador.Apodo,personajeNum)
     }
     const personajeIconoImg = document.querySelector(`.personajeIcono${personajeNum}Img`);
     personajeIconoImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
@@ -225,6 +229,9 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     aguante.textContent=jugador.Aguante
     const valor=document.querySelector(`.valor_${personajeNum}`);
     valor.textContent=jugador.Valor
+
+    //Crear la gráfica cuando estén los 2 personajes seleccionadcos
+    contenidoGrafica();
 }
 
 
@@ -246,10 +253,8 @@ function mostrarMenuSeleccion(personaje) {
     }
 
     if (personaje === "primer") {
-        console.log("Elegiste el primer personaje");
         crearCajaJuegos(personaje);
     } else if (personaje === "segundo") {
-        console.log("Elegiste el segundo personaje");
         crearCajaJuegos(personaje);
     }
 }
