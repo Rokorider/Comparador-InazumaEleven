@@ -110,7 +110,12 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         contenidoEquipos.appendChild(equipoDiv);
 
         equipoDiv.addEventListener("click", () => {
-            // Crear jugadores del equipo al hacer clic en el equipoDiv
+            // Destruir contenido anterior si existe
+            if (contenidoEquipos.querySelector(".contenidoJuegoContenedor")) {
+                contenidoEquipos.querySelector(".contenidoJuegoContenedor").remove();
+                equipoDiv.style.width = "auto";
+            }else{
+                // Crear jugadores del equipo al hacer clic en el equipoDiv
             crearJugadoresEquipo(
                 equipo,
                 equipoURL,
@@ -120,6 +125,8 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
             );
             equipoDiv.style.width = "100%";
             contenidoEquipos.style.padding = "0 10% 0 10%";
+            }
+            
         });
     });
 
