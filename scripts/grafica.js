@@ -63,9 +63,8 @@ function objetosStatsJugadores() {
 
 // Función para establecer contenido de la gráfica
 function contenidoGrafica() {
-    //Verificar si ambos personajes están seleccionados
-    if (personaje1.innerText.trim() !== "" && personaje2.innerText.trim() !== ""
-    ) {
+    // Verificar si ambos personajes están seleccionados
+    if (personajeElegidos[0] && personajeElegidos[1]) {
         const datos = {
             labels: etiquetas,
             datasets: [personajeElegidos[0], personajeElegidos[1]],
@@ -74,7 +73,14 @@ function contenidoGrafica() {
             type: "radar",
             data: datos,
         };
-        new Chart(grafica, configuracion);
+
+        // Destruir la instancia anterior de Chart si existe
+        if (window.myChart) {
+            window.myChart.destroy();
+        }
+
+        // Crear una nueva instancia de Chart
+        window.myChart = new Chart(grafica, configuracion);
     }
 }
 
@@ -99,5 +105,7 @@ function establecerJugadores(jugadorApodo, personajeNum) {
         console.log(personajeElegidos[1]);
     }
 }
+
+
 
 export { contenidoGrafica, establecerJugadores };

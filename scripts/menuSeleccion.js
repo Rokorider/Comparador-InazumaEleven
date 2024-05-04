@@ -180,7 +180,8 @@ function crearJugadoresEquipo(
         //cerrar el pop up cuando seleccione el personaje
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display = "none";
-            seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
+            seleccionPersonaje(jugador, juegoURL, equipoURL, personaje)
+            
         });
     });
 
@@ -188,6 +189,8 @@ function crearJugadoresEquipo(
 
     // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
+    
+    
 }
 
 //función para cambiar el contenido del contenedor de personaje1 y 2
@@ -259,6 +262,5 @@ function mostrarMenuSeleccion(personaje) {
     }
 }
 primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
-segundoPersonaje.addEventListener("click", () =>
-    mostrarMenuSeleccion("segundo")
+segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo")
 );
