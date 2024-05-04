@@ -1,10 +1,9 @@
-// configurar la posición inicial 
 function initParallax() {
+    // Set initial position of the images
     const imgs = document.querySelectorAll(".img");
     let _w = window.innerWidth / 2;
     let _h = window.innerHeight / 2;
 
-    // Set initial position of the images
     imgs.forEach(img => {
         let _depth = img.getAttribute("data-depth");
         let _mouseX = _w;
@@ -13,11 +12,19 @@ function initParallax() {
         let _y = `${0 - (_mouseY - _h) * _depth}%`;
         img.style.transform = `translate(${_x}, ${_y})`;
     });
+
+    const parallaxContainer = document.getElementById("parallax");
+
+    // Activar parallax solo cuando se pasa el ratón sobre el contenedor
+    parallaxContainer.addEventListener("mouseenter", () => {
+        document.addEventListener("mousemove", parallax);
+    });
+
+    // Desactivar parallax cuando se sale del contenedor
+    parallaxContainer.addEventListener("mouseleave", () => {
+        document.removeEventListener("mousemove", parallax);
+    });
 }
-
-
-//activar parallax al mover el ratón
-document.addEventListener("mousemove", parallax);
 
 // Function to handle parallax effect
 function parallax(e) {
@@ -35,5 +42,5 @@ function parallax(e) {
     });
 }
 
-// Call the function to initialize parallax effect when the page loads
-window.onload = initParallax;
+// Llamar a la función para inicializar el parallax
+initParallax();

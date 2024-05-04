@@ -57,11 +57,13 @@ if (!isset($_SESSION['usuario'])) {
 
         </header>
 
-        <section class="portada" id="parallax">
-            <div class="img img1" data-depth="0.002"></div>
-            <div class="img img2" data-depth="0.007"></div>
-            <div class="img img3" data-depth="0.015"></div>
-
+        <section class="portada">
+            <div class="parallax" id="parallax">
+                <div class="img img1" data-depth="0.002"></div>
+                <div class="img img2" data-depth="0.007"></div>
+                <div class="img img3" data-depth="0.015"></div>
+            </div>
+            
             <div class="btnMusica" id="btnMusica">
                 <img
                     src="img/cd-furbol.png"
@@ -74,15 +76,6 @@ if (!isset($_SESSION['usuario'])) {
                     loop="true"
                 ></audio>
             </div>
-            <!--
-            <div class="tituloContenedor">
-                <img
-                    src="img/logo/InazumaElevenComparadorLogo.png"
-                    alt="Logo"
-                    class="logoImg"
-                />
-            </div>
-            -->
         </section>
         <section class="main">
             <div class="campoComparacion">
