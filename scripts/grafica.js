@@ -39,9 +39,9 @@ function obtenerDatos() {
 obtenerDatos();
 
 
-//Convierte a cada personaje en formato para la gráfica
+// Convierte a cada personaje en formato para la gráfica
 function objetosStatsJugadores() {
-    jugadores.forEach(function (jugador) {
+    jugadores.forEach(function (jugador, index) {
         let dataset = {
             label: jugador.Apodo,
             data: [
@@ -53,12 +53,14 @@ function objetosStatsJugadores() {
                 jugador.Aguante,
                 jugador.Valor,
             ],
-            borderColor: "rgba(137, 224, 196, 0.8)",
-            backgroundColor: "rgba(224, 137, 182, 0.3)",
+            // Define colores de borde y fondo diferentes para cada jugador
+            borderColor: index % 2 === 0 ? "rgba(137, 224, 196, 0.8)" : "rgba(224, 137, 182, 0.8)",
+            backgroundColor: index % 2 === 0 ? "rgba(137, 224, 196, 0.3)" : "rgba(224, 137, 182, 0.3)",
         };
         datasetss.push(dataset);
     });
 }
+
 
 
 // Función para establecer contenido de la gráfica
