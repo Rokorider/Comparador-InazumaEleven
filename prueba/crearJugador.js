@@ -1,4 +1,3 @@
-
 const statsForm = document.getElementById('statsForm');
 const puntosRestantesSpan = document.getElementById('puntosRestantes');
 const statsValues = {
@@ -28,10 +27,10 @@ statsForm.addEventListener('input', function (event) {
     input.max = max;
     document.getElementById(statId + 'Value').textContent = value;
 
-    // Deshabilitar otros rangos si los puntos restantes son menores o iguales a cero
+    // Deshabilitar los inputs solo si no quedan puntos y el input no tiene ningún punto asignado
     if (totalPuntos - puntosUtilizados <= 0) {
         statsForm.querySelectorAll('input[type="range"]').forEach(el => {
-            if (el.id !== statId) {
+            if (statsValues[el.id] === 0) {
                 el.disabled = true;
             }
         });
