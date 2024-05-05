@@ -9,33 +9,60 @@
 </head>
 
 <body>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre"><br>
+
+  <label for="apodo">Apodo:</label>
+  <input type="text" id="apodo" name="apodo"><br>
+  
+  <label for="genero">Género:</label>
+  <select id="genero" name="genero">
+    <option value="masculino">Masculino</option>
+    <option value="femenino">Femenino</option>
+    <option value="otro">Otro</option>
+  </select><br>
+
+  <label for="posicion">Posición:</label>
+  <select id="posicion" name="posicion">
+    <option value="PR">Portero</option>
+    <option value="DF">Defensa</option>
+    <option value="MD">Mediocampista</option>
+    <option value="DL">Delantero</option>
+  </select><br>
+
   <h1>Estadísticas del jugador</h1>
   <form id="statsForm">
+
     <label for="tiro">Tiro:</label>
     <input type="range" id="tiro" name="tiro" min="0" max="100" value="0">
     <span id="tiroValue">0</span><br>
+
     <label for="fisico">Físico:</label>
     <input type="range" id="fisico" name="fisico" min="0" max="100" value="0">
     <span id="fisicoValue">0</span><br>
+
     <label for="control">Control:</label>
     <input type="range" id="control" name="control" min="0" max="100" value="0">
     <span id="controlValue">0</span><br>
+
     <label for="defensa">Defensa:</label>
     <input type="range" id="defensa" name="defensa" min="0" max="100" value="0">
     <span id="defensaValue">0</span><br>
+
     <label for="rapidez">Rapidez:</label>
     <input type="range" id="rapidez" name="rapidez" min="0" max="100" value="0">
     <span id="rapidezValue">0</span><br>
+
     <label for="aguante">Aguante:</label>
     <input type="range" id="aguante" name="aguante" min="0" max="100" value="0">
     <span id="aguanteValue">0</span><br>
+
     <label for="valor">Valor:</label>
     <input type="range" id="valor" name="valor" min="0" max="100" value="0">
     <span id="valorValue">0</span><br>
+
     <p>Puntos restantes: <span id="puntosRestantes">440</span></p>
   </form>
-
-  
 </body>
 
 </html>
