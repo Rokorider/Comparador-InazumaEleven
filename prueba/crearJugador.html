@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas del jugador</title>
+  <script src="crearJugador.js" defer></script>
+</head>
+
+<body>
+  <h1>Estadísticas del jugador</h1>
+  <form id="statsForm">
+    <label for="tiro">Tiro:</label>
+    <input type="range" id="tiro" name="tiro" min="0" max="100" value="0">
+    <span id="tiroValue">0</span><br>
+    <label for="fisico">Físico:</label>
+    <input type="range" id="fisico" name="fisico" min="0" max="100" value="0">
+    <span id="fisicoValue">0</span><br>
+    <label for="control">Control:</label>
+    <input type="range" id="control" name="control" min="0" max="100" value="0">
+    <span id="controlValue">0</span><br>
+    <label for="defensa">Defensa:</label>
+    <input type="range" id="defensa" name="defensa" min="0" max="100" value="0">
+    <span id="defensaValue">0</span><br>
+    <label for="rapidez">Rapidez:</label>
+    <input type="range" id="rapidez" name="rapidez" min="0" max="100" value="0">
+    <span id="rapidezValue">0</span><br>
+    <label for="aguante">Aguante:</label>
+    <input type="range" id="aguante" name="aguante" min="0" max="100" value="0">
+    <span id="aguanteValue">0</span><br>
+    <label for="valor">Valor:</label>
+    <input type="range" id="valor" name="valor" min="0" max="100" value="0">
+    <span id="valorValue">0</span><br>
+    <p>Puntos restantes: <span id="puntosRestantes">440</span></p>
+  </form>
+
+  
+</body>
+
+</html>
