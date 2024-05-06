@@ -146,6 +146,8 @@ function obtnerIdsYcomprobarJugadores() {
                 mostrarJugadoresPorEquipoOrdenador(idEquipo);
                 // Almacenar el ID del equipo en el atributo de datos del contenedor
                 contenedorJugadores.dataset.equipo = idEquipo;
+                let jugadores = document.getElementById('jugadores');
+                jugadores.scrollIntoView({ behavior: "smooth" });
             } else {
                 // Si el mismo equipo ya está mostrado, eliminar todos los jugadores
                 eliminarJugadores();
@@ -337,10 +339,10 @@ function agregarJugador(jugador, contenedor) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <img src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                        <img src="img/generos/${jugador.Género}.png" alt="${jugador.Género}">
                     </div>
                     <div class="elemento">
-                        <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
+                        <img src="img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
                     </div>
                 </div>
                 <!-- Puntos de energía (PE) y puntos de técnica (PT) del jugador -->
