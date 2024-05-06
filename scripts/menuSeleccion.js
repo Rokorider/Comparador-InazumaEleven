@@ -1,5 +1,5 @@
-import { contenidoGrafica } from './grafica.js';
-import { establecerJugadores } from './grafica.js';
+import { contenidoGrafica } from "./grafica.js";
+import { establecerJugadores } from "./grafica.js";
 
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
@@ -83,14 +83,17 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
                 .map((jugador) => jugador.Equipo)
         ),
     ];
-
     const contenidoEquipos = document.createElement("div");
     contenidoEquipos.classList.add("contenidoEquipos");
 
     equiposUnicos.forEach((equipo) => {
         // Reemplazar espacios en blanco por guiones bajos
-        const equipoURL=  equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, "_").replace("'", "");
-        
+        const equipoURL = equipo
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/\s+/g, "_")
+            .replace("'", "");
+
         const juegoURL = juego.replace(/\s+/g, "");
 
         const equipoDiv = document.createElement("equipoDiv");
@@ -98,7 +101,12 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
         const imgEquipo = document.createElement("div");
         imgEquipo.classList.add("equipoImg");
-        imgEquipo.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png)`;
+        if (equipoURL === "Layton_Team") {
+            imgEquipo.style.backgroundImage = "url(img/Layton_Team.png)";
+            
+        } else {
+            imgEquipo.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png)`;
+        }
 
         const nombreEquipo = document.createElement("div");
         nombreEquipo.classList.add("equipoNombre");
@@ -112,21 +120,22 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         equipoDiv.addEventListener("click", () => {
             // Destruir contenido anterior si existe
             if (contenidoEquipos.querySelector(".contenidoJuegoContenedor")) {
-                contenidoEquipos.querySelector(".contenidoJuegoContenedor").remove();
+                contenidoEquipos
+                    .querySelector(".contenidoJuegoContenedor")
+                    .remove();
                 equipoDiv.style.width = "auto";
-            }else{
+            } else {
                 // Crear jugadores del equipo al hacer clic en el equipoDiv
-            crearJugadoresEquipo(
-                equipo,
-                equipoURL,
-                juegoURL,
-                equipoDiv,
-                personaje
-            );
-            equipoDiv.style.width = "100%";
-            contenidoEquipos.style.padding = "0 10% 0 10%";
+                crearJugadoresEquipo(
+                    equipo,
+                    equipoURL,
+                    juegoURL,
+                    equipoDiv,
+                    personaje
+                );
+                equipoDiv.style.width = "100%";
+                contenidoEquipos.style.padding = "0 10% 0 10%";
             }
-            
         });
     });
 
@@ -187,8 +196,7 @@ function crearJugadoresEquipo(
         //cerrar el pop up cuando seleccione el personaje
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display = "none";
-            seleccionPersonaje(jugador, juegoURL, equipoURL, personaje)
-            
+            seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
     });
 
@@ -196,8 +204,6 @@ function crearJugadoresEquipo(
 
     // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
-    
-    
 }
 
 //función para cambiar el contenido del contenedor de personaje1 y 2
@@ -205,49 +211,56 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     let personajeNum;
     if (personaje === "primer") {
         personajeNum = 1;
-        establecerJugadores(jugador.Apodo,personajeNum)
+        establecerJugadores(jugador.Apodo, personajeNum);
     } else if (personaje === "segundo") {
         personajeNum = 2;
-        establecerJugadores(jugador.Apodo,personajeNum)
+        establecerJugadores(jugador.Apodo, personajeNum);
     }
-    const personajeIconoImg = document.querySelector(`.personajeIcono${personajeNum}Img`);
+    const personajeIconoImg = document.querySelector(
+        `.personajeIcono${personajeNum}Img`
+    );
     personajeIconoImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
-    const nombrePersonajeContenedor = document.querySelector(`.nombrePersonajeContenedor${personajeNum} p`);
+    const nombrePersonajeContenedor = document.querySelector(
+        `.nombrePersonajeContenedor${personajeNum} p`
+    );
     nombrePersonajeContenedor.textContent = jugador.Apodo;
-    const personajeNombre=document.querySelector(`.nombre_${personajeNum} `)
-    personajeNombre.textContent=jugador.Nombre_Real;
-    const personajeDescripcion=document.querySelector(`.descripcion_${personajeNum} `)
-    personajeDescripcion.textContent=jugador.Descripción;
-    const sexoPersonaje=document.querySelector(`.sexoPersonaje_${personajeNum} `)
-    sexoPersonaje.src=`img/generos/${jugador.Género}.png`
-    const elementoPersonaje=document.querySelector(`.elemento_${personajeNum} `)
-    elementoPersonaje.src=`img/Elementos/${jugador.Elemento}.png`
-    const personajePosicion=document.querySelector(`.posicion_${personajeNum} `)
-    personajePosicion.textContent=jugador.Posición;
+    const personajeNombre = document.querySelector(`.nombre_${personajeNum} `);
+    personajeNombre.textContent = jugador.Nombre_Real;
+    const personajeDescripcion = document.querySelector(
+        `.descripcion_${personajeNum} `
+    );
+    personajeDescripcion.textContent = jugador.Descripción;
+    const sexoPersonaje = document.querySelector(
+        `.sexoPersonaje_${personajeNum} `
+    );
+    sexoPersonaje.src = `img/generos/${jugador.Género}.png`;
+    const elementoPersonaje = document.querySelector(
+        `.elemento_${personajeNum} `
+    );
+    elementoPersonaje.src = `img/Elementos/${jugador.Elemento}.png`;
+    const personajePosicion = document.querySelector(
+        `.posicion_${personajeNum} `
+    );
+    personajePosicion.textContent = jugador.Posición;
 
-    const tiro=document.querySelector(`.tiro_${personajeNum}`);
-    tiro.textContent=jugador.Tiro
-    const fisico=document.querySelector(`.fisico_${personajeNum}`);
-    fisico.textContent=jugador.Físico
-    const control=document.querySelector(`.control_${personajeNum}`);
-    control.textContent=jugador.Control
-    const defensa=document.querySelector(`.defensa_${personajeNum}`);
-    defensa.textContent=jugador.Defensa
-    const rapidez=document.querySelector(`.rapidez_${personajeNum}`);
-    rapidez.textContent=jugador.Rapidez
-    const aguante=document.querySelector(`.aguante_${personajeNum}`);
-    aguante.textContent=jugador.Aguante
-    const valor=document.querySelector(`.valor_${personajeNum}`);
-    valor.textContent=jugador.Valor
+    const tiro = document.querySelector(`.tiro_${personajeNum}`);
+    tiro.textContent = jugador.Tiro;
+    const fisico = document.querySelector(`.fisico_${personajeNum}`);
+    fisico.textContent = jugador.Físico;
+    const control = document.querySelector(`.control_${personajeNum}`);
+    control.textContent = jugador.Control;
+    const defensa = document.querySelector(`.defensa_${personajeNum}`);
+    defensa.textContent = jugador.Defensa;
+    const rapidez = document.querySelector(`.rapidez_${personajeNum}`);
+    rapidez.textContent = jugador.Rapidez;
+    const aguante = document.querySelector(`.aguante_${personajeNum}`);
+    aguante.textContent = jugador.Aguante;
+    const valor = document.querySelector(`.valor_${personajeNum}`);
+    valor.textContent = jugador.Valor;
 
     //Crear la gráfica cuando estén los 2 personajes seleccionadcos
     contenidoGrafica();
 }
-
-
-
-
-
 
 const juegoContenedor = document.createElement("div");
 juegoContenedor.id = "juegoContenedor";
@@ -269,5 +282,6 @@ function mostrarMenuSeleccion(personaje) {
     }
 }
 primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
-segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo")
+segundoPersonaje.addEventListener("click", () =>
+    mostrarMenuSeleccion("segundo")
 );
