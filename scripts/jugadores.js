@@ -4,7 +4,7 @@ let contenedorJugadores = document.getElementById('contenedorJugadores');
 
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    return fetch('../php/conexionBD.php')
+    return fetch('php/conexionBD.php')
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
