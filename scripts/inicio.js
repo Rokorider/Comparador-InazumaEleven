@@ -107,14 +107,10 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-btnInicioSesion.addEventListener("click", function (event) {
-    window.location.href = "index.html";
-});
 
 
-/*
+
 btnInicioSesion.addEventListener("click", function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
     document.getElementById("formularioInicio").submit(); // Envía el formulario
 });
-*/
