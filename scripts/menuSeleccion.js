@@ -280,7 +280,20 @@ function mostrarMenuSeleccion(personaje) {
         crearCajaJuegos(personaje);
     }
 }
+
+
 primerPersonaje.addEventListener("click", () => mostrarMenuSeleccion("primer"));
-segundoPersonaje.addEventListener("click", () =>
-    mostrarMenuSeleccion("segundo")
-);
+segundoPersonaje.addEventListener("click", () => mostrarMenuSeleccion("segundo"));
+
+// Cierra el popup al hacer clic fuera de él
+document.addEventListener("click", function(event) {
+    // Verifica si el clic no ocurrió dentro del popup o en los botones que lo abren
+    if (!menuSeleccion.contains(event.target) && 
+        event.target !== primerPersonaje &&
+        event.target !== segundoPersonaje) {
+        menuSeleccion.style.display = "none";
+    }
+});
+
+
+

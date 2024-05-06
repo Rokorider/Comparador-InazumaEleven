@@ -71,9 +71,9 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
     <section class="main">
         <div class="campoComparacion">
             <div class="comparacionContenedor">
-                <div class="personaje1" id="personaje1">
-                    <div class="personajeIcono1">
-                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img" />
+                <div class="personaje1">
+                    <div class="personajeIcono1" >
+                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img" id="personaje1"/>
                     </div>
                     <div class="nombrePersonajeContenedor1">
                         <p id="apodoPersonaje1">???????</p>
@@ -82,9 +82,9 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 <div class="vsContenedor">
                     <img src="img/VS.png" alt="" class="vsImg" />
                 </div>
-                <div class="personaje2" id="personaje2">
-                    <div class="personajeIcono2">
-                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img" />
+                <div class="personaje2" >
+                    <div class="personajeIcono2" >
+                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img" id="personaje2"/>
                     </div>
                     <div class="nombrePersonajeContenedor2">
                         <p id="apodoPersonaje2">???????</p>
