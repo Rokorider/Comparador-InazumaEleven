@@ -142,7 +142,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 <img src="img/Markrunning.gif" alt="" class="markCorriendo" />
             </div>
             <div class="seccionStats">
-                <div class="personajeStat personajeStat_1">
+                <div class="seccionStats2">
+                    <div class="personajeStat personajeStat_1">
                     <div class="infoPersonaje">
                         <div class="nombre-genero">
                             <div class="nombreEnStatCont">
@@ -286,6 +287,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                             <p class="valor_2">Nan</p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
             <div class="seccionGrafica" id="seccionGrafica">
