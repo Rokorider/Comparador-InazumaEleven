@@ -72,8 +72,8 @@ function crearCajaJuegos(personaje) {
     }
 }
 
-// Crea un div con todos los equipos que hay en un juego
 function crearContenidoJuego(juego, equiposContenedor, personaje) {
+    // Limpiar el contenido anterior de equiposContenedor
     equiposContenedor.innerHTML = "";
 
     const equiposUnicos = [
@@ -83,11 +83,11 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
                 .map((jugador) => jugador.Equipo)
         ),
     ];
+
     const contenidoEquipos = document.createElement("div");
     contenidoEquipos.classList.add("contenidoEquipos");
 
     equiposUnicos.forEach((equipo) => {
-        // Reemplazar espacios en blanco por guiones bajos
         const equipoURL = equipo
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
@@ -96,14 +96,13 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
         const juegoURL = juego.replace(/\s+/g, "");
 
-        const equipoDiv = document.createElement("equipoDiv");
+        const equipoDiv = document.createElement("div");
         equipoDiv.classList.add("equipo");
 
         const imgEquipo = document.createElement("div");
         imgEquipo.classList.add("equipoImg");
         if (equipoURL === "Layton_Team") {
             imgEquipo.style.backgroundImage = "url(img/Layton_Team.png)";
-            
         } else {
             imgEquipo.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png)`;
         }
@@ -118,14 +117,12 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         contenidoEquipos.appendChild(equipoDiv);
 
         equipoDiv.addEventListener("click", () => {
-            // Destruir contenido anterior si existe
-            if (contenidoEquipos.querySelector(".contenidoJuegoContenedor")) {
-                contenidoEquipos
-                    .querySelector(".contenidoJuegoContenedor")
-                    .remove();
+            // Abrir o cerrar el equipo al hacer clic en el equipoDiv
+            if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
+                // Cerrar si ya está abierto
+                equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
                 equipoDiv.style.width = "auto";
             } else {
-                // Crear jugadores del equipo al hacer clic en el equipoDiv
                 crearJugadoresEquipo(
                     equipo,
                     equipoURL,
@@ -141,6 +138,8 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
     equiposContenedor.appendChild(contenidoEquipos);
 }
+
+
 
 function crearJugadoresEquipo(
     equipo,
