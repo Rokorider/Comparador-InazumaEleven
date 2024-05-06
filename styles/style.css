@@ -282,7 +282,7 @@ body {
 
 /*---Zona de datos---*/
 .contenidoContenedor {
-    height: 1800px;
+    height: 1700px;
     width: 100%;
     border-top: 5px solid #fde812;
     position: relative;
@@ -323,18 +323,21 @@ body {
 
 }
 .seccionGrafica {
-    border: 5px solid #e4d316;
-    height: 25%;
     width: 30%;
+    aspect-ratio: 1 / 1;
     border-radius: 10px;
     background-color: #ffffff;
     margin: auto;
+}
 
+.canvas{
+    width: 100%;
+    height: 100%;
 }
 
 .seccionStats2 {
     font-family: "Jersey 10", sans-serif;
-    height: 65%;
+    height: 70%;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -344,12 +347,11 @@ body {
 .personajeStat {
     height: 100%;
     max-height: 600px;
-    width: 30%;
+    width: 35%;
     padding: 10px;
     border-radius: 10px;
     color: white;
     background-color: #78aaca;
-    border: 4px solid #e4d316;
 }
 
 .infoPersonaje {
@@ -504,6 +506,7 @@ body {
     display: flex;
     flex: 1;
     align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
@@ -539,6 +542,7 @@ body {
     width: 40%;
     margin: 10px 30% 15px 30%;
     justify-content: center;
+    margin-top: 3.6%;
 }
 
 

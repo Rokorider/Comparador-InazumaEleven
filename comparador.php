@@ -130,6 +130,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                             </div>
                         </div>
                     -->
+                    <div class="juegoContenedor">aaaaa</div>
                 </div>
             </div>
         </div>
@@ -150,7 +151,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                                 <p class="nombre_1">Nombre</p>
                             </div>
                             <div class="imgSexoCont">
-                                <img src="" alt="" class="sexoPersonaje_1" />
+                                <img src="img/generos/Otro.png" alt="" class="sexoPersonaje_1" />
                             </div>
                         </div>
                         <div class="descripcion-tipo">
@@ -235,7 +236,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                                 <p class="nombre_2">Nombre</p>
                             </div>
                             <div class="imgSexoCont">
-                                <img src="" alt="" class="sexoPersonaje_2" />
+                                <img src="img/generos/Otro.png" alt="" class="sexoPersonaje_2" />
                             </div>
                         </div>
                         <div class="descripcion-tipo">
@@ -291,7 +292,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 </div>
             </div>
             <div class="seccionGrafica" id="seccionGrafica">
-                <canvas id="grafica"></canvas>
+                <canvas id="grafica" class="canvas"></canvas>
             </div>
         </div>
     </section>
