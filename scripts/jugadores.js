@@ -97,7 +97,7 @@ function contenidoPantallaGrande() {
                         equipoModificado = equipoModificado.replace(/'/g, '');
                         equipoModificado = equipoModificado.replace(/\s+/g, '_');
                         if (equipo === 'Layton Team') {
-                            imagen.src = '../img/Layton_Team.png';
+                            imagen.src = 'img/Layton_Team.png';
                             } else {
                                 imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`;
                             }

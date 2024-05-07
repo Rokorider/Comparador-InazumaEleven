@@ -23,7 +23,8 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-block: 30px;
+    margin-block: 100px;
+    padding-block: 20px;
 }
 
 .contenedorJuego {

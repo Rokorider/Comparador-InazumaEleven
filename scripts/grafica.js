@@ -39,9 +39,36 @@ function obtenerDatos() {
 obtenerDatos();
 
 
+// Función para generar un color RGB aleatorio
+function generarColorRGBFondo() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b}, 0.5)`;
+}
+
+function generarColorRGBBorde() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+}
+
 // Convierte a cada personaje en formato para la gráfica
 function objetosStatsJugadores() {
+    // Array para almacenar los colores ya asignados
+    let coloresAsignados = [];
+
     jugadores.forEach(function (jugador, index) {
+        // Generar colores aleatorios hasta que no se repitan
+        let borderColor = generarColorRGBBorde();
+        let backgroundColor = generarColorRGBFondo();
+        while (coloresAsignados.includes(borderColor) || coloresAsignados.includes(backgroundColor)) {
+            borderColor = generarColorRGBBorde();
+            backgroundColor = generarColorRGBFondo();
+        }
+        coloresAsignados.push(borderColor, backgroundColor);
+
         let dataset = {
             label: jugador.Apodo,
             data: [
@@ -53,9 +80,8 @@ function objetosStatsJugadores() {
                 jugador.Aguante,
                 jugador.Valor,
             ],
-            // Define colores de borde y fondo diferentes para cada jugador
-            borderColor: index % 2 === 0 ? "rgba(137, 224, 196, 0.8)" : "rgba(224, 137, 182, 0.8)",
-            backgroundColor: index % 2 === 0 ? "rgba(137, 224, 196, 0.3)" : "rgba(224, 137, 182, 0.3)",
+            borderColor: borderColor,
+            backgroundColor: backgroundColor,
         };
         datasetss.push(dataset);
     });

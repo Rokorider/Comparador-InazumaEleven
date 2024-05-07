@@ -2,67 +2,127 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estadísticas del jugador</title>
-  <script src="scripts/crearJugador.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/crearJugador.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="styles/crearJugador.css">
+    <link rel="stylesheet" type="text/css" href="styles/header.css">
+    <title>Crear Jugador</title>
 </head>
 
 <body>
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre"><br>
 
-  <label for="apodo">Apodo:</label>
-  <input type="text" id="apodo" name="apodo"><br>
-  
-  <label for="genero">Género:</label>
-  <select id="genero" name="genero">
-    <option value="masculino">Masculino</option>
-    <option value="femenino">Femenino</option>
-    <option value="otro">Otro</option>
-  </select><br>
+    <header>
 
-  <label for="posicion">Posición:</label>
-  <select id="posicion" name="posicion">
-    <option value="PR">Portero</option>
-    <option value="DF">Defensa</option>
-    <option value="MD">Mediocampista</option>
-    <option value="DL">Delantero</option>
-  </select><br>
+        <figure class="logoNav">
+            <a href="index.html"><img src="img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
+        </figure>
 
-  <h1>Estadísticas del jugador</h1>
-  <form id="statsForm">
+        <nav>
+            <ul>
+                <li>
+                    <a href="jugadores.html">Jugadores</a>
+                </li>
+                <li>
+                    <a href="crearJugador.html">Crear Jugador</a>
+                </li>
+            </ul>
+        </nav>
 
-    <label for="tiro">Tiro:</label>
-    <input type="range" id="tiro" name="tiro" min="0" max="100" value="0">
-    <span id="tiroValue">0</span><br>
+        <figure class="cerrarSesion">
+            <a href="logout.php"><img src="img/LineMdAccount.png" alt="Cerrar Sesión" /></a>
+        </figure>
 
-    <label for="fisico">Físico:</label>
-    <input type="range" id="fisico" name="fisico" min="0" max="100" value="0">
-    <span id="fisicoValue">0</span><br>
+    </header>
 
-    <label for="control">Control:</label>
-    <input type="range" id="control" name="control" min="0" max="100" value="0">
-    <span id="controlValue">0</span><br>
+    <section class="main">
 
-    <label for="defensa">Defensa:</label>
-    <input type="range" id="defensa" name="defensa" min="0" max="100" value="0">
-    <span id="defensaValue">0</span><br>
+        <div class="titulo">
+            <h1>Crea tu propio Jugador</h1>
+        </div>
 
-    <label for="rapidez">Rapidez:</label>
-    <input type="range" id="rapidez" name="rapidez" min="0" max="100" value="0">
-    <span id="rapidezValue">0</span><br>
+        <form class="formulario">
 
-    <label for="aguante">Aguante:</label>
-    <input type="range" id="aguante" name="aguante" min="0" max="100" value="0">
-    <span id="aguanteValue">0</span><br>
+            <div class="cajaNomApoGenPos">
 
-    <label for="valor">Valor:</label>
-    <input type="range" id="valor" name="valor" min="0" max="100" value="0">
-    <span id="valorValue">0</span><br>
+                <div class="datos">
 
-    <p>Puntos restantes: <span id="puntosRestantes">440</span></p>
-  </form>
+                    <div class="cajaPregunta">
+                        <p class="tipo">Nombre</p>
+                        <input type="text" id="nombre" name="nombre" class="selector">
+                    </div>
+
+                    <div class="cajaPregunta">
+                        <p class="tipo">Apodo</p>
+                        <input type="text" id="apodo" name="apodo" class="selector">
+                    </div>
+
+                </div>
+
+                <div class="datos">
+
+                    <div class="cajaPregunta">
+                        <p class="tipo">Género</p>
+                        <select id="genero" name="genero" class="selector">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="cajaPregunta">
+                        <p class="tipo">Posición</p>
+                        <select id="posicion" name="posicion" class="selector">
+                            <option value="PR">Portero</option>
+                            <option value="DF">Defensa</option>
+                            <option value="MD">Mediocampista</option>
+                            <option value="DL">Delantero</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <h1>Estadísticas del jugador</h1>
+
+            <div id="statsForm" class="estadisticas">
+
+                <label for="tiro">Tiro:</label>
+                <input type="range" id="tiro" name="tiro" min="0" max="100" value="0">
+                <span id="tiroValue">0</span><br>
+
+                <label for="fisico">Físico:</label>
+                <input type="range" id="fisico" name="fisico" min="0" max="100" value="0">
+                <span id="fisicoValue">0</span><br>
+
+                <label for="control">Control:</label>
+                <input type="range" id="control" name="control" min="0" max="100" value="0">
+                <span id="controlValue">0</span><br>
+
+                <label for="defensa">Defensa:</label>
+                <input type="range" id="defensa" name="defensa" min="0" max="100" value="0">
+                <span id="defensaValue">0</span><br>
+
+                <label for="rapidez">Rapidez:</label>
+                <input type="range" id="rapidez" name="rapidez" min="0" max="100" value="0">
+                <span id="rapidezValue">0</span><br>
+
+                <label for="aguante">Aguante:</label>
+                <input type="range" id="aguante" name="aguante" min="0" max="100" value="0">
+                <span id="aguanteValue">0</span><br>
+
+                <label for="valor">Valor:</label>
+                <input type="range" id="valor" name="valor" min="0" max="100" value="0">
+                <span id="valorValue">0</span><br>
+
+                <p>Puntos restantes: <span id="puntosRestantes">440</span></p>
+            </div>
+
+        </form>
+
+    </section>
+
 </body>
 
 </html>
