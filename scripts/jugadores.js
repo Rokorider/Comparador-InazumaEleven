@@ -146,17 +146,13 @@ function obtnerIdsYcomprobarJugadores() {
                 mostrarJugadoresPorEquipoOrdenador(idEquipo);
                 // Almacenar el ID del equipo en el atributo de datos del contenedor
                 contenedorJugadores.dataset.equipo = idEquipo;
-                let jugadores = document.getElementById('jugadores');
-                jugadores.scrollIntoView({ behavior: "smooth" });
-            } else {
-                // Si el mismo equipo ya está mostrado, eliminar todos los jugadores
-                eliminarJugadores();
-                // Eliminar el atributo de datos del contenedor
-                contenedorJugadores.dataset.equipo = '';
-            }
+                // No es necesario obtener el contenedor de jugadores nuevamente aquí
+                contenedorJugadores.scrollIntoView({ behavior: "smooth" }); // Usar la referencia existente
+            } 
         });
     });
 }
+
 
 
 // Función para mostrar los jugadores del equipo correspondiente al escudo
@@ -173,14 +169,8 @@ function mostrarJugadoresPorEquipoOrdenador(idEquipo) {
 
     // Mostrar los jugadores del equipo en el contenedor
     jugadoresEquipo.forEach(function (jugador) {
-        agregarJugador(jugador, contenedorJugadores);
+        agregarJugador(jugador);
     });
-}
-
-// Función para eliminar todos los jugadores del contenedor
-function eliminarJugadores() {
-    let contenedorJugadores = document.getElementById('jugadores');
-    contenedorJugadores.innerHTML = '';
 }
 
 function contenidoMovil(contenedorJugadores) {
@@ -302,12 +292,21 @@ function mostrarJugadoresPorEquipoMovil() {
     // Filtrar los jugadores que pertenecen al equipo seleccionado y mostrarlos
     jugadores.forEach(function (jugador) {
         if (jugador.Equipo === equipoSeleccionado) {
-            agregarJugador(jugador, contenedorJugadores);
+            agregarJugador(jugador);
         }
     });
 }
 
-function agregarJugador(jugador, contenedor) {
+function agregarJugador(jugador) {
+
+    console.log("Mostando jugadores del juego " + jugador.Juego)
+
+    console.log("Mostrando jugadores del equipo " + jugador.Equipo)
+
+    console.log(jugador.Apodo);
+
+    let jugadores = document.getElementById('jugadores');
+
     // Crear un elemento div que represente al jugador
     const jugadorItem = document.createElement('div');
     jugadorItem.className = 'jugador';
@@ -442,7 +441,7 @@ function agregarJugador(jugador, contenedor) {
         </div>
     `;
     // Agregar el elemento del jugador al contenedor
-    contenedor.appendChild(jugadorItem);
+    jugadores.appendChild(jugadorItem);
 }
 
 // Llamar a la función para actualizar el contenido según el tamaño de la pantalla cuando se cargue la página
