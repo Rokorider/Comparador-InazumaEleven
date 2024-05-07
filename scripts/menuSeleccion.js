@@ -100,12 +100,14 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         const equipoDiv = document.createElement("div");
         equipoDiv.classList.add("equipo");
 
-        const imgEquipo = document.createElement("div");
+        const imgEquipo = document.createElement("img");
         imgEquipo.classList.add("equipoImg");
+        imgEquipo.alt= equipo+ " Escudo";
+
         if (equipoURL === "Layton_Team") {
-            imgEquipo.style.backgroundImage = "url(img/Layton_Team.png)";
+            imgEquipo.src = "img/Layton_Team.png";
         } else {
-            imgEquipo.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png)`;
+            imgEquipo.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png`;
         }
 
         const nombreEquipo = document.createElement("div");
@@ -133,13 +135,13 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
                 );
                 equipoDiv.style.width = "100%";
                 contenidoEquipos.style.padding = "0 10% 0 10%";
-                
             }
         });
     });
 
     equiposContenedor.appendChild(contenidoEquipos);
 }
+
 
 
 
@@ -171,9 +173,14 @@ function crearJugadoresEquipo(
 
         const personajeImgCont = document.createElement("div");
         personajeImgCont.classList.add("personajeImgCont");
-        personajeImgCont.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo.split(" ")[0]}.png)`;
-        console.log(jugador.Apodo)
-        console.log(`url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`)
+
+        
+        const personajeImg = document.createElement("img");
+        personajeImg.src = jugador.Imagenes;
+        personajeImg.alt = jugador.Apodo;
+        personajeImg.classList.add("personajeImg");
+        personajeImgCont.appendChild(personajeImg);
+
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
 
@@ -199,7 +206,6 @@ function crearJugadoresEquipo(
             menuSeleccion.style.display = "none";
             seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
-
     });
 
     contenidoJuegoContenedor.appendChild(contenidoJuegoContenedor2);
@@ -207,6 +213,7 @@ function crearJugadoresEquipo(
     // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
 }
+
 
 //función para cambiar el contenido del contenedor de personaje1 y 2
 function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
@@ -221,7 +228,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const personajeIconoImg = document.querySelector(
         `.personajeIcono${personajeNum}Img`
     );
-    personajeIconoImg.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
+    personajeIconoImg.src = jugador.Imagenes;
     const nombrePersonajeContenedor = document.querySelector(
         `.nombrePersonajeContenedor${personajeNum} p`
     );

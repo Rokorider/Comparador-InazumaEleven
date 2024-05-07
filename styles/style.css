@@ -206,14 +206,13 @@ body {
 }
 .equipo {
     font-size: 1.3rem;
+    
 }
 .equipoImg {
     height: 100px;
     width: 100px;
+    display: block;
     margin: auto;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     image-rendering: pixelated;
 }
 .equipoNombre {
@@ -268,11 +267,13 @@ body {
 .personajeImgCont{
     height: 75%;
     width: 100%;
-    background-repeat: no-repeat;
-    background-position: center calc(100% - -2px); 
-    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.personajeImg{
+    height: 100%
+}
 .personajeInfo{
     background-color: #555;
     width: 100%;
