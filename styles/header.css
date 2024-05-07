@@ -8,6 +8,8 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-family: "Jersey 10", sans-serif;
 }
 
 .logoNav{
@@ -35,6 +37,7 @@ nav ul{
     list-style: none;
     height: 100%;
     gap: 120px;
+
 }
 
 nav ul li{
@@ -46,22 +49,23 @@ nav ul li{
 
 nav ul li a{
     text-decoration: none;
-    color: black;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Roboto', sans-serif;
     transition: 0.5s;
+    color: #282855;
+    font-size: 2rem;
 }
 
-.cerrarSesion{
+.cerrarSesion, .user{
     width: 5%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
 }
 
-.cerrarSesion img{
+.cerrarSesion img, .user img{
     width: 80%;
 }

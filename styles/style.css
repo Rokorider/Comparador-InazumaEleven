@@ -17,6 +17,7 @@ body {
     position: relative;
 }
 
+
 .main{
     font-family: "Jersey 10", sans-serif;
     color: white;
@@ -113,10 +114,13 @@ body {
 .personajeIcono2Img {
     height: 100%;
     cursor: pointer;
-    margin-top: 5%;
+    margin-top: 6%;
     filter: drop-shadow(5px 5px 0px black);
 }
+.personajeIcono1 img,.personajeIcono2 img{
+    image-rendering: pixelated;
 
+}
 .nombrePersonajeContenedor1,
 .nombrePersonajeContenedor2 {
     margin: auto;
@@ -210,6 +214,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    image-rendering: pixelated;
 }
 .equipoNombre {
     padding: 0 10px 0 10px;
@@ -277,7 +282,9 @@ body {
 .personajeInfo_elemento{
     height: 100%;
     width: 30%;
-    background-color: #282855;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .personajeInfo_nombre{
     width: 70%;
@@ -332,8 +339,9 @@ body {
     height: 25%;
     aspect-ratio: 1 / 1;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: white;
     margin: auto;
+    border: 10px solid #284880;
 }
 .canvas{
     width: 100%;

@@ -27,6 +27,7 @@ let primerPersonaje = document.getElementById("personaje1");
 let segundoPersonaje = document.getElementById("personaje2");
 let menuSeleccion = document.getElementById("menuPopUp");
 
+
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
 function crearCajaJuegos(personaje) {
     // Limpiar lo que estaba dentro del popUp antes de abrirlo
@@ -132,6 +133,7 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
                 );
                 equipoDiv.style.width = "100%";
                 contenidoEquipos.style.padding = "0 10% 0 10%";
+                
             }
         });
     });
@@ -151,7 +153,6 @@ function crearJugadoresEquipo(
     const jugadoresEquipo = jugadores.filter(
         (jugador) => jugador.Equipo === equipo
     );
-
     const contenidoJuegoContenedor = document.createElement("div");
     contenidoJuegoContenedor.classList.add("contenidoJuegoContenedor");
 
@@ -170,8 +171,9 @@ function crearJugadoresEquipo(
 
         const personajeImgCont = document.createElement("div");
         personajeImgCont.classList.add("personajeImgCont");
-        personajeImgCont.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`;
-
+        personajeImgCont.style.backgroundImage = `url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo.split(" ")[0]}.png)`;
+        console.log(jugador.Apodo)
+        console.log(`url(https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png)`)
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
 
@@ -197,6 +199,7 @@ function crearJugadoresEquipo(
             menuSeleccion.style.display = "none";
             seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
+
     });
 
     contenidoJuegoContenedor.appendChild(contenidoJuegoContenedor2);

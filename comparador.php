@@ -49,9 +49,11 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 </li>
             </ul>
         </nav>
-
+        <figure class="user">
+            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
+        </figure>
         <figure class="cerrarSesion">
-            <a href="logout.php"><img src="img/LineMdAccount.png" alt="Cerrar Sesión" /></a>
+            <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>
         </figure>
 
     </header>
