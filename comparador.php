@@ -76,6 +76,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                         <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img" id="personaje1"/>
                     </div>
                     <div class="nombrePersonajeContenedor1">
+                        <img src="img/boton.png" alt="">
                         <p id="apodoPersonaje1">???????</p>
                     </div>
                 </div>
@@ -87,6 +88,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                         <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img" id="personaje2"/>
                     </div>
                     <div class="nombrePersonajeContenedor2">
+                        <img src="img/boton.png" alt="">
                         <p id="apodoPersonaje2">???????</p>
                     </div>
                 </div>
