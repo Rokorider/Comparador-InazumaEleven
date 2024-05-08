@@ -1,6 +1,6 @@
 function initParallax() {
     // Set initial position of the images
-    const imgs = document.querySelectorAll(".img");
+    const imgs = document.querySelectorAll(".imgPortada");
     let _w = window.innerWidth / 2;
     let _h = window.innerHeight / 2;
 
@@ -28,7 +28,7 @@ function initParallax() {
 
 // Function to handle parallax effect
 function parallax(e) {
-    const imgs = document.querySelectorAll(".img");
+    const imgs = document.querySelectorAll(".imgPortada");
     let _w = window.innerWidth / 2;
     let _h = window.innerHeight / 2;
     let _mouseX = e.clientX;

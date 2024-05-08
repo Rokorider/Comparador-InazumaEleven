@@ -35,7 +35,7 @@ body {
     height: 100vh;
 }
 
-.img {
+.imgPortada {
     position: absolute;
     width: 50%;
     background-size: cover;
@@ -43,7 +43,7 @@ body {
     background-position: center;
 }
 
-.img2 {
+.portadaImg2 {
     background-image: url('../img/portada_recortada.png');
     background-size: contain;
     background-position: right;
@@ -53,7 +53,7 @@ body {
 
 }
 
-.img3 {
+.portadaImg3 {
     background-image: url('../img/logo/InazumaElevenComparadorLogo.png');
     width: 60%;
     height: 60%;
@@ -62,7 +62,7 @@ body {
 
 }
 
-.img1 {
+.portadaImg1 {
     background-image: url('../img/flechaAzul.png');
     width: 100%;
     height: 100%;
@@ -337,16 +337,15 @@ body {
 
 }
 .seccionGrafica {
-    height: 25%;
+    height: 27%;
     aspect-ratio: 1 / 1;
     border-radius: 10px;
     background-color: white;
     margin: auto;
     border: 10px solid #284880;
 }
-.canvas{
-    width: 100%;
-    height: 100%;
+canvas{
+    margin: 5%;
 }
 
 .seccionStats2 {
@@ -404,7 +403,6 @@ body {
 }
 
 .imgSexoCont img {
-    height: 70%;
     width: 80%;
 }
 
@@ -595,17 +593,27 @@ body {
 
 /* MÓVILES */
 @media screen and (max-width: 767px) {
+    header{
+        display: none;
+    }
     .portada {
         width: 100%;
         height: 100vh;
-        background-image: url("../img/inazuma-eleven-123-endou-mamoru-densetsu-game-wallpaper-altar-of-gaming.webp");
         background-repeat: no-repeat;
         background-size: 180%;
         background-position: right bottom;
         border-bottom: 5px solid #fde812;
         position: relative;
     }
-
+    
+    .portadaImg1{
+        border: 2px solid black;
+    }
+    .portadaImg2{
+        width: 100%;
+        background-size: 180%;
+        background-position: bottom right;
+    }
     .tituloContenedor {
         width: 100%;
         height: 30%;

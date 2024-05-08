@@ -8,8 +8,7 @@ const etiquetas = [
     "Valor",
 ];
 const grafica = document.getElementById("grafica");
-const personaje1 = document.getElementById("apodoPersonaje1");
-const personaje2 = document.getElementById("apodoPersonaje2");
+
 
 let jugadores;
 
@@ -87,7 +86,17 @@ function objetosStatsJugadores() {
     });
 }
 
-
+const options = {
+    scales: {
+        r: {
+            angleLines: {
+                display: false
+            },
+            suggestedMin: 0,
+            suggestedMax: 100
+        }
+    }
+};
 
 // Función para establecer contenido de la gráfica
 function contenidoGrafica() {
@@ -100,6 +109,7 @@ function contenidoGrafica() {
         const configuracion = {
             type: "radar",
             data: datos,
+            options: options
         };
 
         // Destruir la instancia anterior de Chart si existe
@@ -130,7 +140,6 @@ function establecerJugadores(jugadorApodo, personajeNum) {
                 personajeElegidos[1] = datasetss[i];
             }
         }
-        console.log(personajeElegidos[1]);
     }
 }
 
