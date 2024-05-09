@@ -102,6 +102,62 @@
     margin-block: 20px;
 }
 
+.cajaImagen {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.tipoImagen {
+    font-size: 24px;
+    margin-block: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.subirImagen {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cajaInput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imagen {
+    /* Estilo para el contenedor del input personalizado */
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.imagen:hover {
+    background-color: #e0e0e0;
+}
+
+.tipoErrorImagen {
+    font-size: 20px;
+    margin-block: 10px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .tipo {
     font-size: 20px;
     margin-block: 10px;
@@ -117,7 +173,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
 }
 
 .selector {
@@ -191,7 +246,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .tipoEstadistica {
@@ -219,7 +273,6 @@
     font-size: 20px;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     text-align: center;
 }
 
@@ -229,18 +282,17 @@
     flex-wrap: wrap;
     font-size: 20px;
     justify-content: center;
-    border: 1px solid black;
     text-align: center;
 }
 
 
 @media screen and (max-width: 720px) {
 
-    .textoPuntos{
+    .textoPuntos {
         width: 60%;
     }
 
-    .valorPuntos{
+    .valorPuntos {
         width: 40%;
     }
 
@@ -248,13 +300,13 @@
 
 @media screen and (max-width: 590px) {
 
-    .textoPuntos{
+    .textoPuntos {
         width: 70%;
         font-size: 18px;
     }
 
-    .valorPuntos{
-        width:30%;
+    .valorPuntos {
+        width: 30%;
         font-size: 18px;
     }
 
@@ -262,7 +314,8 @@
 
 @media screen and (max-width: 590px) {
 
-    .textoPuntos, .valorPuntos{
+    .textoPuntos,
+    .valorPuntos {
         font-size: 16px;
     }
 
@@ -325,7 +378,7 @@
         font-size: 18px;
     }
 
-    .cajaPregunta{
+    .cajaPregunta {
         width: 90%;
         margin: 0;
     }
@@ -338,11 +391,12 @@
         width: 100%;
     }
 
-    .textoPuntos, .valorPuntos{
+    .textoPuntos,
+    .valorPuntos {
         font-size: 20px;
     }
 
-    .estadisticas{
+    .estadisticas {
         margin-top: 20px;
     }
 

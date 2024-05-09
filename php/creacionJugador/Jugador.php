@@ -4,19 +4,22 @@ require "Estadisticas.php";
 
 class Jugador
 {
-    private $nombre;
     private $apodo;
-    private $genero;
-    private $posicion;
+    private $nombre;
     private $foto;
+    private $posicion;
+    private $elemento;
+    private $genero;
     private $estadisticas;
 
-    public function __construct($nombre = "", $apodo = "", $genero = "", $posicion = "", $foto = "")
+    public function __construct($apodo = "", $nombre = "", $foto = "", $posicion = "", $elemento = "", $genero = "", $estadisticas = "")
     {
-        $this->nombre = $nombre;
         $this->apodo = $apodo;
-        $this->genero = $genero;
+        $this->nombre = $nombre;
+        $this->foto = $foto;
         $this->posicion = $posicion;
+        $this->elemento = $elemento;
+        $this->genero = $genero;
         $this->estadisticas = new Estadisticas();
     }
 
@@ -28,7 +31,6 @@ class Jugador
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-
         return $this;
     }
 
@@ -40,7 +42,6 @@ class Jugador
     public function setApodo($apodo)
     {
         $this->apodo = $apodo;
-
         return $this;
     }
 
@@ -52,7 +53,6 @@ class Jugador
     public function setGenero($genero)
     {
         $this->genero = $genero;
-
         return $this;
     }
 
@@ -64,6 +64,39 @@ class Jugador
     public function setPosicion($posicion)
     {
         $this->posicion = $posicion;
+        return $this;
+    }
+
+    public function getFoto()
+    {
+        return $this->foto;
+    }
+
+    public function setFoto($foto, $carpeta)
+    {
+        $this->foto = cargarFoto($foto, $carpeta); // Llamamos a la función cargarFoto
+    }
+
+    public function getEstadisticas()
+    {
+        return $this->estadisticas;
+    }
+
+    public function setEstadisticas($estadisticas)
+    {
+        $this->estadisticas = $estadisticas;
+
+        return $this;
+    }
+
+    public function getElemento()
+    {
+        return $this->elemento;
+    }
+
+    public function setElemento($elemento)
+    {
+        $this->elemento = $elemento;
 
         return $this;
     }
