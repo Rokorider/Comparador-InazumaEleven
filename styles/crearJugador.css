@@ -29,6 +29,52 @@
     padding: 10px;
 }
 
+@media screen and (max-width: 1000px) {
+
+    .titulo {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 840px) {
+
+    .titulo {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 770px) {
+
+    .titulo {
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px) {
+
+    .titulo {
+        font-size: 16px;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 495px) {
+
+    .titulo {
+        width: 50%;
+        font-size: 15px;
+        text-align: center;
+    }
+
+}
+
+
+
+
 .formulario {
     width: 100%;
     height: 90%;
@@ -115,6 +161,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    border: 1px solid black;
 }
 
 .tipoEstadistica {
@@ -135,11 +182,52 @@
     align-items: center;
 }
 
+.textoPuntos {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    text-align: center;
+}
+
 .valorPuntos {
     width: 50%;
     display: flex;
     flex-wrap: wrap;
     font-size: 20px;
+    justify-content: center;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 720px) {
+
+    .textoPuntos{
+        width: 60%;
+    }
+
+    .valorPuntos{
+        width: 40%;
+    }
+
+}
+
+@media screen and (max-width: 590px) {
+
+    .textoPuntos{
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .valorPuntos{
+        width:30%;
+        font-size: 18px;
+    }
+
 }
 
 .errorEstadisticas {
