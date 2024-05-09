@@ -183,10 +183,15 @@ function crearJugadoresEquipo(
 
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
-
-        const personajeInfo_elemento = document.createElement("div");
+        
+        const personajeInfo_elemento = document.createElement("img");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.style.backgroundImage = `url("img/Elementos/${jugador.Elemento}.png")`;
+        personajeInfo_elemento.src = `img/Elementos/${jugador.Elemento}.png`;
+
+
+        const personajeInfo_posicion = document.createElement("div");
+        personajeInfo_posicion.classList.add("personajeInfo_posicion");
+        personajeInfo_posicion.textContent=jugador.Posición;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -195,6 +200,7 @@ function crearJugadoresEquipo(
         personajeInfo_nombre.appendChild(personajeNombre);
 
         personajeInfo.appendChild(personajeInfo_elemento);
+        personajeInfo.appendChild(personajeInfo_posicion);
         personajeInfo.appendChild(personajeInfo_nombre);
 
         personajeCont.appendChild(personajeImgCont);
