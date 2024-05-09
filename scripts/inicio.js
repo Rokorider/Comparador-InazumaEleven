@@ -108,7 +108,12 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-
+document.getElementById("formularioInicio").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Evita el comportamiento por defecto del Enter
+        document.getElementById("formularioInicio").submit(); // Envía el formulario
+    }
+});
 
 
 btnInicioSesion.addEventListener("click", function(event) {
