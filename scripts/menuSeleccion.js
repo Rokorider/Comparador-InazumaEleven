@@ -23,9 +23,10 @@ function obtenerDatos() {
 }
 
 obtenerDatos();
-let primerPersonaje = document.getElementById("personaje1");
-let segundoPersonaje = document.getElementById("personaje2");
-let menuSeleccion = document.getElementById("menuPopUp");
+const primerPersonaje = document.getElementById("personaje1");
+const segundoPersonaje = document.getElementById("personaje2");
+const menuSeleccion = document.getElementById("menuPopUp");
+
 
 
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
@@ -274,6 +275,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     valor.textContent = jugador.Valor;
 
     //Crear la gráfica cuando estén los 2 personajes seleccionadcos
+    contenidoContenedor.style
     contenidoGrafica();
 }
 

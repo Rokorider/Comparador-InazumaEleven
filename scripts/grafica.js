@@ -8,6 +8,8 @@ const etiquetas = [
     "Valor",
 ];
 const grafica = document.getElementById("grafica");
+const seccionGrafica = document.getElementById("seccionGrafica");
+
 
 
 let jugadores;
@@ -58,7 +60,7 @@ function objetosStatsJugadores() {
     // Array para almacenar los colores ya asignados
     let coloresAsignados = [];
 
-    jugadores.forEach(function (jugador, index) {
+    jugadores.forEach(function (jugador) {
         // Generar colores aleatorios hasta que no se repitan
         let borderColor = generarColorRGBBorde();
         let backgroundColor = generarColorRGBFondo();
@@ -102,6 +104,7 @@ const options = {
 function contenidoGrafica() {
     // Verificar si ambos personajes están seleccionados
     if (personajeElegidos[0] && personajeElegidos[1]) {
+        seccionGrafica.style.display="block";
         const datos = {
             labels: etiquetas,
             datasets: [personajeElegidos[0], personajeElegidos[1]],
@@ -117,8 +120,10 @@ function contenidoGrafica() {
             window.myChart.destroy();
         }
 
+
         // Crear una nueva instancia de Chart
         window.myChart = new Chart(grafica, configuracion);
+        
     }
 }
 

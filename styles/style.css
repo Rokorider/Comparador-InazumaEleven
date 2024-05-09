@@ -317,9 +317,9 @@ body {
 
 /*---Zona de datos---*/
 .contenidoContenedor {
-    height: 1700px;
+    height: 180vh;
     width: 100%;
-    border-top: 5px solid #fde812;
+    border-top: 1px solid #0f4cac;
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url("../img/bg_movie_pc.jpg");
     background-size: cover;
@@ -358,7 +358,7 @@ body {
 
 }
 .seccionGrafica {
-    height: 27%;
+    height: 30%;
     aspect-ratio: 1 / 1;
     border-radius: 10px;
     background-color: white;
@@ -423,7 +423,7 @@ canvas{
 }
 
 .imgSexoCont img {
-    height: 80%;
+    height: 75%;
 }
 
 .descripcion-tipo {

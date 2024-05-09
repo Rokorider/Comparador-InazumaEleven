@@ -34,30 +34,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 ?>
 
 <body>
-    <header>
 
-        <figure class="logoNav">
-            <a href="index.html"><img src="img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-
-    </header>
+    <?php include 'php/header.php'; ?>
 
     <section class="portada">
         <div class="parallax" id="parallax">
@@ -301,25 +279,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
             </div>
         </div>
     </section>
-    <footer>
-        <div class="footer">
-            <div class="logoFooter">
-                <img src="img/logo/InazumaElevenComparadorLogo.png" alt="">
-            </div>
-            <div class="textoFooter">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fuga laboriosam similique debitis itaque  </p>
-            </div>
-            <div class="enlacesFooter">
-                <div class="red">
-                    <img src="img/redes/github-142-svgrepo-com.svg" alt="">
-                </div>
-                <div class="red">
-                <img src="img/logo/inazuma_japan.webp" alt="">
-                </div>
-            </div>
-            <div class="copy">© 2024 Todos los derechos reservados.</div>
-        </div>
-    </footer>
+    
+    <?php include 'php/footer.php'; ?>
 </body>
 
 </html>
