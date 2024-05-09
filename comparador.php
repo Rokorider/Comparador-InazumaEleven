@@ -302,7 +302,23 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         </div>
     </section>
     <footer>
-        <div class="footer"></div>
+        <div class="footer">
+            <div class="logoFooter">
+                <img src="img/logo/InazumaElevenComparadorLogo.png" alt="">
+            </div>
+            <div class="textoFooter">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fuga laboriosam similique debitis itaque  </p>
+            </div>
+            <div class="enlacesFooter">
+                <div class="red">
+                    <img src="img/redes/github-142-svgrepo-com.svg" alt="">
+                </div>
+                <div class="red">
+                <img src="img/logo/inazuma_japan.webp" alt="">
+                </div>
+            </div>
+            <div class="copy">© 2024 Todos los derechos reservados.</div>
+        </div>
     </footer>
 </body>
 

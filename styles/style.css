@@ -117,6 +117,11 @@ body {
     cursor: pointer;
     margin-top: 6%;
     filter: drop-shadow(5px 5px 0px black);
+    transition: all 0.1s ease;
+}
+.personajeIcono1Img:hover,
+.personajeIcono2Img:hover {
+    transform: scale(1.02);
 }
 .personajeIcono1 img,.personajeIcono2 img{
     image-rendering: pixelated;
@@ -216,6 +221,10 @@ body {
     display: block;
     margin: auto;
     image-rendering: pixelated;
+    transition: all 0.1s ease;
+}
+.equipoImg:hover{
+    transform: scale(1.05);
 }
 .equipoNombre {
     padding: 0 10px 0 10px;
@@ -262,10 +271,7 @@ body {
     height: 90px;
     margin: 5px 2% 5px 2%;
 }
-.personajeCont:hover .personajeImgCont{
-    background-size: 90%;
-    
-}
+
 .personajeImgCont{
     height: 75%;
     width: 100%;
@@ -275,6 +281,10 @@ body {
 }
 .personajeImg{
     height: 100%
+}
+.personajeCont:hover .personajeImg{
+    transition: all 0.1s ease;
+    transform: scale(1.05);
 }
 .personajeInfo{
     background-color: #555;
