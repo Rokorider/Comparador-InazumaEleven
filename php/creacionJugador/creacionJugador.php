@@ -4,63 +4,84 @@
 require "Jugador.php";
 require "cargarFoto.php";
 
-// Obtener los datos del formulario
-$nombre = $_POST['nombre'];
-$apodo = $_POST['apodo'];
-$genero = $_POST['genero'];
-$posicion = $_POST['posicion'];
-$foto = $_FILES['foto'];
-$tiro = $_POST['tiro'];
-$fisico = $_POST['fisico'];
-$control = $_POST['control'];
-$defensa = $_POST['defensa'];
-$rapidez = $_POST['rapidez'];
-$aguante = $_POST['aguante'];
-$valor = $_POST['valor'];
+session_start();
 
-// Carpeta para almacenar las fotos
-$carpeta = "../img/imgPersonales/";
+if (isset($_SESSION['usuario'])) {
 
-// Llamar a la función cargarFoto para subir la imagen
-cargarFoto($foto, $carpeta);
+    // Obtener los datos del formulario
+    $nombre = $_POST['nombre'];
+    $apodo = $_POST['apodo'];
+    $descripcion = $_POST['descripcion'];
+    $elemento = $_POST['elemento'];
+    $genero = $_POST['genero'];
+    $posicion = $_POST['posicion'];
+    $foto = $_FILES['foto'];
+    $tiro = $_POST['tiro'];
+    $fisico = $_POST['fisico'];
+    $control = $_POST['control'];
+    $defensa = $_POST['defensa'];
+    $rapidez = $_POST['rapidez'];
+    $aguante = $_POST['aguante'];
+    $valor = $_POST['valor'];
+    $equipo = "Equipo personalizado";
 
-// Establecer conexión a la base de datos
-$servername = "localhost";
-$username = "comparador";
-$password = "1234";
-$dbname = "apiinazuma";
+    // Carpeta para almacenar las fotos
+    $carpeta = "../../imgPersonales/";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+    // Llamar a la función cargarFoto para subir la imagen
+    $imagen = cargarFoto($foto, $carpeta);
 
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
+    // Establecer conexión a la base de datos
+    $servername = "localhost";
+    $username = "comparador";
+    $password = "1234";
+    $dbname = "apiinazuma";
 
-$pe = 120;
-$pt = 120;
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-$usuario = $_SESSION['usuario'];
+    // Verificar la conexión
+    if ($conn->connect_error) {
+        die("Error de conexión: " . $conn->connect_error);
+    }
 
-//$sql2 = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'"; // Corrección aquí, quitando el asterisco y agregando un espacio
+    $pe = 120;
+    $pt = 120;
 
-//$idUsuario = $conn->query($sql2);
+    $usuario = $_SESSION['usuario'];
 
-// Insertar datos en la base de datos
+    $sql2 = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
+    $resultado = $conn->query($sql2);
 
-$descripcion = "Jugador personalizado";
-$imagen = "hola";
-$elemento = "Fuego";
-$idUsuario = 2;
+    // Verifica si la consulta fue exitosa
+    if ($resultado) {
+        // Verifica si se encontraron filas
+        if ($resultado->num_rows > 0) {
+            // Obtiene la primera fila (asumiendo que solo debería haber una fila)
+            $fila = $resultado->fetch_assoc();
+            // Extrae el valor de la columna 'id'
+            $idUsuario = $fila['id'];
+        } else {
+            // No se encontraron filas con el nombre de usuario dado
+            // Manejar el caso en que el usuario no existe
+        }
+    } else {
+        // Maneja el error de consulta
+        echo "Error en la consulta: " . $conn->error;
+    }
 
-$sql = "INSERT INTO jugadorespersonales (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor, usuario_id) 
-        VALUES ('{$apodo}', '{$nombre}', '{$descripcion}', '{$imagen}', '{$posicion}', '{$elemento}', '{$genero}', '{$pe}', '{$pt}', '{$tiro}', '{$fisico}', '{$control}', '{$defensa}', '{$rapidez}', '{$aguante}', '{$valor}', '{$idUsuario}')";
 
-if ($conn->query($sql) === TRUE) {
-    header("Location: ../../crearJugador.html");
+    // Insertar datos en la base de datos
+
+    
+
+    $sql = "INSERT INTO jugadorespersonales (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor, usuario_id) 
+        VALUES ('{$apodo}', '{$nombre}', '{$descripcion}', '{$imagen}', '{$posicion}', '{$elemento}', '{$genero}', '{$equipo}', '{$pe}', '{$pt}', '{$tiro}', '{$fisico}', '{$control}', '{$defensa}', '{$rapidez}', '{$aguante}', '{$valor}', '{$idUsuario}')";
+
+    if ($conn->query($sql) === TRUE) {
+        header("Location: ../../crearJugador.html");
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "No se ha iniciado sesión.";
 }
-
-// Cerrar conexión
-$conn->close();

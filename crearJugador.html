@@ -59,8 +59,22 @@
                         <input type="text" id="apodo" name="apodo" class="selector" placeholder="Apodo">
                         <p class="tipoError" id="errorApodo"></p>
                     </div>
-                </div>
-                <div class="datos">
+                    <div class="cajaPregunta">
+                        <p class="tipo">Descripción</p>
+                        <input type="text" id="descripcion" name="descripcion" class="selector" placeholder="Descripción">
+                        <p class="tipoError" id="errorDescripcion"></p>
+                    </div>
+                    <div class="cajaPregunta">
+                        <p class="tipo">Elemento</p>
+                        <select id="elemento" name="elemento" class="selector">
+                            <option value="">No Especificado</option>
+                            <option value="Fuego">Fuego</option>
+                            <option value="Bosque">Bosque</option>
+                            <option value="Aire">Aire</option>
+                            <option value="Montaña">Montaña</option>
+                        </select>
+                        <p class="tipoError" id="errorElemento"></p>
+                    </div>
                     <div class="cajaPregunta">
                         <p class="tipo">Género</p>
                         <select id="genero" name="genero" class="selector">
@@ -89,10 +103,14 @@
                             <div class="cajaInput">
                                 <input type="file" id="imagen" name="foto" class="imagen">
                             </div>
+                            <div class="consejo">
+                                <p>*Se recomienda no subir imágenes personales*</p>
+                            </div>
                             <p class="tipoErrorImagen" id="errorImagen"></p>
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="cajaEstadisticas">
                 <div class="titulo">
@@ -103,63 +121,63 @@
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Tiro:</p>
-                                <input class="inputRango" type="range" id="tiro" name="tiro" min="0" max="100"
+                                <input class="inputRango" type="range" id="tiro" name="tiro" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="tiroValue">0</p>
+                                <p class="valor" id="tiroValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Físico:</p>
-                                <input class="inputRango" type="range" id="fisico" name="fisico" min="0" max="100"
+                                <input class="inputRango" type="range" id="fisico" name="fisico" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="fisicoValue">0</p>
+                                <p class="valor" id="fisicoValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Control:</p>
-                                <input class="inputRango" type="range" id="control" name="control" min="0" max="100"
+                                <input class="inputRango" type="range" id="control" name="control" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="controlValue">0</p>
+                                <p class="valor" id="controlValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Defensa:</p>
-                                <input class="inputRango" type="range" id="defensa" name="defensa" min="0" max="100"
+                                <input class="inputRango" type="range" id="defensa" name="defensa" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="defensaValue">0</p>
+                                <p class="valor" id="defensaValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Rapidez:</p>
-                                <input class="inputRango" type="range" id="rapidez" name="rapidez" min="0" max="100"
+                                <input class="inputRango" type="range" id="rapidez" name="rapidez" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="rapidezValue">0</p>
+                                <p class="valor" id="rapidezValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Aguante:</p>
-                                <input class="inputRango" type="range" id="aguante" name="aguante" min="0" max="100"
+                                <input class="inputRango" type="range" id="aguante" name="aguante" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="aguanteValue">0</p>
+                                <p class="valor" id="aguanteValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Valor:</p>
-                                <input class="inputRango" type="range" id="valor" name="valor" min="0" max="100"
+                                <input class="inputRango" type="range" id="valor" name="valor" min="1" max="100"
                                     value="0">
-                                <p class="valor" id="valorValue">0</p>
+                                <p class="valor" id="valorValue">1</p>
                             </div>
                         </div>
                         <div class="estadistica">
                             <div class="campoEstadisticas">
                                 <p class="textoPuntos">Puntos restantes:</p>
-                                <p class="valorPuntos" id="puntosRestantes">440</p>
+                                <p class="valorPuntos" id="puntosRestantes">433</p>
                             </div>
                         </div>
                     </form>

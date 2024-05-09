@@ -19,12 +19,13 @@ function cargarFoto($foto, $carpeta)
     $tamaño = $foto['size'];
     $ruta = $foto['tmp_name'];
 
+    $rutaImagen = "imgPersonales/$usuario/$nombre";
+
     // Verificar que se ha cargado una imagen 
     if ($nombre != "") {
         // Verificar que la imagen tiene extensión jpg o png y tamaño < 10MB
         if ((strpos($tipo, 'jpeg') || strpos($tipo, 'png')) && $tamaño < 10500000) {
             // Cambiar nombre y extensión de los archivos al subir al servidor
-            $nombre = time();
             $extension = strpos($tipo, 'jpeg') !== false ? '.jpg' : '.png';
 
             // Mover la imagen a la carpeta del usuario
@@ -35,7 +36,7 @@ function cargarFoto($foto, $carpeta)
             echo "ERROR al subir el archivo. Compruebe que está en formato jpg o png y el tamaño es menor a 10MB";
         }
     }
-    return $ruta_usuario . $nombre . $extension;
+    return $rutaImagen . $extension;
 }
 
 
