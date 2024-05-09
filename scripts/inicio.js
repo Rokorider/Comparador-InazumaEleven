@@ -1,4 +1,5 @@
 let btnInicioSesion = document.getElementById('btnInicioSesion');
+let btnRegistro = document.getElementById('btnRegistro');
 
 
 const imagenes = ["../img/fondos/fondo1.png", "../img/fondos/fondo2.png", "../img/fondos/fondo3.png", "../img/fondos/fondo4.png"]; // Array con las URLs de las imágenes
@@ -107,10 +108,12 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-
-
-
 btnInicioSesion.addEventListener("click", function(event) {
     event.preventDefault(); // Evita el envío del formulario por defecto
     document.getElementById("formularioInicio").submit(); // Envía el formulario
+});
+// Agregar un evento al botón de registro para crear un nuevo usuario en la base de datos
+btnRegistro.addEventListener("click", function(event) {
+    event.preventDefault(); // Evita el envío del formulario por defecto
+    document.getElementById("formularioRegistro").submit(); // Envía el formulario
 });
