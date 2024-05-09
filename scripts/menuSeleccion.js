@@ -23,9 +23,10 @@ function obtenerDatos() {
 }
 
 obtenerDatos();
-let primerPersonaje = document.getElementById("personaje1");
-let segundoPersonaje = document.getElementById("personaje2");
-let menuSeleccion = document.getElementById("menuPopUp");
+const primerPersonaje = document.getElementById("personaje1");
+const segundoPersonaje = document.getElementById("personaje2");
+const menuSeleccion = document.getElementById("menuPopUp");
+
 
 
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
@@ -183,10 +184,15 @@ function crearJugadoresEquipo(
 
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
-
-        const personajeInfo_elemento = document.createElement("div");
+        
+        const personajeInfo_elemento = document.createElement("img");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.style.backgroundImage = `url("img/Elementos/${jugador.Elemento}.png")`;
+        personajeInfo_elemento.src = `img/Elementos/${jugador.Elemento}.png`;
+
+
+        const personajeInfo_posicion = document.createElement("div");
+        personajeInfo_posicion.classList.add("personajeInfo_posicion");
+        personajeInfo_posicion.textContent=jugador.Posición;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -195,6 +201,7 @@ function crearJugadoresEquipo(
         personajeInfo_nombre.appendChild(personajeNombre);
 
         personajeInfo.appendChild(personajeInfo_elemento);
+        personajeInfo.appendChild(personajeInfo_posicion);
         personajeInfo.appendChild(personajeInfo_nombre);
 
         personajeCont.appendChild(personajeImgCont);
@@ -268,6 +275,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     valor.textContent = jugador.Valor;
 
     //Crear la gráfica cuando estén los 2 personajes seleccionadcos
+    contenidoContenedor.style
     contenidoGrafica();
 }
 

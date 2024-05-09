@@ -34,30 +34,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 ?>
 
 <body>
-    <header>
 
-        <figure class="logoNav">
-            <a href="index.html"><img src="img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-
-    </header>
+    <?php include 'php/header.php'; ?>
 
     <section class="portada">
         <div class="parallax" id="parallax">
@@ -301,9 +279,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
             </div>
         </div>
     </section>
-    <footer>
-        <div class="footer"></div>
-    </footer>
+    
+    <?php include 'php/footer.php'; ?>
 </body>
 
 </html>
