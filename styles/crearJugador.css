@@ -14,6 +14,13 @@
     padding-top: 40px;
 }
 
+.contenedorTitulo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .titulo {
     width: 40%;
     height: 70px;
@@ -85,6 +92,14 @@
     width: 100%;
 }
 
+.cajaEquipo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
 .datos {
     width: 100%;
     display: flex;
@@ -104,6 +119,15 @@
 
 .cajaImagen {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.cajaImagenEquipo {
+    width: 45%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

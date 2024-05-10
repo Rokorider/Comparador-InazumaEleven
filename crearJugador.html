@@ -43,10 +43,29 @@
 
     <section class="main" id="main">
         <div class="titulo">
-            <h1>Datos del Jugador</h1>
+            <h1>Datos del Equipo</h1>
         </div>
         <form class="formulario" id="formDatos" action="php/creacionJugador/creacionJugador.php" method="post"
             enctype="multipart/form-data">
+            <div class="cajaEquipo">
+                <div class="cajaPregunta" id="cajaPreguntaEquipo">
+                    <p class="tipo">Equipo</p>
+                    <select id="equipo" name="equipo" class="selector">
+                        <option value="">No Especificado</option>
+                        <option value="Nuevo">Nuevo</option>
+                    </select>
+                    <p class="tipoError" id="errorEquipo"></p>
+                </div>
+                
+            </div>
+
+            <div class="contenedorTitulo">          
+                <div class="titulo">
+                    <h1>Datos del Jugador</h1>
+                </div>
+            </div>
+
+
             <div class="cajaNomApoGenPos">
                 <div class="datos">
                     <div class="cajaPregunta">
@@ -61,7 +80,8 @@
                     </div>
                     <div class="cajaPregunta">
                         <p class="tipo">Descripción</p>
-                        <input type="text" id="descripcion" name="descripcion" class="selector" placeholder="Descripción">
+                        <input type="text" id="descripcion" name="descripcion" class="selector"
+                            placeholder="Descripción">
                         <p class="tipoError" id="errorDescripcion"></p>
                     </div>
                     <div class="cajaPregunta">
@@ -98,7 +118,7 @@
                     </div>
 
                     <div class="cajaImagen">
-                        <p class="tipoImagen">Imagen</p>
+                        <p class="tipoImagen">Imagen del Jugador</p>
                         <div class="subirImagen">
                             <div class="cajaInput">
                                 <input type="file" id="imagen" name="foto" class="imagen">
@@ -197,8 +217,6 @@
             </div>
         </div>
     </section>
-
-
 
 </body>
 

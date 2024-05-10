@@ -42,7 +42,7 @@ if (isset($_SESSION['usuario'])) {
                 // Mostrar los jugadores
                 echo "<h2>Jugadores del usuario $usuario:</h2>";
                 echo "<table border='1'>";
-                echo "<tr><th>ID</th><th>Apodo</th><th>Nombre</th><th>Descripción</th><th>Imagen</th><th>Posición</th><th>Elemento</th><th>Género</th><th>PE</th><th>PT</th><th>Tiro</th><th>Físico</th><th>Control</th><th>Defensa</th><th>Rapidez</th><th>Aguante</th><th>Valor</th></tr>";
+                echo "<tr><th>ID</th><th>Apodo</th><th>Nombre</th><th>Descripción</th><th>Imagen</th><th>Posición</th><th>Elemento</th><th>Género</th><th>Equipo</th><th>PE</th><th>PT</th><th>Tiro</th><th>Físico</th><th>Control</th><th>Defensa</th><th>Rapidez</th><th>Aguante</th><th>Valor</th></tr>";
                 while ($fila_jugador = $resultado_jugadores->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>{$fila_jugador['ID']}</td>";
@@ -53,6 +53,7 @@ if (isset($_SESSION['usuario'])) {
                     echo "<td>{$fila_jugador['Posicion']}</td>";
                     echo "<td>{$fila_jugador['Elemento']}</td>";
                     echo "<td>{$fila_jugador['Genero']}</td>";
+                    echo "<td>{$fila_jugador['Equipo']}</td>";  
                     echo "<td>{$fila_jugador['PE']}</td>";
                     echo "<td>{$fila_jugador['PT']}</td>";
                     echo "<td>{$fila_jugador['Tiro']}</td>";

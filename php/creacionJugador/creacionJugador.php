@@ -3,12 +3,20 @@
 // Creacion de jugador
 require "Jugador.php";
 require "cargarFoto.php";
+require "cargarFotoEquipo.php";
 
 session_start();
 
 if (isset($_SESSION['usuario'])) {
 
-    // Obtener los datos del formulario
+    // Obtener los datos del  equipo
+    $equipo = $_POST['equipo'];
+    if ($equipo == "Nuevo") {
+        $equipo = $_POST['nombreEquipo'];
+    }
+    $fotoEquipo = $_FILES['fotoEquipo'];
+
+    // Obtener los datos del jugador
     $nombre = $_POST['nombre'];
     $apodo = $_POST['apodo'];
     $descripcion = $_POST['descripcion'];
@@ -16,6 +24,8 @@ if (isset($_SESSION['usuario'])) {
     $genero = $_POST['genero'];
     $posicion = $_POST['posicion'];
     $foto = $_FILES['foto'];
+
+    // Obtener las estadísticas del jugador
     $tiro = $_POST['tiro'];
     $fisico = $_POST['fisico'];
     $control = $_POST['control'];
@@ -23,13 +33,13 @@ if (isset($_SESSION['usuario'])) {
     $rapidez = $_POST['rapidez'];
     $aguante = $_POST['aguante'];
     $valor = $_POST['valor'];
-    $equipo = "Equipo personalizado";
 
     // Carpeta para almacenar las fotos
     $carpeta = "../../imgPersonales/";
 
     // Llamar a la función cargarFoto para subir la imagen
     $imagen = cargarFoto($foto, $carpeta);
+    $fotoEquipo = cargarFotoEquipo($fotoEquipo, $carpeta, $equipo);
 
     // Establecer conexión a la base de datos
     $servername = "localhost";
@@ -71,14 +81,12 @@ if (isset($_SESSION['usuario'])) {
 
 
     // Insertar datos en la base de datos
-
-    
-
     $sql = "INSERT INTO jugadorespersonales (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor, usuario_id) 
         VALUES ('{$apodo}', '{$nombre}', '{$descripcion}', '{$imagen}', '{$posicion}', '{$elemento}', '{$genero}', '{$equipo}', '{$pe}', '{$pt}', '{$tiro}', '{$fisico}', '{$control}', '{$defensa}', '{$rapidez}', '{$aguante}', '{$valor}', '{$idUsuario}')";
 
     if ($conn->query($sql) === TRUE) {
         header("Location: ../../crearJugador.html");
+        echo $equipo;
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

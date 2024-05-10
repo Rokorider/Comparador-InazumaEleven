@@ -1,3 +1,6 @@
+let equipo = document.getElementById('equipo');
+let errorEquipo = document.getElementById('errorEquipo');
+
 let nombre = document.getElementById('nombre');
 let errorNombre = document.getElementById('errorNombre');
 
@@ -33,8 +36,11 @@ let GeneroCorrecto = true;
 let PosicionCorrecta = true;
 let ImagenCorrecta = true;
 let EstadisticasCorrectas = true;
+let EquipoCorrecto = true;
+let ImagenEquipoCorrecta = true;
 
 function validarDatos() {
+    validarEquipo();
     validarNombre();
     validarApodo();
     validarDescripcion();
@@ -45,6 +51,20 @@ function validarDatos() {
     validarEstadisticas();
 }
 
+function validarEquipo() {
+    if (equipo.value === '') {
+        errorEquipo.textContent = 'El equipo es obligatorio';
+        aplicarEstiloError(errorEquipo);
+        main.scrollIntoView({ behavior: "smooth" });
+        EquipoCorrecto = false;
+    } else {
+        errorEquipo.textContent = '';
+        limpiarEstiloError(errorEquipo);
+        EquipoCorrecto = true;
+    }
+}
+
+
 function validarNombre() {
     if (nombre.value === '') {
         errorNombre.textContent = 'El nombre es obligatorio';
@@ -52,7 +72,6 @@ function validarNombre() {
         main.scrollIntoView({ behavior: "smooth" });
         NombreCorrecto = false;
     } else {
-        // Si el nombre es válido, se limpia el mensaje de error y el estilo
         errorNombre.textContent = '';
         limpiarEstiloError(errorNombre);
         NombreCorrecto = true;
@@ -164,14 +183,101 @@ function limpiarEstiloError(elemento) {
     elemento.style.color = ''; // Se restablece el color de texto original
 }
 
+function añadirInputNombreEquipo() {
+    let cajaPreguntaEquipo = document.getElementById('cajaPreguntaEquipo');
+    let cajaNombreEquipo = `
+        <div class="cajaPregunta" id="cajaNombreEquipo">
+            <p class="tipo">Nombre del Equipo</p>
+            <input type="text" id="nombreEquipo" name="nombreEquipo" class="selector" placeholder="Nombre Equipo"> <!-- Cambié el id a nombreEquipo -->
+            <p class="tipoError" id="errorNombreEquipo"></p>
+        </div>
+        <div class="cajaImagenEquipo" id="cajaImagenEquipo">
+                    <p class="tipoImagen">Imagen del Equipo</p>
+                    <div class="subirImagen">
+                        <div class="cajaInput">
+                            <input type="file" id="imagenEquipo" name="fotoEquipo" class="imagen">
+                        </div>
+                        <p class="tipoErrorImagen" id="errorImagenEquipo"></p>
+                    </div>
+                </div>`;
+    cajaPreguntaEquipo.insertAdjacentHTML('afterend', cajaNombreEquipo);
+    errorEquipo.textContent = '';
+    limpiarEstiloError(errorEquipo);
+}
+
+function validarNombreEquipo() {
+    let nombreEquipo = document.getElementById('nombreEquipo');
+    let errorNombreEquipo = document.getElementById('errorNombreEquipo');
+
+    let cajaNombreEquipo = document.querySelector('.cajaNombreEquipo');
+
+    if (cajaNombreEquipo) {
+        // Si existe la caja de nombre de equipo, omitir la validación
+        errorNombreEquipo.textContent = '';
+        limpiarEstiloError(errorNombreEquipo);
+        EquipoCorrecto = true;
+    } else {
+        // Si no existe, realizar la validación como de costumbre
+        if (nombreEquipo.value === '') {
+            errorNombreEquipo.textContent = 'El nombre es obligatorio';
+            aplicarEstiloError(errorNombreEquipo);
+            main.scrollIntoView({ behavior: "smooth" });
+            EquipoCorrecto = false;
+        } else {
+            errorNombreEquipo.textContent = '';
+            limpiarEstiloError(errorNombreEquipo);
+            EquipoCorrecto = true;
+        }
+    }
+}
+
+
+function validarImagenEquipo() {
+    let imagenEquipo = document.getElementById('imagenEquipo');
+    let errorImagenEquipo = document.getElementById('errorImagenEquipo');
+    if (imagenEquipo.value === '') {
+        errorImagenEquipo.textContent = 'La imagen es obligatoria';
+        aplicarEstiloError(errorImagenEquipo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ImagenEquipoCorrecta = false;
+    } else {
+        errorImagenEquipo.textContent = '';
+        limpiarEstiloError(errorImagenEquipo);
+        ImagenEquipoCorrecta = true;
+    }
+}
+
+
+equipo.addEventListener('change', function () {
+    if (equipo.value === 'Nuevo') {
+        añadirInputNombreEquipo();
+    } else {
+        let cajaNombreEquipo = document.getElementById('cajaNombreEquipo');
+        let cajaImagenEquipo = document.getElementById('cajaImagenEquipo'); 
+        if (cajaNombreEquipo) {
+            cajaNombreEquipo.remove();
+            cajaImagenEquipo.remove();
+        }
+    }
+});
+
+
 let boton = document.getElementById('boton');
-boton.addEventListener('click', validarDatos);
+boton.addEventListener('click', function (event) {
+    validarDatos();
+    let cajaNombreEquipo = document.getElementById('cajaNombreEquipo');
+    if (cajaNombreEquipo) {
+        validarNombreEquipo();
+        validarImagenEquipo();
+    }
 
-boton.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita el envío del formulario por defecto
-
-    if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas === true) {
+    if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
         document.getElementById("formDatos").submit(); // Envía el formulario
         document.getElementById("formEstadisticas").submit(); // Envía el formulario
     }
+
+});
+
+equipo.addEventListener('change', function () {
+    console.log("dgsgsdgsdg" +equipo.value);
 });
