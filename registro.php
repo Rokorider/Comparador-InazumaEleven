@@ -16,7 +16,7 @@ if (!$connection) {
 }
 
 // Verificar si se han enviado usuario, correo y contraseña en el post
-if (!isset($_POST['usuario']) || !isset($_POST['correo']) || !isset($_POST['contrasena'])) {
+if (!isset($_POST['usuario']) || !isset($_POST['email']) || !isset($_POST['contrasena'])) {
     die("Por favor, ingrese un usuario, correo y contraseña");
 }
 
