@@ -32,7 +32,7 @@ body {
     width: 100%;
 }
 .cajaInicio {
-    height: 60%;
+    height: 55%;
     width: 30%;
     background-color: #006265;
     border-radius: 15px;
@@ -58,33 +58,35 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
 }
 .formContenedor h2{
-    font-size: 1.9em;
+    font-size: 1.5em;
 }
 .usuario,
+.correo,
 .contrasena {
     width: 80%;
-    height: 37%;
+    height: 25%;
     color: white;
     margin-top: 5%;
 }
 
 .usuario input,
+.correo input, 
 .contrasena input {
     width: 100%;
     max-height: 50%;
     height: 50%;
     font-size: 1.7rem;
     border-radius: 10px;
-    margin-top: 15px;
+    margin-top: 8px;
     padding: 0 20px 0 20px;
 }
 .iniciarSesion{
     width: 100%;
-    height: 20%;
+    height: 10%;
     display: flex;
+    margin-top: 40px;
     justify-content: center;
     align-items: center;
 }
@@ -92,7 +94,7 @@ form {
     background-color: #e2550b;
     text-align: center;
     width: 80%;
-    padding: 3% 20px 3% 20px;
+    padding: 1% 20px 3% 20px;
     margin: auto;
     cursor: pointer;
     position: absolute;
@@ -107,20 +109,6 @@ form {
 .boton:hover {
     background-color: #ff6c40;
 }
-
-.registro {
-    height: 15%;
-    font-size: 1.2rem;
-    margin: auto;
-}
-
-.registroEnlace{
-    color: #f59701;
-    cursor: pointer;
-    text-decoration: none;
-
-}
-
 .contrasena,input {
     border: none;
 }
@@ -146,7 +134,7 @@ form {
     }
     .formContenedor {
         width: 80%;
-        height: 60%;
+        height: 80%;
         margin-top: 2%;
         padding-top: 0;
         position: absolute;
@@ -156,6 +144,7 @@ form {
         font-size: 1.3rem;
     }
     .usuario,
+    .correo,
     .contrasena {
         width: 100%;
         height: 40%;
@@ -163,6 +152,7 @@ form {
     }
 
     .usuario input,
+    .correo input,
     .contrasena input {
         width: 100%;
         height: 60%;

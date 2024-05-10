@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/registro.css">
-    <script src="scripts/inicio.js"></script>
-    <title>Inicio de Sesión</title>
+    <script src="scripts/registro.js" defer></script>
+    <title>Registro de Usuario</title>
 </head>
 <body>
     <div class="caja">
@@ -17,12 +17,16 @@
 
         <div class="cajaInicio">
 
-            <form action="login.php" method="post" id="formularioRegistro">
+            <form action="registro.php" method="post" id="formularioRegistro">
 
                 <div class="formContenedor">
                     <div class="usuario">
                         <h2>Nombre de Usuario</h2>
                         <input type="text" name="usuario" id="usuario">
+                    </div>
+                    <div class="correo">
+                        <h2>Correo electrónico</h2>
+                        <input type="text" name="correo" id="correo">
                     </div>
 
                     <div class="contrasena">
