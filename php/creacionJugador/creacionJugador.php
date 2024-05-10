@@ -151,15 +151,25 @@ if (isset($_SESSION['usuario'])) {
         echo "Error al crear la tabla de jugadores: " . $conn->error;
     }
 
-    // Insertar datos del jugador
-    $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
+// Insertar datos del jugador
+$sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
 
-    if (!$conn->query($sqlInsertarJugador)) {
-        echo "Error al insertar datos del jugador: " . $conn->error;
+// Ejecutar la consulta para insertar el jugador
+if (!$conn->query($sqlInsertarJugador)) {
+    echo "Error al insertar datos del jugador: " . $conn->error;
+} else {
+    // Consulta para aumentar el número de jugadores del equipo
+    $sqlAumentarJugadores = "UPDATE equipos SET numeroJugadores = numeroJugadores + 1 WHERE id = '$idEquipo'";
+    
+    // Ejecutar la consulta para aumentar el número de jugadores del equipo
+    if (!$conn->query($sqlAumentarJugadores)) {
+        echo "Error al aumentar el número de jugadores del equipo: " . $conn->error;
     } else {
         header("Location: ../../crearJugador.html");
         exit(); // Salir del script después de redireccionar
     }
+}
+
 } else {
     echo "No se ha iniciado sesión.";
 }
