@@ -318,6 +318,14 @@
     text-align: center;
 }
 
+.cajaPePt{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media screen and (max-width: 720px) {
 
@@ -447,6 +455,14 @@
 
     .estadisticas {
         margin-top: 20px;
+    }
+
+    .subirImagen{
+        width: 80%;
+    }
+
+    .cajaImagenEquipo{
+        width: 100%;
     }
 
 }

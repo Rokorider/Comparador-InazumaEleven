@@ -24,8 +24,8 @@ if (isset($_SESSION['usuario'])) {
     $foto = $_FILES['foto'];
 
     // Obtener las estadísticas del jugador
-    $pe = 120;
-    $pt = 120;
+    $pe = $_POST['pe'];
+    $pt = $_POST['pt'];
     $tiro = $_POST['tiro'];
     $fisico = $_POST['fisico'];
     $control = $_POST['control'];

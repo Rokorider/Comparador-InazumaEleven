@@ -22,10 +22,14 @@ let errorPosicion = document.getElementById('errorPosicion');
 let errorEstadisticas = document.getElementById('errorEstadisticas');
 let campoErrorEstadisticas = document.getElementById('campoErrorEstadisticas');
 
+let errorEstadisticasPePt = document.getElementById('errorEstadisticasPePt');
+let campoErrorEstadisticasPePt = document.getElementById('campoErrorEstadisticasPePt');
+
 let imagen = document.getElementById('imagen');
 let errorImagen = document.getElementById('errorImagen');
 
 let puntosRestantes = document.getElementById('puntosRestantes');
+let puntosRestantesPePt = document.getElementById('puntosRestantesPePt');
 let main = document.getElementById('main');
 
 let NombreCorrecto = true;
@@ -39,6 +43,57 @@ let EstadisticasCorrectas = true;
 let EquipoCorrecto = true;
 let ImagenEquipoCorrecta = true;
 
+let equipos = [];
+
+function obtenerDatosDelUsuario() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
+    return fetch('php/conexionBDEquipos.php')
+        // Procesar la respuesta como JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // Manejar los datos obtenidos
+        .then(function (data) {
+            // Devolver los datos de los jugadores
+            console.log(data); // Comprobación de datos recibidos
+            return data; // Retornar los datos para poder usarlos en la siguiente función
+        })
+        // Manejar errores en caso de que la solicitud falle
+        .catch(function (error) {
+            console.error('Error al obtener los datos de jugadores:', error);
+            throw error; // Lanzar el error para que pueda ser capturado por la siguiente función
+        });
+}
+
+function completarSelectEquipos() {
+    // Llamar a obtenerDatosDelUsuario para obtener los datos de los equipos
+    obtenerDatosDelUsuario()
+        .then(function (equipos) {
+            // Verificar si hay datos antes de completar el select
+            if (equipos && equipos.length > 0) {
+                // Obtener el elemento select
+                let selectEquipos = document.getElementById("equipo");
+
+                // Crear y agregar una opción para cada equipo al final del select
+                equipos.forEach(function (equipo) {
+                    var option = document.createElement("option");
+                    option.value = equipo.nombre;
+                    option.text = equipo.nombre;
+                    selectEquipos.appendChild(option);
+                });
+            } else {
+                console.log("No se encontraron equipos.");
+            }
+        })
+        .catch(function (error) {
+            console.error('Error al completar el select de equipos:', error);
+        });
+}
+
+// Llamar a la función para completar el select
+completarSelectEquipos();
+
+
 function validarDatos() {
     validarEquipo();
     validarNombre();
@@ -49,6 +104,7 @@ function validarDatos() {
     validarImagen();
     validarPosicion();
     validarEstadisticas();
+    validarEstadisticasPePt();
 }
 
 function validarEquipo() {
@@ -171,6 +227,21 @@ function validarEstadisticas() {
     }
 }
 
+function validarEstadisticasPePt() {
+    if (puntosRestantesPePt.textContent > 0) {
+        errorEstadisticasPePt.textContent = 'Debes de asignar todos los puntos disponibles';
+        aplicarEstiloError(campoErrorEstadisticasPePt);
+        EstadisticasCorrectas = false;
+    } else if (puntosRestantesPePt.textContent < 0) {
+        errorEstadisticasPePt.textContent = 'Has excedido el límite de puntos disponibles';
+        aplicarEstiloError(campoErrorEstadisticasPePt);
+        EstadisticasCorrectas = false;
+    } else {
+        errorEstadisticasPePt.textContent = '';
+        EstadisticasCorrectas = true;
+    }
+}
+
 function aplicarEstiloError(elemento) {
     elemento.style.border = '3px solid #b15d654d';
     elemento.style.backgroundColor = '#f99c9c';
@@ -205,32 +276,50 @@ function añadirInputNombreEquipo() {
     limpiarEstiloError(errorEquipo);
 }
 
+
 function validarNombreEquipo() {
-    let nombreEquipo = document.getElementById('nombreEquipo');
+    let nombreEquipo = document.getElementById('nombreEquipo').value; // Obtener el valor del campo de entrada
     let errorNombreEquipo = document.getElementById('errorNombreEquipo');
 
     let cajaNombreEquipo = document.querySelector('.cajaNombreEquipo');
 
+    // Si existe la caja de nombre de equipo, omitir la validación
     if (cajaNombreEquipo) {
-        // Si existe la caja de nombre de equipo, omitir la validación
         errorNombreEquipo.textContent = '';
         limpiarEstiloError(errorNombreEquipo);
         EquipoCorrecto = true;
     } else {
-        // Si no existe, realizar la validación como de costumbre
-        if (nombreEquipo.value === '') {
+        // Verificar si el nombre del equipo ya existe en la lista de equipos
+        if (nombreEquipo === '') {
             errorNombreEquipo.textContent = 'El nombre es obligatorio';
             aplicarEstiloError(errorNombreEquipo);
             main.scrollIntoView({ behavior: "smooth" });
             EquipoCorrecto = false;
         } else {
-            errorNombreEquipo.textContent = '';
-            limpiarEstiloError(errorNombreEquipo);
-            EquipoCorrecto = true;
+            let selectEquipos = document.getElementById("equipo");
+            let opciones = selectEquipos.options;
+            let existeEnSelect = false;
+
+            for (let i = 0; i < opciones.length; i++) {
+                // Verificar si el valor es igual a algún valor del select excepto "Nuevo"
+                if (opciones[i].value === nombreEquipo && nombreEquipo !== "Nuevo") {
+                    existeEnSelect = true;
+                }
+            }
+
+            if (existeEnSelect) {
+                errorNombreEquipo.textContent = 'Equipo ya existente';
+                aplicarEstiloError(errorNombreEquipo);
+                main.scrollIntoView({ behavior: "smooth" });
+                EquipoCorrecto = false;
+            } else {
+                errorNombreEquipo.textContent = '';
+                limpiarEstiloError(errorNombreEquipo);
+                EquipoCorrecto = true;
+            }
         }
     }
 }
-
 
 function validarImagenEquipo() {
     let imagenEquipo = document.getElementById('imagenEquipo');
@@ -247,13 +336,12 @@ function validarImagenEquipo() {
     }
 }
 
-
 equipo.addEventListener('change', function () {
     if (equipo.value === 'Nuevo') {
         añadirInputNombreEquipo();
     } else {
         let cajaNombreEquipo = document.getElementById('cajaNombreEquipo');
-        let cajaImagenEquipo = document.getElementById('cajaImagenEquipo'); 
+        let cajaImagenEquipo = document.getElementById('cajaImagenEquipo');
         if (cajaNombreEquipo) {
             cajaNombreEquipo.remove();
             cajaImagenEquipo.remove();
@@ -276,8 +364,4 @@ boton.addEventListener('click', function (event) {
         document.getElementById("formEstadisticas").submit(); // Envía el formulario
     }
 
-});
-
-equipo.addEventListener('change', function () {
-    console.log("dgsgsdgsdg" +equipo.value);
 });
