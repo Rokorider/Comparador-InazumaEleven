@@ -17,7 +17,7 @@ if (isset($_SESSION['usuario'])) {
     if ($equipo == "Nuevo") {
         $equipo = $_POST['nombreEquipo'];
     }
-    
+
     $fotoEquipo = $_FILES['fotoEquipo'];
 
     // Obtener los datos del jugador
@@ -121,7 +121,7 @@ if (isset($_SESSION['usuario'])) {
     Aguante INT NOT NULL,
     Valor INT NOT NULL,
     FOREIGN KEY (Equipo_id) REFERENCES equipos(id)
-)";
+    )";
     $conn->query($sqlCrearTablaJugadores);
 
     // Insertar datos del jugador

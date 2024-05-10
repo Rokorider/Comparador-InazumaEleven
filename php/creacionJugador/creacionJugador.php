@@ -1,6 +1,4 @@
 <?php
-
-// Creacion de jugador
 require "Jugador.php";
 require "cargarFoto.php";
 require "cargarFotoEquipo.php";
@@ -9,7 +7,7 @@ session_start();
 
 if (isset($_SESSION['usuario'])) {
 
-    // Obtener los datos del  equipo
+    // Obtener los datos del equipo
     $equipo = $_POST['equipo'];
     if ($equipo == "Nuevo") {
         $equipo = $_POST['nombreEquipo'];
@@ -26,6 +24,8 @@ if (isset($_SESSION['usuario'])) {
     $foto = $_FILES['foto'];
 
     // Obtener las estadísticas del jugador
+    $pe = 120;
+    $pt = 120;
     $tiro = $_POST['tiro'];
     $fisico = $_POST['fisico'];
     $control = $_POST['control'];
@@ -54,9 +54,6 @@ if (isset($_SESSION['usuario'])) {
         die("Error de conexión: " . $conn->connect_error);
     }
 
-    $pe = 120;
-    $pt = 120;
-
     $usuario = $_SESSION['usuario'];
 
     $sql2 = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
@@ -79,16 +76,65 @@ if (isset($_SESSION['usuario'])) {
         echo "Error en la consulta: " . $conn->error;
     }
 
+    // Crear tabla para el equipo si no existe
+    $sqlCrearTablaEquipo = "CREATE TABLE IF NOT EXISTS equipos (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(50) NOT NULL,
+        foto VARCHAR(255) NOT NULL,
+        usuario_id INT,
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    )";
 
-    // Insertar datos en la base de datos
-    $sql = "INSERT INTO jugadorespersonales (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor, usuario_id) 
-        VALUES ('{$apodo}', '{$nombre}', '{$descripcion}', '{$imagen}', '{$posicion}', '{$elemento}', '{$genero}', '{$equipo}', '{$pe}', '{$pt}', '{$tiro}', '{$fisico}', '{$control}', '{$defensa}', '{$rapidez}', '{$aguante}', '{$valor}', '{$idUsuario}')";
+    if (!$conn->query($sqlCrearTablaEquipo)) {
+        echo "Error al crear la tabla de equipos: " . $conn->error;
+    }
 
-    if ($conn->query($sql) === TRUE) {
-        header("Location: ../../crearJugador.html");
-        echo $equipo;
+    // Insertar datos del equipo si no existe
+    $sqlInsertarEquipo = "INSERT INTO equipos (nombre, foto, usuario_id) VALUES ('$equipo', '$fotoEquipo', '$idUsuario')";
+
+    if (!$conn->query($sqlInsertarEquipo)) {
+        echo "Error al insertar datos del equipo: " . $conn->error;
+    }
+
+    // Obtener el ID del equipo
+    $idEquipo = $conn->insert_id;
+
+    // Crear tabla para los jugadores si no existe
+    $sqlCrearTablaJugadores = "CREATE TABLE IF NOT EXISTS jugadoresDeEquipo (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        Apodo VARCHAR(50) NOT NULL,
+        Nombre_Real VARCHAR(50) NOT NULL,
+        Descripcion VARCHAR(255) NOT NULL,
+        Imagenes VARCHAR(255) NOT NULL,
+        Posicion VARCHAR(50) NOT NULL,
+        Elemento VARCHAR(50) NOT NULL,
+        Genero VARCHAR(50) NOT NULL,
+        Equipo_id INT,
+        PE INT NOT NULL,
+        PT INT NOT NULL,
+        Tiro INT NOT NULL,
+        Fisico INT NOT NULL,
+        Control INT NOT NULL,
+        Defensa INT NOT NULL,
+        Rapidez INT NOT NULL,
+        Aguante INT NOT NULL,
+        Valor INT NOT NULL,
+        FOREIGN KEY (Equipo_id) REFERENCES equipos(id)
+    )";
+    
+
+    if (!$conn->query($sqlCrearTablaJugadores)) {
+        echo "Error al crear la tabla de jugadores: " . $conn->error;
+    }
+
+    // Insertar datos del jugador
+    $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
+
+    if (!$conn->query($sqlInsertarJugador)) {
+        echo "Error al insertar datos del jugador: " . $conn->error;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        header("Location: ../../crearJugador.html");
+        exit(); // Salir del script después de redireccionar
     }
 } else {
     echo "No se ha iniciado sesión.";
