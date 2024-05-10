@@ -16,6 +16,7 @@
     <script src="scripts/portadaParallax.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="scripts/grafica.js" defer></script>
+    <script src="scripts/flechasComparacion.js" defer></script>
     <title>Comparador Inazuma ELeven</title>
 </head>
 
@@ -159,7 +160,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                     <div class="statsPersonaje">
                         <div class="tiro stat">
                             <p>Tiro</p>
-                            <p class="tiro_1">Nan</p>
+                            <p class="tiro_1" id="tiro_1">Nan</p>
                         </div>
                         <div class="fisico stat">
                             <p>Físico</p>
@@ -190,7 +191,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 <div class="flechasComparacion">
                     <div class="flechasCont">
                         <div class="flechaComp">
-                            <img src="img/flechas1.png" alt="" />
+                            <img src="img/flechas1.png" alt="" / id="flechaTiro">
                         </div>
                         <div class="flechaComp">
                             <img src="img/flechas2.png" alt="" />

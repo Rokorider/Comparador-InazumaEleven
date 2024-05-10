@@ -8,8 +8,6 @@ const etiquetas = [
     "Valor",
 ];
 const grafica = document.getElementById("grafica");
-const seccionGrafica = document.getElementById("seccionGrafica");
-
 
 
 let jugadores;
@@ -104,7 +102,6 @@ const options = {
 function contenidoGrafica() {
     // Verificar si ambos personajes están seleccionados
     if (personajeElegidos[0] && personajeElegidos[1]) {
-        seccionGrafica.style.display="block";
         const datos = {
             labels: etiquetas,
             datasets: [personajeElegidos[0], personajeElegidos[1]],

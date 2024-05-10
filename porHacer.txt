@@ -4,9 +4,11 @@
 3. Responsive de jugadores3
 4. Revisar fotos de jugadores y escudos que no funcionan o no coinciden
 5. Pagian para el registro
-6. Header y footer
+6. Header y footer ✅
 7. Codigo php para el logi, registro y el propio de la sesión
+
 
 8. Hacer responsive la página comparador
 9. Hacer respoinsive header y footer
+
 10. Crear página de admin
