@@ -22,11 +22,11 @@ if (!isset($_POST['usuario']) || !isset($_POST['correo']) || !isset($_POST['cont
 
 // Obtener usuario y contraseña del post
 $usuario = $_POST['usuario'];
-$correo = $_POST['correo'];
+$correo = $_POST['email'];
 $contrasena = $_POST['contrasena'];
 
 // Consulta a la base de datos
-$query = mysqli_query( $connection,  "SELECT * FROM usuarios WHERE nombre = '$usuario' AND correo = '$correo' AND contrasena = '$contrasena'");
+$query = mysqli_query( $connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");
 
 // Comprobación
 // Si hay al menos un resultado
