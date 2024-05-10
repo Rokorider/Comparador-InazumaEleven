@@ -47,9 +47,6 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 <li>
                     <a href="crearJugador.html">Crear Jugador</a>
                 </li>
-                <li>
-                    <a href="mostrarjugadores.php">Mostrar Jugador</a>
-                </li>
             </ul>
         </nav>
         <figure class="user">
