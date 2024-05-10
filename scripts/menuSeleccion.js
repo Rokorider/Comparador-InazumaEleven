@@ -282,25 +282,88 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     contenidoGrafica();
 
 
-    const flechaTiro=document.getElementById("flechaTiro")
-    //Comparar los valores de los atributos de los dos personajes
-    if (personajeNum === 2) {
-        const tiroc1 = parseInt(document.querySelector('.tiro_1').textContent);
-        const tiroc2 = parseInt(document.querySelector('.tiro_2').textContent);
-        
-        if (!isNaN(tiroc1) && !isNaN(tiroc2)) {
-            if (tiroc1 > tiroc2) {
-                console.log("El primer personaje tiene un tiro mayor.");
-            } else if (tiroc1 < tiroc2) {
-                console.log("El segundo personaje tiene un tiro mayor.");
-                flechaTiro.style.rotate= "180deg"
-            } else {
-                console.log("Ambos personajes tienen el mismo valor de tiro.");
-            }
-        } else {
-            console.log("Alguno de los valores de tiro no es un número válido.");
-        }
+    
+    const flechaTiro = document.getElementById("flechaTiro");
+    const flechaFisico = document.getElementById("flechaFisico");
+    const flechaControl = document.getElementById("flechaControl");
+    const flechaDefensa = document.getElementById("flechaDefensa");
+    const flechaRapidez = document.getElementById("flechaRapidez");
+    const flechaAguante = document.getElementById("flechaAguante");
+    const flechaValor = document.getElementById("flechaValor");
+
+    // Comparar los valores de los atributos de los dos personajes
+
+    const tiro1 = parseInt(document.querySelector('.tiro_1').textContent);
+    const tiro2 = parseInt(document.querySelector('.tiro_2').textContent);
+    const fisico1 = parseInt(document.querySelector('.fisico_1').textContent);
+    const fisico2 = parseInt(document.querySelector('.fisico_2').textContent);
+    const control1 = parseInt(document.querySelector('.control_1').textContent);
+    const control2 = parseInt(document.querySelector('.control_2').textContent);
+    const defensa1 = parseInt(document.querySelector('.defensa_1').textContent);
+    const defensa2 = parseInt(document.querySelector('.defensa_2').textContent);
+    const rapidez1 = parseInt(document.querySelector('.rapidez_1').textContent);
+    const rapidez2 = parseInt(document.querySelector('.rapidez_2').textContent);
+    const aguante1 = parseInt(document.querySelector('.aguante_1').textContent);
+    const aguante2 = parseInt(document.querySelector('.aguante_2').textContent);
+    const valor1 = parseInt(document.querySelector('.valor_1').textContent);
+    const valor2 = parseInt(document.querySelector('.valor_2').textContent);
+
+    if (tiro1 > tiro2) {
+        flechaTiro.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (tiro1 < tiro2) {
+        flechaTiro.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaTiro.src = "img/flechasComparador/Igual1.png";
     }
+
+    if (fisico1 > fisico2) {
+        flechaFisico.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (fisico1 < fisico2) {
+        flechaFisico.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaFisico.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (control1 > control2) {
+        flechaControl.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (control1 < control2) {
+        flechaControl.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaControl.src = "img/flechasComparador/Igual1.png";
+    }
+
+    if (defensa1 > defensa2) {
+        flechaDefensa.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (defensa1 < defensa2) {
+        flechaDefensa.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaDefensa.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (rapidez1 > rapidez2) {
+        flechaRapidez.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (rapidez1 < rapidez2) {
+        flechaRapidez.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaRapidez.src = "img/flechasComparador/Igual1.png";
+    }
+
+    if (aguante1 > aguante2) {
+        flechaAguante.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (aguante1 < aguante2) {
+        flechaAguante.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaAguante.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (valor1 > valor2) {
+        flechaValor.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (valor1 < valor2) {
+        flechaValor.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaValor.src = "img/flechasComparador/Igual1.png";
+    }
+
 
 }
 

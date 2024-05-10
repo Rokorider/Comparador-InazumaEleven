@@ -191,25 +191,25 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                 <div class="flechasComparacion">
                     <div class="flechasCont">
                         <div class="flechaComp">
-                            <img src="img/flechas1.png" alt="" / id="flechaTiro">
+                            <img src="img/flechasComparador/Igual1.png" alt=""  id="flechaTiro" />
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas2.png" alt="" />
+                            <img src="img/flechasComparador/Igual2.png" alt="" id="flechaFisico"/>
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas1.png" alt="" />
+                            <img src="img/flechasComparador/Igual1.png" alt="" id="flechaControl"/>
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas2.png" alt="" />
+                            <img src="img/flechasComparador/Igual2.png" alt="" id="flechaDefensa"/>
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas1.png" alt="" />
+                            <img src="img/flechasComparador/Igual1.png" alt="" id="flechaRapidez"/>
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas2.png" alt="" />
+                            <img src="img/flechasComparador/Igual2.png" alt="" id="flechaAguante"/>
                         </div>
                         <div class="flechaComp">
-                            <img src="img/flechas1.png" alt="" />
+                            <img src="img/flechasComparador/Igual1.png" alt="" id="flechaValor"/>
                         </div>
                     </div>
                 </div>
