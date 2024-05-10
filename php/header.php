@@ -15,7 +15,7 @@
             </ul>
         </nav>
         <figure class="user">
-            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
+            <a href="administrador.php"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
         </figure>
         <figure class="cerrarSesion">
             <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>

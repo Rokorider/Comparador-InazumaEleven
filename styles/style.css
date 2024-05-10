@@ -371,7 +371,7 @@ canvas{
 
 .seccionStats2 {
     font-family: "Jersey 10", sans-serif;
-    height: 70%;
+    height: 75%;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -551,6 +551,7 @@ canvas{
     background-color: #282855;
     font-size: 1.7rem;
     padding: 0 15% 0 15%;
+    height: 10%;
 }
 
 .flechasComparacion {

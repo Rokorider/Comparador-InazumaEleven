@@ -228,9 +228,13 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (personaje === "primer") {
         personajeNum = 1;
         establecerJugadores(jugador.Apodo, personajeNum);
+        
+        
     } else if (personaje === "segundo") {
         personajeNum = 2;
         establecerJugadores(jugador.Apodo, personajeNum);
+    
+        
     }
     const personajeIconoImg = document.querySelector(
         `.personajeIcono${personajeNum}Img`
@@ -275,8 +279,64 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     valor.textContent = jugador.Valor;
 
     //Crear la gráfica cuando estén los 2 personajes seleccionadcos
-    contenidoContenedor.style
     contenidoGrafica();
+
+
+    
+        let tiroc1;
+        let fisico1;
+        let defensa1;
+        let rapidez1;
+        let aguante1;
+        let valor1;
+
+        let tiroc2;
+        let fisico2;
+        let defensa2;
+        let rapidez2;
+        let aguante2;
+        let valor2;
+    if (personaje === "primer") {
+        tiroc1 = parseInt(tiro.textContent);
+        fisico1 = parseInt(fisico.textContent);
+        defensa1 = parseInt(defensa.textContent);
+        rapidez1 = parseInt(rapidez.textContent);
+        aguante1 = parseInt(aguante.textContent);
+        valor1 = parseInt(valor.textContent);
+        console.log(tiroc1);
+        console.log(fisico1);
+        console.log(defensa1);
+        console.log(rapidez1);
+        console.log(aguante1);
+        console.log(valor1);
+        
+        } else if (personaje === "segundo") {
+        tiroc2 = parseInt(tiro.textContent);
+        fisico2 = parseInt(fisico.textContent);
+        defensa2 = parseInt(defensa.textContent);
+        rapidez2 = parseInt(rapidez.textContent);
+        aguante2 = parseInt(aguante.textContent);
+        valor2 = parseInt(valor.textContent);
+        console.log(tiroc2);
+        console.log(fisico2);
+        console.log(defensa2);
+        console.log(rapidez2);
+        console.log(aguante2);
+        console.log(valor2);
+    }
+    const flechaTiro=document.getElementById("flechaTiro");
+    
+    if(tiroc1>tiroc2){
+        
+        console.log("1>2")
+    }else{
+        console.log("1<2")
+        flechaTiro.style.rotate="180deg"
+        
+    }
+    console.log(tiroc1-tiroc2)
+    
+
 }
 
 const juegoContenedor = document.createElement("div");
