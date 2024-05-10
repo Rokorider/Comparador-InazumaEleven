@@ -89,15 +89,39 @@ if (isset($_SESSION['usuario'])) {
         echo "Error al crear la tabla de equipos: " . $conn->error;
     }
 
-    // Insertar datos del equipo si no existe
-    $sqlInsertarEquipo = "INSERT INTO equipos (nombre, foto, usuario_id) VALUES ('$equipo', '$fotoEquipo', '$idUsuario')";
+    $sqlBuscarEquipo = "SELECT id FROM equipos WHERE nombre = '$equipo'";
 
-    if (!$conn->query($sqlInsertarEquipo)) {
-        echo "Error al insertar datos del equipo: " . $conn->error;
+    $resultadoBusqueda = $conn->query($sqlBuscarEquipo);
+
+    if ($resultadoBusqueda->num_rows == 0) {
+        // Insertar datos del equipo si no existe
+        $sqlInsertarEquipo = "INSERT INTO equipos (nombre, foto, usuario_id) VALUES ('$equipo', '$fotoEquipo', '$idUsuario')";
+        if (!$conn->query($sqlInsertarEquipo)) {
+            echo "Error al insertar datos del equipo: " . $conn->error;
+        }
     }
+    
 
     // Obtener el ID del equipo
-    $idEquipo = $conn->insert_id;
+    $sqlidEquipo = "SELECT id FROM equipos WHERE nombre = '{$equipo}'";
+    $resultadoidEquipo = $conn->query($sqlidEquipo);
+
+    // Verifica si la consulta fue exitosa
+    if ($resultadoidEquipo) {
+        // Verifica si se encontraron filas
+        if ($resultadoidEquipo->num_rows > 0) {
+            // Obtiene la primera fila (asumiendo que solo debería haber una fila)
+            $fila = $resultadoidEquipo->fetch_assoc();
+            // Extrae el valor de la columna 'id'
+            $idEquipo = $fila['id'];
+        } else {
+            // No se encontraron filas con el nombre de usuario dado
+            // Manejar el caso en que el usuario no existe
+        }
+    } else {
+        // Maneja el error de consulta
+        echo "Error en la consulta: " . $conn->error;
+    }
 
     // Crear tabla para los jugadores si no existe
     $sqlCrearTablaJugadores = "CREATE TABLE IF NOT EXISTS jugadoresDeEquipo (
@@ -121,7 +145,7 @@ if (isset($_SESSION['usuario'])) {
         Valor INT NOT NULL,
         FOREIGN KEY (Equipo_id) REFERENCES equipos(id)
     )";
-    
+
 
     if (!$conn->query($sqlCrearTablaJugadores)) {
         echo "Error al crear la tabla de jugadores: " . $conn->error;
