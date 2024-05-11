@@ -1,0 +1,50 @@
+.tituloPrincipal{
+    width: 85%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #282855;
+    border-radius: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    background-color: #2f477c;
+    color: white;
+    padding: 10px;
+}
+
+.contenedorSelects{
+    border: 1px solid black;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block: 60px;
+}
+
+.cajaJuego{
+    border: 1px solid black;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajaEquipo{
+    border: 1px solid black;
+    width: 50%;
+    margin: 0;
+}
+
+
+.cajaSelect{
+    border: 1px solid black;
+    width: 100%;
+}
+
+.cajaNomApoGenPos{
+    margin-block: 40px;
+}
+

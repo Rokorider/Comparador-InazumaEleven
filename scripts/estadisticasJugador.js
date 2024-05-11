@@ -22,9 +22,10 @@ function manejarEstadisticas() {
     function actualizarInterfazUsuario(totalPuntos, puntosUtilizados) {
         puntosRestantesSpan.textContent = totalPuntos - puntosUtilizados;
 
+        // Si 
         if (totalPuntos - puntosUtilizados <= 0) {
             statsForm.querySelectorAll('input[type="range"]').forEach(el => {
-                if (statsValues[el.id] === 0) {
+                if (statsValues[el.id] === 1) {
                     el.disabled = true;
                 }
             });
@@ -67,6 +68,7 @@ function manejarEstadisticas() {
 
 manejarEstadisticas(); // Llama a la función para iniciar el primer conjunto de funciones
 
+
 // Segundo conjunto de funciones
 function manejarPePt() {
     const cajaPePt = document.getElementById('cajaPePt');
@@ -75,7 +77,6 @@ function manejarPePt() {
         pe: 1,
         pt: 1
     };
-
 
     // Función para calcular los puntos utilizados
     function calcularPuntosUtilizados() {
@@ -86,17 +87,11 @@ function manejarPePt() {
     function actualizarInterfazUsuario(totalPuntos, puntosUtilizados) {
         puntosRestantesPePt.textContent = totalPuntos - puntosUtilizados;
 
-        if (totalPuntos - puntosUtilizados <= 0) {
-            cajaPePt.querySelectorAll('input[type="range"]').forEach(el => {
-                if (statsValues2[el.id] === 0) {
-                    el.disabled = true;
-                }
-            });
-        } else {
-            cajaPePt.querySelectorAll('input[type="range"]').forEach(el => {
-                el.disabled = false;
-            });
-        }
+        cajaPePt.querySelectorAll('input[type="range"]').forEach(el => {
+            if (statsValues2[el.name] === 1) {
+                el.disabled = puntosUtilizados >= totalPuntos;
+            }
+        });
 
         // Proporciona feedback visual
         if (totalPuntos - puntosUtilizados < 0) {

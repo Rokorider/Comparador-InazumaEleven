@@ -1,5 +1,7 @@
 <?php
 
+require "cargarFotoEquipo.php";
+
 class Equipo{
     private $nombre;
     private $fotoEquipo;
@@ -28,6 +30,6 @@ class Equipo{
 
     public function setFoto($foto, $carpeta)
     {
-        $this->fotoEquipo = cargarFotoEquipo($foto, $carpeta); // Llamamos a la función cargarFoto
+        // Llamamos a la función cargarFoto
     }
 }
