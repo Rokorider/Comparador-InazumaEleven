@@ -398,8 +398,8 @@ function calcularPorcentajes(){
     if (!isNaN(pe_1) && !isNaN(pe_2)) {
         const PE1 = (pe_1 * 100) / (pe_1 + pe_2);
         const PE2 = (pe_2 * 100) / (pe_1 + pe_2);
-        console.log("Porcentaje PE del primer personaje:", PE1);
-        console.log("Porcentaje PE del segundo personaje:", PE2);
+        console.log("Porcentaje PE de "+document.getElementById("personajeColor1").innerText+" : " + PE1);
+        console.log("Porcentaje PE de "+document.getElementById("personajeColor2").innerText+" : " + PE2);
         pe_1_barra.style.width = PE1 + "%";
         pe_2_barra.style.width = PE2 + "%";
     }
@@ -407,8 +407,8 @@ function calcularPorcentajes(){
     if (!isNaN(pt_1) && !isNaN(pt_2)) {
         const PT1 = (pt_1 * 100) / (pt_1 + pt_2);
         const PT2 = (pt_2 * 100) / (pt_1 + pt_2);
-        console.log("Porcentaje PT del primer personaje:", PT1);
-        console.log("Porcentaje PT del segundo personaje:", PT2);
+        console.log("Porcentaje PT de "+document.getElementById("personajeColor1").innerText+" : "+ PT1);
+        console.log("Porcentaje PT de "+document.getElementById("personajeColor2").innerText+" : "+ PT2);
         pt_1_barra.style.width = PT1 + "%";
         pt_2_barra.style.width = PT2 + "%";
     }
