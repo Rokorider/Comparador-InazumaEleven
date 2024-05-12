@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="styles/actualizarJugador.css">
     <!-- Scripts -->
     <script src="scripts/actualizarJugador.js" defer></script>
-    <title>Document</title>
+    <script src="../scripts/estadisticasJugador.js" defer></script>
+    <title>Actualizar Jugador</title>
 </head>
 
 <body>
@@ -36,12 +37,474 @@
         </figure>
     </header>
 
-    <div class="main"> 
+    <section class="main">
         <!--
             <input type="file" id="inputImagen">
             <img id="imagenPrevia" src="#" alt="Vista previa de la imagen" style="display:none;">
         -->
-    </div>
+        <div class="cajaTitulo">
+            <h1>Actualizar Jugador</h1>
+        </div>
+
+        <div class="contenedorSelects">
+            <div class="selector2">
+                <p>Juego</p>
+                <select name="juego" id="juego" class="select">
+                    <option value="0">Selecciona un juego</option>
+                </select>
+            </div>
+            <div class="selector2">
+                <p>Equipo</p>
+                <select name="equipo" id="equipo" class="select">
+                    <option value="0">Selecciona un equipo</option>
+                </select>
+            </div>
+            <div class="selector2">
+                <p>Jugador</p>
+                <select name="jugador" id="jugador" class="select">
+                    <option value="0">Selecciona un jugador</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="contenedorJugador">
+
+            <div class="jugador">
+                <div class="infoJugador">
+                    <div class="imgJugador">
+                        <img src="../img/Escudos/Brain.png" alt="${jugador.Nombre_Real}">
+                    </div>
+                    <div class="datosJugador">
+                        <div class="datos1">
+                            <div class="nombre">
+                                <p>Rubén Mansilla</p>
+                            </div>
+                            <div class="nivel">
+                                <p>Niv. 99</p>
+                            </div>
+                            <div class="posicion">
+                                <div class="posicionTexto">
+                                    <p>DF</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="datos1">
+                            <div class="nombre">
+                                <p>Ruben</p>
+                            </div>
+                            <div class="genero">
+                                <img src="../img/generos/Masculino.png" alt="${jugador.Género}">
+                            </div>
+                            <div class="elemento">
+                                <img src="../img/Elementos/Aire.png" alt="">
+                            </div>
+                        </div>
+                        <div class="datos2">
+                            <div class="pe">
+                                <div class="texto">
+                                    <p>PE</p>
+                                </div>
+                                <div class="valor">
+                                    <p>65/65</p>
+                                </div>
+                            </div>
+                            <div class="pt">
+                                <div class="texto">
+                                    <p>PT</p>
+                                </div>
+                                <div class="valor">
+                                    <p>65/65</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="estadisticasJugador">
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Tiro</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Físico</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Control</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Defensa</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Rapidez</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Aguante</p>
+                            </div>
+                            <div class="unidad">
+                                <p>65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Estadística única del jugador -->
+                    <div class="estadistica">
+                        <div class="tipoUnico">
+                            <div class="tipoUnidadUnica">
+                                <p>Valor</p>
+                            </div>
+                            <div class="unidadUnica">
+                                <p>65</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="juego">
+                    <p class="descripcion">Inazuma Japón</p>
+                </div>
+            </div>
+
+            <div class="cajaFlecha">
+                <img src="../img/flechaAzulnotext.png" alt="Flecha">
+            </div>
+
+            <div class="jugador">
+                <div class="infoJugador">
+                    <div class="imgJugador">
+                        <img src="../img/Escudos/Brain.png" id="imagenActualizada" alt="${jugador.Nombre_Real}">
+                    </div>
+                    <div class="datosJugador">
+                        <div class="datos1">
+                            <div class="nombre" id="nombreActualizado">
+                                <p>Rubén Mansilla</p>
+                            </div>
+                            <div class="nivel">
+                                <p>Niv. 99</p>
+                            </div>
+                            <div class="posicion">
+                                <div class="posicionTexto">
+                                    <p id="posicionActualizado">DF</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="datos1">
+                            <div class="nombre" id="apodoActualizado">
+                                <p>Ruben</p>
+                            </div>
+                            <div class="genero">
+                                <img id="generoActualizado" src="../img/generos/Masculino.png" alt="">
+                            </div>
+                            <div class="elemento">
+                                <img id="elementoActualizado" src="../img/Elementos/Aire.png" alt="">
+                            </div>
+                        </div>
+                        <div class="datos2">
+                            <div class="pe">
+                                <div class="texto">
+                                    <p>PE</p>
+                                </div>
+                                <div class="valor">
+                                    <p id="peActualizado">65/65</p>
+                                </div>
+                            </div>
+                            <div class="pt">
+                                <div class="texto">
+                                    <p>PT</p>
+                                </div>
+                                <div class="valor">
+                                    <p id="ptActualizado">65/65</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="estadisticasJugador">
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Tiro</p>
+                            </div>
+                            <div class="unidad" >
+                                <p id="tiroActualizado">65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Físico</p>
+                            </div>
+                            <div class="unidad">
+                                <p id="fisicoActualizado">65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Control</p>
+                            </div>
+                            <div class="unidad">
+                                <p id="controlActualizado">65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Defensa</p>
+                            </div>
+                            <div class="unidad">
+                                <p id="defensaActualizado">65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estadistica">
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Rapidez</p>
+                            </div>
+                            <div class="unidad">
+                                <p  id="rapidezActualizado">65</p>
+                            </div>
+                        </div>
+                        <div class="tipo">
+                            <div class="tipoUnidad">
+                                <p>Aguante</p>
+                            </div>
+                            <div class="unidad">
+                                <p id="aguanteActualizado">65</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="estadistica">
+                        <div class="tipoUnico">
+                            <div class="tipoUnidadUnica">
+                                <p>Valor</p>
+                            </div>
+                            <div class="unidadUnica">
+                                <p id="valorActualizado">65</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="juego">
+                    <p class="descripcion" id="descripcionActualizado">Inazuma Japón</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contenedorFormulario">
+
+            <form class="formulario" id="formDatos" action="" method="post"
+                enctype="multipart/form-data">
+    
+                <div class="contenedorTitulo">
+                    <div class="titulo">
+                        <h1>Datos del Jugador</h1>
+                    </div>
+                </div>
+    
+                <div class="cajaNomApoGenPos">
+                    <div class="datos">
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Nombre</p>
+                            <input type="text" id="nombre" name="nombre" class="selector" placeholder="Nombre">
+                            <p class="tipoError" id="errorNombre"></p>
+                        </div>
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Apodo</p>
+                            <input type="text" id="apodo" name="apodo" class="selector" placeholder="Apodo">
+                            <p class="tipoError" id="errorApodo"></p>
+                        </div>
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Descripción</p>
+                            <input type="text" id="descripcion" name="descripcion" class="selector"
+                                placeholder="Descripción">
+                            <p class="tipoError" id="errorDescripcion"></p>
+                        </div>
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Elemento</p>
+                            <select id="elemento" name="elemento" class="selector">
+                                <option value="">No Especificado</option>
+                                <option value="Fuego">Fuego</option>
+                                <option value="Bosque">Bosque</option>
+                                <option value="Aire">Aire</option>
+                                <option value="Montaña">Montaña</option>
+                            </select>
+                            <p class="tipoError" id="errorElemento"></p>
+                        </div>
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Género</p>
+                            <select id="genero" name="genero" class="selector">
+                                <option value="">No Especificado</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <p class="tipoError" id="errorGenero"></p>
+                        </div>
+                        <div class="cajaPregunta">
+                            <p class="tipo2">Posición</p>
+                            <select id="posicion" name="posicion" class="selector">
+                                <option value="">No Especificado</option>
+                                <option value="PR">Portero</option>
+                                <option value="DF">Defensa</option>
+                                <option value="MD">Mediocampista</option>
+                                <option value="DL">Delantero</option>
+                            </select>
+                            <p class="tipoError" id="errorPosicion"></p>
+                        </div>
+    
+                        <div class="cajaImagen">
+                            <p class="tipoImagen">Imagen del Jugador</p>
+                            <div class="subirImagen">
+                                <div class="cajaInput">
+                                    <input type="file" id="imagen" name="foto" class="imagen">
+                                </div>
+                                <div class="consejo">
+                                    <p>*Se recomienda no subir imágenes personales*</p>
+                                </div>
+                                <p class="tipoErrorImagen" id="errorImagen"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cajaEstadisticas">
+                    <div class="titulo">
+                        <h1>Estadísticas del jugador</h1>
+                    </div>
+                    <div id="statsForm" class="estadisticas">
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Tiro:</p>
+                                <input class="inputRango" type="range" id="tiro" name="tiro" min="1" max="100" value="0">
+                                <p class="valor2" id="tiroValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Físico:</p>
+                                <input class="inputRango" type="range" id="fisico" name="fisico" min="1" max="100"
+                                    value="0">
+                                <p class="valor2" id="fisicoValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Control:</p>
+                                <input class="inputRango" type="range" id="control" name="control" min="1" max="100"
+                                    value="0">
+                                <p class="valor2" id="controlValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Defensa:</p>
+                                <input class="inputRango" type="range" id="defensa" name="defensa" min="1" max="100"
+                                    value="0">
+                                <p class="valor2" id="defensaValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Rapidez:</p>
+                                <input class="inputRango" type="range" id="rapidez" name="rapidez" min="1" max="100"
+                                    value="0">
+                                <p class="valor2" id="rapidezValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Aguante:</p>
+                                <input class="inputRango" type="range" id="aguante" name="aguante" min="1" max="100"
+                                    value="0">
+                                <p class="valor2" id="aguanteValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Valor:</p>
+                                <input class="inputRango" type="range" id="valor" name="valor" min="1" max="100" value="1">
+                                <p class="valor2" id="valorValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="textoPuntos">Puntos restantes:</p>
+                                <p class="valorPuntos" id="puntosRestantes">433</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="errorEstadisticas">
+                        <div class="campoErrorEstadisticas" id="campoErrorEstadisticas">
+                            <p id="errorEstadisticas"></p>
+                        </div>
+                    </div>
+                    <div class="cajaPePt" id="cajaPePt">
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">Pe:</p>
+                                <input class="inputRango" type="range" id="pe" name="pe" min="1" max="100" value="1">
+                                <p class="valor2" id="peValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="tipoEstadistica">PT:</p>
+                                <input class="inputRango" type="range" id="pt" name="pt" min="1" max="100" value="1">
+                                <p class="valor2" id="ptValue">1</p>
+                            </div>
+                        </div>
+                        <div class="estadistica2">
+                            <div class="campoEstadisticas">
+                                <p class="textoPuntos">Puntos restantes:</p>
+                                <p class="valorPuntos" id="puntosRestantesPePt">248</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    
+            <div class="errorEstadisticas">
+                <div class="campoErrorEstadisticas" id="campoErrorEstadisticasPePt">
+                    <p id="errorEstadisticasPePt"></p>
+                </div>
+            </div>
+    
+            <div class="cajaBoton">
+                <div class="boton" id="boton">
+                    <p class="envio">Actualizar Jugador</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
 
