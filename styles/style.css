@@ -320,7 +320,7 @@ body {
 
 /*---Zona de datos---*/
 .contenidoContenedor {
-    height: 180vh;
+    height: 190vh;
     width: 100%;
     border-top: 1px solid #0f4cac;
     position: relative;
@@ -353,23 +353,12 @@ body {
 .seccionStats{
     font-family: "Teko", sans-serif;
     width: 100%;
-    height: 50%;
+    height: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
-}
-.seccionGrafica {
-    height: 30%;
-    aspect-ratio: 1 / 1;
-    border-radius: 10px;
-    background-color: white;
-    margin: auto;
-    border: 10px solid #284880;
-}
-canvas{
-    margin: 5%;
 }
 
 .seccionStats2 {
@@ -581,7 +570,86 @@ canvas{
     margin-top: 3.6%;
 }
 
+.seccionGrafica{
+    height: 27%;
+    width: 100%;
+    display: flex;
+}
+.seccionGraficaRadar {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+    border: 10px solid #284880;
+}
+canvas{
+    margin: 5%;
+}
 
+.seccionGraficaBarras{
+    height: 75%;
+    width: 40%;
+    background-color: #0f4cac;
+    margin: auto;
+}
+.personajesColores{
+    height: 40%;
+    width: 100%;
+    background-color: #262624;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    
+}
+.personajeColor1,.personajeColor2{
+    height: 70%;
+    background-color: #2f91ae;
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.seccionPE,.seccionPT{
+    height: 30%;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 1.7rem;
+}
+.pe_pt_cont{
+    background-color: #2f477c;
+}
+.PE,.PT{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+.barra{
+    width: 80%;
+    height: 50px;
+    border: 2px solid black;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+.pe_pt_barra{
+    height: 100%;
+    position: absolute;
+}
+.barraIzq{
+    left: 0;
+    background-color: #262624;
+    width: 60%;
+}
+.barraDer{
+    right: 0;
+    background-color: #f9f95d;
+    width: 40%;
+}
 
 /*----Música----*/
 .btnMusica {

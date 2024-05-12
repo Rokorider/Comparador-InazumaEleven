@@ -228,13 +228,10 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (personaje === "primer") {
         personajeNum = 1;
         establecerJugadores(jugador.Apodo, personajeNum);
-        
-        
+
     } else if (personaje === "segundo") {
         personajeNum = 2;
         establecerJugadores(jugador.Apodo, personajeNum);
-    
-        
     }
     const personajeIconoImg = document.querySelector(
         `.personajeIcono${personajeNum}Img`
@@ -282,7 +279,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     contenidoGrafica();
 
 
-    
+    //Asignar dirección de las flechas de comparación
     const flechaTiro = document.getElementById("flechaTiro");
     const flechaFisico = document.getElementById("flechaFisico");
     const flechaControl = document.getElementById("flechaControl");
@@ -365,7 +362,58 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     }
 
 
+    //Asignar valores a la gráfica de barras
+    const personajeColor1 = document.getElementById("personajeColor1");
+    const personajeColor2 = document.getElementById("personajeColor2");
+    let pe_1 = document.getElementById("pe_1");
+    let pe_2 = document.getElementById("pe_2");
+    let pt_1 = document.getElementById("pt_1");
+    let pt_2 = document.getElementById("pt_2");
+
+    if (personaje === "primer") {
+        pe_1.innerText = jugador.PE;
+        pt_1.innerText = jugador.PT;
+        personajeColor1.innerText = jugador.Apodo;
+    } else if (personaje === "segundo") {
+        pe_2.innerText = jugador.PE;
+        pt_2.innerText = jugador.PT;
+        personajeColor2.innerText = jugador.Apodo;
+    }
+    /*Primero asignar valores y luego obtenerlos con DOM para que se 
+    actualize cada vez que seleccione personajes*/
+    calcularPorcentajes();
+
 }
+
+function calcularPorcentajes(){
+    const pe_1_barra = document.getElementById("pe_1_barra");
+    const pe_2_barra = document.getElementById("pe_2_barra");
+    const pt_1_barra = document.getElementById("pt_1_barra");
+    const pt_2_barra = document.getElementById("pt_2_barra");
+    const pe_1 = parseFloat(document.getElementById("pe_1").textContent);
+    const pe_2 = parseFloat(document.getElementById("pe_2").textContent);
+    const pt_1 = parseFloat(document.getElementById("pt_1").textContent);
+    const pt_2 = parseFloat(document.getElementById("pt_2").textContent);
+
+    if (!isNaN(pe_1) && !isNaN(pe_2)) {
+        const PE1 = (pe_1 * 100) / (pe_1 + pe_2);
+        const PE2 = (pe_2 * 100) / (pe_1 + pe_2);
+        console.log("Porcentaje PE del primer personaje:", PE1);
+        console.log("Porcentaje PE del segundo personaje:", PE2);
+        pe_1_barra.style.width = PE1 + "%";
+        pe_2_barra.style.width = PE2 + "%";
+    }
+
+    if (!isNaN(pt_1) && !isNaN(pt_2)) {
+        const PT1 = (pt_1 * 100) / (pt_1 + pt_2);
+        const PT2 = (pt_2 * 100) / (pt_1 + pt_2);
+        console.log("Porcentaje PT del primer personaje:", PT1);
+        console.log("Porcentaje PT del segundo personaje:", PT2);
+        pt_1_barra.style.width = PT1 + "%";
+        pt_2_barra.style.width = PT2 + "%";
+    }
+}
+
 
 const juegoContenedor = document.createElement("div");
 juegoContenedor.id = "juegoContenedor";
