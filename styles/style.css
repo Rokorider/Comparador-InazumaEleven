@@ -25,7 +25,7 @@ body {
 
 .portada {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -59,17 +59,21 @@ body {
     height: 60%;
     margin-top: 50px;
     background-size: contain;
+    background-position: left;
 
 }
 
 .portadaImg1 {
-    background-image: url('../img/flechaAzul.png');
-    width: 100%;
-    height: 100%;
-    background-size: contain;
+    background-image: url('../img/BGicons5.png');
+    width: 110%;
+    height: 120%;
+    background-size: 7%;
     background-position: bottom;
-    transform: translate(-100%, -100%);
-
+    border: 2px solid black;
+    left: -5%;
+    top: -5%;
+    background-repeat: repeat;
+    opacity: 0.5;
 }
 
 /*----Personaje vs personaje----*/
@@ -116,6 +120,11 @@ body {
     cursor: pointer;
     margin-top: 6%;
     filter: drop-shadow(5px 5px 0px black);
+    transition: all 0.1s ease;
+}
+.personajeIcono1Img:hover,
+.personajeIcono2Img:hover {
+    transform: scale(1.02);
 }
 .personajeIcono1 img,.personajeIcono2 img{
     image-rendering: pixelated;
@@ -142,7 +151,9 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%,-50%);
+    font-size: 3rem;
 }
 
 .vsContenedor {
@@ -195,7 +206,6 @@ body {
     margin: auto;
     width: 100%;
     font-size: 1.5rem;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,6 +224,10 @@ body {
     display: block;
     margin: auto;
     image-rendering: pixelated;
+    transition: all 0.1s ease;
+}
+.equipoImg:hover{
+    transform: scale(1.05);
 }
 .equipoNombre {
     padding: 0 10px 0 10px;
@@ -256,14 +270,11 @@ body {
     margin: 2% 0  2% 0;
 }
 .personajeCont{
-    width: 80px; 
+    width: 120px; 
     height: 90px;
     margin: 5px 2% 5px 2%;
 }
-.personajeCont:hover .personajeImgCont{
-    background-size: 90%;
-    
-}
+
 .personajeImgCont{
     height: 75%;
     width: 100%;
@@ -274,31 +285,44 @@ body {
 .personajeImg{
     height: 100%
 }
+.personajeCont:hover .personajeImg{
+    transition: all 0.1s ease;
+    transform: scale(1.05);
+}
 .personajeInfo{
-    background-color: #555;
+    background-color: #4c4c48;
     width: 100%;
     height:25% ;
     display: flex;
 }
 .personajeInfo_elemento{
     height: 100%;
-    width: 30%;
+    width: 35%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
-.personajeInfo_nombre{
-    width: 70%;
-    text-align: center;
+.personajeInfo_posicion{
+    background-color: #989890;
+    border: 2px solid #5f6974;
+    color: #262624;
+    width: 35%;
     font-size: 1.1rem;
-    flex: 1;
+    text-align: center;
+}
+.personajeInfo_nombre{
+    width: 100%;
+    font-size: 1.0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*---Zona de datos---*/
 .contenidoContenedor {
-    height: 1700px;
+    height: 190vh;
     width: 100%;
-    border-top: 5px solid #fde812;
+    border-top: 1px solid #0f4cac;
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url("../img/bg_movie_pc.jpg");
     background-size: cover;
@@ -329,28 +353,17 @@ body {
 .seccionStats{
     font-family: "Teko", sans-serif;
     width: 100%;
-    height: 50%;
+    height: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
 }
-.seccionGrafica {
-    height: 27%;
-    aspect-ratio: 1 / 1;
-    border-radius: 10px;
-    background-color: white;
-    margin: auto;
-    border: 10px solid #284880;
-}
-canvas{
-    margin: 5%;
-}
 
 .seccionStats2 {
     font-family: "Jersey 10", sans-serif;
-    height: 70%;
+    height: 75%;
     width: 80%;
     display: flex;
     justify-content: center;
@@ -360,7 +373,7 @@ canvas{
 .personajeStat {
     height: 100%;
     max-height: 600px;
-    width: 35%;
+    width: 30%;
     padding: 10px;
     border-radius: 10px;
     color: white;
@@ -394,16 +407,15 @@ canvas{
 }
 
 .imgSexoCont {
-    width: 15%;
-    height: 100%;
-    background-color: #2f477c;
+    width: 18%;
+    height: 100%;;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .imgSexoCont img {
-    width: 80%;
+    height: 75%;
 }
 
 .descripcion-tipo {
@@ -531,6 +543,7 @@ canvas{
     background-color: #282855;
     font-size: 1.7rem;
     padding: 0 15% 0 15%;
+    height: 10%;
 }
 
 .flechasComparacion {
@@ -557,7 +570,91 @@ canvas{
     margin-top: 3.6%;
 }
 
+.seccionGrafica{
+    height: 28%;
+    width: 90%;
+    display: flex;
+    margin: auto;
+}
+.seccionGraficaRadar {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background-color: white;
+    margin: auto;
+    border: 10px solid #284880;
+}
+canvas{
+    margin: 5%;
+}
 
+.seccionGraficaBarras{
+    height: 75%;
+    width: 45%;
+    background-color: #2f477c;
+    margin: auto;
+    border: 10px solid #78aaca;
+    border-radius: 10px;
+    padding: 0 10px 10px 10px;
+}
+.personajesColores{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    
+}
+.personajeColor1,.personajeColor2{
+    height: 70%;
+    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.personajeColor1{
+    background-color: #2f91ae;
+}
+.personajeColor2{
+    background-color: #282855;
+}
+.seccionPE,.seccionPT{
+    height: 30%;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.PE,.PT{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
+}
+.barra{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.pe_pt_barra{
+    height: 100%;
+    position: absolute;
+}
+.barraIzq{
+    left: 0;
+    background-color: #2f91ae;
+    width: 50%;
+}
+.barraDer{
+    right: 0;
+    background-color: #282855;
+    width: 50%;
+}
 
 /*----Música----*/
 .btnMusica {
@@ -602,77 +699,69 @@ canvas{
         background-repeat: no-repeat;
         background-size: 180%;
         background-position: right bottom;
-        border-bottom: 5px solid #fde812;
         position: relative;
     }
     
     .portadaImg1{
-        border: 2px solid black;
+        display: none;
     }
     .portadaImg2{
         width: 100%;
         background-size: 180%;
         background-position: bottom right;
+        height: 95%;
     }
-    .tituloContenedor {
+    .portadaImg3{
         width: 100%;
-        height: 30%;
-        margin-top: 10%;
-        overflow: hidden;
+        height: 40%;
+        background-position: left;
+        background-size: 110%;
     }
-
-    .logoImg {
-        height: 90%;
-    }
-
     .main {
         height: 100%;
-        background-image: url("../img/football-field\ -\ volteado.png");
         background-position: center;
         background-size: cover;
         
     }
+    .campoComparacion{
+        background-image: url("../img/football_field_\ volteado.png");
+    }
+    .flechaTituloContenedor{
+        height: 3.5%;
+        margin-top: -30px;
+    }
 
     .comparacionContenedor {
         flex-direction: column;
-        height: 30%;
+        height: 70%;
         justify-content: space-between;
     }
 
     .personaje1,
     .personaje2 {
-        width: 50%;
-        height: 60%;
-        margin: 10px 0;
+        width: 75%;
+        height: auto;
     }
 
-    .personajeIcono1,
-    .personajeIcono2 {
-        height: 65%;
-        width: 90%;
-        margin: auto;
-        overflow: hidden;
-        margin-bottom: 20px;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5px;
+    .personajeIcono1Img, .personajeIcono2Img{
+        height: 100%;
     }
 
     .vsContenedor {
-        height: 30%;
-        width: 50%;
+        height: 20%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
+    .vsContenedor img{
+        height: 200%;
+    }
     .nombrePersonajeContenedor1,
     .nombrePersonajeContenedor2 {
         margin: auto;
-        width: 90%;
-        background-color: #004dc2;
+        width: 100%;
+        height: 55px;
         border-radius: 3px;
     }
 
@@ -680,17 +769,39 @@ canvas{
     .nombrePersonajeContenedor2 p {
         text-align: center;
         padding: 5px;
+        font-size: 2rem;
+    }
+
+    .menuPopUp{
+        width: 100%;
+        max-height: 100vh;
+        margin-top: 65%;
+    }
+    .equipo{
+        width: 40%;
+        font-size: 1.1rem;
+    }
+
+    .seccionStats2{
+        display: block;
+    }
+    .flechasComparacion{
+        display: none;
+    }
+    .personajeStat {
+        width: 100%;
+        height: 60%;
+        margin-bottom: 20px;
+    }
+    .stat{
+        width: 50%;
+    }
+    .seccionGrafica{
+        height: 20%;
+        margin-top: 30%;
     }
 }
 
 /* TABLETS */
 @media (min-width: 767px) and (max-width: 1024px) {
-    .personaje1,
-    .personaje2 {
-        width: 30%;
-    }
-
-    .vsContenedor {
-        width: 10%;
-    }
 }

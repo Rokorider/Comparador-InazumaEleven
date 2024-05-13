@@ -23,9 +23,10 @@ function obtenerDatos() {
 }
 
 obtenerDatos();
-let primerPersonaje = document.getElementById("personaje1");
-let segundoPersonaje = document.getElementById("personaje2");
-let menuSeleccion = document.getElementById("menuPopUp");
+const primerPersonaje = document.getElementById("personaje1");
+const segundoPersonaje = document.getElementById("personaje2");
+const menuSeleccion = document.getElementById("menuPopUp");
+
 
 
 //Función para obtener la cantidad de juegos y que cree un div por cada juego
@@ -183,10 +184,15 @@ function crearJugadoresEquipo(
 
         const personajeInfo = document.createElement("div");
         personajeInfo.classList.add("personajeInfo");
-
-        const personajeInfo_elemento = document.createElement("div");
+        
+        const personajeInfo_elemento = document.createElement("img");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.style.backgroundImage = `url("img/Elementos/${jugador.Elemento}.png")`;
+        personajeInfo_elemento.src = `img/Elementos/${jugador.Elemento}.png`;
+
+
+        const personajeInfo_posicion = document.createElement("div");
+        personajeInfo_posicion.classList.add("personajeInfo_posicion");
+        personajeInfo_posicion.textContent=jugador.Posición;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -195,6 +201,7 @@ function crearJugadoresEquipo(
         personajeInfo_nombre.appendChild(personajeNombre);
 
         personajeInfo.appendChild(personajeInfo_elemento);
+        personajeInfo.appendChild(personajeInfo_posicion);
         personajeInfo.appendChild(personajeInfo_nombre);
 
         personajeCont.appendChild(personajeImgCont);
@@ -221,6 +228,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (personaje === "primer") {
         personajeNum = 1;
         establecerJugadores(jugador.Apodo, personajeNum);
+
     } else if (personaje === "segundo") {
         personajeNum = 2;
         establecerJugadores(jugador.Apodo, personajeNum);
@@ -269,7 +277,143 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
 
     //Crear la gráfica cuando estén los 2 personajes seleccionadcos
     contenidoGrafica();
+
+
+    //Asignar dirección de las flechas de comparación
+    const flechaTiro = document.getElementById("flechaTiro");
+    const flechaFisico = document.getElementById("flechaFisico");
+    const flechaControl = document.getElementById("flechaControl");
+    const flechaDefensa = document.getElementById("flechaDefensa");
+    const flechaRapidez = document.getElementById("flechaRapidez");
+    const flechaAguante = document.getElementById("flechaAguante");
+    const flechaValor = document.getElementById("flechaValor");
+
+    // Comparar los valores de los atributos de los dos personajes
+
+    const tiro1 = parseInt(document.querySelector('.tiro_1').textContent);
+    const tiro2 = parseInt(document.querySelector('.tiro_2').textContent);
+    const fisico1 = parseInt(document.querySelector('.fisico_1').textContent);
+    const fisico2 = parseInt(document.querySelector('.fisico_2').textContent);
+    const control1 = parseInt(document.querySelector('.control_1').textContent);
+    const control2 = parseInt(document.querySelector('.control_2').textContent);
+    const defensa1 = parseInt(document.querySelector('.defensa_1').textContent);
+    const defensa2 = parseInt(document.querySelector('.defensa_2').textContent);
+    const rapidez1 = parseInt(document.querySelector('.rapidez_1').textContent);
+    const rapidez2 = parseInt(document.querySelector('.rapidez_2').textContent);
+    const aguante1 = parseInt(document.querySelector('.aguante_1').textContent);
+    const aguante2 = parseInt(document.querySelector('.aguante_2').textContent);
+    const valor1 = parseInt(document.querySelector('.valor_1').textContent);
+    const valor2 = parseInt(document.querySelector('.valor_2').textContent);
+
+    if (tiro1 > tiro2) {
+        flechaTiro.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (tiro1 < tiro2) {
+        flechaTiro.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaTiro.src = "img/flechasComparador/Igual1.png";
+    }
+
+    if (fisico1 > fisico2) {
+        flechaFisico.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (fisico1 < fisico2) {
+        flechaFisico.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaFisico.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (control1 > control2) {
+        flechaControl.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (control1 < control2) {
+        flechaControl.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaControl.src = "img/flechasComparador/Igual1.png";
+    }
+
+    if (defensa1 > defensa2) {
+        flechaDefensa.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (defensa1 < defensa2) {
+        flechaDefensa.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaDefensa.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (rapidez1 > rapidez2) {
+        flechaRapidez.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (rapidez1 < rapidez2) {
+        flechaRapidez.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaRapidez.src = "img/flechasComparador/Igual1.png";
+    }
+
+    if (aguante1 > aguante2) {
+        flechaAguante.src = "img/flechasComparador/flechasMayor2.png";
+    } else if (aguante1 < aguante2) {
+        flechaAguante.src = "img/flechasComparador/flechasMenor2.png";
+    } else {
+        flechaAguante.src = "img/flechasComparador/Igual2.png";
+    }
+
+    if (valor1 > valor2) {
+        flechaValor.src = "img/flechasComparador/flechasMayor1.png";
+    } else if (valor1 < valor2) {
+        flechaValor.src = "img/flechasComparador/flechasMenor1.png";
+    } else {
+        flechaValor.src = "img/flechasComparador/Igual1.png";
+    }
+
+
+    //Asignar valores a la gráfica de barras
+    const personajeColor1 = document.getElementById("personajeColor1");
+    const personajeColor2 = document.getElementById("personajeColor2");
+    let pe_1 = document.getElementById("pe_1");
+    let pe_2 = document.getElementById("pe_2");
+    let pt_1 = document.getElementById("pt_1");
+    let pt_2 = document.getElementById("pt_2");
+
+    if (personaje === "primer") {
+        pe_1.innerText = jugador.PE;
+        pt_1.innerText = jugador.PT;
+        personajeColor1.innerText = jugador.Apodo;
+    } else if (personaje === "segundo") {
+        pe_2.innerText = jugador.PE;
+        pt_2.innerText = jugador.PT;
+        personajeColor2.innerText = jugador.Apodo;
+    }
+    /*Primero asignar valores y luego obtenerlos con DOM para que se 
+    actualize cada vez que seleccione personajes*/
+    calcularPorcentajes();
+
 }
+
+function calcularPorcentajes(){
+    const pe_1_barra = document.getElementById("pe_1_barra");
+    const pe_2_barra = document.getElementById("pe_2_barra");
+    const pt_1_barra = document.getElementById("pt_1_barra");
+    const pt_2_barra = document.getElementById("pt_2_barra");
+    const pe_1 = parseFloat(document.getElementById("pe_1").textContent);
+    const pe_2 = parseFloat(document.getElementById("pe_2").textContent);
+    const pt_1 = parseFloat(document.getElementById("pt_1").textContent);
+    const pt_2 = parseFloat(document.getElementById("pt_2").textContent);
+
+    if (!isNaN(pe_1) && !isNaN(pe_2)) {
+        const PE1 = (pe_1 * 100) / (pe_1 + pe_2);
+        const PE2 = (pe_2 * 100) / (pe_1 + pe_2);
+        console.log("Porcentaje PE de "+document.getElementById("personajeColor1").innerText+" : " + PE1);
+        console.log("Porcentaje PE de "+document.getElementById("personajeColor2").innerText+" : " + PE2);
+        pe_1_barra.style.width = PE1 + "%";
+        pe_2_barra.style.width = PE2 + "%";
+    }
+
+    if (!isNaN(pt_1) && !isNaN(pt_2)) {
+        const PT1 = (pt_1 * 100) / (pt_1 + pt_2);
+        const PT2 = (pt_2 * 100) / (pt_1 + pt_2);
+        console.log("Porcentaje PT de "+document.getElementById("personajeColor1").innerText+" : "+ PT1);
+        console.log("Porcentaje PT de "+document.getElementById("personajeColor2").innerText+" : "+ PT2);
+        pt_1_barra.style.width = PT1 + "%";
+        pt_2_barra.style.width = PT2 + "%";
+    }
+}
+
 
 const juegoContenedor = document.createElement("div");
 juegoContenedor.id = "juegoContenedor";

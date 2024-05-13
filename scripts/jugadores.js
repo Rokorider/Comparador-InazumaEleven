@@ -1,3 +1,11 @@
+/*
+Cuando escribí este código solo Dios y yo sabíamos cómo funcionaba.
+Ahora solo Dios lo sabe.
+
+:)
+*/
+
+
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
 let contenedorJugadores = document.getElementById('contenedorJugadores');

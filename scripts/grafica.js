@@ -58,7 +58,7 @@ function objetosStatsJugadores() {
     // Array para almacenar los colores ya asignados
     let coloresAsignados = [];
 
-    jugadores.forEach(function (jugador, index) {
+    jugadores.forEach(function (jugador) {
         // Generar colores aleatorios hasta que no se repitan
         let borderColor = generarColorRGBBorde();
         let backgroundColor = generarColorRGBFondo();
@@ -117,8 +117,10 @@ function contenidoGrafica() {
             window.myChart.destroy();
         }
 
+
         // Crear una nueva instancia de Chart
         window.myChart = new Chart(grafica, configuracion);
+        
     }
 }
 
