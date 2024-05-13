@@ -123,8 +123,8 @@ function actualizarJugadores() {
     // Agregar las opciones de jugadores al buscador de jugadores
     jugadoresEquipo.forEach(function (jugador) {
         let option = document.createElement('option');
-        option.value = jugador.Apodo; // Cambiado a jugador.Apodo
-        option.textContent = jugador.Apodo; // Cambiado a jugador.Apodo
+        option.value = jugador.Nombre_Real; 
+        option.textContent = jugador.Nombre_Real; 
         buscadorJugador.appendChild(option);
     });
 
@@ -134,11 +134,11 @@ function actualizarJugadores() {
 
 function recojerJugador() {
     // Obtener el apodo del jugador seleccionado
-    let apodo = document.getElementById('buscadorJugador').querySelector('select').value;
+    let Nombre_Real = document.getElementById('buscadorJugador').querySelector('select').value;
 
     // Obtener el jugador seleccionado
     let jugador = jugadores.find(function (jugador) {
-        return jugador.Apodo === apodo;
+        return jugador.Nombre_Real === Nombre_Real;
     });
 
     // Pasar el jugador seleccionado a la función 'mostrarJugador'
@@ -424,8 +424,6 @@ function actualizarDatosJugador(jugador) {
         }
     });
 
-
-
     document.getElementById('nombre').addEventListener('change', function (event) {
         const nombre = event.target.value;
 
@@ -437,8 +435,6 @@ function actualizarDatosJugador(jugador) {
         }
     });
 
-
-
     document.getElementById('apodo').addEventListener('change', function (event) {
         const apodo = event.target.value;
 
@@ -449,9 +445,6 @@ function actualizarDatosJugador(jugador) {
             apodoActualizado.innerText = jugador.Apodo;
         }
     });
-
-    // Guardar el texto por defecto
-
 
     document.getElementById('descripcion').addEventListener('change', function (event) {
         const descripcion = event.target.value;
@@ -478,7 +471,6 @@ function actualizarDatosJugador(jugador) {
         }
     });
 
-
     document.getElementById('posicion').addEventListener('change', function (event) {
         const posicion = event.target.value;
         if (posicion) {
@@ -499,7 +491,6 @@ function actualizarDatosJugador(jugador) {
             generoActualizado.src = "../img/generos/" + jugador.Género + ".png"; // Ruta a la imagen original
             generoActualizado.alt = jugador.Género;
         }
-
     });
 
     document.getElementById('tiro').addEventListener('change', function (event) {
@@ -565,12 +556,12 @@ function actualizarDatosJugador(jugador) {
         }
     });
 
-
 }
 
 let NombreCorrecto = true;
 let ApodoCorrecto = true;
 let EstadisticasCorrectas = true;
+let todosLosDatosCorrectos = true;
 
 
 function validarDatos(jugadores) {
@@ -586,6 +577,8 @@ function validarDatos(jugadores) {
 
     let errorEstadisticasPePt = document.getElementById('errorEstadisticasPePt');
     let campoErrorEstadisticasPePt = document.getElementById('campoErrorEstadisticasPePt');
+
+    let errorEstadisticasTodas = document.getElementById('errorEstadisticasTodas');
 
     let puntosRestantes = document.getElementById('puntosRestantes');
     let puntosRestantesPePt = document.getElementById('puntosRestantesPePt');
@@ -604,10 +597,23 @@ function validarDatos(jugadores) {
         apodosJugadores.push(jugador.Apodo);
     });
 
+    validarTodosLosDatos();
     validarNombre();
     validarApodo();
     validarEstadisticas();
     validarEstadisticasPePt();
+
+    function validarTodosLosDatos() {
+        if (nombre.value === '' || apodo.value === '' || puntosRestantes.textContent === 433 || puntosRestantesPePt.textContent === 248) {
+            errorEstadisticasTodas.textContent = 'Para actualizar un jugador debes de completar al menos un campo o modificar las estadísticas';
+            aplicarEstiloError(errorEstadisticasTodas);
+            todosLosDatosCorrectos = false;
+        } else {
+            errorEstadisticasTodas.textContent = '';
+            limpiarEstiloError(errorEstadisticasTodas);
+            todosLosDatosCorrectos = true;
+        }
+    }
 
     function validarNombre() {
 
@@ -687,7 +693,7 @@ boton.addEventListener('click', function (event) {
     validarDatos(jugadores);
 
     
-    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas === true) {
+    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas && todosLosDatosCorrectos === true) {
         document.getElementById("formDatos").submit(); // Envía el formulario
     }
     

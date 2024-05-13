@@ -110,7 +110,8 @@ function obtenerEquiposPorJuego(juegoSeleccionado) {
             equipos.push(jugador.Equipo);
         }
     });
-    return equipos.sort();
+    return equipos; // No ordenar los equipos aquí
 }
+
 
 console.log(" El equipo es" + document.getElementById('equipo').value);

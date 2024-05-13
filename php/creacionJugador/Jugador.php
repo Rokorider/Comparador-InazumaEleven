@@ -1,7 +1,5 @@
 <?php
 
-require "Estadisticas.php";
-
 class Jugador
 {
     private $apodo;

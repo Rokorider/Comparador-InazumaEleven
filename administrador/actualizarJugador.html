@@ -47,36 +47,36 @@
         </div>
 
         <div class="contenedorSelects">
-            <div class="selector2" id="buscadorJuegos">
-                <p>Juego</p>
-                <select name="juego" id="juego" class="select">
-                    <option value="0">Selecciona un juego</option>
+            <div class="cajaPregunta" id="buscadorJuegos">
+                <p class="tipo2">Juego</p>
+                <select id="juego" name="juego" class="selector">
+                    <option value="">Selecciona un jugador</option>
                 </select>
             </div>
-            <div class="selector2" id="buscadorEquipos">
-                <p>Equipo</p>
-                <select name="equipo" id="equipo" class="select">
-                    <option value="0">Selecciona un equipo</option>
+            <div class="cajaPregunta" id="buscadorEquipos">
+                <p class="tipo2">Equipo</p>
+                <select id="equipo" name="equipo" class="selector">
+                    <option value="">Selecciona un jugador</option>
                 </select>
             </div>
-            <div class="selector2" id="buscadorJugador">
-                <p>Jugador</p>
-                <select name="jugador" id="jugador" class="select">
-                    <option value="0">Selecciona un jugador</option>
+            <div class="cajaPregunta" id="buscadorJugador">
+                <p class="tipo2">Jugador</p>
+                <select id="jugador" name="jugador" class="selector">
+                    <option value="">Selecciona un jugador</option>
                 </select>
             </div>
         </div>
 
         <div class="contenedorJugador" id="contenedorJugador">
 
-            
+
         </div>
 
         <div class="contenedorFormulario" id="contenedorFormulario">
 
             <form class="formulario" id="formDatos" action="php/actualizarJugador.php" method="post"
                 enctype="multipart/form-data">
-    
+
                 <div class="contenedorTitulo">
                     <div class="titulo">
                         <h1>Datos del Jugador</h1>
@@ -84,7 +84,7 @@
                 </div>
 
                 <input type="hidden" id="idJugador" name="idJugador" value="">
-    
+
                 <div class="cajaNomApoGenPos">
                     <div class="datos">
                         <div class="cajaPregunta">
@@ -132,7 +132,7 @@
                                 <option value="DL">Delantero</option>
                             </select>
                         </div>
-    
+
                         <div class="cajaImagen">
                             <p class="tipoImagen">Imagen del Jugador</p>
                             <div class="subirImagen">
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="cajaEstadisticas">
                     <div class="titulo">
                         <h1>Estadísticas del jugador</h1>
@@ -155,7 +155,8 @@
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Tiro:</p>
-                                <input class="inputRango" type="range" id="tiro" name="tiro" min="1" max="100" value="0">
+                                <input class="inputRango" type="range" id="tiro" name="tiro" min="1" max="100"
+                                    value="0">
                                 <p class="valor2" id="tiroValue">1</p>
                             </div>
                         </div>
@@ -202,7 +203,8 @@
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Valor:</p>
-                                <input class="inputRango" type="range" id="valor" name="valor" min="1" max="100" value="1">
+                                <input class="inputRango" type="range" id="valor" name="valor" min="1" max="100"
+                                    value="1">
                                 <p class="valor2" id="valorValue">1</p>
                             </div>
                         </div>
@@ -242,13 +244,19 @@
                     </div>
                 </div>
             </form>
-    
+
             <div class="errorEstadisticas">
                 <div class="campoErrorEstadisticas" id="campoErrorEstadisticasPePt">
                     <p id="errorEstadisticasPePt"></p>
                 </div>
             </div>
-    
+
+            <div class="contenedorErrorTodasEstadisticas">
+                <div class="campoErrorEstadisticasTodas">
+                    <p id="errorEstadisticasTodas"></p>
+                </div>
+            </div>
+
             <div class="cajaBoton">
                 <div class="boton" id="boton">
                     <p class="envio">Actualizar Jugador</p>
