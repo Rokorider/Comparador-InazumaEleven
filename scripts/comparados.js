@@ -11,10 +11,12 @@ function reproducirDetenerCancion() {
         cancion.currentTime = 0;
         reproduciendo = false;
         imagenMusica.classList.remove('rotating'); // Detener la rotación cuando se pausa la canción
+        btnMusica.classList.remove('imagenMusica-sonando'); // Eliminar la clase cuando se pausa la canción
     } else {
         cancion.play();
         reproduciendo = true;
         imagenMusica.classList.add('rotating'); // Iniciar la rotación cuando se reproduce la canción
+        btnMusica.classList.add('imagenMusica-sonando'); // Añadir la clase cuando se inicia la reproducción
     }
 }
 

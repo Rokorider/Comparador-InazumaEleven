@@ -1,22 +1,8 @@
 <?php
 
+require "conexionBdJugadores.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // Incluir la conexión a la base de datos
-    // Establecer conexión a la base de datos
-    $servername = "localhost";
-    $username = "comparador";
-    $password = "1234";
-    $dbname = "apiinazuma";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verificar la conexión
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
-
-
 
     // Inicializar un array para almacenar los campos actualizados
     $campos_actualizados = array();
@@ -104,18 +90,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $campos_actualizados[] = "Valor = '$valor'";
     }
 
+    // Crear un objeto de la clase JugadoresBD
+    $jugadoresBD = new JugadoresBD();
+
     if (!empty($campos_actualizados)) {
-        // Construye la consulta SQL para actualizar el jugador
-        $query = "UPDATE api_inazuma_eleven___hoja_1 SET " . implode(", ", $campos_actualizados) . " WHERE id = '$idJugador'";
+        // Llamar al método actualizarJugador con los campos actualizados y el id del jugador
+        if ($jugadoresBD->actualizarJugador($campos_actualizados, $idJugador)) {
+            header("Location: ../actualizarJugador.html");
+        } else {
+            echo "Error al actualizar el jugador.";
+        }
     }
 
-    // Ejecuta la consulta
-    mysqli_query($conn, $query);
-
-    //Verifica si la consulta fue exitosa
-    if (mysqli_affected_rows($conn) > 0) {
-        header("Location: ../actualizarJugadores.html");
-    } else {
-        echo "Error al actualizar el jugador.";
-    }
 }

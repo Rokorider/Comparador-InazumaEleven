@@ -5,6 +5,14 @@
     scroll-behavior: smooth;
 }
 
+@keyframes bounce {
+    to { transform: translateY(10px); }
+}
+
+.imagenMusica-sonando {
+    animation: bounce 200ms linear infinite alternate;
+}
+
 @font-face {
     font-family: "Inazuma";
     src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);

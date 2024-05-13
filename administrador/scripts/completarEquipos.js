@@ -113,3 +113,4 @@ function obtenerEquiposPorJuego(juegoSeleccionado) {
     return equipos.sort();
 }
 
+console.log(" El equipo es" + document.getElementById('equipo').value);

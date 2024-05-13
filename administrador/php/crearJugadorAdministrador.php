@@ -1,6 +1,8 @@
 <?php
 require "../../php/creacionJugador/cargarFoto.php";
 require "../../php/creacionJugador/cargarFotoEquipo.php";
+require "conexionBdJugadores.php";
+require "../../php/creacionJugador/Jugador.php";
 
 session_start();
 
@@ -41,31 +43,23 @@ if (isset($_SESSION['usuario'])) {
 
     // Llamar a la función cargarFoto para subir la imagen
     $imagen = cargarFoto($foto, $carpeta);
-    
 
-    // Establecer conexión a la base de datos
-    $servername = "localhost";
-    $username = "comparador";
-    $password = "1234";
-    $dbname = "apiinazuma";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Crear un objeto de la clase Jugador
+    $jugador = new Jugador($apodo, $nombre, $foto, $descripcion, $posicion, $elemento, $genero, $pe, $pt, $tiro, $fisico, $control, $defensa, $rapidez, $aguante, $valor, $juego);
 
-    // Verificar la conexión
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
+    // Crear un objeto de la clase JugadoresBD
+    $jugadoresBD = new JugadoresBD();
 
-    // Insertar datos del jugador
-    $sqlInsertarJugador = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripción, Imagenes, Posición, Elemento, Género, Equipo, PE, PT, Tiro, Físico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
+    // Llamar al método crearJugadorAdministrador con el objeto jugador
 
-    if (!$conn->query($sqlInsertarJugador)) {
-        echo "Error al insertar datos del jugador: " . $conn->error;
-    } else {
+    if ($jugadoresBD->crearJugadorAdministrador($jugador, $equipo)) {
         header("Location: ../crearJugador.html");
         exit(); // Salir del script después de redireccionar
+    } else {
+        echo "Error al insertar datos del jugador.";
     }
-    
+
 } else {
     echo "No se ha iniciado sesión.";
 }
