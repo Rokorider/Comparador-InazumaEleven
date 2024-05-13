@@ -14,6 +14,8 @@
     <script src="scripts/comparados.js" defer></script>
     <script type="module" src="scripts/menuSeleccion.js" defer></script>
     <script src="scripts/portadaParallax.js" defer></script>
+    <script src="scripts/ventanaEmergente.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css"
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="scripts/grafica.js" defer></script>
     <script src="scripts/flechasComparacion.js" defer></script>
