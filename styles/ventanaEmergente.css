@@ -22,43 +22,48 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #2f477c;
+    background-color: #1e3466;
     z-index: 100;
 }
 
 .cajaInfo {
     width: 95%;
     height: 95%;
-    background-color: #4d8fab;
+    background-color: #5a93ab;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-
+    padding: 10px;
 }
 
 .cajaCerrar {
-    /*background-color: antiquewhite;*/
-    width: 98%;
-    height: 7%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.cruz {
-    /*background-color: aqua;*/
-    width: 5%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin-right: 13px; 
+    margin-top: 13px; 
+}
+
+
+.cruz {
+    width: 100%;
+    height: auto;
     cursor: pointer;
 }
 
 .cruz img {
-    width: 100%;
+    width: 80%;
+    height: auto;
 }
+
+
 
 .cajalogo {
     width: 100%;
@@ -80,6 +85,11 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 550;
+    font-style: normal;
+    color: rgb(10, 6, 65);
 }
 
 .cajaTexto p {
@@ -117,5 +127,5 @@
     padding: 25px;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 18px;
 }
