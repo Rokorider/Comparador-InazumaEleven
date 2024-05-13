@@ -313,7 +313,6 @@ boton.addEventListener('click', function (event) {
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
         document.getElementById("formDatos").submit(); // Envía el formulario
-        document.getElementById("formEstadisticas").submit(); // Envía el formulario
     }
 
 });

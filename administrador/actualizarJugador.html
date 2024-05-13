@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/header.css">
     <link rel="stylesheet" type="text/css" href="styles/actualizarJugador.css">
     <!-- Scripts -->
-    <script src="scripts/actualizarJugador.js" defer></script>
     <script src="../scripts/estadisticasJugador.js" defer></script>
+    <script src="scripts/completarDatos.js" defer></script>
     <title>Actualizar Jugador</title>
 </head>
 
@@ -47,19 +47,19 @@
         </div>
 
         <div class="contenedorSelects">
-            <div class="selector2">
+            <div class="selector2" id="buscadorJuegos">
                 <p>Juego</p>
                 <select name="juego" id="juego" class="select">
                     <option value="0">Selecciona un juego</option>
                 </select>
             </div>
-            <div class="selector2">
+            <div class="selector2" id="buscadorEquipos">
                 <p>Equipo</p>
                 <select name="equipo" id="equipo" class="select">
                     <option value="0">Selecciona un equipo</option>
                 </select>
             </div>
-            <div class="selector2">
+            <div class="selector2" id="buscadorJugador">
                 <p>Jugador</p>
                 <select name="jugador" id="jugador" class="select">
                     <option value="0">Selecciona un jugador</option>
@@ -67,257 +67,12 @@
             </div>
         </div>
 
-        <div class="contenedorJugador">
+        <div class="contenedorJugador" id="contenedorJugador">
 
-            <div class="jugador">
-                <div class="infoJugador">
-                    <div class="imgJugador">
-                        <img src="../img/Escudos/Brain.png" alt="${jugador.Nombre_Real}">
-                    </div>
-                    <div class="datosJugador">
-                        <div class="datos1">
-                            <div class="nombre">
-                                <p>Rubén Mansilla</p>
-                            </div>
-                            <div class="nivel">
-                                <p>Niv. 99</p>
-                            </div>
-                            <div class="posicion">
-                                <div class="posicionTexto">
-                                    <p>DF</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="datos1">
-                            <div class="nombre">
-                                <p>Ruben</p>
-                            </div>
-                            <div class="genero">
-                                <img src="../img/generos/Masculino.png" alt="${jugador.Género}">
-                            </div>
-                            <div class="elemento">
-                                <img src="../img/Elementos/Aire.png" alt="">
-                            </div>
-                        </div>
-                        <div class="datos2">
-                            <div class="pe">
-                                <div class="texto">
-                                    <p>PE</p>
-                                </div>
-                                <div class="valor">
-                                    <p>65/65</p>
-                                </div>
-                            </div>
-                            <div class="pt">
-                                <div class="texto">
-                                    <p>PT</p>
-                                </div>
-                                <div class="valor">
-                                    <p>65/65</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="estadisticasJugador">
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Tiro</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Físico</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Control</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Defensa</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Rapidez</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Aguante</p>
-                            </div>
-                            <div class="unidad">
-                                <p>65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Estadística única del jugador -->
-                    <div class="estadistica">
-                        <div class="tipoUnico">
-                            <div class="tipoUnidadUnica">
-                                <p>Valor</p>
-                            </div>
-                            <div class="unidadUnica">
-                                <p>65</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="juego">
-                    <p class="descripcion">Inazuma Japón</p>
-                </div>
-            </div>
-
-            <div class="cajaFlecha">
-                <img src="../img/flechaAzulnotext.png" alt="Flecha">
-            </div>
-
-            <div class="jugador">
-                <div class="infoJugador">
-                    <div class="imgJugador">
-                        <img src="../img/Escudos/Brain.png" id="imagenActualizada" alt="${jugador.Nombre_Real}">
-                    </div>
-                    <div class="datosJugador">
-                        <div class="datos1">
-                            <div class="nombre" id="nombreActualizado">
-                                <p>Rubén Mansilla</p>
-                            </div>
-                            <div class="nivel">
-                                <p>Niv. 99</p>
-                            </div>
-                            <div class="posicion">
-                                <div class="posicionTexto">
-                                    <p id="posicionActualizado">DF</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="datos1">
-                            <div class="nombre" id="apodoActualizado">
-                                <p>Ruben</p>
-                            </div>
-                            <div class="genero">
-                                <img id="generoActualizado" src="../img/generos/Masculino.png" alt="">
-                            </div>
-                            <div class="elemento">
-                                <img id="elementoActualizado" src="../img/Elementos/Aire.png" alt="">
-                            </div>
-                        </div>
-                        <div class="datos2">
-                            <div class="pe">
-                                <div class="texto">
-                                    <p>PE</p>
-                                </div>
-                                <div class="valor">
-                                    <p id="peActualizado">65/65</p>
-                                </div>
-                            </div>
-                            <div class="pt">
-                                <div class="texto">
-                                    <p>PT</p>
-                                </div>
-                                <div class="valor">
-                                    <p id="ptActualizado">65/65</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="estadisticasJugador">
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Tiro</p>
-                            </div>
-                            <div class="unidad" >
-                                <p id="tiroActualizado">65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Físico</p>
-                            </div>
-                            <div class="unidad">
-                                <p id="fisicoActualizado">65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Control</p>
-                            </div>
-                            <div class="unidad">
-                                <p id="controlActualizado">65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Defensa</p>
-                            </div>
-                            <div class="unidad">
-                                <p id="defensaActualizado">65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="estadistica">
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Rapidez</p>
-                            </div>
-                            <div class="unidad">
-                                <p  id="rapidezActualizado">65</p>
-                            </div>
-                        </div>
-                        <div class="tipo">
-                            <div class="tipoUnidad">
-                                <p>Aguante</p>
-                            </div>
-                            <div class="unidad">
-                                <p id="aguanteActualizado">65</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="estadistica">
-                        <div class="tipoUnico">
-                            <div class="tipoUnidadUnica">
-                                <p>Valor</p>
-                            </div>
-                            <div class="unidadUnica">
-                                <p id="valorActualizado">65</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="juego">
-                    <p class="descripcion" id="descripcionActualizado">Inazuma Japón</p>
-                </div>
-            </div>
+            
         </div>
 
-        <div class="contenedorFormulario">
+        <div class="contenedorFormulario" id="contenedorFormulario">
 
             <form class="formulario" id="formDatos" action="" method="post"
                 enctype="multipart/form-data">
@@ -355,7 +110,6 @@
                                 <option value="Aire">Aire</option>
                                 <option value="Montaña">Montaña</option>
                             </select>
-                            <p class="tipoError" id="errorElemento"></p>
                         </div>
                         <div class="cajaPregunta">
                             <p class="tipo2">Género</p>
@@ -365,7 +119,6 @@
                                 <option value="Femenino">Femenino</option>
                                 <option value="otro">Otro</option>
                             </select>
-                            <p class="tipoError" id="errorGenero"></p>
                         </div>
                         <div class="cajaPregunta">
                             <p class="tipo2">Posición</p>
@@ -376,7 +129,6 @@
                                 <option value="MD">Mediocampista</option>
                                 <option value="DL">Delantero</option>
                             </select>
-                            <p class="tipoError" id="errorPosicion"></p>
                         </div>
     
                         <div class="cajaImagen">
@@ -388,7 +140,6 @@
                                 <div class="consejo">
                                     <p>*Se recomienda no subir imágenes personales*</p>
                                 </div>
-                                <p class="tipoErrorImagen" id="errorImagen"></p>
                             </div>
                         </div>
                     </div>
