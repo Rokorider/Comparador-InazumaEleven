@@ -149,6 +149,10 @@ function mostrarJugador(jugador) {
 
     let contenedorJugador = document.getElementById('contenedorJugador');
 
+    // Establecer el valor del campo oculto con el ID del jugador
+    document.getElementById("idJugador").value = jugador.ID;
+    console.log(jugador.ID);
+
     contenedorJugador.innerHTML = `
     
     <div class="jugador" id="jugador">

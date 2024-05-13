@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="styles/actualizarJugador.css">
     <!-- Scripts -->
     <script src="../scripts/estadisticasJugador.js" defer></script>
-    <script src="scripts/completarDatos.js" defer></script>
+    <script src="scripts/actualizarJugador.js" defer></script>
     <title>Actualizar Jugador</title>
 </head>
 
@@ -74,7 +74,7 @@
 
         <div class="contenedorFormulario" id="contenedorFormulario">
 
-            <form class="formulario" id="formDatos" action="" method="post"
+            <form class="formulario" id="formDatos" action="php/actualizarJugador.php" method="post"
                 enctype="multipart/form-data">
     
                 <div class="contenedorTitulo">
@@ -82,6 +82,8 @@
                         <h1>Datos del Jugador</h1>
                     </div>
                 </div>
+
+                <input type="hidden" id="idJugador" name="idJugador" value="">
     
                 <div class="cajaNomApoGenPos">
                     <div class="datos">
