@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/scrollbar.css">
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
     <script src="scripts/comparados.js" defer></script>
     <script type="module" src="scripts/menuSeleccion.js" defer></script>
     <script src="scripts/portadaParallax.js" defer></script>
     <script src="scripts/ventanaEmergente.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css"
+    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="scripts/grafica.js" defer></script>
     <script src="scripts/flechasComparacion.js" defer></script>

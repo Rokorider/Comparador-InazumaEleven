@@ -4,25 +4,26 @@ function mostrarVentana() {
 
     contenedor.classList.add("contenedor");
     contenedor.innerHTML = `
-        <div class="cajaInfo">
-            <div class="cajaCerrar">
-                <figure class="cruz" id="cerrar">
-                    <img src="img/cruz.png" alt="cerrar">
-                </figure>
-            </div>
-            <div class="cajalogo">
-                <img src="img/logo/InazumaElevenComparadorLogo2.png" alt="logo">
-            </div>
-            <div class="cajaTexto">
-                <p class="texto1">Esta página es un proyecto creado por fans para fans</p>
-                <p class="texto2">Nuestro objetivo es proporcionar un espacio donde los
-                    aficionados puedan comparar a sus jugadores favoritos,
-                    consultar sus estadísticas y crearse a si mismos dentro
-                    del mundo de inazuma eleven
-                </p>
-                <p class="texto3">¡Comparte tu pasión con Nosotros!</p>
-            </div>
-        </div>
+    <div class="cajaInfo">
+
+    <div class="cajaCerrar">
+        <figure class="cruz" id="cerrar">
+            <img src="img/cruz.png" alt="cerrar">
+        </figure>
+    </div>
+    <div class="cajalogo">
+        <img src="img/logo/InazumaElevenComparadorLogo2.png" alt="logo">
+    </div>
+    <div class="cajaTexto">
+        <p class="texto1">Esta página es un proyecto creado por fans para fans.</p>
+        <p class="texto2">Nuestro objetivo es proporcionar un espacio donde los
+            aficionados puedan comparar a sus jugadores favoritos,
+            consultar sus estadísticas y crearse a si mismos dentro
+            del mundo de Inazuma Eleven.
+        </p>
+        <p class="texto3">¡Comparte tu pasión con Nosotros!</p>
+    </div>
+</div> 
     `;
 
     // Agregar el contenedor al body
