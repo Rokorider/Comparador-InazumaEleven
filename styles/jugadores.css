@@ -125,7 +125,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
-    border: 1px solid black;
     margin-block: 30px;
 }
 
