@@ -14,7 +14,7 @@
     /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
 }
 
-.contenedorJugadores {
+.contenedorJugadores{
     margin: auto;
     border: 1px solid black;
     width: 100%;
@@ -25,6 +25,8 @@
     gap: 50px;
     margin-block: 100px;
     padding-block: 20px;
+    background-image: url('../img/bg_soccer_pattern.png');
+    background-color: rgb(15, 12, 92);
 }
 
 .contenedorJuego {
