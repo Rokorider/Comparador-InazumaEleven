@@ -1,7 +1,6 @@
 <?php
-require "Jugador.php";
-require "cargarFoto.php";
-require "cargarFotoEquipo.php";
+require "../../php/creacionJugador/cargarFoto.php";
+require "../../php/creacionJugador/cargarFotoEquipo.php";
 
 session_start();
 
@@ -15,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
     if ($equipo == "Nuevo") {
         $equipo = $_POST['nombreEquipo'];
     }
-    $fotoEquipo = $_FILES['fotoEquipo'];
+    
 
     // Obtener los datos del jugador
     $nombre = $_POST['nombre'];
@@ -42,7 +41,7 @@ if (isset($_SESSION['usuario'])) {
 
     // Llamar a la función cargarFoto para subir la imagen
     $imagen = cargarFoto($foto, $carpeta);
-    $fotoEquipo = cargarFotoEquipo($fotoEquipo, $carpeta, $equipo);
+    
 
     // Establecer conexión a la base de datos
     $servername = "localhost";
@@ -58,14 +57,15 @@ if (isset($_SESSION['usuario'])) {
     }
 
     // Insertar datos del jugador
-    $sqlInsertarJugador = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripcion, Imagenes, Posición, Elemento, Género, Equipo, PE, PT, Tiro, Físico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
+    $sqlInsertarJugador = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripción, Imagenes, Posición, Elemento, Género, Equipo, PE, PT, Tiro, Físico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
 
     if (!$conn->query($sqlInsertarJugador)) {
         echo "Error al insertar datos del jugador: " . $conn->error;
     } else {
-        header("Location: ../../crearJugador.html");
+        header("Location: ../crearJugador.html");
         exit(); // Salir del script después de redireccionar
     }
+    
 } else {
     echo "No se ha iniciado sesión.";
 }
