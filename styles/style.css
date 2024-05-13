@@ -816,5 +816,70 @@ body {
 }
 
 /* TABLETS */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1024px) {
+    .portada {
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: 180%;
+        background-position: right bottom;
+        position: relative;
+    }
+    .portadaImg1{
+        display: none;
+    }
+    .portadaImg2{
+        width: 100%;
+        background-size: 150%;
+        background-position: bottom right;
+        height: 100%;
+    }
+    .portadaImg3{
+        width: 100%;
+        height: 40%;
+        background-position: right;
+        background-size: 90%;
+    }
+    .comparacionContenedor{
+        width: 100%;
+    }
+    .vsImg {
+        height: 50%;
+    }
+    .personaje1, .personaje2 {
+        margin: 0 5% 0 5%;
+        transform: scale(1.2);
+    }
+    .flechaTituloContenedor{
+        max-width: 100%;
+    }
+    .imgSexoCont{
+        height: 80%;
+        margin-right: 5%;
+    }
+    .seccionStats{
+        margin-top: 10%;
+        height:30%;
+    }
+    .seccionStats2{
+        width: 90%;
+        height: 90%;
+    }
+    .personajeStat{
+        width: 40%;
+    }
+    .seccionGrafica{
+        height: 22%;
+        margin-top: 30%;
+        flex-wrap: wrap;
+        margin-top: 15%;
+        gap: 15%;
+    }
+    .seccionGraficaBarras{
+        width: 100%;
+    }
+    .seccionPE,.seccionPT{
+        transform: scale(0.8);
+    }
+    
 }
