@@ -584,9 +584,7 @@ body {
     margin: auto;
     border: 10px solid #284880;
 }
-canvas{
-    margin: 5%;
-}
+
 
 .seccionGraficaBarras{
     height: 75%;
@@ -689,7 +687,7 @@ canvas{
 }
 
 /* MÓVILES */
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 640px)  {
     header{
         display: none;
     }
@@ -709,7 +707,7 @@ canvas{
         width: 100%;
         background-size: 180%;
         background-position: bottom right;
-        height: 95%;
+        height: 100%;
     }
     .portadaImg3{
         width: 100%;
@@ -781,9 +779,18 @@ canvas{
         width: 40%;
         font-size: 1.1rem;
     }
-
+    .personajeCont{
+        width: 100px;
+        transform: scale(0.8);
+    }
+    .personajeInfor_nombre{
+        font-size: 0.9rem;
+    }
     .seccionStats2{
         display: block;
+    }
+    .contenidoContenedor{
+        height: 200vh;
     }
     .flechasComparacion{
         display: none;
@@ -799,9 +806,18 @@ canvas{
     .seccionGrafica{
         height: 20%;
         margin-top: 30%;
+        flex-wrap: wrap;
+        margin-top: 15%;
+        gap: 20px;
+    }
+    .seccionGraficaBarras{
+        width: 100%;
+    }
+    .seccionPE,.seccionPT{
+        transform: scale(0.6);
     }
 }
 
 /* TABLETS */
-@media (min-width: 767px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 }

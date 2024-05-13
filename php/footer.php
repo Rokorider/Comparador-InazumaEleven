@@ -4,7 +4,7 @@
                 <a href="#"><img src="img/logo/InazumaElevenComparadorLogo.png" alt="Logo Inazuma Comparador"></a>
             </div>
             <div class="textoFooter">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fuga laboriosam similique debitis itaque  </p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fuga  </p>
             </div>
             <div class="enlacesFooter">
                 <div class="red">
