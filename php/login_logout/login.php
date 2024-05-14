@@ -25,7 +25,7 @@ try {
 
 // Llamar al método login con los datos del post
 if ($login->login($usuario, $contrasena)) {
-    header("Location: paginasComunes/comparador.php");
+    header("Location: ../../paginasComunes/comparador.php");
 } else {
-    header("Location: index.html");
+    header("Location: ../../index.html");
 }

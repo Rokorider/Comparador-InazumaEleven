@@ -14,7 +14,7 @@ body {
 }
 
 .caja {
-    background-image: url('../img/fondos/fondo1.png');
+    background-image: url('../../img/fondos/fondo1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;

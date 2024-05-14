@@ -63,13 +63,17 @@ document.addEventListener("keydown", function (event) {
                     document.querySelector(".registroEnlace").style.color = "black";
                     numeroSecuencia = 0; // Reiniciar el numeroSecuencia
                     cancion2.play();
-                } else {
-                    // Cambiar la imagen de fondo por otra que tengas en una variable
+                } else if (numeroSecuencia === 2) {
                     document.querySelector(".caja").style.backgroundImage = `url('img/fondos/image2.jpeg')`;
                     document.querySelector(".caja").style.backgroundColor = "#f59701";
                     document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
                     document.querySelector(".boton").style.backgroundColor = "#e2550b";
 
+                }else if (numeroSecuencia === 1) {
+                    document.querySelector(".caja").style.backgroundImage = `url('img/fondos/image3.png')`;
+                    document.querySelector(".caja").style.backgroundColor = "#f59701";
+                    document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
+                    document.querySelector(".boton").style.backgroundColor = "#e2550b";
                 }
                 // Reiniciar la secuencia de flechas
                 secuenciaFlechas = [];
