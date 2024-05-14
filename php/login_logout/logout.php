@@ -11,6 +11,6 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['jugadoresComparados']) && iss
     // Cerrar sesión
     session_destroy();
 
-    header("Location: index.html"); // Redirigir al index.html
+    header("Location: ../../index.html"); // Redirigir al index.html
 
 }
