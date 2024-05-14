@@ -1,6 +1,6 @@
 <?php
 
-require "conexionBdJugadores.php";
+require "../conexiones/conexionBdJugadores.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

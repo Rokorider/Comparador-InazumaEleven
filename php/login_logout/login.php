@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'php/conexionBdLogin.php';
+require '../conexiones/conexionBdLogin.php';
 
 // Verificar si se han enviado usuario y contraseña en el post
 if (!isset($_POST['usuario']) || !isset($_POST['contrasena'])) {
@@ -17,7 +17,7 @@ try {
     $login = new loginBD();
 } catch (Exception $e) {
     // Redirigir a la página de mantenimiento si falla la conexión
-    header("Location: mantenimiento.html");
+    header("Location: ../../paginasComunes/paginasErrores/mantenimiento.html");
     exit(); // Salir del script después de redirigir
 }
 
@@ -25,7 +25,7 @@ try {
 
 // Llamar al método login con los datos del post
 if ($login->login($usuario, $contrasena)) {
-    header("Location: comparador.php");
+    header("Location: paginasComunes/comparador.php");
 } else {
     header("Location: index.html");
 }

@@ -1,8 +1,8 @@
 <?php
-require "../php/creacionJugador/Jugador.php";
-require "../php/creacionJugador/cargarFoto.php";
-require "../php/creacionJugador/cargarFotoEquipo.php";
-require "../administrador/php/conexionBDJugadores.php";
+require "../comunes/Jugador.php";
+require "../comunes//cargarFoto.php";
+require "../comunes/cargarFotoEquipo.php";
+require "../conexiones/conexionBDJugadores.php";
 
 session_start();
 

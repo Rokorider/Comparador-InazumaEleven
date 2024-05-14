@@ -1,7 +1,7 @@
 <header>
 
         <figure class="logoNav">
-            <a href="index.html"><img src="img/logo/InazumaElevenComparadorLogo2.png" alt="Logo Inazuma Eleven" /></a>
+            <a href="../../index.html"><img src="img/logo/InazumaElevenComparadorLogo2.png" alt="Logo Inazuma Eleven" /></a>
         </figure>
 
         <nav>
@@ -10,7 +10,7 @@
                     <a href="jugadores.php">Jugadores</a>
                 </li>
                 <li>
-                    <a href="crearJugador.php">Crear Jugador</a>
+                    <a href="../usuario/creacionJugador.php">Crear Jugador</a>
                 </li>
             </ul>
         </nav>
