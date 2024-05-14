@@ -1,6 +1,6 @@
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    return fetch('../../php/conexiones/conexionBD.php')
+    return fetch('../php/conexiones/conexionBD.php')
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();

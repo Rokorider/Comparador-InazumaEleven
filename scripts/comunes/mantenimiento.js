@@ -1,5 +1,5 @@
 
-const imagenes = ["img/fondos/fondo1.png", "img/fondos/fondo2.png", "img/fondos/fondo3.png", "img/fondos/fondo4.png"]; // Array con las URLs de las imágenes
+const imagenes = ["../../img/fondos/fondo1.png", "../../img/fondos/fondo2.png", "../../img/fondos/fondo3.png", "../../img/fondos/fondo4.png"]; // Array con las URLs de las imágenes
 let indiceImagen = 0; // Índice de la imagen actual
 
 // Variable para almacenar la secuencia actual de flechas
@@ -23,14 +23,16 @@ document.addEventListener("keydown", function (event) {
         if (secuenciaFlechas.join("") === "ArrowDownArrowUpArrowRightArrowLeft") {
             numeroSecuencia++;
             if (numeroSecuencia === 3) {
-                document.querySelector(".main").style.backgroundImage = `url('img/fondos/image0.jpeg')`;
+                document.querySelector(".main").style.backgroundImage = `url('../../img/fondos/image0.jpeg')`;
                 document.querySelector(".main").style.color = `white`;
                 numeroSecuencia = 0;
 
-            } else {
+            } else if (numeroSecuencia === 2) {
                 // Cambiar la imagen de fondo por otra que tengas en una variable
-                document.querySelector(".main").style.backgroundImage = `url('img/fondos/image2.jpeg')`;
-
+                document.querySelector(".main").style.backgroundImage = `url('../../img/fondos/image2.jpeg')`;
+            } else if (numeroSecuencia === 1) {
+                // Cambiar la imagen de fondo por otra que tengas en una variable
+                document.querySelector(".main").style.backgroundImage = `url('../../img/fondos/image3.png')`;
             }
             // Reiniciar la secuencia de flechas
             secuenciaFlechas = [];

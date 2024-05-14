@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
     <link rel="stylesheet" type="text/css" href="../styles/comunes/ventanaEmergente.css">
-    <script src="scripts/comparados.js" defer></script>
+    <script src="../scripts/comunes/comparados.js" defer></script>
     <script type="module" src="../scripts/comunes/comparador/menuSeleccion.js" defer></script>
     <script src="../scripts/comunes/comparador/portadaParallax.js" defer></script>
     <script src="../scripts/comunes/ventanaEmergente.js" defer></script>
