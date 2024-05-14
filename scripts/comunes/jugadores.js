@@ -12,7 +12,7 @@ let contenedorJugadores = document.getElementById('contenedorJugadores');
 
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    return fetch('php/conexionBD.php')
+    return fetch('../php/conexiones/conexionBD.php')
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
@@ -105,7 +105,7 @@ function contenidoPantallaGrande() {
                         equipoModificado = equipoModificado.replace(/'/g, '');
                         equipoModificado = equipoModificado.replace(/\s+/g, '_');
                         if (equipo === 'Layton Team') {
-                            imagen.src = 'img/Layton_Team.png';
+                            imagen.src = '../img/Layton_Team.png';
                             } else {
                                 imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`;
                             }
@@ -346,10 +346,10 @@ function agregarJugador(jugador) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <img src="img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                        <img src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
                     </div>
                     <div class="elemento">
-                        <img src="img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
+                        <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
                     </div>
                 </div>
                 <!-- Puntos de energía (PE) y puntos de técnica (PT) del jugador -->
