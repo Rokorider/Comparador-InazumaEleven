@@ -411,7 +411,7 @@
 .boton {
     width: 100%;
     height: 60px;
-    background-image: url('../img/boton.png');
+    background-image: url('../../img/boton.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

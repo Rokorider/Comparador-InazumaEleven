@@ -2,7 +2,7 @@ let equipos = [];
 
 function obtenerDatosDelUsuario() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    return fetch('php/conexionBDEquipos.php')
+    return fetch('../php/conexiones/conexionBDEquipos.php')
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
