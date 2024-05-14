@@ -6,7 +6,7 @@ let jugadores;
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    fetch("php/conexionBD.php")
+    fetch("../php/conexiones/conexionBD.php")
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();
@@ -106,7 +106,7 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         imgEquipo.alt= equipo+ " Escudo";
 
         if (equipoURL === "Layton_Team") {
-            imgEquipo.src = "img/Layton_Team.png";
+            imgEquipo.src = "../img/Layton_Team.png";
         } else {
             imgEquipo.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png`;
         }
@@ -187,7 +187,7 @@ function crearJugadoresEquipo(
         
         const personajeInfo_elemento = document.createElement("img");
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
-        personajeInfo_elemento.src = `img/Elementos/${jugador.Elemento}.png`;
+        personajeInfo_elemento.src = `../img/Elementos/${jugador.Elemento}.png`;
 
 
         const personajeInfo_posicion = document.createElement("div");
@@ -250,11 +250,11 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const sexoPersonaje = document.querySelector(
         `.sexoPersonaje_${personajeNum} `
     );
-    sexoPersonaje.src = `img/generos/${jugador.Género}.png`;
+    sexoPersonaje.src = `../img/generos/${jugador.Género}.png`;
     const elementoPersonaje = document.querySelector(
         `.elemento_${personajeNum} `
     );
-    elementoPersonaje.src = `img/Elementos/${jugador.Elemento}.png`;
+    elementoPersonaje.src = `../img/Elementos/${jugador.Elemento}.png`;
     const personajePosicion = document.querySelector(
         `.posicion_${personajeNum} `
     );
@@ -306,59 +306,59 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const valor2 = parseInt(document.querySelector('.valor_2').textContent);
 
     if (tiro1 > tiro2) {
-        flechaTiro.src = "img/flechasComparador/flechasMayor1.png";
+        flechaTiro.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (tiro1 < tiro2) {
-        flechaTiro.src = "img/flechasComparador/flechasMenor2.png";
+        flechaTiro.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaTiro.src = "img/flechasComparador/Igual1.png";
+        flechaTiro.src = "../img/flechasComparador/Igual1.png";
     }
 
     if (fisico1 > fisico2) {
-        flechaFisico.src = "img/flechasComparador/flechasMayor1.png";
+        flechaFisico.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (fisico1 < fisico2) {
-        flechaFisico.src = "img/flechasComparador/flechasMenor2.png";
+        flechaFisico.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaFisico.src = "img/flechasComparador/Igual2.png";
+        flechaFisico.src = "../img/flechasComparador/Igual2.png";
     }
 
     if (control1 > control2) {
-        flechaControl.src = "img/flechasComparador/flechasMayor1.png";
+        flechaControl.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (control1 < control2) {
-        flechaControl.src = "img/flechasComparador/flechasMenor2.png";
+        flechaControl.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaControl.src = "img/flechasComparador/Igual1.png";
+        flechaControl.src = "../img/flechasComparador/Igual1.png";
     }
 
     if (defensa1 > defensa2) {
-        flechaDefensa.src = "img/flechasComparador/flechasMayor1.png";
+        flechaDefensa.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (defensa1 < defensa2) {
-        flechaDefensa.src = "img/flechasComparador/flechasMenor2.png";
+        flechaDefensa.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaDefensa.src = "img/flechasComparador/Igual2.png";
+        flechaDefensa.src = "../img/flechasComparador/Igual2.png";
     }
 
     if (rapidez1 > rapidez2) {
-        flechaRapidez.src = "img/flechasComparador/flechasMayor1.png";
+        flechaRapidez.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (rapidez1 < rapidez2) {
-        flechaRapidez.src = "img/flechasComparador/flechasMenor2.png";
+        flechaRapidez.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaRapidez.src = "img/flechasComparador/Igual1.png";
+        flechaRapidez.src = "../img/flechasComparador/Igual1.png";
     }
 
     if (aguante1 > aguante2) {
-        flechaAguante.src = "img/flechasComparador/flechasMayor1.png";
+        flechaAguante.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (aguante1 < aguante2) {
-        flechaAguante.src = "img/flechasComparador/flechasMenor2.png";
+        flechaAguante.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaAguante.src = "img/flechasComparador/Igual2.png";
+        flechaAguante.src = "../img/flechasComparador/Igual2.png";
     }
 
     if (valor1 > valor2) {
-        flechaValor.src = "img/flechasComparador/flechasMayor1.png";
+        flechaValor.src = "../img/flechasComparador/flechasMayor1.png";
     } else if (valor1 < valor2) {
-        flechaValor.src = "img/flechasComparador/flechasMenor2.png";
+        flechaValor.src = "../img/flechasComparador/flechasMenor2.png";
     } else {
-        flechaValor.src = "img/flechasComparador/Igual1.png";
+        flechaValor.src = "../img/flechasComparador/Igual1.png";
     }
 
 

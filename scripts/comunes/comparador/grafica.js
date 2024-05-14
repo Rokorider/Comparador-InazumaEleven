@@ -19,7 +19,7 @@ let personajeElegidos = new Array(2);
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
-    fetch("php/conexionBD.php")
+    fetch("../php/conexiones/conexionBD.php")
         // Procesar la respuesta como JSON
         .then(function (response) {
             return response.json();

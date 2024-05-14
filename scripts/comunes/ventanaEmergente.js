@@ -8,11 +8,11 @@ function mostrarVentana() {
 
     <div class="cajaCerrar">
         <figure class="cruz" id="cerrar">
-            <img src="img/cruz.png" alt="cerrar">
+            <img src="../img/cruz.png" alt="cerrar">
         </figure>
     </div>
     <div class="cajalogo">
-        <img src="img/logo/InazumaElevenComparadorLogo2.png" alt="logo">
+        <img src="../img/logo/InazumaElevenComparadorLogo2.png" alt="logo">
     </div>
     <div class="cajaTexto">
         <p class="texto1">Esta página es un proyecto creado por fans para fans.</p>
