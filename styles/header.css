@@ -14,13 +14,13 @@ header{
 }
 
 .logoNav{
-    width: 10%;
+    width: 15%;
     height: 100%;
+    padding: 5px;
 }
 
 .logoNav img{
-
-    width: 100%;
+    height: 100%;
 }
 
 nav{
@@ -69,4 +69,56 @@ nav ul li a{
 
 .cerrarSesion img, .user img{
     width: 80%;
+}
+
+@media only screen and (max-width: 640px)  {
+
+    header{
+        /*
+        bottom: 0;
+        left: 0;*/
+        height:10%;
+    }
+    .btnMusica img{
+        display: none;
+    }
+    .logoNav{
+        display: none;
+    }
+    nav{
+        width: 80%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    nav ul{
+        gap: 20px;
+    
+    }
+    nav ul li a{
+        font-size: 1.4rem;
+    }
+    .cerrarSesion, .user{
+        width: 15%;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .logoNav{
+        width: 30%;
+    }
+    .logoNav img{
+        height: 100%;
+    }
+    nav{
+        width: 60%;
+    }
+    nav ul{
+        gap: 50px;
+    }
+    .cerrarSesion, .user{
+        width: 10%;
+    }
 }

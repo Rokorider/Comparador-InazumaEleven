@@ -75,7 +75,7 @@
 }
 
 .cajalogo img {
-    width: 40%;
+    height: 100%;
 }
 
 .cajaTexto {
@@ -103,7 +103,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 1.7rem;
     padding: 25px;
     margin-top: 10px;
 }
@@ -116,7 +116,7 @@
     justify-content: center;
     align-items: center;
     padding: 25px;
-    font-size: 18px;
+    font-size: 1.1rem;
 }
 
 .texto3 {
@@ -127,5 +127,26 @@
     padding: 25px;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 640px)  {
+    .contenedor{
+        width: 90%;
+    }
+    .texto1{
+        font-size: 1.3rem;
+    }
+    .texto2{
+        font-size: 0.8rem;
+    }
+    .texto3{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .contenedor{
+        width: 80%;
+    }
 }

@@ -13,11 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
+    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css">
     <script src="scripts/comparados.js" defer></script>
     <script type="module" src="scripts/menuSeleccion.js" defer></script>
     <script src="scripts/portadaParallax.js" defer></script>
     <script src="scripts/ventanaEmergente.js" defer></script>
-    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="scripts/grafica.js" defer></script>
     <script src="scripts/flechasComparacion.js" defer></script>
@@ -50,7 +50,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         </div>
 
         <div class="btnMusica" id="btnMusica">
-            <img src="img/pedro.png" alt="Logo Inazuma Eleven" id="imagenMusica"/>
+            <img src="img/cd-furbol.png" alt="Logo Inazuma Eleven" id="imagenMusica"/>
             <audio id="cancion" src="img/audio/cancion2.mp3" loop="true"></audio>
         </div>
         
