@@ -548,6 +548,7 @@ body {
 
 .flechasComparacion {
     height: 100%;
+    max-height: 600px;
     width: 25%;
     position: relative;
     display: flex;
@@ -556,10 +557,10 @@ body {
 }
 
 .flechasCont {
-    height: 70%;
+    height: 65%;
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: 3%;
 }
 
 .flechaComp {
@@ -612,6 +613,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+    text-align: center;
 }
 .personajeColor1{
     background-color: #2f91ae;
@@ -780,8 +782,8 @@ body {
         width: 100px;
         transform: scale(0.8);
     }
-    .personajeInfor_nombre{
-        font-size: 0.9rem;
+    .nombreEnStatCont{
+        font-size: 1.5rem;
     }
     .seccionStats2{
         display: block;
@@ -797,8 +799,29 @@ body {
         height: 60%;
         margin-bottom: 20px;
     }
+    .infoPersonaje{
+        height: 40%;
+    }
+    .posicionCont{
+        height: 80%;
+        font-size: 1.5rem;
+    }
+    .elementoCont{
+        height: 80%;
+    }
+    .botonDescripcion{
+        font-size: 1rem;
+    }
+    .statsPersonaje{
+        height: 60%;
+    }
     .stat{
-        width: 50%;
+        width: 45%;
+        height: 25px;
+        padding: 0 5% 0 5%;
+    }
+    .stat p{
+        font-size: 1rem;
     }
     .seccionGrafica{
         height: 20%;
@@ -810,8 +833,17 @@ body {
     .seccionGraficaBarras{
         width: 100%;
     }
-    .seccionPE,.seccionPT{
-        transform: scale(0.6);
+    .seccionGraficaBarras p{
+        font-size: 1.2rem;
+    }
+    .barra{
+        height: 30px;
+    }
+    .personajeColores{
+        height: 35%;
+    }
+    .personajeColor1,.personajeColor2{
+        font-size: 1rem;
     }
 }
 
@@ -850,6 +882,10 @@ body {
         margin: 0 5% 0 5%;
         transform: scale(1.2);
     }
+    .menuPopUp{
+        width: 85%;
+        max-height: 70vh;
+    }
     .flechaTituloContenedor{
         max-width: 100%;
     }
@@ -869,6 +905,7 @@ body {
         width: 40%;
     }
     .seccionGrafica{
+        width: 80%;
         height: 22%;
         margin-top: 30%;
         flex-wrap: wrap;
@@ -877,9 +914,6 @@ body {
     }
     .seccionGraficaBarras{
         width: 100%;
-    }
-    .seccionPE,.seccionPT{
-        transform: scale(0.8);
     }
     
 }

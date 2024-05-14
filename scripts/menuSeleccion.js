@@ -308,13 +308,13 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (tiro1 > tiro2) {
         flechaTiro.src = "img/flechasComparador/flechasMayor1.png";
     } else if (tiro1 < tiro2) {
-        flechaTiro.src = "img/flechasComparador/flechasMenor1.png";
+        flechaTiro.src = "img/flechasComparador/flechasMenor2.png";
     } else {
         flechaTiro.src = "img/flechasComparador/Igual1.png";
     }
 
     if (fisico1 > fisico2) {
-        flechaFisico.src = "img/flechasComparador/flechasMayor2.png";
+        flechaFisico.src = "img/flechasComparador/flechasMayor1.png";
     } else if (fisico1 < fisico2) {
         flechaFisico.src = "img/flechasComparador/flechasMenor2.png";
     } else {
@@ -324,13 +324,13 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (control1 > control2) {
         flechaControl.src = "img/flechasComparador/flechasMayor1.png";
     } else if (control1 < control2) {
-        flechaControl.src = "img/flechasComparador/flechasMenor1.png";
+        flechaControl.src = "img/flechasComparador/flechasMenor2.png";
     } else {
         flechaControl.src = "img/flechasComparador/Igual1.png";
     }
 
     if (defensa1 > defensa2) {
-        flechaDefensa.src = "img/flechasComparador/flechasMayor2.png";
+        flechaDefensa.src = "img/flechasComparador/flechasMayor1.png";
     } else if (defensa1 < defensa2) {
         flechaDefensa.src = "img/flechasComparador/flechasMenor2.png";
     } else {
@@ -340,13 +340,13 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (rapidez1 > rapidez2) {
         flechaRapidez.src = "img/flechasComparador/flechasMayor1.png";
     } else if (rapidez1 < rapidez2) {
-        flechaRapidez.src = "img/flechasComparador/flechasMenor1.png";
+        flechaRapidez.src = "img/flechasComparador/flechasMenor2.png";
     } else {
         flechaRapidez.src = "img/flechasComparador/Igual1.png";
     }
 
     if (aguante1 > aguante2) {
-        flechaAguante.src = "img/flechasComparador/flechasMayor2.png";
+        flechaAguante.src = "img/flechasComparador/flechasMayor1.png";
     } else if (aguante1 < aguante2) {
         flechaAguante.src = "img/flechasComparador/flechasMenor2.png";
     } else {
@@ -356,7 +356,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     if (valor1 > valor2) {
         flechaValor.src = "img/flechasComparador/flechasMayor1.png";
     } else if (valor1 < valor2) {
-        flechaValor.src = "img/flechasComparador/flechasMenor1.png";
+        flechaValor.src = "img/flechasComparador/flechasMenor2.png";
     } else {
         flechaValor.src = "img/flechasComparador/Igual1.png";
     }
