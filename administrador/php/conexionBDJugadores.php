@@ -18,8 +18,9 @@ class JugadoresBD
     }
 
     // Función para crear un jugador como administrador. Jugador es un objeto de la clase Jugador
-    public function crearJugadorAdministrador($jugador, $equipo){
-        
+    public function crearJugadorAdministrador($jugador, $equipo)
+    {
+
         // Almacenar los valores de las estadísticas en variables
         $nombre = $jugador->getNombre();
         $apodo = $jugador->getApodo();
@@ -38,12 +39,12 @@ class JugadoresBD
         $aguante = $jugador->getAguante();
         $valor = $jugador->getValor();
         $juego = $jugador->getJuego();
-        
+
         $sql = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripción, Imagenes, Posición, Elemento, Género, Equipo, PE, PT, Tiro, Físico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ( '$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
-        
+
         $stmt = $this->conexion->prepare($sql);
         $result = $stmt->execute();
-    
+
         if ($result) {
             return true;
         } else {
@@ -51,7 +52,8 @@ class JugadoresBD
         }
     }
 
-    public function actualizarJugador($campos_actualizados, $idJugador){
+    public function actualizarJugador($campos_actualizados, $idJugador)
+    {
 
         $query = "UPDATE api_inazuma_eleven___hoja_1 SET " . implode(", ", $campos_actualizados) . " WHERE id = '$idJugador'";
         $result = mysqli_query($this->conexion, $query);
@@ -60,13 +62,96 @@ class JugadoresBD
         } else {
             return false;
         }
-
     }
 
+    public function crearJugadorUsuario($usuario, $equipo, $jugador, $fotoEquipo)
+    {
 
-    public function crearJugador(){
+        $sql = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
+        $resultado = mysqli_query($this->conexion, $sql);
 
+        // Verifica si la consulta fue exitosa
+        if ($resultado) {
+            // Verifica si se encontraron filas
+            if ($resultado->num_rows > 0) {
+                // Obtiene la primera fila (asumiendo que solo debería haber una fila)
+                $fila = $resultado->fetch_assoc();
+                // Extrae el valor de la columna 'id'
+                $idUsuario = $fila['id'];
+            } else {
+                // No se encontraron filas con el nombre de usuario dado
+                // Manejar el caso en que el usuario no existe
+            }
+        } else {
+            // Maneja el error de consulta
+            echo "Error en la consulta: " . $this->conexion->error;
+        }
+
+        $sqlBuscarEquipo = "SELECT id FROM equipos WHERE nombre = '$equipo'";
+
+        $resultadoBusqueda = mysqli_query($this->conexion, $sqlBuscarEquipo);
+
+        if ($resultadoBusqueda->num_rows == 0) {
+            // Insertar datos del equipo si no existe
+            $sqlInsertarEquipo = "INSERT INTO equipos (nombre, foto, usuario_id) VALUES ('$equipo', '$fotoEquipo', '$idUsuario')";
+            if (!$this->conexion->query($sqlInsertarEquipo)) {
+                echo "Error al insertar datos del equipo: " . $this->conexion->error;
+            }
+        }
+
+        // Obtener el ID del equipo
+        $sqlidEquipo = "SELECT id FROM equipos WHERE nombre = '{$equipo}'";
+        $resultadoidEquipo = mysqli_query($this->conexion, $sqlidEquipo);
+
+        // Verifica si la consulta fue exitosa
+        if ($resultadoidEquipo) {
+            // Verifica si se encontraron filas
+            if ($resultadoidEquipo->num_rows > 0) {
+                // Obtiene la primera fila (asumiendo que solo debería haber una fila)
+                $fila = $resultadoidEquipo->fetch_assoc();
+                // Extrae el valor de la columna 'id'
+                $idEquipo = $fila['id'];
+            } else {
+                // No se encontraron filas con el nombre de usuario dado
+                // Manejar el caso en que el usuario no existe
+            }
+        } else {
+            // Maneja el error de consulta
+            echo "Error en la consulta: " . $this->conexion->error;
+        }
+
+        // Almacenar los valores de las estadísticas en variables
+        $nombre = $jugador->getNombre();
+        $apodo = $jugador->getApodo();
+        $descripcion = $jugador->getDescripcion();
+        $imagen = $jugador->getFoto();
+        $posicion = $jugador->getPosicion();
+        $elemento = $jugador->getElemento();
+        $genero = $jugador->getGenero();
+        $pe = $jugador->getPE();
+        $pt = $jugador->getPt();
+        $tiro = $jugador->getTiro();
+        $fisico = $jugador->getFisico();
+        $control = $jugador->getControl();
+        $defensa = $jugador->getDefensa();
+        $rapidez = $jugador->getRapidez();
+        $aguante = $jugador->getAguante();
+        $valor = $jugador->getValor();
+
+        // Insertar datos del jugador
+        $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
+
+        // Ejecutar la consulta para insertar el jugador
+        if (!$this->conexion->query($sqlInsertarJugador)) {
+            echo "Error al insertar datos del jugador: " . $this->conexion->error;
+        } else {
+            // Consulta para aumentar el número de jugadores del equipo
+            $sqlAumentarJugadores = "UPDATE equipos SET numeroJugadores = numeroJugadores + 1 WHERE id = '$idEquipo'";
+
+            // Ejecutar la consulta para aumentar el número de jugadores del equipo
+            if (!$this->conexion->query($sqlAumentarJugadores)) {
+                echo "Error al aumentar el número de jugadores del equipo: " . $this->conexion->error;
+            }
+        }
     }
-    
-    
 }
