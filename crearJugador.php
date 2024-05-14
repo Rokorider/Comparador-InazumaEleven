@@ -20,27 +20,7 @@
 
 <body>
 
-    <header>
-        <figure class="logoNav">
-            <a href="comparador.php"><img src="img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-    </header>
+    <?php include 'paginas/header.php'; ?>
 
     <section class="main" id="main">
         <div class="titulo">
@@ -241,6 +221,7 @@
         </div>
     </section>
 
+    <?php include 'paginas/footer.php'; ?>
 </body>
 
 </html>

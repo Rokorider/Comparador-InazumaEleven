@@ -40,7 +40,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 
 <body>
 
-    <?php include 'php/header.php'; ?>
+    <?php include 'paginas/header.php'; ?>
 
     <section class="portada">
         <div class="parallax" id="parallax">
@@ -323,7 +323,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         </div>
     </section>
 
-    <?php include 'php/footer.php'; ?>
+    <?php include 'paginas/footer.php'; ?>
 </body>
 
 </html>

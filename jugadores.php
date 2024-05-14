@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="scripts/jugadores.js" defer></script>
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,35 +19,13 @@
 
 <body>
 
-    <header>
-
-        <figure class="logoNav">
-            <a href="comparador.php"><img src="img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-
-
-    </header>
+    <?php include 'paginas/header.php'; ?>
 
     <section class="contenedorJugadores" id="contenedorJugadores"></section>
 
     <div class="jugadores" id="jugadores"></div>
+
+    <?php include 'paginas/footer.php'; ?>
 
 </body>
 

@@ -1,7 +1,6 @@
 /*---footer---*/
 footer {
     width: 100%;
-    height: 5%;
     background-color: #2f477c;
     /*background: linear-gradient(90deg, rgba(64, 123, 236, 1) 8%, rgba(62, 140, 210, 1) 29%, rgba(93, 194, 238, 1) 100%);*/
     background-image: url("../img/bg_soccer_pattern.png");
@@ -10,8 +9,6 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
 }
 .footer{
     display: flex;

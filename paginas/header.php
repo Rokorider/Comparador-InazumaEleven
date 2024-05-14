@@ -7,10 +7,10 @@
         <nav>
             <ul>
                 <li>
-                    <a href="jugadores.html">Jugadores</a>
+                    <a href="jugadores.php">Jugadores</a>
                 </li>
                 <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
+                    <a href="crearJugador.php">Crear Jugador</a>
                 </li>
             </ul>
         </nav>
