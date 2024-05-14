@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="img/logo/logo.png" />
-    <link rel="stylesheet" href="styles/normalize.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/footer.css" />
-    <link rel="stylesheet" href="styles/scrollbar.css">
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" type="image/x-icon" href="../img/logo/logo.png" />
+    <link rel="stylesheet" href="../styles/comunes/normalize.css" />
+    <link rel="stylesheet" href="../styles/header_footer/header.css" />
+    <link rel="stylesheet" href="../styles/header_footer/footer.css" />
+    <link rel="stylesheet" href="../styles/comunes/scrollbar.css">
+    <link rel="stylesheet" href="../styles/comunes/comparador.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
-    <link rel="stylesheet" type="text/css" href="styles/ventanaEmergente.css">
+    <link rel="stylesheet" type="text/css" href="../styles/comunes/ventanaEmergente.css">
     <script src="scripts/comparados.js" defer></script>
-    <script type="module" src="scripts/menuSeleccion.js" defer></script>
-    <script src="scripts/portadaParallax.js" defer></script>
-    <script src="scripts/ventanaEmergente.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/menuSeleccion.js" defer></script>
+    <script src="../scripts/comunes/comparador/portadaParallax.js" defer></script>
+    <script src="../scripts/comunes/ventanaEmergente.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
-    <script type="module" src="scripts/grafica.js" defer></script>
-    <script src="scripts/flechasComparacion.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/grafica.js" defer></script>
+    <script src="../scripts/comunes/comparador/flechasComparacion.js" defer></script>
     <title>Comparador Inazuma ELeven</title>
 </head>
 
@@ -40,7 +40,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 
 <body>
 
-    <?php include 'php/imports/header.php'; ?>
+    <?php include '../php/imports/header.php'; ?>
 
     <section class="portada">
         <div class="parallax" id="parallax">
@@ -50,8 +50,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         </div>
 
         <div class="btnMusica" id="btnMusica">
-            <img src="img/cd-furbol.png" alt="Logo Inazuma Eleven" id="imagenMusica"/>
-            <audio id="cancion" src="img/audio/cancion2.mp3" loop="true"></audio>
+            <img src="../img/cd-furbol.png" alt="Logo Inazuma Eleven" id="imagenMusica"/>
+            <audio id="cancion" src="../img/audio/cancion2.mp3" loop="true"></audio>
         </div>
         
     </section>
@@ -60,24 +60,24 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
             <div class="comparacionContenedor">
                 <div class="personaje1">
                     <div class="personajeIcono1">
-                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img"
+                        <img src="../img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono1Img"
                             id="personaje1" />
                     </div>
                     <div class="nombrePersonajeContenedor1">
-                        <img src="img/boton.png" alt="">
+                        <img src="../img/boton.png" alt="">
                         <p id="apodoPersonaje1">???????</p>
                     </div>
                 </div>
                 <div class="vsContenedor">
-                    <img src="img/VS.png" alt="" class="vsImg" />
+                    <img src="../img/VS.png" alt="" class="vsImg" />
                 </div>
                 <div class="personaje2">
                     <div class="personajeIcono2">
-                        <img src="img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img"
+                        <img src="../img/icono/PlayerDeafultMarkPlus.png" alt="" class="personajeIcono2Img"
                             id="personaje2" />
                     </div>
                     <div class="nombrePersonajeContenedor2">
-                        <img src="img/boton.png" alt="">
+                        <img src="../img/boton.png" alt="">
                         <p id="apodoPersonaje2">???????</p>
                     </div>
                 </div>
@@ -130,8 +130,8 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         <!--Zona de cesped-->
         <div class="contenidoContenedor">
             <div class="flechaTituloContenedor">
-                <img src="img/flechaAzulnotext.png" alt="" class="flechaTituloImg" />
-                <img src="img/Markrunning.gif" alt="" class="markCorriendo" />
+                <img src="../img/flechaAzulnotext.png" alt="" class="flechaTituloImg" />
+                <img src="../img/Markrunning.gif" alt="" class="markCorriendo" />
             </div>
             <div class="seccionStats">
                 <div class="seccionStats2">
@@ -142,12 +142,12 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                                     <p class="nombre_1">Nombre</p>
                                 </div>
                                 <div class="imgSexoCont">
-                                    <img src="img/generos/Otro.png" alt="" class="sexoPersonaje_1" />
+                                    <img src="../img/generos/Otro.png" alt="" class="sexoPersonaje_1" />
                                 </div>
                             </div>
                             <div class="descripcion-tipo">
                                 <div class="botonDescripcion">
-                                    <img src="img/boton.png" alt="" />
+                                    <img src="../img/boton.png" alt="" />
                                     <p class="descripcionTxt">Descripción</p>
                                     <p class="flechaDescripcion">v</p>
                                     <div class="textoDesplegable">
@@ -198,25 +198,25 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                     <div class="flechasComparacion">
                         <div class="flechasCont">
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual1.png" alt="" id="flechaTiro" />
+                                <img src="../img/flechasComparador/Igual1.png" alt="" id="flechaTiro" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual2.png" alt="" id="flechaFisico" />
+                                <img src="../img/flechasComparador/Igual2.png" alt="" id="flechaFisico" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual1.png" alt="" id="flechaControl" />
+                                <img src="../img/flechasComparador/Igual1.png" alt="" id="flechaControl" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual2.png" alt="" id="flechaDefensa" />
+                                <img src="../img/flechasComparador/Igual2.png" alt="" id="flechaDefensa" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual1.png" alt="" id="flechaRapidez" />
+                                <img src="../img/flechasComparador/Igual1.png" alt="" id="flechaRapidez" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual2.png" alt="" id="flechaAguante" />
+                                <img src="../img/flechasComparador/Igual2.png" alt="" id="flechaAguante" />
                             </div>
                             <div class="flechaComp">
-                                <img src="img/flechasComparador/Igual1.png" alt="" id="flechaValor" />
+                                <img src="../img/flechasComparador/Igual1.png" alt="" id="flechaValor" />
                             </div>
                         </div>
                     </div>
@@ -227,12 +227,12 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
                                     <p class="nombre_2">Nombre</p>
                                 </div>
                                 <div class="imgSexoCont">
-                                    <img src="img/generos/Otro.png" alt="" class="sexoPersonaje_2" />
+                                    <img src="../img/generos/Otro.png" alt="" class="sexoPersonaje_2" />
                                 </div>
                             </div>
                             <div class="descripcion-tipo">
                                 <div class="botonDescripcion">
-                                    <img src="img/boton.png" alt="" />
+                                    <img src="../img/boton.png" alt="" />
                                     <p class="descripcionTxt">Descripción</p>
                                     <p class="flechaDescripcion">v</p>
                                     <div class="textoDesplegable">
@@ -323,7 +323,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
         </div>
     </section>
 
-    <?php include 'php/imports/footer.php'; ?>
+    <?php include '../php/imports/footer.php'; ?>
 </body>
 
 </html>
