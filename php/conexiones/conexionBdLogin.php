@@ -18,19 +18,44 @@ class loginBD
 
     public function login($usuario, $contrasena)
     {
-        $sql = "SELECT * FROM usuarios WHERE nombre = '$usuario' and contrasena = '$contrasena'";
+        $sql = "SELECT * FROM usuarios WHERE nombre = '$usuario' AND contrasena = '$contrasena'";
         $result = $this->conexion->query($sql);
 
         if ($result->num_rows > 0) {
-            // Iniciar sesión
-            session_start();
-            $_SESSION['usuario'] = $usuario;
-            $_SESSION['jugadoresComparados'] = array();
-            $_SESSION['jugadoresCreados'] = array();
-            return true;
+            // Obtener los datos del usuario
+            $datos_usuario = $result->fetch_assoc();
+
+            // Verificar si el usuario tiene permisos
+            $permisos = $datos_usuario['permisos'];
+
+            if ($permisos) {
+                // Iniciar sesión
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['jugadoresComparados'] = array();
+                $_SESSION['jugadoresCreados'] = array();
+
+                // Redirigir a la página de comparador de administrador
+                header("Location: ../../administrador/comparadorAdmin.php");
+                exit(); // Salir del script después de redirigir
+            } else {
+                // Iniciar sesión para otros usuarios sin permisos de administrador
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['jugadoresComparados'] = array();
+                $_SESSION['jugadoresCreados'] = array();
+
+                // Redirigir a la página de comparador común
+                header("Location: ../../paginasComunes/comparador.php");
+                exit(); // Salir del script después de redirigir
+            }
+        } else {
+            // Redirigir al inicio de sesión si falla
+            header("Location: ../../index.html");
+            exit(); // Salir del script después de redirigir
         }
-        return false;
     }
+
 
     public function registro($nombre, $email, $contrasena)
     {

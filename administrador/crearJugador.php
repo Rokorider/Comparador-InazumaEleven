@@ -32,7 +32,7 @@ if (!isset($_SESSION['usuario'])) {
 
 <body>
 
-    <?php include '../php/imports/header.php'; ?>
+    <?php include '../php/imports/headerAdmin.php'; ?>
 
     <section class="main" id="main">
         <div class="tituloPrincipal">

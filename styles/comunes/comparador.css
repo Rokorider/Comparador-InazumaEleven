@@ -6,11 +6,11 @@
 }
 
 @keyframes bounce {
-    to { transform: translateY(10px); }
+    to { transform: translateY(5px); }
 }
 
 .imagenMusica-sonando {
-    animation: bounce 200ms linear infinite alternate;
+    animation: bounce 400ms linear infinite alternate;
 }
 
 @font-face {
