@@ -79,10 +79,11 @@ function validarDatos() {
     validarEstadisticasPePt();
     if (document.getElementById('buscadorJuegos')) {
         validarJuego();
-    }    
+    }
 }
 
 function validarEquipo() {
+
     if (equipo.value === '') {
         errorEquipo.textContent = 'El equipo es obligatorio';
         aplicarEstiloError(errorEquipo);
@@ -97,8 +98,22 @@ function validarEquipo() {
 
 
 function validarNombre() {
+
+    const nombreInput = nombre.value.trim(); // Elimina los espacios en blanco al principio y al final
+    const letrasRegex = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+
     if (nombre.value === '') {
         errorNombre.textContent = 'El nombre es obligatorio';
+        aplicarEstiloError(errorNombre);
+        main.scrollIntoView({ behavior: "smooth" });
+        NombreCorrecto = false;
+    } else if (!letrasRegex.test(nombreInput)) {
+        errorNombre.textContent = 'El nombre solo puede contener letras';
+        aplicarEstiloError(errorNombre);
+        main.scrollIntoView({ behavior: "smooth" });
+        NombreCorrecto = false;
+    } else if (nombreInput.length > 25) { // Validación para verificar si el apodo tiene más de 10 letras
+        errorNombre.textContent = 'El nombre no puede tener más de 25 letras';
         aplicarEstiloError(errorNombre);
         main.scrollIntoView({ behavior: "smooth" });
         NombreCorrecto = false;
@@ -112,33 +127,56 @@ function validarNombre() {
 function validarApodo() {
     // Obtener el apodo ingresado por el usuario
     let nuevoApodo = apodo.value.trim();
-    
+    const letrasRegex = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+
     // Verificar si el apodo está vacío
     if (nuevoApodo === '') {
         errorApodo.textContent = 'El apodo es obligatorio';
         aplicarEstiloError(errorApodo);
         main.scrollIntoView({ behavior: "smooth" });
         ApodoCorrecto = false;
+    } else if (!letrasRegex.test(nuevoApodo)) {
+        errorApodo.textContent = 'El apodo solo puede contener letras';
+        aplicarEstiloError(errorApodo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ApodoCorrecto = false;
+    } else if (nuevoApodo.length > 10) { // Validación para verificar si el apodo tiene más de 10 letras
+        errorApodo.textContent = 'El apodo no puede tener más de 10 letras';
+        aplicarEstiloError(errorApodo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ApodoCorrecto = false;
+    } else if (jugadores.some(jugador => jugador.Apodo === nuevoApodo)) {
+        errorApodo.textContent = 'Ya existe un jugador con este apodo';
+        aplicarEstiloError(errorApodo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ApodoCorrecto = false;
     } else {
-        // Comprobar si el apodo ya existe en la lista de jugadores
-        if (jugadores.some(jugador => jugador.Apodo === nuevoApodo)) {
-            errorApodo.textContent = 'Ya existe un jugador con este apodo';
-            aplicarEstiloError(errorApodo);
-            main.scrollIntoView({ behavior: "smooth" });
-            ApodoCorrecto = false;
-        } else {
-            // Si el apodo no existe, limpiar el error
-            errorApodo.textContent = '';
-            limpiarEstiloError(errorApodo);
-            ApodoCorrecto = true;
-        }
+        // Si el apodo no existe, limpiar el error
+        errorApodo.textContent = '';
+        limpiarEstiloError(errorApodo);
+        ApodoCorrecto = true;
     }
+
 }
 
 
 function validarDescripcion() {
+
+    const descripcionInput = descripcion.value.trim(); // Elimina los espacios en blanco al principio y al final
+    const letrasRegex = /^[A-Za-záéíóúÁÉÍÓÚ,.\s]+$/;
+
     if (descripcion.value === '') {
         errorDescripcion.textContent = 'La descripción es obligatoria';
+        aplicarEstiloError(errorDescripcion);
+        main.scrollIntoView({ behavior: "smooth" });
+        DescripcionCorrecta = false;
+    } else if (!letrasRegex.test(descripcionInput)) {
+        errorDescripcion.textContent = 'La descripción solo puede contener letras';
+        aplicarEstiloError(errorDescripcion);
+        main.scrollIntoView({ behavior: "smooth" });
+        DescripcionCorrecta = false;
+    } else if (descripcionInput.length > 80) { 
+        errorDescripcion.textContent = 'La descripción no puede tener más de 80 letras';
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
         DescripcionCorrecta = false;
@@ -365,10 +403,10 @@ boton.addEventListener('click', function (event) {
     }
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
-        
+
         let juego = document.getElementById('buscadorJuegos');
         juegoModificado = juego.value;
-        juegoModificado =  juegoModificado.replace(/\s+/g, "");
+        juegoModificado = juegoModificado.replace(/\s+/g, "");
         document.getElementById("juegoModificado").value = juegoModificado;
 
         equipoModificado = equipo.value;
@@ -377,15 +415,16 @@ boton.addEventListener('click', function (event) {
         equipoModificado = equipoModificado.replace(/\s+/g, '_');
         document.getElementById("equipoModificado").value = equipoModificado;
 
-        // Aquí se asigna el valor a nombreEquipoModificado
-        let nombreEquipoModificado = document.getElementById('nombreEquipo').value; 
+        // Verificar si existe el nombre Equipo
+        if (document.getElementById("nombreEquipo")) {
+            // Aquí se asigna el valor a nombreEquipoModificado
+            let nombreEquipoModificado = document.getElementById('nombreEquipo').value;
+            nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+            nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
+            nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+            document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
+        }
 
-        nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
-        nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
-        nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
-
-        // Aquí se establece el valor en el campo oculto del formulario
-        document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
 
         console.log(nombreEquipoModificado);
 
@@ -395,7 +434,7 @@ boton.addEventListener('click', function (event) {
 });
 
 
-function validarJuego(){
+function validarJuego() {
     let juego = document.getElementById('buscadorJuegos');
     let errorJuego = document.getElementById('errorJuego');
     if (juego.value === '') {

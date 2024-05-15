@@ -584,35 +584,50 @@ function actualizarDatosJugador(jugador) {
 
 }
 
+let nombre = document.getElementById('nombre');
+let errorNombre = document.getElementById('errorNombre');
+
+let apodo = document.getElementById('apodo');
+let errorApodo = document.getElementById('errorApodo');
+
+let imagen = document.getElementById('imagen');
+let errorImagen = document.getElementById('errorImagen');
+
+let errorEstadisticas = document.getElementById('errorEstadisticas');
+let campoErrorEstadisticas = document.getElementById('campoErrorEstadisticas');
+
+let errorEstadisticasPePt = document.getElementById('errorEstadisticasPePt');
+let campoErrorEstadisticasPePt = document.getElementById('campoErrorEstadisticasPePt');
+
+let errorEstadisticasTodas = document.getElementById('errorEstadisticasTodas');
+
+let puntosRestantes = document.getElementById('puntosRestantes');
+let puntosRestantesPePt = document.getElementById('puntosRestantesPePt');
+let contenedorFormulario = document.getElementById('contenedorFormulario');
+
 let NombreCorrecto = true;
 let ApodoCorrecto = true;
 let imagenCorrecta = true;
 let EstadisticasCorrectas = true;
 let todosLosDatosCorrectos = true;
 
-
-function validarDatos(jugadores) {
-
-    let nombre = document.getElementById('nombre');
-    let errorNombre = document.getElementById('errorNombre');
-
-    let apodo = document.getElementById('apodo');
-    let errorApodo = document.getElementById('errorApodo');
-
-    let imagen = document.getElementById('imagen');
-    let errorImagen = document.getElementById('errorImagen');
-
-    let errorEstadisticas = document.getElementById('errorEstadisticas');
-    let campoErrorEstadisticas = document.getElementById('campoErrorEstadisticas');
-
-    let errorEstadisticasPePt = document.getElementById('errorEstadisticasPePt');
-    let campoErrorEstadisticasPePt = document.getElementById('campoErrorEstadisticasPePt');
+function validarTodosLosDatos() {
 
     let errorEstadisticasTodas = document.getElementById('errorEstadisticasTodas');
 
-    let puntosRestantes = document.getElementById('puntosRestantes');
-    let puntosRestantesPePt = document.getElementById('puntosRestantesPePt');
-    let contenedorFormulario = document.getElementById('contenedorFormulario');
+    if (nombre.value === '' && apodo.value === '' && imagen.files.length === 0 && puntosRestantes.textContent === '433' && puntosRestantesPePt.textContent === '248') {
+        errorEstadisticasTodas.textContent = 'Para actualizar un jugador debes de completar al menos un campo o modificar las estadísticas';
+        aplicarEstiloError(errorEstadisticasTodas);
+        todosLosDatosCorrectos = false;
+    } else {
+        errorEstadisticasTodas.textContent = '';
+        limpiarEstiloError(errorEstadisticasTodas);
+        todosLosDatosCorrectos = true;
+    }
+
+}
+
+function validarDatos(jugadores) {
 
     // Crear un array para almacenar los nombres de los jugadores
     let nombreJugadores = [];
@@ -635,30 +650,72 @@ function validarDatos(jugadores) {
 
     function validarNombre() {
 
-        if (nombreJugadores.includes(nombre.value)) {
-            errorNombre.textContent = 'Ya existe un jugador con ese nombre';
-            aplicarEstiloError(errorNombre);
-            contenedorFormulario.scrollIntoView({ behavior: "smooth" });
-            NombreCorrecto = false;
-        } else {
-            errorNombre.textContent = '';
-            limpiarEstiloError(errorNombre);
-            NombreCorrecto = true;
+        const nombreInput = nombre.value.trim(); // Elimina los espacios en blanco al principio y al final
+        const letrasRegex = /^[A-Za-z]+$/;
+
+        if (nombreInput != '') {
+
+            if (!letrasRegex.test(nombreInput)) {
+                errorNombre.textContent = 'El nombre solo puede contener letras';
+                aplicarEstiloError(errorNombre);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                NombreCorrecto = false;
+                return;
+            } else if (nombreInput.length > 25) { // Validación para verificar si el apodo tiene más de 10 letras
+                errorNombre.textContent = 'El nombre no puede tener más de 25 letras';
+                aplicarEstiloError(errorNombre);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                NombreCorrecto = false;
+                return;
+            } else if (nombreJugadores.includes(nombre.value)) {
+                errorNombre.textContent = 'Ya existe un jugador con ese nombre';
+                aplicarEstiloError(errorNombre);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                NombreCorrecto = false;
+            } else {
+                errorNombre.textContent = '';
+                limpiarEstiloError(errorNombre);
+                NombreCorrecto = true;
+            }
         }
+
 
     }
 
     function validarApodo() {
-        if (apodosJugadores.includes(apodo.value)) {
-            errorApodo.textContent = 'Ya existe un jugador con ese apodo';
-            aplicarEstiloError(errorApodo);
-            contenedorFormulario.scrollIntoView({ behavior: "smooth" });
-            ApodoCorrecto = false;
-        } else {
-            errorApodo.textContent = '';
-            limpiarEstiloError(errorApodo);
-            ApodoCorrecto = true;
+
+        const apodoInput = apodo.value.trim(); // Elimina los espacios en blanco al principio y al final
+        const letrasRegex = /^[A-Za-z]+$/;
+
+        if (apodoInput != '') {
+
+            // Validación para verificar si el apodo solo contiene letras
+            if (!letrasRegex.test(apodoInput)) {
+                errorApodo.textContent = 'El apodo solo puede contener letras';
+                aplicarEstiloError(errorApodo);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                ApodoCorrecto = false;
+                return;
+            } else if (apodoInput.length > 10) { // Validación para verificar si el apodo tiene más de 10 letras
+                errorApodo.textContent = 'El apodo no puede tener más de 10 letras';
+                aplicarEstiloError(errorApodo);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                ApodoCorrecto = false;
+                return;
+            } else if (apodosJugadores.includes(apodoInput)) { // Validación para verificar si el apodo ya existe entre los jugadores
+                errorApodo.textContent = 'Ya existe un jugador con ese apodo';
+                aplicarEstiloError(errorApodo);
+                contenedorFormulario.scrollIntoView({ behavior: "smooth" });
+                ApodoCorrecto = false;
+                return;
+            } else {
+                // Si el apodo pasa todas las validaciones, se considera correcto
+                errorApodo.textContent = '';
+                limpiarEstiloError(errorApodo);
+                ApodoCorrecto = true;
+            }
         }
+
     }
 
     function validarImagen() {
@@ -674,16 +731,11 @@ function validarDatos(jugadores) {
                 limpiarEstiloError(campoErrorEstadisticasTodas);
                 imagenCorrecta = true;
             }
-        } else {
-            // No se ha seleccionado ningún archivo
-            errorImagen.textContent = 'Debe seleccionar una imagen.';
-            aplicarEstiloError(campoErrorEstadisticasTodas);
-            imagenCorrecta = false;
         }
     }
 
-
     function validarEstadisticas() {
+
         if (puntosRestantes.textContent > 0 && puntosRestantes.textContent != 433) {
             errorEstadisticas.textContent = 'Debes de asignar todos los puntos disponibles';
             aplicarEstiloError(campoErrorEstadisticas);
@@ -715,26 +767,28 @@ function validarDatos(jugadores) {
         }
     }
 
-    function aplicarEstiloError(elemento) {
-        elemento.style.border = '3px solid #b15d654d';
-        elemento.style.backgroundColor = '#f99c9c';
-        elemento.style.color = '#380c10';
-    }
+}
 
-    function limpiarEstiloError(elemento) {
-        elemento.style.border = ''; // Se elimina el borde personalizado
-        elemento.style.backgroundColor = ''; // Se elimina el color de fondo personalizado
-        elemento.style.color = ''; // Se restablece el color de texto original
-    }
+function aplicarEstiloError(elemento) {
+    elemento.style.border = '3px solid #b15d654d';
+    elemento.style.backgroundColor = '#f99c9c';
+    elemento.style.color = '#380c10';
+}
 
+function limpiarEstiloError(elemento) {
+    elemento.style.border = ''; // Se elimina el borde personalizado
+    elemento.style.backgroundColor = ''; // Se elimina el color de fondo personalizado
+    elemento.style.color = ''; // Se restablece el color de texto original
 }
 
 let boton = document.getElementById('boton');
 
 boton.addEventListener('click', function (event) {
+
+    validarTodosLosDatos();
     validarDatos(jugadores);
 
-    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas && todosLosDatosCorrectos && imagenCorrecta === true) {
+    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas && todosLosDatosCorrectos && imagenCorrecta && todosLosDatosCorrectos === true) {
 
         let juegoModificado = document.getElementById('juegoModificado').value;
         let equipoModificado = document.getElementById('equipoModificado').value;
@@ -748,7 +802,7 @@ boton.addEventListener('click', function (event) {
 
         // Enviar formulario
         document.getElementById('formDatos').submit();
-        
+
     }
 
 });

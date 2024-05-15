@@ -66,9 +66,6 @@ function manejarEstadisticas() {
     });
 }
 
-manejarEstadisticas(); // Llama a la función para iniciar el primer conjunto de funciones
-
-
 // Segundo conjunto de funciones
 function manejarPePt() {
     const cajaPePt = document.getElementById('cajaPePt');
@@ -124,4 +121,7 @@ function manejarPePt() {
     });
 }
 
+
+manejarEstadisticas(); // Llama a la función para iniciar el primer conjunto de funciones
 manejarPePt(); // Llama a la función para iniciar el segundo conjunto de funciones
+

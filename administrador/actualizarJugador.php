@@ -43,7 +43,7 @@ if (!isset($_SESSION['usuario'])) {
             <div class="cajaPregunta" id="buscadorJuegos">
                 <p class="tipo2">Juego</p>
                 <select id="juego" name="juego" class="selector">
-                    <option value="">Selecciona un jugador</option>
+                    <option value="">Selecciona un juego</option>
                 </select>
             </div>
             <div class="cajaPregunta" id="buscadorEquipos">
