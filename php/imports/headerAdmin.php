@@ -7,7 +7,7 @@
     <nav>
         <ul>
             <li>
-                <a href="../paginasComunes/jugadores.php">Jugadores</a>
+                <a href="jugadores.php">Jugadores</a>
             </li>
             <li>
                 <a href="crearJugador.php">Crear Jugador</a>
