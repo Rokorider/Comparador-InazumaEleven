@@ -26,26 +26,37 @@ footer {
     overflow: hidden;
 }
 .logoFooter img{
-    width: 100%;
+    width: 75%;
 }
 .textoFooter{
-    width: 30%;
+    width: 35%;
     margin: 0 15% 0 1%;
     text-align: left;
 }
 .enlacesFooter{
     height: 40%;
-    width: 10%;
+    width: 12%;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
 }
 .red{
-    height: 100%;
     width: 40%;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
 }
-.red img{
-    width: 100%;
+.red:hover, .logoImg:hover{
+    transition: all 0.1s ease;
+    transform: translate(-2px);
+    filter: drop-shadow(5px 5px 0px black);
 }
+.red img {
+    height: 90%;
+}
+
+.github {
+    padding: 10px;
+}
+
 .copy{
     width: 20%;
     font-size: 0.8rem;
@@ -71,6 +82,10 @@ footer {
     .enlacesFooter{
         height: 55%;
         width: 30%;
+        gap: 10px;
+    }
+    .github {
+        padding: 5px;
     }
 }
 
@@ -99,5 +114,8 @@ footer {
     .copy{
         font-size: 0.8rem;
         width: 100%;
+    }
+    .github {
+        padding: 5px;
     }
 }

@@ -14,8 +14,10 @@
                 </li>
             </ul>
         </nav>
+        
         <figure class="user">
-            <a href="administrador.php"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
+            <a href="../paginasComunes/paginasErrores/mantenimiento.html"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
+            <p><?php echo($_SESSION['usuario']);?></p>
         </figure>
         <figure class="cerrarSesion">
             <a href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>

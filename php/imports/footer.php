@@ -1,15 +1,15 @@
 <footer>
         <div class="footer">
             <div class="logoFooter">
-                <a href="#"><img src="../img/logo/InazumaElevenComparadorLogo.png" alt="Logo Inazuma Comparador"></a>
+                <a href="#"><img src="../img/logo/InazumaElevenComparadorLogo2.png" alt="Logo Inazuma Comparador" class="logoImg"></a>
             </div>
             <div class="textoFooter">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, fuga  </p>
+                <p>"¡Con determinación y trabajo en equipo, nada es imposible!"</p>
             </div>
             <div class="enlacesFooter">
-                <div class="red">
+                <div class="red github">
                     <a href="https://github.com/Rokorider/Comparador-InazumaEleven">
-                    <img src="../img/redes/github-142-svgrepo-com.svg" alt="Enlace GitHub">
+                    <img src="../img/redes/github-svgrepo-com.svg" alt="Enlace GitHub" class="githubImg">
                     </a>
                 </div>
                 <div class="red">

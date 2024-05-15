@@ -45,7 +45,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
     <section class="portada">
         <div class="parallax" id="parallax">
             <div class="imgPortada portadaImg1" data-depth="0.002"></div>
-            <div class="imgPortada portadaImg2" data-depth="0.007"></div>
+            <div class="imgPortada portadaImg2" data-depth="0.006"></div>
             <div class="imgPortada portadaImg3" data-depth="0.015"></div>
         </div>
 

@@ -174,14 +174,14 @@ body {
 
 .vsImg {
     height: 60%;
-
+    filter: drop-shadow(5px 5px 0px black);
 }
 
 /*---Menu pop up---*/
 .menuPopUp {
     display: none;
     width: 65%;
-    max-height: 25%;
+    max-height: 22%;
     background-color: #bfbfc1;
     border: 5px solid #868687;
     position: absolute;
@@ -202,8 +202,12 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 2rem;
+    cursor: pointer;
 }
-
+.tituloJuego:hover{
+    transition: all 0.3s ease;
+    background-color: #4f4f51;
+}
 .equiposContenedor {
     display: none;
     background-color: #bfbfc1;
@@ -446,6 +450,7 @@ body {
 }
 
 .botonDescripcion:hover .textoDesplegable {
+
     display: block;
 }
 
@@ -780,7 +785,7 @@ body {
     .menuPopUp{
         width: 100%;
         max-height: 100vh;
-        margin-top: 65%;
+        margin-top: 20%;
     }
     .equipo{
         width: 40%;

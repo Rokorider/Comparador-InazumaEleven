@@ -22,6 +22,11 @@ header{
 .logoNav img{
     height: 100%;
 }
+.logoNav img:hover{
+    transition: all 0.05s ease;
+    transform: translate(-1px);
+    filter: drop-shadow(3px 3px 0px black);
+}
 
 nav{
     width: 80%;
@@ -57,18 +62,76 @@ nav ul li a{
     font-size: 2rem;
 }
 
-.cerrarSesion, .user{
+/* https://codepen.io/kazemi/pen/aGXbMm  Efecto 15*/
+
+nav ul li a::before,nav ul li a::after {
+	display: inline-block;
+	opacity: 0;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+nav ul li a:before {
+	margin-right: 10px;
+	content: '[';
+	-webkit-transform: translateX(20px);
+	-moz-transform: translateX(20px);
+	transform: translateX(20px);
+}
+
+nav ul li a:after {
+	margin-left: 10px;
+	content: ']';
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	transform: translateX(-20px);
+}
+
+nav ul li a:hover:before, nav ul li a:hover:after, nav ul li a:focus:before, nav ul li a:focus:after {
+	opacity: 1;
+	-webkit-transform: translateX(0px);
+	-moz-transform: translateX(0px);
+	transform: translateX(0px);
+}
+
+
+.user,.cerrarSesion{
     width: 5%;
     height: 100%;
+}
+.user{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.user p{
+    width: 100%;
+    color: #284880;
+    text-align: center;
+    font-size: 1.2em;
+}
+.cerrarSesion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
     cursor: pointer;
-
+}
+.user img{
+    width: 65%;
+    display: block;
+    margin: auto;
+}
+.cerrarSesion img{
+    width: 80%;
 }
 
-.cerrarSesion img, .user img{
-    width: 80%;
+.cerrarSesion:hover{
+    transition: all 0.05s ease;
+    filter: drop-shadow(2px 2px 1px rgb(0, 0, 0));
 }
 
 @media only screen and (max-width: 640px)  {
@@ -93,14 +156,16 @@ nav ul li a{
         align-items: center;
     }
     nav ul{
-        gap: 20px;
-    
+        gap: 15px;
     }
     nav ul li a{
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
     .cerrarSesion, .user{
         width: 15%;
+    }
+    .user img{
+        width: 80%;
     }
 
 }
@@ -118,7 +183,13 @@ nav ul li a{
     nav ul{
         gap: 50px;
     }
+    nav ul li a{
+        font-size: 1.8rem;
+    }
     .cerrarSesion, .user{
         width: 10%;
+    }
+    .user img{
+        width: 70%;
     }
 }
