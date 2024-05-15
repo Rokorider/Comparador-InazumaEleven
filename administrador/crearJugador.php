@@ -19,36 +19,33 @@
     <title>Crear Jugador</title>
 </head>
 
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.html');
+    exit(); // Es importante salir después de redirigir para evitar que el resto del código se ejecute
+}
+
+?>
+
 <body>
 
-    <header>
-        <figure class="logoNav">
-            <a href="comparador.php"><img src="../img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-    </header>
+    <?php include '../php/imports/header.php'; ?>
 
     <section class="main" id="main">
         <div class="tituloPrincipal">
             <h1>Crear / Añadir Nuevo Jugador</h1>
         </div>
-        <form class="formulario" id="formDatos" action="php/crearJugadorAdministrador.php" method="post"
+
+        <form class="formulario" id="formDatos" action="../php/administrador/crearJugadorAdministrador.php" method="post"
             enctype="multipart/form-data">
+
+            <input type="hidden" id="equipoModificado" name="equipoModificado" value="">
+            <input type="hidden" id="juegoModificado" name="juegoModificado" value="">
+            <input type="hidden" id="nombreEquipoModificado" name="nombreEquipoModificado" value="">
+
             <div class="cajaNomApoGenPos">
                 <div class="datos">
                     <div class="cajaPregunta">
@@ -249,7 +246,10 @@
                 <p class="envio">Crear Jugador</p>
             </div>
         </div>
+
     </section>
+
+    <?php include '../php/imports/footer.php'; ?>
 
 </body>
 

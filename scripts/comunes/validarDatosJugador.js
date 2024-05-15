@@ -1,5 +1,28 @@
+function obtenerDatos() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
+    return fetch('../php/conexiones/conexionBD.php')
+        // Procesar la respuesta como JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // Manejar los datos obtenidos
+        .then(function (data) {
+            // Asignar los datos de los jugadores a la variable global 'jugadores'
+            jugadores = data;
+            // Devolver los datos de los jugadores
+            return jugadores;
+        })
+        // Manejar errores en caso de que la solicitud falle
+        .catch(function (error) {
+            console.error('Error al obtener los datos de jugadores:', error);
+        });
+}
+
+
 let equipo = document.getElementById('equipo');
 let errorEquipo = document.getElementById('errorEquipo');
+
+let nombreEquipo;
 
 let nombre = document.getElementById('nombre');
 let errorNombre = document.getElementById('errorNombre');
@@ -87,17 +110,31 @@ function validarNombre() {
 }
 
 function validarApodo() {
-    if (apodo.value === '') {
+    // Obtener el apodo ingresado por el usuario
+    let nuevoApodo = apodo.value.trim();
+    
+    // Verificar si el apodo está vacío
+    if (nuevoApodo === '') {
         errorApodo.textContent = 'El apodo es obligatorio';
         aplicarEstiloError(errorApodo);
         main.scrollIntoView({ behavior: "smooth" });
         ApodoCorrecto = false;
     } else {
-        errorApodo.textContent = '';
-        limpiarEstiloError(errorApodo);
-        ApodoCorrecto = true;
+        // Comprobar si el apodo ya existe en la lista de jugadores
+        if (jugadores.some(jugador => jugador.Apodo === nuevoApodo)) {
+            errorApodo.textContent = 'Ya existe un jugador con este apodo';
+            aplicarEstiloError(errorApodo);
+            main.scrollIntoView({ behavior: "smooth" });
+            ApodoCorrecto = false;
+        } else {
+            // Si el apodo no existe, limpiar el error
+            errorApodo.textContent = '';
+            limpiarEstiloError(errorApodo);
+            ApodoCorrecto = true;
+        }
     }
 }
+
 
 function validarDescripcion() {
     if (descripcion.value === '') {
@@ -152,8 +189,17 @@ function validarPosicion() {
 }
 
 function validarImagen() {
+    let imagen = document.getElementById('imagen');
+    let errorImagen = document.getElementById('errorImagen');
+    let allowedExtensions = /(\.png|\.jpg)$/i; // Expresión regular para permitir solo PNG o JPG
+
     if (imagen.value === '') {
         errorImagen.textContent = 'La imagen es obligatoria';
+        aplicarEstiloError(errorImagen);
+        main.scrollIntoView({ behavior: "smooth" });
+        ImagenCorrecta = false;
+    } else if (!allowedExtensions.exec(imagen.value)) {
+        errorImagen.textContent = 'Solo se permiten archivos PNG o JPG.';
         aplicarEstiloError(errorImagen);
         main.scrollIntoView({ behavior: "smooth" });
         ImagenCorrecta = false;
@@ -163,6 +209,7 @@ function validarImagen() {
         ImagenCorrecta = true;
     }
 }
+
 
 function validarEstadisticas() {
     if (puntosRestantes.textContent > 0) {
@@ -218,7 +265,7 @@ function añadirInputNombreEquipo() {
                     <p class="tipoImagen">Imagen del Equipo</p>
                     <div class="subirImagen">
                         <div class="cajaInput">
-                            <input type="file" id="imagenEquipo" name="fotoEquipo" class="imagen">
+                            <input type="file" id="imagenEquipo" name="imagenEquipo" class="imagen">
                         </div>
                         <p class="tipoErrorImagen" id="errorImagenEquipo"></p>
                     </div>
@@ -230,7 +277,7 @@ function añadirInputNombreEquipo() {
 
 
 function validarNombreEquipo() {
-    let nombreEquipo = document.getElementById('nombreEquipo').value; // Obtener el valor del campo de entrada
+    nombreEquipo = document.getElementById('nombreEquipo').value; // Obtener el valor del campo de entrada
     let errorNombreEquipo = document.getElementById('errorNombreEquipo');
 
     let cajaNombreEquipo = document.querySelector('.cajaNombreEquipo');
@@ -276,8 +323,15 @@ function validarNombreEquipo() {
 function validarImagenEquipo() {
     let imagenEquipo = document.getElementById('imagenEquipo');
     let errorImagenEquipo = document.getElementById('errorImagenEquipo');
+    let allowedExtensions = /(\.png|\.jpg)$/i; // Expresión regular para permitir solo PNG o JPG
+
     if (imagenEquipo.value === '') {
         errorImagenEquipo.textContent = 'La imagen es obligatoria';
+        aplicarEstiloError(errorImagenEquipo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ImagenEquipoCorrecta = false;
+    } else if (!allowedExtensions.exec(imagenEquipo.value)) {
+        errorImagenEquipo.textContent = 'Solo se permiten archivos PNG o JPG.';
         aplicarEstiloError(errorImagenEquipo);
         main.scrollIntoView({ behavior: "smooth" });
         ImagenEquipoCorrecta = false;
@@ -287,6 +341,7 @@ function validarImagenEquipo() {
         ImagenEquipoCorrecta = true;
     }
 }
+
 
 equipo.addEventListener('change', function () {
     if (equipo.value === 'Nuevo') {
@@ -301,8 +356,6 @@ equipo.addEventListener('change', function () {
     }
 });
 
-
-let boton = document.getElementById('boton');
 boton.addEventListener('click', function (event) {
     validarDatos();
     let cajaNombreEquipo = document.getElementById('cajaNombreEquipo');
@@ -312,10 +365,35 @@ boton.addEventListener('click', function (event) {
     }
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
+        
+        let juego = document.getElementById('buscadorJuegos');
+        juegoModificado = juego.value;
+        juegoModificado =  juegoModificado.replace(/\s+/g, "");
+        document.getElementById("juegoModificado").value = juegoModificado;
+
+        equipoModificado = equipo.value;
+        equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        equipoModificado = equipoModificado.replace(/'/g, '');
+        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+        document.getElementById("equipoModificado").value = equipoModificado;
+
+        // Aquí se asigna el valor a nombreEquipoModificado
+        let nombreEquipoModificado = document.getElementById('nombreEquipo').value; 
+
+        nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
+        nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+
+        // Aquí se establece el valor en el campo oculto del formulario
+        document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
+
+        console.log(nombreEquipoModificado);
+
         document.getElementById("formDatos").submit(); // Envía el formulario
     }
 
 });
+
 
 function validarJuego(){
     let juego = document.getElementById('buscadorJuegos');

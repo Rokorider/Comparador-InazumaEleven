@@ -18,6 +18,17 @@
     <title>Crear Jugador</title>
 </head>
 
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.html');
+    exit(); // Es importante salir después de redirigir para evitar que el resto del código se ejecute
+}
+
+?>
+
 <body>
 
     <?php include '../php/imports/header.php'; ?>
@@ -222,6 +233,7 @@
     </section>
 
     <?php include '../php/imports/footer.php'; ?>
+
 </body>
 
 </html>

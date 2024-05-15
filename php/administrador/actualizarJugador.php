@@ -1,6 +1,8 @@
 <?php
 
 require "../conexiones/conexionBdJugadores.php";
+require "fotos/actualizarFotoAdmin.php";
+require "fotos/actualizarFotoConApodoAdmin.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -8,6 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $campos_actualizados = array();
 
     $idJugador = $_POST['idJugador'];
+    $apodoOriginal = $_POST['apodoOriginal'];
+    $equipoModificado = $_POST['equipoModificado'];
+    $juegoModificado = $_POST['juegoModificado'];
 
     // Verificar qué campos se enviaron y cuáles están vacíos
     if (!empty($_POST['nombre'])) {
@@ -40,9 +45,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $campos_actualizados[] = "Posición = '$posicion'";
     }
 
-    if (!empty($_POST['foto'])) {
-        $foto = $_POST['foto'];
-        $campos_actualizados[] = "Imagenes = '$foto'";
+    if (!empty($_FILES['foto'])) {
+        $foto = $_FILES['foto'];
+        if (!empty($_POST['apodo'])) {
+            $carpeta = "../../img/imgJugadores/$juegoModificado/Jugadores/$equipoModificado/";
+            actualizarFotoConApodoAdmin($foto, $apodoOriginal, $apodo, $carpeta);
+        }else{
+            $carpeta = "../../img/imgJugadores/$juegoModificado/Jugadores/$equipoModificado/";
+            actualizarFotoAdmin($foto, $apodoOriginal, $carpeta);
+        }
     }
 
     if (!empty($_POST['pe'])) {
@@ -96,10 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($campos_actualizados)) {
         // Llamar al método actualizarJugador con los campos actualizados y el id del jugador
         if ($jugadoresBD->actualizarJugador($campos_actualizados, $idJugador)) {
-            header("Location: ../actualizarJugador.html");
+            header("Location: ../../administrador/actualizarJugador.php");
         } else {
             echo "Error al actualizar el jugador.";
         }
     }
-
 }

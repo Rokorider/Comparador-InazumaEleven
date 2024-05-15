@@ -1,8 +1,9 @@
 <?php
-require "../comunes/php/creacionJugador/cargarFoto.php";
-require "../comunes/php/creacionJugador/cargarFotoEquipo.php";
-require "../conexiones/conexiones/conexionBDJugadores.php";
+
+require "../conexiones/conexionBDJugadores.php";
 require "../comunes/Jugador.php";
+require "fotos/cargarFotoJugadorAdmin.php";
+require "fotos/cargarFotoEquipoAdmin.php";
 
 session_start();
 
@@ -10,11 +11,18 @@ if (isset($_SESSION['usuario'])) {
 
     //Obtener datos del juego
     $juego = $_POST['juego'];
-
+    $juegoModificado = $_POST['juegoModificado'];
+    $equipoModificado = $_POST['equipoModificado'];
+    
     // Obtener los datos del equipo
     $equipo = $_POST['equipo'];
     if ($equipo == "Nuevo") {
         $equipo = $_POST['nombreEquipo'];
+        $nombreEquipoModificado = $_POST['nombreEquipoModificado'];
+        $equipoModificado = $nombreEquipoModificado;
+        $imagenEquipo = $_FILES['imagenEquipo'];
+        $carpeta = "../../img/imgJugadores/$juegoModificado/Escudos/";
+        cargarFotoEquipoAdmin( $carpeta, $imagenEquipo, $equipoModificado);
     }
     
 
@@ -39,11 +47,8 @@ if (isset($_SESSION['usuario'])) {
     $valor = $_POST['valor'];
 
     // Carpeta para almacenar las fotos
-    $carpeta = "../../imgPersonales/";
-
-    // Llamar a la función cargarFoto para subir la imagen
-    $imagen = cargarFoto($foto, $carpeta);
-
+    $carpeta = "../../img/imgJugadores/$juegoModificado/Jugadores/";
+    cargarFotoJugadorAdmin($foto, $carpeta, $apodo, $equipoModificado);
 
     // Crear un objeto de la clase Jugador
     $jugador = new Jugador($apodo, $nombre, $foto, $descripcion, $posicion, $elemento, $genero, $pe, $pt, $tiro, $fisico, $control, $defensa, $rapidez, $aguante, $valor, $juego);
@@ -54,7 +59,7 @@ if (isset($_SESSION['usuario'])) {
     // Llamar al método crearJugadorAdministrador con el objeto jugador
 
     if ($jugadoresBD->crearJugadorAdministrador($jugador, $equipo)) {
-        header("Location: ../crearJugador.html");
+        header("Location: ../../administrador/crearJugador.php");
         exit(); // Salir del script después de redireccionar
     } else {
         echo "Error al insertar datos del jugador.";

@@ -123,8 +123,8 @@ function actualizarJugadores() {
     // Agregar las opciones de jugadores al buscador de jugadores
     jugadoresEquipo.forEach(function (jugador) {
         let option = document.createElement('option');
-        option.value = jugador.Nombre_Real; 
-        option.textContent = jugador.Nombre_Real; 
+        option.value = jugador.Nombre_Real;
+        option.textContent = jugador.Nombre_Real;
         buscadorJugador.appendChild(option);
     });
 
@@ -153,12 +153,36 @@ function mostrarJugador(jugador) {
     document.getElementById("idJugador").value = jugador.ID;
     console.log(jugador.ID);
 
+    equipoModificado = jugador.Equipo;
+    equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    equipoModificado = equipoModificado.replace(/'/g, '');
+    equipoModificado = equipoModificado.replace(/\s+/g, '_');
+    document.getElementById('equipoModificado').value = equipoModificado;
+    console.log(equipoModificado);
+
+    apodoOriginal = jugador.Apodo;
+    document.getElementById('apodoOriginal').value = apodoOriginal;
+
+    juegoModificado = jugador.Juego;
+    juegoModificado = juegoModificado.replace(/\s+/g, "");
+    document.getElementById('juegoModificado').value = juegoModificado;
+
+    equipoModificadoJugador = jugador.Equipo
+    equipoModificadoJugador = equipoModificadoJugador.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    equipoModificadoJugador = equipoModificadoJugador.replace(/'/g, '');
+    equipoModificadoJugador = equipoModificadoJugador.replace(/\s+/g, '_');
+
+    jugador.Juego = jugador.Juego.replace(/\s+/g, "");
+    juegoModificadoJugador = jugador.Juego;
+
     contenedorJugador.innerHTML = `
     
     <div class="jugador" id="jugador">
                 <div class="infoJugador">
                     <div class="imgJugador">
-                        <img src="${jugador.Imagenes}" alt="${jugador.Nombre_Real}">
+                    <img src="../img/imgJugadores/${juegoModificadoJugador}/Jugadores/${equipoModificadoJugador}/${jugador.Apodo}.png" 
+                    onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificadoJugador}/Jugadores/${equipoModificadoJugador}/${jugador.Apodo}.jpg';"
+                    alt="${jugador.Nombre_Real}">
                     </div>
                     <div class="datosJugador">
                         <div class="datos1">
@@ -284,7 +308,9 @@ function mostrarJugador(jugador) {
             <div class="jugador" id="jugador">
                 <div class="infoJugador">
                     <div class="imgJugador">
-                        <img src="${jugador.Imagenes}" id="imagenActualizada" alt="${jugador.Nombre_Real}">
+                        <img id="imagenActualizada" src="../img/imgJugadores/${juegoModificadoJugador}/Jugadores/${equipoModificadoJugador}/${jugador.Apodo}.png" 
+                    onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificadoJugador}/Jugadores/${equipoModificadoJugador}/${jugador.Apodo}.jpg';"
+                    alt="${jugador.Nombre_Real}">
                     </div>
                     <div class="datosJugador">
                         <div class="datos1">
@@ -560,6 +586,7 @@ function actualizarDatosJugador(jugador) {
 
 let NombreCorrecto = true;
 let ApodoCorrecto = true;
+let imagenCorrecta = true;
 let EstadisticasCorrectas = true;
 let todosLosDatosCorrectos = true;
 
@@ -571,6 +598,9 @@ function validarDatos(jugadores) {
 
     let apodo = document.getElementById('apodo');
     let errorApodo = document.getElementById('errorApodo');
+
+    let imagen = document.getElementById('imagen');
+    let errorImagen = document.getElementById('errorImagen');
 
     let errorEstadisticas = document.getElementById('errorEstadisticas');
     let campoErrorEstadisticas = document.getElementById('campoErrorEstadisticas');
@@ -597,23 +627,11 @@ function validarDatos(jugadores) {
         apodosJugadores.push(jugador.Apodo);
     });
 
-    validarTodosLosDatos();
     validarNombre();
     validarApodo();
+    validarImagen();
     validarEstadisticas();
     validarEstadisticasPePt();
-
-    function validarTodosLosDatos() {
-        if (nombre.value === '' || apodo.value === '' || puntosRestantes.textContent === 433 || puntosRestantesPePt.textContent === 248) {
-            errorEstadisticasTodas.textContent = 'Para actualizar un jugador debes de completar al menos un campo o modificar las estadísticas';
-            aplicarEstiloError(errorEstadisticasTodas);
-            todosLosDatosCorrectos = false;
-        } else {
-            errorEstadisticasTodas.textContent = '';
-            limpiarEstiloError(errorEstadisticasTodas);
-            todosLosDatosCorrectos = true;
-        }
-    }
 
     function validarNombre() {
 
@@ -643,6 +661,28 @@ function validarDatos(jugadores) {
         }
     }
 
+    function validarImagen() {
+        let allowedExtensions = /(\.png|\.jpg)$/i; // Expresión regular para permitir solo PNG o JPG
+
+        if (imagen.files.length > 0) {
+            if (!allowedExtensions.exec(imagen.value)) {
+                errorImagen.textContent = 'Solo se permiten archivos PNG o JPG.';
+                aplicarEstiloError(campoErrorEstadisticasTodas);
+                imagenCorrecta = false;
+            } else {
+                errorImagen.textContent = '';
+                limpiarEstiloError(campoErrorEstadisticasTodas);
+                imagenCorrecta = true;
+            }
+        } else {
+            // No se ha seleccionado ningún archivo
+            errorImagen.textContent = 'Debe seleccionar una imagen.';
+            aplicarEstiloError(campoErrorEstadisticasTodas);
+            imagenCorrecta = false;
+        }
+    }
+
+
     function validarEstadisticas() {
         if (puntosRestantes.textContent > 0 && puntosRestantes.textContent != 433) {
             errorEstadisticas.textContent = 'Debes de asignar todos los puntos disponibles';
@@ -654,6 +694,7 @@ function validarDatos(jugadores) {
             EstadisticasCorrectas = false;
         } else {
             errorEstadisticas.textContent = '';
+            limpiarEstiloError(errorImagen);
             EstadisticasCorrectas = true;
         }
     }
@@ -669,6 +710,7 @@ function validarDatos(jugadores) {
             EstadisticasCorrectas = false;
         } else {
             errorEstadisticasPePt.textContent = '';
+            limpiarEstiloError(campoErrorEstadisticasPePt);
             EstadisticasCorrectas = true;
         }
     }
@@ -692,11 +734,22 @@ let boton = document.getElementById('boton');
 boton.addEventListener('click', function (event) {
     validarDatos(jugadores);
 
-    
-    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas && todosLosDatosCorrectos === true) {
-        document.getElementById("formDatos").submit(); // Envía el formulario
+    if (NombreCorrecto && ApodoCorrecto && EstadisticasCorrectas && todosLosDatosCorrectos && imagenCorrecta === true) {
+
+        let juegoModificado = document.getElementById('juegoModificado').value;
+        let equipoModificado = document.getElementById('equipoModificado').value;
+        let apodoOriginal = document.getElementById('apodoOriginal').value;
+        let idJugador = document.getElementById('idJugador').value;
+
+        console.log("Este es el juego" + juegoModificado);
+        console.log("Este es el equipo" + equipoModificado);
+        console.log("Este es el apodo" + apodoOriginal);
+        console.log("Este es el id" + idJugador);
+
+        // Enviar formulario
+        document.getElementById('formDatos').submit();
+        
     }
-    
 
 });
 

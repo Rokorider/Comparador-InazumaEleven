@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Estilos -->
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/administrador/actualizarJugador.css">
     <!-- Scripts -->
     <script src="../scripts/comunes/estadisticasJugador.js" defer></script>
@@ -13,35 +14,22 @@
     <title>Actualizar Jugador</title>
 </head>
 
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.html');
+    exit(); // Es importante salir después de redirigir para evitar que el resto del código se ejecute
+}
+
+?>
+
 <body>
 
-    <header>
-        <figure class="logoNav">
-            <a href="comparador.php"><img src="../img/logo/logo.png" alt="Logo Inazuma Eleven" /></a>
-        </figure>
-        <nav>
-            <ul>
-                <li>
-                    <a href="jugadores.html">Jugadores</a>
-                </li>
-                <li>
-                    <a href="crearJugador.html">Crear Jugador</a>
-                </li>
-            </ul>
-        </nav>
-        <figure class="user">
-            <a href="#"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
-        </figure>
-        <figure class="cerrarSesion">
-            <a href="logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
-        </figure>
-    </header>
+    <?php include '../php/imports/header.php'; ?>
 
     <section class="main">
-        <!--
-            <input type="file" id="inputImagen">
-            <img id="imagenPrevia" src="#" alt="Vista previa de la imagen" style="display:none;">
-        -->
         <div class="cajaTitulo">
             <h1>Actualizar Jugador</h1>
         </div>
@@ -74,7 +62,7 @@
 
         <div class="contenedorFormulario" id="contenedorFormulario">
 
-            <form class="formulario" id="formDatos" action="php/actualizarJugador.php" method="post"
+            <form class="formulario" id="formDatos" action="../php/administrador/actualizarJugador.php" method="post"
                 enctype="multipart/form-data">
 
                 <div class="contenedorTitulo">
@@ -84,6 +72,9 @@
                 </div>
 
                 <input type="hidden" id="idJugador" name="idJugador" value="">
+                <input type="hidden" id="apodoOriginal" name="apodoOriginal" value="">
+                <input type="hidden" id="equipoModificado" name="equipoModificado" value="">
+                <input type="hidden" id="juegoModificado" name="juegoModificado" value="">
 
                 <div class="cajaNomApoGenPos">
                     <div class="datos">
@@ -139,8 +130,8 @@
                                 <div class="cajaInput">
                                     <input type="file" id="imagen" name="foto" class="imagen">
                                 </div>
-                                <div class="consejo">
-                                    <p>*Se recomienda no subir imágenes personales*</p>
+                                <div class="campoErrorEstadisticasTodas" id="campoErrorEstadisticasTodas">
+                                    <p id="errorImagen"></p>
                                 </div>
                             </div>
                         </div>
@@ -266,6 +257,8 @@
         </div>
 
     </section>
+
+    <?php include '../php/imports/footer.php'; ?>
 
 </body>
 

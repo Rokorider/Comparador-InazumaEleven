@@ -16,6 +16,20 @@
     <title>Jugadores</title>
 </head>
 
+<?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../index.html');
+    exit(); // Es importante salir después de redirigir para evitar que el resto del código se ejecute
+}
+/*
+// Imprimir el nombre de usuario en el registro de errores
+echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.php");
+*/
+?>
+
 <body>
 
     <?php include '../php/imports/header.php'; ?>

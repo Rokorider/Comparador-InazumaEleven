@@ -104,13 +104,17 @@ function contenidoPantallaGrande() {
                         equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
                         equipoModificado = equipoModificado.replace(/'/g, '');
                         equipoModificado = equipoModificado.replace(/\s+/g, '_');
-                        if (equipo === 'Layton Team') {
-                            imagen.src = '../img/Layton_Team.png';
-                            } else {
-                                imagen.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`;
-                            }
+
+
+                        imagen.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
+
+                        imagen.onerror = function () {
+                            this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
+                            this.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
+                        };
 
                         imagen.alt = equipo;
+
                         imagenEscudo.appendChild(imagen);
 
                         let nombreEscudo = document.createElement('div');
@@ -156,7 +160,7 @@ function obtnerIdsYcomprobarJugadores() {
                 contenedorJugadores.dataset.equipo = idEquipo;
                 // No es necesario obtener el contenedor de jugadores nuevamente aquí
                 contenedorJugadores.scrollIntoView({ behavior: "smooth" }); // Usar la referencia existente
-            } 
+            }
         });
     });
 }
@@ -313,6 +317,14 @@ function agregarJugador(jugador) {
 
     console.log(jugador.Apodo);
 
+    equipoModificado = jugador.Equipo
+    equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    equipoModificado = equipoModificado.replace(/'/g, '');
+    equipoModificado = equipoModificado.replace(/\s+/g, '_');
+
+    jugador.Juego = jugador.Juego.replace(/\s+/g, "");
+    juegoModificado = jugador.Juego;
+
     let jugadores = document.getElementById('jugadores');
 
     // Crear un elemento div que represente al jugador
@@ -322,7 +334,9 @@ function agregarJugador(jugador) {
         <div class="infoJugador">
             <!-- Sección para mostrar la imagen del jugador -->
             <div class="imgJugador">
-                <img src="${jugador.Imagenes}" alt="${jugador.Nombre_Real}">
+                <img src="../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.png" 
+                onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.jpg';"
+                alt="${jugador.Nombre_Real}">
             </div>
             <!-- Sección para mostrar los datos del jugador -->
             <div class="datosJugador">

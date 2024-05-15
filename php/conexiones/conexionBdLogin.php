@@ -18,7 +18,7 @@ class loginBD
 
     public function login($usuario, $contrasena)
     {
-        $sql = "SELECT * FROM usuarios WHERE nombre = '$usuario'";
+        $sql = "SELECT * FROM usuarios WHERE nombre = '$usuario' and contrasena = '$contrasena'";
         $result = $this->conexion->query($sql);
 
         if ($result->num_rows > 0) {
