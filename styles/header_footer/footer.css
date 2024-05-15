@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Inazuma";
+    src: url(../fuentes/ttg_by_westralinc-dbnnkt8.ttf);
+}
+
 /*---footer---*/
 footer {
     width: 100%;
@@ -32,12 +37,15 @@ footer {
     width: 35%;
     margin: 0 15% 0 1%;
     text-align: left;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.2rem;
 }
 .enlacesFooter{
     height: 40%;
     width: 12%;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 10px;
 }
 .red{
     width: 40%;
@@ -47,7 +55,7 @@ footer {
 .red:hover, .logoImg:hover{
     transition: all 0.1s ease;
     transform: translate(-2px);
-    filter: drop-shadow(5px 5px 0px black);
+    filter: drop-shadow(4px 4px 0px black);
 }
 .red img {
     height: 90%;
@@ -104,6 +112,7 @@ footer {
     }
     .textoFooter{
         width: 35%;
+        font-size: 1rem;
     }
     .textoFooter p{
         width: 100%;

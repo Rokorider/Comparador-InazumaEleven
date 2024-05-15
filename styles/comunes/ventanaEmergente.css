@@ -62,7 +62,9 @@
     width: 80%;
     height: auto;
 }
-
+.cruz img:hover{
+    filter: hue-rotate(145deg);
+}
 
 
 .cajalogo {
