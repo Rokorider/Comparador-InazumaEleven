@@ -14,6 +14,7 @@ body {
 }
 
 .caja {
+    font-family: "Pixelify Sans", sans-serif;
     background-image: url('../../img/fondos/fondo1.png');
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,12 +24,13 @@ body {
     position: relative;
 }
 .tituloCaja{
-    height: 45%;
+    height: 30%;
+    width: 45%;
     left: 15%;
     position: absolute;
+    top: 2%;
 }
 .logoInazuma{
-    height: 100%;
     width: 100%;
 }
 .cajaInicio {
@@ -53,19 +55,19 @@ form {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
 }
 
 .formContenedor {
     width: 100%;
-    height: 70%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid white;
 }
 
 .formContenedor h2{
-    font-size: 1.9em;
+    font-size: 1.8em;
 }
 
 .usuario,
@@ -73,7 +75,6 @@ form {
     width: 80%;
     height: 50%;
     color: white;
-    border: 2px solid black;
 }
 
 
@@ -88,13 +89,14 @@ form {
     width: 100%;
 }
 
-.usuario input{
+.usuario input, .contrasena input{
     width: 100%;
     height: 32%;
     border-radius: 10px;
     font-size: 1.7rem;
     margin-bottom: 15px;
     padding: 0 20px 0 20px;
+    border: none;
 }
 
 .contrasena h2{
@@ -102,14 +104,6 @@ form {
     width: 100%;
 }
 
-.contrasena input{
-    width: 100%;
-    height: 32%;
-    border-radius: 10px;
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-    padding: 0 20px 0 20px;
-}
 
 
 .iniciarSesion{
@@ -118,17 +112,17 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
 }
 
 .boton{
     background-color: #e2550b;
-    width: 60%;
-    padding: 12px 14px 12px 14px;
+    width: 80%;
+    height: 10%;
+    padding: 10px;
     margin: auto;
     cursor: pointer;
     position: absolute;
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     border-radius: 10px;
     color: white;
     display: flex;
@@ -145,7 +139,6 @@ form {
     height: 10%;
     font-size: 1.2rem;
     margin: auto;
-    border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,20 +148,19 @@ form {
     color: #f59701;
     cursor: pointer;
     text-decoration: none;
-
 }
 
-/*DISPOSITIVOS MÓVILES*/
-@media screen and (max-width: 767px) {
+
+@media (min-width: 640px) and (max-width: 1024px) {
+
     .caja {
-        background-image: url('../img/fondos/fondo1.png');
         background-size:150%;
         background-repeat: no-repeat;
-        background-position: calc(100% ) calc(100% - 70%);
+        background-position: calc(100% ) calc(100% - 65%);
     }
     
     .cajaInicio {
-        height: 45%;
+        height: 35%;
         width: 100%;
         margin-left: 0;
         position: absolute;
@@ -177,35 +169,88 @@ form {
     }
 
     .formContenedor{
-        display: flex;
-        justify-content: right;
-        align-items: right;
+        margin-bottom: 10px;
     }
 
-    .usuario h2{
+    .usuario h2,.contrasena h2{
         width: 100%;
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
-    .usuario input{
-        width: 60%;
-    }
-
-    .contrasena input{
-        width: 60%;
+    .usuario input,.contrasena input{
+        border-radius: 5px;
+        height: 38%;
+        margin-top: 10px;
     }
 
     .boton{
-        width: 180px;
         padding: 6px 8px 6px 8px;
-        font-size: 1.6rem;
+        font-size: 1.9rem;
+        padding: 15px;
+        height: 15%;
     }
 
     .registro{
         font-size: 1rem;
     }
-
-    
-
-    
+    .tituloCaja{
+        width: 100%;
+        left: 0;
+        padding: 3%;
+    }
+    .registroEnlace{
+        font-size: 1.5rem;
+    }
 }
+
+/*DISPOSITIVOS MÓVILES*/
+@media only screen and (max-width: 640px) {
+    .caja {
+        background-size:170%;
+        background-repeat: no-repeat;
+        background-position: calc(100% ) calc(100% - 65%);
+    }
+    
+    .cajaInicio {
+        height: 37%;
+        width: 100%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 0;
+        border-radius: 45px 45px 0 0;
+    }
+
+    .formContenedor{
+        margin-bottom: 10px;
+    }
+
+    .usuario h2,.contrasena h2{
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .usuario input,.contrasena input{
+        border-radius: 5px;
+        height: 38%;
+        margin-top: 5px;
+    }
+
+    .boton{
+        padding: 6px 8px 6px 8px;
+        font-size: 1.5rem;
+        height: 15%;
+    }
+
+    .registro{
+        font-size: 1rem;
+    }
+    .tituloCaja{
+        width: 100%;
+        left: 0;
+        padding: 3%;
+    }
+    .registroEnlace{
+        font-size: 0.8rem;
+    }
+}
+

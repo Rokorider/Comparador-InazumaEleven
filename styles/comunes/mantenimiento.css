@@ -18,6 +18,7 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
+    background-color: #ffb831;
 }
 
 .cajaTexto {
@@ -25,7 +26,6 @@ p {
     height: 100vh;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
 }
 
 .emoticono {
@@ -34,14 +34,12 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aquamarine;
 }
 
 
 .emoticono p {
     width: 80%;
-    font-size: 160px;
-    border: 1px solid black;
+    font-size: 9rem;
 }
 
 
@@ -51,14 +49,15 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 166, 163);
 }
 
 .titulo h1 {
     width: 80%;
     height: 100%;
-    font-size: 60px;
-    border: 1px solid black;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .explicacion {
@@ -73,9 +72,55 @@ p {
 .explicacion p {
     height: 80%;
     width: 80%;
-    font-size: 40px;
-    border: 1px solid black;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+
 }
+
+
+@media only screen and (max-width: 640px) {
+
+    .main{
+        background-size:180%;
+        background-position: bottom right;
+    }
+    .cajaTexto{
+        width: 100%;
+        height: 45%;
+    }
+    .emoticono p {
+        font-size: 4rem;
+    }
+    .titulo h1 {
+        font-size: 1.8rem;
+    }
+    .explicacion p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .main{
+        background-size:150%;
+        background-position: bottom right;
+    }
+    .cajaTexto{
+        width: 100%;
+        height: 45%;
+    }
+    .emoticono p {
+        font-size: 7rem;
+    }
+    .titulo h1 {
+        font-size: 2.3rem;
+    }
+    .explicacion p {
+        font-size: 1.8rem;
+    }
+}
+
+/*
 
 @media  screen and (max-width: 1460px) {
     
@@ -293,3 +338,4 @@ p {
 
 
 
+*/
