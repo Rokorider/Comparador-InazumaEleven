@@ -1,4 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link rel="icon" href="../../img/Favicons/plus_sign.png" type="image/x-icon">
+</head>
+
 <?php
+
 require "../comunes/Jugador.php";
 require "../comunes//cargarFoto.php";
 require "../comunes/cargarFotoEquipo.php";

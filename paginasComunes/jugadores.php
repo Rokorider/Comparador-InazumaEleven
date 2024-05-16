@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/comunes/jugadores.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/BalonCatNoir.png" />
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
