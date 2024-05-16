@@ -5,23 +5,32 @@
     </figure>
 
     <nav>
-        <ul>
-            <li>
-                <a href="jugadores.php">Jugadores</a>
-            </li>
-            <li>
-                <a href="crearJugador.php">Crear Jugador</a>
-            </li>
-            <li>
-                <a href="actualizarJugador.php">Actualizar Jugador</a>
-            </li>
-            <li>
-                <a href="actualizarJugador.php">Eliminar Jugador</a>
-            </li>
-            <li>
-                <a href="actualizarJugador.php">Gestión de Usarios</a>
-            </li>
-        </ul>
+        <div class="desplegable">
+            <div class="botonDesplegable" id="botonDesplegable">
+                <p>[ Otras Páginas ]</p>
+            </div>
+            <div class="menuNavegador" id="menuNavegador">
+                <ul>
+                    <li>
+                        <a href="jugadores.php">Jugadores</a>
+                    </li>
+                    <li>
+                        <a href="crearJugador.php">Crear Jugador</a>
+                    </li>
+                    <li>
+                        <a href="actualizarJugador.php">Actualizar Jugador</a>
+                    </li>
+                    <li>
+                        <a href="actualizarJugador.php">Eliminar Jugador</a>
+                    </li>
+                    <li>
+                        <a href="actualizarJugador.php">Gestión de Usarios</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
     </nav>
 
     <figure class="user">
