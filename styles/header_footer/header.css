@@ -140,28 +140,48 @@ nav ul li a:hover:before, nav ul li a:hover:after, nav ul li a:focus:before, nav
         bottom: 0;
         left: 0;*/
         height:10%;
+        padding:0%;
     }
     .logoNav{
-        display: none;
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logoNav img{
+        height: auto;
+        width: 100%;
     }
     nav{
-        width: 80%;
+        width: 60%;
         height: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
     nav ul{
-        gap: 15px;
+        gap: 0px;
+
     }
     nav ul li a{
-        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        font-size: 1rem;
     }
     .cerrarSesion, .user{
         width: 15%;
     }
+    .user{
+        height: 80%;
+    }
     .user img{
         width: 80%;
+    }
+    .user p{
+        font-size: 1rem;
     }
 
 }
