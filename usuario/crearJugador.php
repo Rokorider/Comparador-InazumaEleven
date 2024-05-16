@@ -39,6 +39,10 @@ if (!isset($_SESSION['usuario'])) {
         </div>
         <form class="formulario" id="formDatos" action="../php/usuario/creacionJugador.php" method="post"
             enctype="multipart/form-data">
+
+            <input type="hidden" id="equipoModificado" name="equipoModificado" value="">
+            <input type="hidden" id="nombreEquipoModificado" name="nombreEquipoModificado" value="">
+
             <div class="cajaEquipo">
                 <div class="cajaPregunta" id="cajaPreguntaEquipo">
                     <p class="tipo">Equipo</p>

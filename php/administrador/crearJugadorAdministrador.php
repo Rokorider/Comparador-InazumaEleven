@@ -2,8 +2,8 @@
 
 require "../conexiones/conexionBDJugadores.php";
 require "../comunes/Jugador.php";
-require "fotos/cargarFotoJugadorAdmin.php";
-require "fotos/cargarFotoEquipoAdmin.php";
+require "../fotos/cargarFotoJugadorAdmin.php";
+require "../fotos/cargarFotoEquipoAdmin.php";
 
 session_start();
 
@@ -22,7 +22,7 @@ if (isset($_SESSION['usuario'])) {
         $equipoModificado = $nombreEquipoModificado;
         $imagenEquipo = $_FILES['imagenEquipo'];
         $carpeta = "../../img/imgJugadores/$juegoModificado/Escudos/";
-        cargarFotoEquipoAdmin( $carpeta, $imagenEquipo, $equipoModificado);
+        cargarFotoEquipo( $carpeta, $imagenEquipo, $equipoModificado);
     }
     
 
@@ -48,7 +48,7 @@ if (isset($_SESSION['usuario'])) {
 
     // Carpeta para almacenar las fotos
     $carpeta = "../../img/imgJugadores/$juegoModificado/Jugadores/";
-    cargarFotoJugadorAdmin($foto, $carpeta, $apodo, $equipoModificado);
+    cargarFotoJugador($foto, $carpeta, $apodo, $equipoModificado);
 
     // Crear un objeto de la clase Jugador
     $jugador = new Jugador($apodo, $nombre, $foto, $descripcion, $posicion, $elemento, $genero, $pe, $pt, $tiro, $fisico, $control, $defensa, $rapidez, $aguante, $valor, $juego);

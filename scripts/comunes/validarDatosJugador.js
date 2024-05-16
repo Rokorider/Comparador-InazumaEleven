@@ -363,6 +363,13 @@ function validarNombreEquipo() {
             }
         }
     }
+
+    let nombreEquipoModificado = document.getElementById('nombreEquipo').value;
+    nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
+    nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+    document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
+
 }
 
 function validarImagenEquipo() {
@@ -423,6 +430,13 @@ boton.addEventListener('click', function (event) {
     }
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
+
+        let equipoModificado = document.getElementById('equipo').value;
+        equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        equipoModificado = equipoModificado.replace(/'/g, '');
+        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+        document.getElementById("equipoModificado").value = equipoModificado;
+
         document.getElementById("formDatos").submit(); // Envía el formulario
     }
 

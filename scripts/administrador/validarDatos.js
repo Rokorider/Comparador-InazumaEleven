@@ -415,11 +415,15 @@ boton.addEventListener('click', function (event) {
 
         // Verificar si existe el nombre Equipo
         if (document.getElementById("nombreEquipo")) {
+
             // Aquí se asigna el valor a nombreEquipoModificado
             let nombreEquipoModificado = document.getElementById('nombreEquipo').value;
             nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
             nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
             nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+
+            let apodoModificado = apodo.value;
+
             document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
         }
 

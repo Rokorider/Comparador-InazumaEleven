@@ -202,18 +202,26 @@ function contenidoPantallaGrande() {
                         imagenEscudo.className = 'imagenEscudo';
                         let imagen = document.createElement('img');
 
+                        console.log(equipo);
+
                         // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
                         equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
                         equipoModificado = equipoModificado.replace(/'/g, '');
                         equipoModificado = equipoModificado.replace(/\s+/g, '_');
 
+                        console.log(equipoModificado);
 
-                        imagen.src = `../img/imgJugadores/InazumaEleven1/Escudos/Raimon.png`; // Intenta cargar la imagen en formato png
+                        
+                        
 
+                        imagen.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
+
+                        
                         imagen.onerror = function () {
                             this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
-                            this.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
+                            this.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
                         };
+                        
 
                         imagen.alt = equipo;
 
@@ -293,6 +301,12 @@ function mostrarJugadoresPorEquipoOrdenadorPersonales(idEquipo) {
 // Función para agregar un jugador personal al contenedor de jugadores
 function agregarJugadorPersonal(jugador) {
 
+    let equipoModificado;
+
+    equipoModificado = jugador.NombreEquipo
+    equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    equipoModificado = equipoModificado.replace(/'/g, '');
+    equipoModificado = equipoModificado.replace(/\s+/g, '_');
 
     let jugadores = document.getElementById('jugadores');
 
@@ -303,7 +317,9 @@ function agregarJugadorPersonal(jugador) {
         <div class="infoJugador">
             <!-- Sección para mostrar la imagen del jugador -->
             <div class="imgJugador">
-                <img src="../img/imgJugadores/InazumaEleven1/Jugadores/Raimon/Mark.png" alt="${jugador.Nombre_Real}">
+                <img src="../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.png" 
+                onerror="this.onerror=null; this.src='../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.jpg';"
+                alt="${jugador.Nombre_Real}">
             </div>
             <!-- Sección para mostrar los datos del jugador -->
             <div class="datosJugador">
@@ -551,12 +567,6 @@ function llenarBuscadorJuegos() {
     buscadorJuegos.addEventListener('change', actualizarEquipos);
 }
 
-
-
-function actualizarEquiposPersonales() {
-
-}
-
 function actualizarEquipos() {
     // Limpiar el contenedor de jugadores
     document.getElementById('jugadores').innerHTML = '';
@@ -602,8 +612,6 @@ function actualizarEquipos() {
     buscadorEquipos.addEventListener('change', mostrarJugadoresPorEquipoMovil);
 }
 
-
-
 // Función para obtener el valor seleccionado en el buscador de equipos y mostrar los jugadores correspondientes
 function mostrarJugadoresPorEquipoMovil() {
 
@@ -634,8 +642,6 @@ function mostrarJugadoresPorEquipoMovil() {
 }
 
 function agregarJugador(jugador) {
-
-    console.log(jugador.Apodo);
 
     equipoModificado = jugador.Equipo
     equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');

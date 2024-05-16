@@ -8,17 +8,29 @@
 
 require "../comunes/Jugador.php";
 require "../conexiones/conexionBDJugadores.php";
+require "../fotos/cargarFotoJugadorAdmin.php";
+require "../fotos/cargarFotoEquipoAdmin.php";
 
 session_start();
 
 if (isset($_SESSION['usuario'])) {
 
     // Obtener los datos del equipo
+
+    // Nombre del equipo del select
+    $equipoModificado = $_POST['nombreEquipoModificado'];
+
     $equipo = $_POST['equipo'];
+
     if ($equipo == "Nuevo") {
         $equipo = $_POST['nombreEquipo'];
+        // Nombre del equipo del input de texto
+        $nombreEquipoModificado = $_POST['nombreEquipoModificado'];
+        $imagenEquipo = $_FILES['imagenEquipo'];
+
+        $carpeta = "../../img/imgJugadores/JugadoresPersonales/Escudos/";
+        cargarFotoEquipo($carpeta, $imagenEquipo, $nombreEquipoModificado);
     }
-    $fotoEquipo = $_FILES['imagenEquipo'];
 
     // Obtener los datos del jugador
     $nombre = $_POST['nombre'];
@@ -40,27 +52,8 @@ if (isset($_SESSION['usuario'])) {
     $aguante = $_POST['aguante'];
     $valor = $_POST['valor'];
 
-    echo "El nombre del equipo es: $equipo<br>";
-    echo "El nombre del jugador es: $nombre<br>";
-    echo "El apodo del jugador es: $apodo<br>";
-    echo "La descripción del jugador es: $descripcion<br>";
-    echo "El elemento del jugador es: $elemento<br>";
-    echo "El género del jugador es: $genero<br>";
-    echo "La posición del jugador es: $posicion<br>";
-    echo "El pe del jugador es: $pe<br>";
-    echo "El pt del jugador es: $pt<br>";
-    echo "La puntuación de tiro del jugador es: $tiro<br>";
-    echo "La puntuación física del jugador es: $fisico<br>";
-    echo "La puntuación de control del jugador es: $control<br>";
-    echo "La puntuación de defensa del jugador es: $defensa<br>";
-    echo "La puntuación de rapidez del jugador es: $rapidez<br>";
-    echo "La puntuación de aguante del jugador es: $aguante<br>";
-    echo "El valor del jugador es: $valor<br>";
-
-
-
-    // Carpeta para almacenar las fotos
-    $carpeta = "../../imgPersonales/";
+    $carpeta = "../../img/imgJugadores/JugadoresPersonales/Jugadores/";
+    cargarFotoJugador($foto, $carpeta, $apodo, $equipoModificado);
 
     // Crear un objeto Jugador
     $jugador = new Jugador($apodo, $nombre, $foto, $descripcion, $posicion, $elemento, $genero, $pe, $pt, $tiro, $fisico, $control, $defensa, $rapidez, $aguante, $valor);
@@ -72,7 +65,7 @@ if (isset($_SESSION['usuario'])) {
 
     $imagenEquipo = "hola";
 
-    if ($jugadoresBD->crearJugadorUsuario($usuario, $equipo, $jugador, $imagenEquipo)) {
+    if ($jugadoresBD->crearJugadorUsuario($usuario, $equipo, $jugador, $imagenEquipo,)) {
         header("Location: ../../usuario/crearJugador.php");
         exit(); // Salir del script después de redireccionar
     } else {

@@ -1,6 +1,6 @@
 <?php
 
-function cargarFotoJugadorAdmin($foto, $carpeta, $apodo, $equipoModificado)
+function cargarFotoJugador($foto, $carpeta, $apodo, $equipoModificado)
 {
     // Ruta completa de la carpeta del equipo
     $carpetaEquipo = $carpeta . $equipoModificado . "/";

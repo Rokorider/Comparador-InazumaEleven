@@ -141,7 +141,7 @@ class JugadoresBD
         $valor = $jugador->getValor();
 
         // Insertar datos del jugador
-        $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
+        $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, NombreEquipo, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
 
         $stmt = $this->conexion->prepare($sqlInsertarJugador);
         $result = $stmt->execute();
