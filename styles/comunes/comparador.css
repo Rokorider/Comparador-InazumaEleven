@@ -703,6 +703,10 @@ body {
 
 /* MÓVILES */
 @media only screen and (max-width: 640px)  {
+    .btnMusica{
+        width: 50px;
+        height: 50px;
+    }
     .portada {
         width: 100%;
         height: 100vh;
