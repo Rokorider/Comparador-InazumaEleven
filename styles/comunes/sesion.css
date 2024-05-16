@@ -150,56 +150,6 @@ form {
     text-decoration: none;
 }
 
-/*DISPOSITIVOS MÓVILES*/
-@media only screen and (max-width: 640px) {
-    .caja {
-        background-size:170%;
-        background-repeat: no-repeat;
-        background-position: calc(100% ) calc(100% - 65%);
-    }
-    
-    .cajaInicio {
-        height: 37%;
-        width: 100%;
-        margin-left: 0;
-        position: absolute;
-        bottom: 0;
-        border-radius: 45px 45px 0 0;
-    }
-
-    .formContenedor{
-        margin-bottom: 10px;
-    }
-
-    .usuario h2,.contrasena h2{
-        width: 100%;
-        font-size: 1.4rem;
-    }
-
-    .usuario input,.contrasena input{
-        border-radius: 5px;
-        height: 38%;
-        margin-top: 5px;
-    }
-
-    .boton{
-        padding: 6px 8px 6px 8px;
-        font-size: 1.5rem;
-        height: 15%;
-    }
-
-    .registro{
-        font-size: 1rem;
-    }
-    .tituloCaja{
-        width: 100%;
-        left: 0;
-        padding: 3%;
-    }
-    .registroEnlace{
-        font-size: 0.8rem;
-    }
-}
 
 @media (min-width: 640px) and (max-width: 1024px) {
 
@@ -252,3 +202,55 @@ form {
         font-size: 1.5rem;
     }
 }
+
+/*DISPOSITIVOS MÓVILES*/
+@media only screen and (max-width: 640px) {
+    .caja {
+        background-size:170%;
+        background-repeat: no-repeat;
+        background-position: calc(100% ) calc(100% - 65%);
+    }
+    
+    .cajaInicio {
+        height: 37%;
+        width: 100%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 0;
+        border-radius: 45px 45px 0 0;
+    }
+
+    .formContenedor{
+        margin-bottom: 10px;
+    }
+
+    .usuario h2,.contrasena h2{
+        width: 100%;
+        font-size: 1.4rem;
+    }
+
+    .usuario input,.contrasena input{
+        border-radius: 5px;
+        height: 38%;
+        margin-top: 5px;
+    }
+
+    .boton{
+        padding: 6px 8px 6px 8px;
+        font-size: 1.5rem;
+        height: 15%;
+    }
+
+    .registro{
+        font-size: 1rem;
+    }
+    .tituloCaja{
+        width: 100%;
+        left: 0;
+        padding: 3%;
+    }
+    .registroEnlace{
+        font-size: 0.8rem;
+    }
+}
+

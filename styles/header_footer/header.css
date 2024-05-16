@@ -121,7 +121,7 @@ nav ul li a:hover:before, nav ul li a:hover:after, nav ul li a:focus:before, nav
     cursor: pointer;
 }
 .user img{
-    width: 65%;
+    width: 90%;
     display: block;
     margin: auto;
 }
