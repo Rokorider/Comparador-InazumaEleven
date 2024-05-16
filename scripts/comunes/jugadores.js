@@ -10,6 +10,8 @@ Ahora solo Dios lo sabe.
 let jugadores;
 let contenedorJugadores = document.getElementById('contenedorJugadores');
 
+let jugadoresPersonales;
+
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
     return fetch('../php/conexiones/conexionBD.php')
@@ -23,6 +25,28 @@ function obtenerDatos() {
             jugadores = data;
             // Devolver los datos de los jugadores
             return jugadores;
+        })
+        // Manejar errores en caso de que la solicitud falle
+        .catch(function (error) {
+            console.error('Error al obtener los datos de jugadores:', error);
+        });
+}
+
+function obtenerDatosPersonales() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
+    return fetch('../php/conexiones/conexionBDJugadoresPersonales.php')
+        // Procesar la respuesta como JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // Manejar los datos obtenidos
+        .then(function (data) {
+            // Asignar los datos de los jugadores a la variable global 'jugadores'
+            jugadoresPersonales = data;
+            console.log("jugadores Personales");
+            console.log(jugadoresPersonales);
+            // Devolver los datos de los jugadores
+            return jugadoresPersonales;
         })
         // Manejar errores en caso de que la solicitud falle
         .catch(function (error) {
@@ -45,7 +69,7 @@ function actualizarContenidoSegunPantalla(anchoPantalla) {
     if (anchoPantalla < 427) {
         contenidoMovil(contenedorJugadores);
     } else {
-        contenidoPantallaGrande(jugadores);
+        contenidoPantallaGrande(jugadores, jugadoresPersonales);
     }
 }
 
@@ -139,8 +163,288 @@ function contenidoPantallaGrande() {
             contenedorJugadores.appendChild(contenedorJuego);
         });
     });
+
+    obtenerDatosPersonales().then(function (jugadoresPersonales) {
+        if (jugadoresPersonales.length > 0) {
+            let contenedorJuego = document.createElement('div');
+            contenedorJuego.className = 'escudos'; // Cambio de nombre de clase
+            let tituloJuego = document.createElement('div');
+            tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
+            tituloJuego.innerHTML = `<h1>Jugadores Personales</h1>`; // Rellenando el título con el nombre del juego
+            contenedorJuego.appendChild(tituloJuego);
+            console.log("holasdsad");
+    
+            // Agregar evento clic al título del juego para crear o eliminar los escudos
+            tituloJuego.addEventListener('click', function () {
+                let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
+                if (contenedorEscudos) {
+                    contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
+                } else {
+                    // Crear un contenedor para los escudos de este juego
+                    contenedorEscudos = document.createElement('div');
+                    contenedorEscudos.className = 'contenedorEscudos'; // Agregando clase para los escudos
+    
+                    // Crear un conjunto para evitar equipos duplicados
+                    let equiposUnicos = new Set();
+    
+                    console.log(jugadoresPersonales);
+    
+                    // Iterar sobre cada equipo de estos jugadores
+                    jugadoresPersonales.forEach(jugadorPersonal => {
+                        // Agregar equipo al conjunto de equipos únicos
+                        equiposUnicos.add(jugadorPersonal.NombreEquipo);
+                    });
+    
+                    // Iterar sobre cada equipo único
+                    equiposUnicos.forEach(equipo => {
+                        let escudo = document.createElement('div');
+                        escudo.className = 'escudo';
+                        escudo.id = equipo; // Usar el nombre del equipo como ID
+    
+                        let imagenEscudo = document.createElement('div');
+                        imagenEscudo.className = 'imagenEscudo';
+                        let imagen = document.createElement('img');
+    
+                        // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
+                        equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+                        equipoModificado = equipoModificado.replace(/'/g, '');
+                        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+    
+    
+                        imagen.src = `../img/imgJugadores/InazumaEleven1/Escudos/Raimon.png`; // Intenta cargar la imagen en formato png
+    
+                        imagen.onerror = function () {
+                            this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
+                            this.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
+                        };
+    
+                        imagen.alt = equipo;
+    
+                        imagenEscudo.appendChild(imagen);
+    
+                        let nombreEscudo = document.createElement('div');
+                        nombreEscudo.className = 'nombreEscudo';
+                        let nombre = document.createElement('p');
+                        nombre.textContent = equipo;
+                        nombreEscudo.appendChild(nombre);
+    
+                        escudo.appendChild(imagenEscudo);
+                        escudo.appendChild(nombreEscudo);
+    
+                        contenedorEscudos.appendChild(escudo);
+                    });
+    
+                    contenedorJuego.appendChild(contenedorEscudos); // Agregar contenedor de escudos
+                    // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
+                    obtnerIdsYcomprobarJugadoresPersonales();
+    
+                }
+    
+            });
+    
+            // Agregar el contenedor del juego al contenedor principal
+            contenedorJugadores.appendChild(contenedorJuego);
+        } else {
+            console.log("No se encontraron jugadores personales.");
+        }
+    });
+    
 }
 
+// Función para obtener los IDs de los escudos y comprobar los jugadores correspondientes
+function obtnerIdsYcomprobarJugadoresPersonales() {
+    // Agregar un event listener a cada escudo
+    let escudos = document.querySelectorAll('.escudo');
+    escudos.forEach(function (escudo) {
+        escudo.addEventListener('click', function () {
+            // Obtener el ID del equipo correspondiente al escudo
+            let idEquipo = escudo.id;
+            // Obtener el contenedor de jugadores
+            let contenedorJugadores = document.getElementById('jugadores');
+
+            // Si el contenedor de jugadores está vacío o si se va a mostrar un equipo diferente al que ya está mostrado
+            if (contenedorJugadores.innerHTML === '' || contenedorJugadores.dataset.equipo !== idEquipo) {
+                console.log('Obteniendo IDs y comprobando jugadores');
+
+                console.log(idEquipo);
+                // Mostrar los jugadores del equipo correspondiente
+                mostrarJugadoresPorEquipoOrdenadorPersonales(idEquipo);
+                // Almacenar el ID del equipo en el atributo de datos del contenedor
+                contenedorJugadores.dataset.equipo = idEquipo;
+                // No es necesario obtener el contenedor de jugadores nuevamente aquí
+                contenedorJugadores.scrollIntoView({ behavior: "smooth" }); // Usar la referencia existente
+            }
+        });
+    });
+}
+
+// Función para mostrar los jugadores del equipo correspondiente al escudo
+function mostrarJugadoresPorEquipoOrdenadorPersonales(idEquipo) {
+    // Filtrar los jugadores que pertenecen al equipo correspondiente
+    const jugadoresEquipo = jugadoresPersonales.filter(function (jugador) {
+        // Comparar el ID del equipo del jugador con el ID del equipo del escudo
+        return jugador.NombreEquipo === idEquipo;
+    });
+
+    // Limpiar el contenedor de jugadores antes de mostrar nuevos jugadores
+    let contenedorJugadores = document.getElementById('jugadores');
+    contenedorJugadores.innerHTML = '';
+
+    // Mostrar los jugadores del equipo en el contenedor
+    jugadoresEquipo.forEach(function (jugador) {
+        agregarJugadorPersonal(jugador);
+    });
+}
+
+
+function agregarJugadorPersonal(jugador) {
+
+    console.log(jugador.Apodo);
+
+    let jugadores = document.getElementById('jugadores');
+
+    // Crear un elemento div que represente al jugador
+    const jugadorItem = document.createElement('div');
+    jugadorItem.className = 'jugador';
+    jugadorItem.innerHTML = `
+        <div class="infoJugador">
+            <!-- Sección para mostrar la imagen del jugador -->
+            <div class="imgJugador">
+                <img src="../img/imgJugadores/InazumaEleven1/Jugadores/Raimon/Mark.png" alt="${jugador.Nombre_Real}">
+            </div>
+            <!-- Sección para mostrar los datos del jugador -->
+            <div class="datosJugador">
+                <!-- Detalles del jugador -->
+                <div class="datos1">
+                    <div class="nombre">
+                        <p>${jugador.Nombre_Real}</p>
+                    </div>
+                    <div class="nivel">
+                        <p>Niv. 99</p>
+                    </div>
+                    <div class="posicion">
+                        <div class="posicionTexto">
+                            <p>${jugador.Posicion}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Más detalles del jugador -->
+                <div class="datos1">
+                    <div class="nombre">
+                        <p>${jugador.Apodo}</p>
+                    </div>
+                    <div class="genero">
+                        <img src="../img/generos/${jugador.Genero}.png" alt="${jugador.Genero}">
+                    </div>
+                    <div class="elemento">
+                        <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
+                    </div>
+                </div>
+                <!-- Puntos de energía (PE) y puntos de técnica (PT) del jugador -->
+                <div class="datos2">
+                    <div class="pe">
+                        <div class="texto">
+                            <p>PE</p>
+                        </div>
+                        <div class="valor">
+                            <p>${jugador.PE}/${jugador.PE}</p>
+                        </div>
+                    </div>
+                    <div class="pt">
+                        <div class="texto">
+                            <p>PT</p>
+                        </div>
+                        <div class="valor">
+                            <p>${jugador.PT}/${jugador.PT}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Estadísticas del jugador -->
+        <div class="estadisticasJugador">
+            <!-- Estadísticas de habilidades del jugador -->
+            <div class="estadistica">
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Tiro</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Tiro}</p>
+                    </div>
+                </div>
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Físico</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Físico}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Otras estadísticas del jugador -->
+            <div class="estadistica">
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Control</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Control}</p>
+                    </div>
+                </div>
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Defensa</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Defensa}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="estadistica">
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Rapidez</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Rapidez}</p>
+                    </div>
+                </div>
+                <div class="tipo">
+                    <div class="tipoUnidad">
+                        <p>Aguante</p>
+                    </div>
+                    <div class="unidad">
+                        <p>${jugador.Aguante}</p>
+                    </div>
+                </div>
+            </div>  
+            <!-- Estadística única del jugador -->
+            <div class="estadistica">
+                <div class="tipoUnico">
+                    <div class="tipoUnidadUnica">
+                        <p>Valor</p>
+                    </div>
+                    <div class="unidadUnica">
+                        <p>${jugador.Valor}</p>
+                    </div>
+                </div>
+            </div>
+        </div>          
+        <!-- Descripción del jugador -->
+        <div class="juego">
+            <p class="descripcion">${jugador.Equipo}</p>
+        </div>
+    `;
+    // Agregar el elemento del jugador al contenedor
+    jugadores.appendChild(jugadorItem);
+}
+
+
+
+
+
+// Función para obtener los IDs de los escudos y comprobar los jugadores correspondientes
 function obtnerIdsYcomprobarJugadores() {
     // Agregar un event listener a cada escudo
     let escudos = document.querySelectorAll('.escudo');
@@ -154,6 +458,7 @@ function obtnerIdsYcomprobarJugadores() {
             // Si el contenedor de jugadores está vacío o si se va a mostrar un equipo diferente al que ya está mostrado
             if (contenedorJugadores.innerHTML === '' || contenedorJugadores.dataset.equipo !== idEquipo) {
                 console.log('Obteniendo IDs y comprobando jugadores');
+                console.log(idEquipo);
                 // Mostrar los jugadores del equipo correspondiente
                 mostrarJugadoresPorEquipoOrdenador(idEquipo);
                 // Almacenar el ID del equipo en el atributo de datos del contenedor
@@ -164,7 +469,6 @@ function obtnerIdsYcomprobarJugadores() {
         });
     });
 }
-
 
 
 // Función para mostrar los jugadores del equipo correspondiente al escudo
@@ -310,10 +614,6 @@ function mostrarJugadoresPorEquipoMovil() {
 }
 
 function agregarJugador(jugador) {
-
-    console.log("Mostando jugadores del juego " + jugador.Juego)
-
-    console.log("Mostrando jugadores del equipo " + jugador.Equipo)
 
     console.log(jugador.Apodo);
 

@@ -28,11 +28,8 @@ $usuario = $_SESSION['usuario'];
 // Obtener el ID del usuario de la base de datos
 $idUsuario = obtenerIdUsuario($connection, $usuario);
 
-// Obtener el ID del equipo del usuario de la base de datos
-$idEquipo = obtenerIdEquipo($connection, $idUsuario);
-
-// Obtener los jugadores del equipo
-$data = obtenerJugadoresEquipo($connection, $idEquipo);
+// Obtener los jugadores de todos los equipos del usuario
+$data = obtenerJugadoresEquiposUsuario($connection, $idUsuario);
 
 // Convertir los datos a formato JSON y devolverlos
 header('Content-Type: application/json');
@@ -53,28 +50,22 @@ function obtenerIdUsuario($connection, $usuario) {
     }
 }
 
-// Función para obtener el ID del equipo del usuario
-function obtenerIdEquipo($connection, $idUsuario) {
-    $sql = "SELECT id FROM equipos WHERE usuario_id = $idUsuario";
-    $result = $connection->query($sql);
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        return $row['id'];
-    } else {
-        die("No se pudo obtener el ID del equipo del usuario");
-    }
-}
-
-// Función para obtener los jugadores del equipo
-function obtenerJugadoresEquipo($connection, $idEquipo) {
-    $sql = "SELECT * FROM jugadoresdeequipo WHERE Equipo_id = $idEquipo";
+// Función para obtener los jugadores de todos los equipos del usuario
+function obtenerJugadoresEquiposUsuario($connection, $idUsuario) {
+    $sql = "SELECT * FROM equipos WHERE usuario_id = $idUsuario";
     $result = $connection->query($sql);
     $data = array();
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
+            $idEquipo = $row['id'];
+            $sqlJugadores = "SELECT * FROM jugadoresdeequipo WHERE Equipo_id = $idEquipo";
+            $resultJugadores = $connection->query($sqlJugadores);
+            if ($resultJugadores && $resultJugadores->num_rows > 0) {
+                while ($rowJugador = $resultJugadores->fetch_assoc()) {
+                    $data[] = $rowJugador;
+                }
+            }
         }
     }
     return $data;
 }
-
