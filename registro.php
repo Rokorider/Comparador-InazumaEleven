@@ -25,8 +25,21 @@ $usuario = $_POST['usuario'];
 $correo = $_POST['email'];
 $contrasena = $_POST['contrasena'];
 
-// Consulta a la base de datos
-$query = mysqli_query( $connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");
+// Consulta a la base de datos para verificar si el usuario o correo ya existen
+//$check_query = mysqli_query($connection, "SELECT * FROM usuarios WHERE nombre='$usuario' OR email='$correo'");
+$check_query_usuarios = mysqli_query($connection, "SELECT * FROM usuarios WHERE nombre='$usuario'");
+$check_query_correo = mysqli_query($connection, "SELECT * FROM usuarios WHERE email='$correo'");
+
+// Verificar si ya existe un usuario o correo registrado
+if (mysqli_num_rows($check_query_usuarios) > 0) {
+    die("El usuario ya está registrado, pruebe con otro");
+}
+else if (mysqli_num_rows($check_query_correo) > 0) {
+    die("El correo ya está registrado, pruebe con otro");
+}
+
+// Insertar el usuario en la base de datos
+$query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");
 
 // Comprobación
 // Si hay al menos un resultado
