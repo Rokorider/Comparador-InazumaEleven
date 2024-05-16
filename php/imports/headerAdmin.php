@@ -15,6 +15,12 @@
             <li>
                 <a href="actualizarJugador.php">Actualizar Jugador</a>
             </li>
+            <li>
+                <a href="actualizarJugador.php">Eliminar Jugador</a>
+            </li>
+            <li>
+                <a href="actualizarJugador.php">Gestión de Usarios</a>
+            </li>
         </ul>
     </nav>
 
