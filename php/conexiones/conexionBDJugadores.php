@@ -67,6 +67,7 @@ class JugadoresBD
     public function crearJugadorUsuario($usuario, $equipo, $jugador, $fotoEquipo)
     {
 
+        
         $sql = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
         $resultado = mysqli_query($this->conexion, $sql);
 
@@ -119,12 +120,13 @@ class JugadoresBD
             // Maneja el error de consulta
             echo "Error en la consulta: " . $this->conexion->error;
         }
+        
 
         // Almacenar los valores de las estadísticas en variables
         $nombre = $jugador->getNombre();
         $apodo = $jugador->getApodo();
         $descripcion = $jugador->getDescripcion();
-        $imagen = $jugador->getFoto();
+        $imagen = "hola";
         $posicion = $jugador->getPosicion();
         $elemento = $jugador->getElemento();
         $genero = $jugador->getGenero();
@@ -141,17 +143,15 @@ class JugadoresBD
         // Insertar datos del jugador
         $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
 
-        // Ejecutar la consulta para insertar el jugador
-        if (!$this->conexion->query($sqlInsertarJugador)) {
-            echo "Error al insertar datos del jugador: " . $this->conexion->error;
-        } else {
-            // Consulta para aumentar el número de jugadores del equipo
-            $sqlAumentarJugadores = "UPDATE equipos SET numeroJugadores = numeroJugadores + 1 WHERE id = '$idEquipo'";
+        $stmt = $this->conexion->prepare($sqlInsertarJugador);
+        $result = $stmt->execute();
 
-            // Ejecutar la consulta para aumentar el número de jugadores del equipo
-            if (!$this->conexion->query($sqlAumentarJugadores)) {
-                echo "Error al aumentar el número de jugadores del equipo: " . $this->conexion->error;
-            }
+        if ($result) {
+            echo "Jugador insertado correctamente";
+            return true;
+        } else {
+            echo "Error al insertar datos del jugador.";
+            return false;
         }
     }
 }

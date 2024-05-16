@@ -65,7 +65,6 @@ let ImagenCorrecta = true;
 let EstadisticasCorrectas = true;
 let EquipoCorrecto = true;
 let ImagenEquipoCorrecta = true;
-
 const letrasRegex = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 
 function validarDatos() {
@@ -98,6 +97,7 @@ function validarEquipo() {
     }
 }
 
+
 function validarNombre() {
 
     const nombreInput = nombre.value.trim(); // Elimina los espacios en blanco al principio y al final
@@ -125,7 +125,6 @@ function validarNombre() {
 }
 
 function validarApodo() {
-
     // Obtener el apodo ingresado por el usuario
     let nuevoApodo = apodo.value.trim();
 
@@ -142,6 +141,11 @@ function validarApodo() {
         ApodoCorrecto = false;
     } else if (nuevoApodo.length > 10) { // Validación para verificar si el apodo tiene más de 10 letras
         errorApodo.textContent = 'El apodo no puede tener más de 10 letras';
+        aplicarEstiloError(errorApodo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ApodoCorrecto = false;
+    } else if (jugadores.some(jugador => jugador.Apodo === nuevoApodo)) {
+        errorApodo.textContent = 'Ya existe un jugador con este apodo';
         aplicarEstiloError(errorApodo);
         main.scrollIntoView({ behavior: "smooth" });
         ApodoCorrecto = false;
@@ -169,7 +173,7 @@ function validarDescripcion() {
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
         DescripcionCorrecta = false;
-    } else if (descripcionInput.length > 80) {
+    } else if (descripcionInput.length > 80) { 
         errorDescripcion.textContent = 'La descripción no puede tener más de 80 letras';
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
@@ -309,11 +313,8 @@ function añadirInputNombreEquipo() {
 
 
 function validarNombreEquipo() {
-
     nombreEquipo = document.getElementById('nombreEquipo').value; // Obtener el valor del campo de entrada
     let errorNombreEquipo = document.getElementById('errorNombreEquipo');
-
-    inputNombreEquipo = nombreEquipo.trim(); // Elimina los espacios en blanco al principio y al final
 
     let cajaNombreEquipo = document.querySelector('.cajaNombreEquipo');
 
@@ -326,16 +327,6 @@ function validarNombreEquipo() {
         // Verificar si el nombre del equipo ya existe en la lista de equipos
         if (nombreEquipo === '') {
             errorNombreEquipo.textContent = 'El nombre es obligatorio';
-            aplicarEstiloError(errorNombreEquipo);
-            main.scrollIntoView({ behavior: "smooth" });
-            EquipoCorrecto = false;
-        } else if (!letrasRegex.test(inputNombreEquipo)) {
-            errorNombreEquipo.textContent = 'El nombre del equipo solo puede contener letras';
-            aplicarEstiloError(errorNombreEquipo);
-            main.scrollIntoView({ behavior: "smooth" });
-            EquipoCorrecto = false;
-        } else if (inputNombreEquipo.length > 15) {
-            errorNombreEquipo.textContent = 'El nombre del Equipo no puede tener más de 15 letras';
             aplicarEstiloError(errorNombreEquipo);
             main.scrollIntoView({ behavior: "smooth" });
             EquipoCorrecto = false;
@@ -387,19 +378,6 @@ function validarImagenEquipo() {
     }
 }
 
-function validarJuego() {
-    let juego = document.getElementById('buscadorJuegos');
-    let errorJuego = document.getElementById('errorJuego');
-    if (juego.value === '') {
-        errorJuego.textContent = 'El juego es obligatorio';
-        aplicarEstiloError(errorJuego);
-        main.scrollIntoView({ behavior: "smooth" });
-    } else {
-        errorJuego.textContent = '';
-        limpiarEstiloError(errorJuego);
-    }
-}
-
 
 equipo.addEventListener('change', function () {
     if (equipo.value === 'Nuevo') {
@@ -423,8 +401,47 @@ boton.addEventListener('click', function (event) {
     }
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
+
+        let juego = document.getElementById('buscadorJuegos');
+        juegoModificado = juego.value;
+        juegoModificado = juegoModificado.replace(/\s+/g, "");
+        document.getElementById("juegoModificado").value = juegoModificado;
+
+        equipoModificado = equipo.value;
+        equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        equipoModificado = equipoModificado.replace(/'/g, '');
+        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+        document.getElementById("equipoModificado").value = equipoModificado;
+
+        // Verificar si existe el nombre Equipo
+        if (document.getElementById("nombreEquipo")) {
+            // Aquí se asigna el valor a nombreEquipoModificado
+            let nombreEquipoModificado = document.getElementById('nombreEquipo').value;
+            nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+            nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
+            nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+            document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
+        }
+
+
+        console.log(nombreEquipoModificado);
+
         document.getElementById("formDatos").submit(); // Envía el formulario
     }
 
 });
+
+
+function validarJuego() {
+    let juego = document.getElementById('buscadorJuegos');
+    let errorJuego = document.getElementById('errorJuego');
+    if (juego.value === '') {
+        errorJuego.textContent = 'El juego es obligatorio';
+        aplicarEstiloError(errorJuego);
+        main.scrollIntoView({ behavior: "smooth" });
+    } else {
+        errorJuego.textContent = '';
+        limpiarEstiloError(errorJuego);
+    }
+}
 
