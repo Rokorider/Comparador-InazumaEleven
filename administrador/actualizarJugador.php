@@ -161,7 +161,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Tiro:</p>
                                 <input class="inputRango" type="range" id="tiro" name="tiro" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="tiroValue">1</p>
+                                <p class="valor2" id="tiroValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -169,7 +169,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Físico:</p>
                                 <input class="inputRango" type="range" id="fisico" name="fisico" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="fisicoValue">1</p>
+                                <p class="valor2" id="fisicoValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -177,7 +177,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Control:</p>
                                 <input class="inputRango" type="range" id="control" name="control" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="controlValue">1</p>
+                                <p class="valor2" id="controlValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -185,7 +185,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Defensa:</p>
                                 <input class="inputRango" type="range" id="defensa" name="defensa" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="defensaValue">1</p>
+                                <p class="valor2" id="defensaValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -193,7 +193,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Rapidez:</p>
                                 <input class="inputRango" type="range" id="rapidez" name="rapidez" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="rapidezValue">1</p>
+                                <p class="valor2" id="rapidezValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -201,7 +201,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Aguante:</p>
                                 <input class="inputRango" type="range" id="aguante" name="aguante" min="1" max="100"
                                     value="0">
-                                <p class="valor2" id="aguanteValue">1</p>
+                                <p class="valor2" id="aguanteValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
@@ -209,13 +209,13 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="tipoEstadistica">Valor:</p>
                                 <input class="inputRango" type="range" id="valor" name="valor" min="1" max="100"
                                     value="1">
-                                <p class="valor2" id="valorValue">1</p>
+                                <p class="valor2" id="valorValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="textoPuntos">Puntos restantes:</p>
-                                <p class="valorPuntos" id="puntosRestantes">433</p>
+                                <p class="valorPuntos" id="puntosRestantes">440</p>
                             </div>
                         </div>
                     </div>
@@ -229,20 +229,20 @@ if (!isset($_SESSION['usuario'])) {
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Pe:</p>
                                 <input class="inputRango" type="range" id="pe" name="pe" min="1" max="100" value="1">
-                                <p class="valor2" id="peValue">1</p>
+                                <p class="valor2" id="peValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">PT:</p>
                                 <input class="inputRango" type="range" id="pt" name="pt" min="1" max="100" value="1">
-                                <p class="valor2" id="ptValue">1</p>
+                                <p class="valor2" id="ptValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="textoPuntos">Puntos restantes:</p>
-                                <p class="valorPuntos" id="puntosRestantesPePt">248</p>
+                                <p class="valorPuntos" id="puntosRestantesPePt">450</p>
                             </div>
                         </div>
                     </div>

@@ -205,7 +205,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
-                            <p class="valorPuntos" id="puntosRestantes">433</p>
+                            <p class="valorPuntos" id="puntosRestantes">440</p>
                         </div>
                     </div>
                 </div>
@@ -234,7 +234,7 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
-                            <p class="valorPuntos" id="puntosRestantesPePt">248</p>
+                            <p class="valorPuntos" id="puntosRestantesPePt">250</p>
                         </div>
                     </div>
                 </div>
