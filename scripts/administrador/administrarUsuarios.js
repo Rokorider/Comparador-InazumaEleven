@@ -50,13 +50,13 @@ function mostrarUsuarios() {
                 </div>
             </div>
             <div class="fila">
-                <form class="formulario">
-                    <input type="hidden" name="userId" value="1">
+                <form class="formulario" action="../php/administrador/administrarUsuarios.php" method="post">
+                    <input type="hidden" name="userId" value="${usuario.id}">
                     <input type="hidden" name="action" value="eliminar">
                     <input class="input" type="submit" value="Eliminar Usuario">
                 </form>
-                <form class="formulario">
-                    <input type="hidden" name="userId" value="1">
+                <form class="formulario" action="../php/administrador/administrarUsuarios.php" method="post">
+                    <input type="hidden" name="userId" value="${usuario.id}">
                     <input type="hidden" name="action" value="conceder">
                     <input class="input" type="submit" value="Conceder Permisos">
                 </form>

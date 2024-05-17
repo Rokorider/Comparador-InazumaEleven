@@ -77,4 +77,21 @@ class loginBD
             }
         }
     }
+
+    public function eliminarUsuario($idUsuario){
+        $sql = "DELETE FROM usuarios WHERE id = $idUsuario";
+        $result = $this->conexion->query($sql);
+
+        $this->conexion->close();
+    }
+
+    public function concederPermisos($idUsuario){
+        $sql = "UPDATE usuarios SET permisos = 1 WHERE id = $idUsuario";
+        $result = $this->conexion->query($sql);
+
+        $this->conexion->close();
+
+    }
+
+
 }
