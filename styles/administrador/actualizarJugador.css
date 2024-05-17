@@ -3,7 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+<<<<<<< Updated upstream
 
+=======
+body{
+    font-family: "Jersey 10", sans-serif;
+    letter-spacing: 2px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url("../../img/BGicons5.png");
+    background-size: 200px;
+    color: white;
+}
+>>>>>>> Stashed changes
 .main {
     width: 100%;
     margin-top: 80px;
@@ -65,7 +75,7 @@
 
 .contenedorJugador {
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid #00000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -350,7 +360,7 @@
 }
 
 .cajaFlecha {
-    border: 1px solid #000;
+    border: 1px solid #00000000;
     width: 20%;
     height: 80px;
 }
@@ -373,7 +383,7 @@
 
 .contenedorFormulario{
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid #00000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -527,6 +537,8 @@
     border-radius: 10px;
     font-size: 20px;
     padding-left: 10px;
+    background-color: rgba(149, 151, 196, 0.733);
+    border-color: #0b0749d0;
 }
 
 .cajaEstadisticas {
@@ -655,8 +667,13 @@
 
 .boton {
     width: 100%;
+<<<<<<< Updated upstream
     height: 60px;
     background-image: url('../../img/boton.png');
+=======
+    height: 70px;
+    background-image: url('../../img/botonGrande.png');
+>>>>>>> Stashed changes
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
