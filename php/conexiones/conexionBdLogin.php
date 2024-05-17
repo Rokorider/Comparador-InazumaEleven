@@ -28,27 +28,24 @@ class loginBD
             // Verificar si el usuario tiene permisos
             $permisos = $datos_usuario['permisos'];
 
-            if ($permisos) {
-                // Iniciar sesión
-                session_start();
-                $_SESSION['usuario'] = $usuario;
-                $_SESSION['jugadoresComparados'] = array();
-                $_SESSION['jugadoresCreados'] = array();
+            // Actualizar la última conexión del usuario
+            $sql_update = "UPDATE usuarios SET ultimaConexion = NOW() WHERE nombre = '$usuario'";
+            $this->conexion->query($sql_update);
 
+            // Iniciar sesión
+            session_start();
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['jugadoresComparados'] = array();
+            $_SESSION['jugadoresCreados'] = array();
+
+            if ($permisos) {
                 // Redirigir a la página de comparador de administrador
                 header("Location: ../../administrador/comparadorAdmin.php");
-                exit(); // Salir del script después de redirigir
             } else {
-                // Iniciar sesión para otros usuarios sin permisos de administrador
-                session_start();
-                $_SESSION['usuario'] = $usuario;
-                $_SESSION['jugadoresComparados'] = array();
-                $_SESSION['jugadoresCreados'] = array();
-
                 // Redirigir a la página de comparador común
                 header("Location: ../../paginasComunes/comparador.php");
-                exit(); // Salir del script después de redirigir
             }
+            exit(); // Salir del script después de redirigir
         } else {
             // Redirigir al inicio de sesión si falla
             header("Location: ../../index.html");
