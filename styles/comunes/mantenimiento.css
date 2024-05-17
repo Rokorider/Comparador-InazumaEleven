@@ -120,3 +120,222 @@ p {
     }
 }
 
+/*
+
+@media  screen and (max-width: 1460px) {
+    
+    .titulo h1 {
+        font-size: 56px;
+    }
+
+}
+
+@media  screen and (max-width: 1390px) {
+    
+    .titulo h1 {
+        font-size: 54px;
+    }
+
+}
+
+@media  screen and (max-width: 1320px) {
+    
+    .titulo h1 {
+        font-size: 50px;
+    }
+
+    .emoticono p {
+        font-size: 140px;
+    }
+
+}
+
+@media  screen and (max-width: 1270px) {
+    
+    .titulo h1 {
+        font-size: 48px;
+    }
+
+}
+
+@media  screen and (max-width: 1200px) {
+    
+    .titulo h1 {
+        font-size: 46px;
+    }
+
+    .explicacion p{
+        font-size: 34px;
+        line-height: 1.4;
+    }
+
+}
+
+@media  screen and (max-width: 1150px) {
+
+    
+
+    .emoticono p {
+        font-size: 130px;
+        margin-top: 50px;
+    }
+    
+    .titulo h1 {
+        font-size: 40px;
+    }
+
+    .explicacion p{
+        font-size: 30px;
+    }
+
+}
+
+@media  screen and (max-width: 1150px) {
+    
+    .titulo h1 {
+        font-size: 38px;
+    }
+
+    .explicacion p{
+        font-size: 28px;
+    }
+
+}
+
+@media  screen and (max-width: 1035px) {
+
+    .emoticono p {
+        font-size: 130px;
+    }
+    
+    .titulo h1 {
+        font-size: 36px;
+    }
+
+    .explicacion p{
+        font-size: 26px;
+    }
+
+}
+
+@media  screen and (max-width: 980px) {
+
+    .emoticono p {
+        font-size: 110px;
+    }
+    
+    .titulo h1 {
+        font-size: 34px;
+    }
+
+    .explicacion p{
+        font-size: 24px;
+    }
+
+}
+
+@media  screen and (max-width: 920px) {
+
+    .cajaTexto {
+        width: 47%;
+    }
+
+    .emoticono p {
+        font-size: 100px;
+    }
+    
+    .titulo h1 {
+        font-size: 32px;
+    }
+
+    .explicacion p{
+        font-size: 22px;
+    }
+
+}
+
+@media  screen and (max-width: 850px) {
+
+    .cajaTexto {
+        width: 44%;
+    }
+
+    .emoticono p {
+        font-size: 100px;
+    }
+    
+    .titulo h1 {
+        font-size: 30px;
+    }
+
+    .explicacion p{
+        font-size: 21px;
+    }
+
+}
+
+@media  screen and (max-width: 830px) {
+
+    .cajaTexto {
+        width: 42%;
+    }
+
+    .emoticono p {
+        font-size: 90px;
+        margin-top: 70px;
+    }
+    
+    .titulo h1 {
+        font-size: 27px;
+    }
+
+    .explicacion p{
+        font-size: 20px;
+    }
+
+}
+
+@media  screen and (max-width: 800px) {
+    
+    .titulo h1 {
+        font-size: 26px;
+    }
+
+    .explicacion p{
+        font-size: 18px;
+    }
+
+}
+
+@media  screen and (max-width: 800px) {
+
+    .titulo h1 {
+        font-size: 24px;
+    }
+
+    .explicacion p{
+        font-size: 18px;
+    }
+
+}
+
+@media  screen and (max-width: 730px) {
+
+    .cajaTexto {
+        width: 38%;
+    }
+
+    .titulo h1 {
+        font-size: 22px;
+    }
+
+    .explicacion p{
+        font-size: 16px;
+    }
+
+}
+
+
+
+
+*/
