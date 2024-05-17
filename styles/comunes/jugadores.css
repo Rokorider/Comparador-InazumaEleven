@@ -14,7 +14,11 @@
     /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
     
 }
-
+body{
+    background-image: url('../../img/bg_movie_pc.jpg');
+    background-size: cover;
+    margin-top: 200px;
+}
 .contenedorJugadores{
     margin: auto;
     border: 1px solid black;
@@ -23,13 +27,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 80px;
     /*margin-block: 100px;*/
     margin-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     padding-block: 20px;
-    background-image: url('../../img/bg_soccer_pattern.png');
-    background-color: rgb(15, 12, 92);
+
 }
 
 .contenedorJuego {
@@ -402,8 +405,9 @@
 }
 
 .descripcion {
+    padding: 0 10px 0 10px;
     color: white;
-    font-size: 1.6rem;
+    font-size: 1rem;
     margin: 0;
 }
 

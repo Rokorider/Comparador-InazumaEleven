@@ -3,7 +3,6 @@ body{
     font-family: "Jersey 10", sans-serif;
 }
 
-
 .tituloPrincipal{
     display: flex;
     justify-content: center;
@@ -14,14 +13,13 @@ body{
     margin-bottom: 10px;
     background-color: #2f477c;
     color: white;
-    padding: 2% 5% 2% 5%;
+    padding: 1% 5% 1% 5%;
 }
 
 .titulo{
     font-size: 1.6rem;
     width: auto;
     height: auto;
-    padding: 1.5% 5% 1.5% 5%;
 }
 
 input,select{
@@ -30,9 +28,7 @@ input,select{
 .puntoRestante{
     width: 100%;
 }
-.textoPuntos{
-    width: 25%;
-}
+
 .valorPuntos{
     width: 10%;
 

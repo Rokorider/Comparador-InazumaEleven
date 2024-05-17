@@ -412,7 +412,7 @@ body {
 .nombreEnStatCont {
     width: 85%;
     height: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -427,7 +427,7 @@ body {
 }
 
 .imgSexoCont img {
-    height: 75%;
+    height: 70%;
 }
 
 .descripcion-tipo {

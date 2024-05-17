@@ -16,10 +16,13 @@
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/headerAdmin.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/administrador/actualizarJugador.css">
+    <link rel="stylesheet" href="../styles/comunes/slider.css">
     <!-- Scripts -->
     <script src="../scripts/comunes/estadisticasJugador.js" defer></script>
     <script src="../scripts/administrador/actualizarJugadorAdmin.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
+    <script src="../scripts/comunes/slider.js" defer></script>
+
 
     <title>Actualizar Jugador</title>
 </head>

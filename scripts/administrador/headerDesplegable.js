@@ -12,3 +12,6 @@ function abrirDesplegable() {
     }
 }
 btnDesplegable.addEventListener("click", abrirDesplegable);
+
+
+

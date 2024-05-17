@@ -6,16 +6,15 @@
 
 body{
     font-family: "Jersey 10", sans-serif;
-    letter-spacing: 2px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)),url("../../img/BGicons5.png");
-    background-size: 200px;
+    background-size: 10%;
     color: white;
 }
 
 .main {
+    letter-spacing: 2px;
     width: 100%;
-    margin-top: 80px;
-    border: 1px solid #000;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,7 @@ body{
 
 .cajaTitulo {
     width: 40%;
-    height: 70px;
+    padding: 1% 5% 1% 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -397,17 +396,17 @@ body{
 
 .titulo {
     width: 40%;
-    height: 70px;
+    padding: 1% 5% 1% 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 5px solid #282855;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 24px;
     margin-bottom: 10px;
     background-color: #2f477c;
     color: white;
-    padding: 10px;
+    text-align: center;
 }
 
 .formulario {
@@ -492,16 +491,14 @@ body{
 
 .imagen {
     /* Estilo para el contenedor del input personalizado */
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 10px;
+    background-color: #888aab;
+    border: 1px solid #0b0749d0;
+    padding: 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.imagen:hover {
-    background-color: #e0e0e0;
-}
+
 
 .consejo {
     width: 100%;
@@ -529,11 +526,17 @@ body{
     text-align: center;
 }
 
+input{
+    border: none;
+    border: 1px solid #0b0749d0;
+    color: white;
+}
+
 .selector {
     width: 70%;
     height: 40px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 1.2rem;
     padding-left: 10px;
     background-color: rgba(149, 151, 196, 0.733);
     border-color: #0b0749d0;

@@ -211,11 +211,7 @@ function contenidoPantallaGrande() {
 
                         console.log(equipoModificado);
 
-                        
-                        
-
                         imagen.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
-
                         
                         imagen.onerror = function () {
                             this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos

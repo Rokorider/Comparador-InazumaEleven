@@ -1,0 +1,45 @@
+.inputRango {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    border-radius: 15px;
+    height: 20px;
+    height: 6px;
+    background: #ccc;
+}
+
+.inputRango::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background: transparent;
+    background-image: url("../../img/Favicons/BalonDestin.png");
+    background-size: cover;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+    transform: rotateZ(var(--thumb-rotate, 0deg));
+}
+
+.inputRango::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(0, 110, 255, 0.1);
+}
+.inputRango:active::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(0, 110, 255, 0.2);
+}
+
+.inputRango:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 13px rgba(0, 110, 255, 0.2);
+}
+
+.inputRango::-moz-range-thumb:hover {
+    box-shadow: 0 0 0 10px rgba(0, 110, 255, 0.1);
+}
+.inputRango:active::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(0, 110, 255, 0.2);
+}
+.inputRango:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 13px rgba(0, 110, 255, 0.2);
+}

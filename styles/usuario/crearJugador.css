@@ -9,7 +9,8 @@ body{
     background-color: #fceda3;
 }
 .main {
-    margin-top: 80px;
+    letter-spacing: 2px;
+    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -30,12 +31,12 @@ body{
     justify-content: center;
     align-items: center;
     border: 5px solid #282855;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.6rem;
     margin-bottom: 10px;
     background-color: #2f477c;
     color: white;
-    padding: 1.5% 5% 1.5% 5%;
+    padding: 1% 5% 1% 5%;
 }
 
 input,select{
@@ -229,7 +230,7 @@ input,select{
 .selector {
     width: 70%;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.2rem;
     padding-left: 10px;
 }
@@ -308,6 +309,8 @@ input,select{
 .inputRango {
     width: 80%;
 }
+
+
 
 .valor {
     width: 20%;
@@ -429,7 +432,7 @@ input,select{
 .boton {
     width: 100%;
     height: 60px;
-    background-image: url('../../img/boton.png');
+    background-image: url('../../img/botonGrande.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
