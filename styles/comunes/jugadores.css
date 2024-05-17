@@ -12,9 +12,10 @@
     font-weight: 400;
     font-style: normal;
     /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
+    
 }
 
-.contenedorJugadores {
+.contenedorJugadores{
     margin: auto;
     border: 1px solid black;
     width: 100%;
@@ -23,8 +24,12 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-block: 100px;
+    /*margin-block: 100px;*/
+    margin-top: 80px;
+    margin-bottom: 50px;
     padding-block: 20px;
+    background-image: url('../../img/bg_soccer_pattern.png');
+    background-color: rgb(15, 12, 92);
 }
 
 .contenedorJuego {
@@ -45,7 +50,6 @@
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-top: 100px;
 }
 
 .escudos {
@@ -124,7 +128,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
-    border: 1px solid black;
     margin-block: 30px;
 }
 
@@ -400,8 +403,37 @@
 
 .descripcion {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin: 0;
+}
+
+.divBtnCargarMas {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorboton {
+    width: 15%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/boton.png');
+    background-size: 100% 100%;
+    transition: transform 0.5s;
+}
+
+.btnCargarMas {
+    color: white;
+    font-size: 1.7rem;
+    cursor: url('https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png'), pointer;
+}
+
+.contenedorboton:hover {
+    transform: scale(1.1);
 }
 
 @media screen and (max-width: 1400px) {
