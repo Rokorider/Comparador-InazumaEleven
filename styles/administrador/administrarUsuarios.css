@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    margin-top: 80px;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.titulo {
+    width: 50%;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #282855;
+    border-radius: 10px;
+    font-size: 24px;
+    background-color: #2f477c;
+    color: white;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.contenedorUsuarios {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    padding: 20px;
+    gap: 70px;
+}
+
+.usuario {
+    width: 470px;
+    height: 220px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.fila {
+    width: 100%;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.id {
+    width: 15%;
+    height: 100%;
+    background-color: #81a9ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.nombre {
+    width: 85%;
+    height: 100%;
+    background-color: #9cff59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.correo{
+    width: 100%;
+    height: 100%;
+    background-color: #ff5959;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.fecha {
+    width: 100%;
+    height: 100%;
+    background-color: #ff59a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.formulario{
+    width: 50%;
+    height: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    margin: 10px;
+}

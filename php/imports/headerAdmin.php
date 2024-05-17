@@ -21,10 +21,10 @@
                         <a href="actualizarJugador.php">Actualizar Jugador</a>
                     </li>
                     <li>
-                        <a href="actualizarJugador.php">Eliminar Jugador</a>
+                        <a href="eliminarJugador.php">Eliminar Jugador</a>
                     </li>
                     <li>
-                        <a href="actualizarJugador.php">Gestión de Usarios</a>
+                        <a href="administrarUsuarios.php">Gestión de Usarios</a>
                     </li>
                 </ul>
             </div>

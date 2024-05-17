@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    gap: 40px;
+}
+
+.contenedorSelects{
+    margin-top: 70px;
+    width: 45%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    gap: 30px;
+}
+
+.titulo {
+    width: 90%;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #282855;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #2f477c;
+    color: white;
+    text-align: center;
+}
+
+.cajaSelects{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    gap: 40px;
+}
+
+.selector {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    gap: 20px;
+}
+
+.tipo{
+    width: 100%;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.cajaSelector{
+    width: 100%;
+    background-color: rgb(166, 255, 63);
+}
+
+select{
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.contenedorJugador{
+    margin-top: 70px;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajaJugador{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.cajaImagen{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.imagen{
+    width: 90%;
+    height: 80%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen img{
+    width: 100%;
+    image-rendering: pixelated;
+}
+
+.apodo {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 22px;
+}
+
+.datos{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.fila{
+    width: 100%;
+    height: 25%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.id {
+    width: 20%;
+    height: 60%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nombre{
+    width: 80%;
+    height: 60%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.juego {
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.equipo {
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.boton {
+    width: 80%;
+    height: 60%;
+    border: 1px solid black;
+    background-image: url('../../img/boton.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+}
