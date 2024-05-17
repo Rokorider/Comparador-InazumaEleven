@@ -10,12 +10,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <script src="../scripts/administrador/validarDatosJugador.js" defer></script>
+    <script src="../scripts/administrador/validarDatos.js" defer></script>
     <script src="../scripts/administrador/completarEquiposAdmin.js" defer></script>
     <script src="../scripts/comunes/estadisticasJugador.js" defer></script>
+    <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../styles/usuario/crearJugador.css">
     <link rel="stylesheet" type="text/css" href="../styles/administrador/crearJugadorAdmin.css">
-    <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header_footer/headerAdmin.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <title>Crear Jugador</title>
 </head>
@@ -199,7 +200,7 @@ if (!isset($_SESSION['usuario'])) {
                             <p class="valor" id="valorValue">0</p>
                         </div>
                     </div>
-                    <div class="estadistica">
+                    <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
                             <p class="valorPuntos" id="puntosRestantes">433</p>
@@ -211,6 +212,8 @@ if (!isset($_SESSION['usuario'])) {
                         <p id="errorEstadisticas"></p>
                     </div>
                 </div>
+                
+
                 <div class="cajaPePt" id="cajaPePt">
                     <div class="estadistica">
                         <div class="campoEstadisticas">
@@ -226,7 +229,7 @@ if (!isset($_SESSION['usuario'])) {
                             <p class="valor" id="ptValue">0</p>
                         </div>
                     </div>
-                    <div class="estadistica">
+                    <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
                             <p class="valorPuntos" id="puntosRestantesPePt">248</p>

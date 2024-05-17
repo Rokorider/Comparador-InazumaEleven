@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< Updated upstream
 
-=======
 body{
     font-family: "Jersey 10", sans-serif;
     letter-spacing: 2px;
@@ -13,7 +11,7 @@ body{
     background-size: 200px;
     color: white;
 }
->>>>>>> Stashed changes
+
 .main {
     width: 100%;
     margin-top: 80px;
@@ -667,13 +665,8 @@ body{
 
 .boton {
     width: 100%;
-<<<<<<< Updated upstream
-    height: 60px;
-    background-image: url('../../img/boton.png');
-=======
     height: 70px;
     background-image: url('../../img/botonGrande.png');
->>>>>>> Stashed changes
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
