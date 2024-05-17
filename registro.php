@@ -46,10 +46,13 @@ if (mysqli_num_rows($check_query_usuarios) > 0) {
 // Mostrar mensajes de alerta según el caso
 if ($usuario_duplicado && $correo_duplicado) {
     echo "<script>alert('El usuario y el correo ya están registrados, pruebe con otros')</script>";
+    header("Location: registro.html");
 } elseif ($usuario_duplicado) {
     echo "<script>alert('El usuario ya está registrado, pruebe con otro')</script>";
+    header("Location: registro.html");
 } elseif ($correo_duplicado) {
     echo "<script>alert('El correo ya está registrado, pruebe con otro')</script>";
+    header("Location: registro.html");
 } else {
     // Insertar el usuario en la base de datos
     $query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");

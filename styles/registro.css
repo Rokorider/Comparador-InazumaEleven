@@ -64,25 +64,16 @@ form {
 .correo,
 .contrasena {
     width: 80%;
-    height: 20%;
+    height: 35%;
     color: white;
     margin-top: 3%;
 }
 .usuarioMalo,
-.correoMalo{
+.correoMalo,
+.contrasenaMala{
     width: 80%;
     height: 7%;
     margin-top: 3%;
-}
-.usuarioMalo p,
-.correoMalo p{
-    width: 100%;
-    max-height: 50%;
-    height: 50%;
-    font-size: 1rem;
-    border-radius: 10px;
-    margin-top: 2px;
-    padding: 0 20px 0 20px;
 }
 .usuario input,
 .correo input, 
@@ -91,6 +82,17 @@ form {
     max-height: 50%;
     height: 50%;
     font-size: 1.7rem;
+    border-radius: 10px;
+    margin-top: 2px;
+    padding: 0 20px 0 20px;
+}
+.usuarioMalo p,
+.correoMalo p,
+.contrasenaMala p{
+    width: 100%;
+    max-height: 50%;
+    height: 50%;
+    font-size: 1rem;
     border-radius: 10px;
     margin-top: 2px;
     padding: 0 20px 0 20px;
