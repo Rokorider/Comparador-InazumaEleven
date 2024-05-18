@@ -97,6 +97,13 @@ function contenidoPantallaGrande() {
 
             // Agregar evento clic al título del juego para crear o eliminar los escudos
             tituloJuego.addEventListener('click', function () {
+                if(flecha.style.rotate==="180deg"){
+                    flecha.style.rotate="0deg";
+                }else{
+                    flecha.style.rotate="180deg";
+                }
+                
+
                 let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
                 if (contenedorEscudos) {
                     contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe

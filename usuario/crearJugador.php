@@ -12,9 +12,11 @@
     <script src="../scripts/comunes/validarDatosJugador.js" defer></script>
     <script src="../scripts/comunes/estadisticasJugador.js" defer></script>
     <script src="../scripts/comunes/completarEquipos.js" defer></script>
+    <script src="../scripts/comunes/slider.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../styles/usuario/crearJugador.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
+    <link rel="stylesheet" type="text/css" href="../styles/comunes/slider.css">
     <title>Crear Jugador</title>
 </head>
 
@@ -186,7 +188,7 @@ if (!isset($_SESSION['usuario'])) {
                             <p class="valor" id="valorValue">0</p>
                         </div>
                     </div>
-                    <div class="estadistica">
+                    <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
                             <p class="valorPuntos" id="puntosRestantes">440</p>
@@ -213,7 +215,7 @@ if (!isset($_SESSION['usuario'])) {
                             <p class="valor" id="ptValue">0</p>
                         </div>
                     </div>
-                    <div class="estadistica">
+                    <div class="estadistica puntoRestante">
                         <div class="campoEstadisticas">
                             <p class="textoPuntos">Puntos restantes:</p>
                             <p class="valorPuntos" id="puntosRestantesPePt">250</p>

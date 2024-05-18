@@ -237,9 +237,11 @@ body {
     margin: auto;
     image-rendering: pixelated;
     transition: all 0.1s ease;
+    cursor: pointer;
 }
 .equipoImg:hover{
     transform: scale(1.05);
+    filter: drop-shadow(2px 2px 0px black);
 }
 .equipoNombre {
     padding: 0 10px 0 10px;
@@ -282,9 +284,10 @@ body {
     margin: 2% 0  2% 0;
 }
 .personajeCont{
-    width: 120px; 
+    width: 125px; 
     height: 90px;
     margin: 5px 2% 5px 2%;
+    cursor: pointer;
 }
 
 .personajeImgCont{
@@ -300,6 +303,7 @@ body {
 .personajeCont:hover .personajeImg{
     transition: all 0.1s ease;
     transform: scale(1.05);
+    filter: drop-shadow(1.5px 1.5px 0px black);
 }
 .personajeInfo{
     background-color: #4c4c48;
@@ -309,7 +313,7 @@ body {
 }
 .personajeInfo_elemento{
     height: 100%;
-    width: 35%;
+    width: 30%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -318,16 +322,19 @@ body {
     background-color: #989890;
     border: 2px solid #5f6974;
     color: #262624;
-    width: 35%;
+    width: 30%;
     font-size: 1.1rem;
     text-align: center;
 }
 .personajeInfo_nombre{
-    width: 100%;
-    font-size: 1.0rem;
+    width: 110%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.personajeInfo_nombre p{
+    font-size: 1rem;
 }
 
 /*---Zona de datos---*/
@@ -412,7 +419,7 @@ body {
 .nombreEnStatCont {
     width: 85%;
     height: 100%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -444,13 +451,12 @@ body {
     cursor: pointer;
     transition: all 0.15s ease;
     position: relative;
-    font-size: 1.6em;
+    font-size: 1.5em;
     display: flex;
     display: inline-block;
 }
 
 .botonDescripcion:hover .textoDesplegable {
-
     display: block;
 }
 

@@ -35,7 +35,9 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 
     <?php include '../php/imports/header.php'; ?>
 
-    <section class="contenedorJugadores" id="contenedorJugadores"></section>
+    <section class="contenedorJugadores" id="contenedorJugadores">
+
+    </section>
 
     <div class="jugadores" id="jugadores"></div>
 
