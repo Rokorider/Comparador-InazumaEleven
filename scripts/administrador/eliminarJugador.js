@@ -139,16 +139,9 @@ function recojerJugador() {
 }
 
 function mostrarJugador(jugador) {
-
     let contenedorJugador = document.getElementById('contenedorJugador');
-
-    equipoModificado = jugador.Equipo;
-    equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
-    equipoModificado = equipoModificado.replace(/'/g, '');
-    equipoModificado = equipoModificado.replace(/\s+/g, '_');
-
-    juegoModificado = jugador.Juego;
-    juegoModificado = juegoModificado.replace(/\s+/g, "");
+    let equipoModificado = jugador.Equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/'/g, '').replace(/\s+/g, '_');
+    let juegoModificado = jugador.Juego.replace(/\s+/g, "");
 
     contenedorJugador.innerHTML = `
         <div class="cajaJugador">
@@ -182,14 +175,22 @@ function mostrarJugador(jugador) {
                     </div>
                 </div>
                 <div class="fila">
-                    <div class="boton">
+                    <div class="boton" id="boton">
                         <p>Eliminar Jugador</p>
                     </div>
                 </div>
             </div>
+            <form id="eliminarJugador" action="../php/administrador/eliminarJugador.php" method="POST">
+                <input type="hidden" id="idJugador" name="idJugador" value="${jugador.ID}">  
+            </form>
         </div>
-    
     `;
+
+    let boton = document.getElementById('boton');
+    boton.addEventListener('click', function () {
+        console.log('click');
+        document.getElementById('eliminarJugador').submit();
+    });
 }
 
 function iniciar() {
@@ -199,6 +200,8 @@ function iniciar() {
         llenarBuscadorJuegos();
     });
 }
+
+
 
 
 // Iniciar la aplicación
