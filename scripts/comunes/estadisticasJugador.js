@@ -3,13 +3,13 @@ function manejarEstadisticas() {
     const statsForm = document.getElementById('statsForm');
     const puntosRestantesSpan = document.getElementById('puntosRestantes');
     const statsValues = {
-        tiro: 1,
-        fisico: 1,
-        control: 1,
-        defensa: 1,
-        rapidez: 1,
-        aguante: 1,
-        valor: 1
+        tiro: 0,
+        fisico: 0,
+        control: 0,
+        defensa: 0,
+        rapidez: 0,
+        aguante: 0,
+        valor: 0
     };
 
 
@@ -25,7 +25,7 @@ function manejarEstadisticas() {
         // Si 
         if (totalPuntos - puntosUtilizados <= 0) {
             statsForm.querySelectorAll('input[type="range"]').forEach(el => {
-                if (statsValues[el.id] === 1) {
+                if (statsValues[el.id] === 0) {
                     el.disabled = true;
                 }
             });
@@ -71,8 +71,8 @@ function manejarPePt() {
     const cajaPePt = document.getElementById('cajaPePt');
     const puntosRestantesPePt = document.getElementById('puntosRestantesPePt');
     const statsValues2 = {
-        pe: 1,
-        pt: 1
+        pe: 0,
+        pt: 0
     };
 
     // Función para calcular los puntos utilizados
@@ -85,7 +85,7 @@ function manejarPePt() {
         puntosRestantesPePt.textContent = totalPuntos - puntosUtilizados;
 
         cajaPePt.querySelectorAll('input[type="range"]').forEach(el => {
-            if (statsValues2[el.name] === 1) {
+            if (statsValues2[el.name] === 0 ) {
                 el.disabled = puntosUtilizados >= totalPuntos;
             }
         });

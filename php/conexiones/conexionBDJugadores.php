@@ -52,6 +52,27 @@ class JugadoresBD
         }
     }
 
+    public function eliminarJugador($idJugador)
+    {
+        // Eliminar el jugador
+        $query = "DELETE FROM api_inazuma_eleven___hoja_1 WHERE id = '$idJugador'";
+        $result = mysqli_query($this->conexion, $query);
+    
+        if ($result) {
+            // Reiniciar el valor de auto incremento
+            $resetQuery = "ALTER TABLE api_inazuma_eleven___hoja_1 AUTO_INCREMENT = 1";
+    
+            // Ejecutar la consulta de reinicio
+            mysqli_query($this->conexion, $resetQuery);
+    
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+
     public function actualizarJugador($campos_actualizados, $idJugador)
     {
 
@@ -66,7 +87,6 @@ class JugadoresBD
 
     public function crearJugadorUsuario($usuario, $equipo, $jugador, $fotoEquipo)
     {
-
         
         $sql = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
         $resultado = mysqli_query($this->conexion, $sql);

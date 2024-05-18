@@ -18,7 +18,7 @@ if (isset($_SESSION['usuario'])) {
     // Obtener los datos del equipo
 
     // Nombre del equipo del select
-    $equipoModificado = $_POST['nombreEquipoModificado'];
+    $equipoModificado = $_POST['equipoModificado'];
 
     $equipo = $_POST['equipo'];
 
