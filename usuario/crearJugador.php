@@ -13,6 +13,7 @@
     <script src="../scripts/comunes/estadisticasJugador.js" defer></script>
     <script src="../scripts/comunes/completarEquipos.js" defer></script>
     <script src="../scripts/comunes/slider.js" defer></script>
+    <script src="../scripts/comunes/footer.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../styles/usuario/crearJugador.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">

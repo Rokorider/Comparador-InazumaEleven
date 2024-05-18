@@ -21,6 +21,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="../scripts/comunes/comparador/grafica.js" defer></script>
     <script src="../scripts/comunes/comparador/flechasComparacion.js" defer></script>
+    <script src="../scripts/comunes/footer.js" defer></script>
     <title>Comparador Inazuma ELeven</title>
 </head>
 

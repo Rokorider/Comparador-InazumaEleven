@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../styles/administrador/administrarUsuarios.css" />
     <script src="../scripts/administrador/administrarUsuarios.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
+    <script src="../scripts/comunes/footer.js" defer></script>
     <title>Administrar Usuarios</title>
 </head>
 

@@ -22,8 +22,7 @@
     <script src="../scripts/administrador/actualizarJugadorAdmin.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/slider.js" defer></script>
-
-
+    <script src="../scripts/comunes/footer.js" defer></script>
     <title>Actualizar Jugador</title>
 </head>
 
