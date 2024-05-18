@@ -71,24 +71,61 @@ body{
 
 .tituloJuego {
     width: 100%;
-    height: 70px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     border: 5px solid #282855;
     background-color: #2f477c;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
 }
+.tituloJuego h1{
+    width: 100%;
+    text-align: center;
+}
+.tituloJuego:hover{
+    transform: scale(1.01);
+}
+@keyframes moveArrow {
+    0% {
+        bottom: -5px;
+    }
+
+    50% {
+        bottom: 3px;
+    }
+
+    100% {
+        bottom: -5px;
+    }
+}
+.flecha{
+    width: 30px;
+    text-align: center;
+    font-size: 2rem;
+    height: 20px;
+    position: relative; 
+    animation: moveArrow 0.9s infinite;
+}
+
+
 
 .contenedorEscudos{
     border: 3px solid #2f477c;
-    background-color: #77C5C9       ;
+    background-color: #77C5C9;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 40px;
     padding: 1.6%;
+    cursor: pointer;
 }
+
+
 
 .tituloJuego h1 {
     font-size: 50px;
@@ -112,6 +149,8 @@ body{
     margin: auto;
     display: flex;
 }
+
+
 
 .nombreEscudo {
     text-align: center;
