@@ -171,6 +171,10 @@ function contenidoPantallaGrande() {
             let tituloJuego = document.createElement('div');
             tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
             tituloJuego.innerHTML = `<h1>Jugadores Personales</h1>`; // Rellenando el título con el nombre del juego
+            let flecha = document.createElement('img');
+            flecha.className = 'flecha'; // Agregando clase para el título
+            flecha.src = "../img/trianguloRelleno.png";
+            tituloJuego.appendChild(flecha);
             contenedorJuego.appendChild(tituloJuego);
             console.log("holasdsad");
     

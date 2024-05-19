@@ -330,6 +330,11 @@ body {
     align-items: center;
 }
 
+
+.personajeInfo_nombre p{
+    font-size: 0.9rem;
+}
+
 /*---Zona de datos---*/
 .contenidoContenedor {
     height: 190vh;
