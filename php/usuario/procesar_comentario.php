@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "comparador";
 $password = "1234";
-$dbname = "comentarios_db";
+$dbname = "apiinazuma";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
