@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    margin-top: 80px;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    gap: 40px;
+}
+
+.titulo{
+    width: 80%;
+    border: 5px solid #282855;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    background-color: #2f477c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1% 5% 1% 5%;
+    font-family: "Jersey 10", sans-serif;
+    margin-top: 40px;
+}
+
+.contSubirComentario{
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.formulario {
+    background-color: aquamarine;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.cajaNombre {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contNombre{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contNombre p{
+    border: 1px solid black;
+    width: 10%;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.contInputNombre {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contInputNombre input{
+    width: 20%;
+    height: 30px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cajaAñadirComentario {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contInputComentario {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contInputComentario input{
+    width: 60%;
+    height: 30px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.enviar {
+    width: 10%;
+    height: 60px;
+    background-image: url(../../img/botonGrande.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.comentarios{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 60px;
+    background-color: antiquewhite;
+}
+
+.tituloComent {
+    width: 30%;
+    border: 5px solid #282855;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    background-color: #2f477c;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1% 5% 1% 5%;
+    font-family: "Jersey 10", sans-serif;
+}
+
+.comentario {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 10px;
+}
+
+.cajaDatos {
+    border: 1px solid black;
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nombre {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(255, 130, 130);
+    border: 1px solid black;
+}
+
+.fecha {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(255, 228, 130);
+}
+
+.cajaComentario {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}

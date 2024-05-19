@@ -12,6 +12,9 @@
             <li>
                 <a href="../usuario/crearJugador.php">Crear Jugador</a>
             </li>
+            <li>
+                <a href="../usuario/comentarios.php">Comentarios</a>
+            </li>
         </ul>
     </nav>
 

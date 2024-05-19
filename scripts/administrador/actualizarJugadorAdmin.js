@@ -615,7 +615,7 @@ function validarTodosLosDatos() {
 
     let errorEstadisticasTodas = document.getElementById('errorEstadisticasTodas');
 
-    if (nombre.value === '' && apodo.value === '' && imagen.files.length === 0 && puntosRestantes.textContent === '433' && puntosRestantesPePt.textContent === '248') {
+    if (nombre.value === '' && apodo.value === '' && imagen.files.length === 0 && puntosRestantes.textContent === '440' && puntosRestantesPePt.textContent === '250') {
         errorEstadisticasTodas.textContent = 'Para actualizar un jugador debes de completar al menos un campo o modificar las estadísticas';
         aplicarEstiloError(errorEstadisticasTodas);
         todosLosDatosCorrectos = false;
@@ -736,7 +736,7 @@ function validarDatos(jugadores) {
 
     function validarEstadisticas() {
 
-        if (puntosRestantes.textContent > 0 && puntosRestantes.textContent != 433) {
+        if (puntosRestantes.textContent > 0 && puntosRestantes.textContent != 440 && todosLosDatosCorrectos === true) {
             errorEstadisticas.textContent = 'Debes de asignar todos los puntos disponibles';
             aplicarEstiloError(campoErrorEstadisticas);
             EstadisticasCorrectas = false;
@@ -752,7 +752,7 @@ function validarDatos(jugadores) {
     }
 
     function validarEstadisticasPePt() {
-        if (puntosRestantesPePt.textContent > 0 && puntosRestantesPePt.textContent != 248) {
+        if (puntosRestantesPePt.textContent > 0 && puntosRestantesPePt.textContent != 250 && todosLosDatosCorrectos === true) {
             errorEstadisticasPePt.textContent = 'Debes de asignar todos los puntos disponibles';
             aplicarEstiloError(campoErrorEstadisticasPePt);
             EstadisticasCorrectas = false;
