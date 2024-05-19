@@ -32,6 +32,9 @@ if (!isset($_SESSION['usuario'])) {
     <section class="main">
 
         <div class="contenedorSelects">
+            <div class="contenedorSelects2">
+                
+            </div>
             <div class="titulo">
                 <h1>Seleccione qué personaje eliminar</h1>
             </div>

@@ -397,6 +397,8 @@ body {
     border-radius: 10px;
     color: white;
     background-color: #78aaca;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+
 }
 
 .infoPersonaje {
@@ -588,6 +590,7 @@ body {
     margin: 10px 30% 15px 30%;
     justify-content: center;
     margin-top: 3.6%;
+    image-rendering: pixelated;
 }
 
 .seccionGrafica{
@@ -604,6 +607,8 @@ body {
     margin: auto;
     border: 10px solid #284880;
     padding: 5px;
+    filter: drop-shadow(5px 5px 0px #172a4b);
+
 }
 
 .seccionGraficaBarras{
@@ -614,6 +619,8 @@ body {
     border: 10px solid #78aaca;
     border-radius: 10px;
     padding: 0 10px 10px 10px;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+
 }
 .personajesColores{
     height: 40%;

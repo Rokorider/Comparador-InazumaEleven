@@ -4,84 +4,108 @@
     box-sizing: border-box;
 }
 
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("../../img/BGicons5.png");
+    background-size: 7%;
+    
+}
 .main{
+    
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
     gap: 40px;
+    font-family: "Jersey 10", sans-serif;
+    color: white;
+    margin-bottom: 50px;
+
 }
 
 .contenedorSelects{
     margin-top: 70px;
-    width: 45%;
+    width: 37%;
     height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
-    gap: 30px;
+    background-color: #99c9e2;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .titulo {
     width: 90%;
-    height: 80px;
+    height: 15%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid #282855;
-    border-radius: 10px;
-    font-size: 20px;
+    border: 10px solid #539eb5;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius: 5px;
+    font-size: 1.3rem;
     background-color: #2f477c;
     color: white;
     text-align: center;
 }
 
 .cajaSelects{
-    width: 60%;
+    width: 90%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
-    gap: 40px;
+    gap: 50px;
+    padding: 30px 50px 30px 50px;
+    background-color: #78aaca;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #689dbe);
 }
 
 .selector {
     width: 100%;
+    height: 27%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
-    gap: 20px;
+    border: 10px solid #539eb5;
+    background-color: #539eb5;
+    gap: 10px;
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
 }
 
 .tipo{
     width: 100%;
-    background-color: beige;
+    height: 50%;
+    background-color: #284880;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 24px;
+    font-size: 2rem;
     padding: 10px;
+    border-radius: 3px;
+    border-top: 10px solid #282855;
+    border-bottom: 5px solid #2f91ae;
 }
 
 .cajaSelector{
     width: 100%;
-    background-color: rgb(166, 255, 63);
+    height: 35%;
 }
 
 select{
     width: 100%;
-    height: 40px;
-    font-size: 20px;
+    height: 100%;
+    font-size: 1.5rem;
     border-radius: 5px;
 }
 
@@ -101,7 +125,11 @@ select{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
+    background-color: #78aaca;
+    padding: 20px;
+    filter: drop-shadow(5px 5px 0px #689dbe);
+    border-radius: 5px;
+
 }
 
 .cajaImagen{
@@ -112,29 +140,34 @@ select{
     align-items: center;
     flex-wrap: wrap;
     padding: 10px;
+    background-color: #539eb5;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius:  5px 0px 0px 5px ;
 }
 
 .imagen{
     width: 90%;
-    height: 80%;
-    border: 1px solid black;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #99c9e2;
+    border-radius: 5px;
+    border: 10px solid #2f91ae;
+    overflow: hidden;
 }
 
 .imagen img{
-    width: 100%;
+    height: 100%;
     image-rendering: pixelated;
 }
 
 .apodo {
     width: 90%;
-    height: 10%;
+    height: 15%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border: 1px solid black;
+    align-items: center;;
     font-size: 22px;
 }
 
@@ -145,15 +178,17 @@ select{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
+    background-color:#539eb5 ;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius: 0px 5px 5px 0px;
 }
 
 .fila{
     width: 100%;
     height: 25%;
-    border: 1px solid black;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -161,7 +196,6 @@ select{
 .id {
     width: 20%;
     height: 60%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +203,7 @@ select{
 }
 
 .nombre{
-    width: 80%;
+    width: 75%;
     height: 60%;
     border: 1px solid black;
     display: flex;
@@ -181,27 +215,38 @@ select{
 .juego {
     width: 100%;
     height: 60%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+
 }
 
 .equipo {
     width: 100%;
     height: 60%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
+.apodo,.nombre,.id,.juego,.equipo{
+    background-color: #284880 ;
+    border-bottom: 5px solid #2f91ae;
+    border-top: 15px solid #282855;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.filaBoton{
+    background-color: #78aaca;
+    border-radius: 5px;
+}
+
 .boton {
     width: 80%;
     height: 60%;
-    border: 1px solid black;
     background-image: url('../../img/boton.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -212,4 +257,10 @@ select{
     text-align: center;
     font-size: 24px;
     color: white;
+    margin: auto;
+}
+
+.boton:hover{
+    transition: all 0.2s ease;
+    transform: scale(1.05);
 }

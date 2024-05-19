@@ -174,7 +174,7 @@ function mostrarJugador(jugador) {
                         <p>${jugador.Equipo}</p>
                     </div>
                 </div>
-                <div class="fila">
+                <div class="fila filaBoton">
                     <div class="boton" id="boton">
                         <p>Eliminar Jugador</p>
                     </div>

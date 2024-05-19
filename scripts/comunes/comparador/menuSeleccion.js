@@ -246,11 +246,11 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const personajeDescripcion = document.querySelector(
         `.descripcion_${personajeNum} `
     );
-    personajeDescripcion.textContent = jugador.Descripción;
+    personajeDescripcion.textContent = jugador.Descripcion;
     const sexoPersonaje = document.querySelector(
         `.sexoPersonaje_${personajeNum} `
     );
-    sexoPersonaje.src = `../img/generos/${jugador.Género}.png`;
+    sexoPersonaje.src = `../img/generos/${jugador.Genero}.png`;
     const elementoPersonaje = document.querySelector(
         `.elemento_${personajeNum} `
     );
@@ -258,7 +258,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const personajePosicion = document.querySelector(
         `.posicion_${personajeNum} `
     );
-    personajePosicion.textContent = jugador.Posición;
+    personajePosicion.textContent = jugador.Posicion;
 
     const tiro = document.querySelector(`.tiro_${personajeNum}`);
     tiro.textContent = jugador.Tiro;

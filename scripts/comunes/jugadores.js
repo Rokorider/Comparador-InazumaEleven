@@ -683,7 +683,7 @@ function agregarJugador(jugador) {
                     </div>
                     <div class="posicion">
                         <div class="posicionTexto">
-                            <p>${jugador.Posición}</p>
+                            <p>${jugador.Posicion}</p>
                         </div>
                     </div>
                 </div>
@@ -693,7 +693,7 @@ function agregarJugador(jugador) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <img src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                        <img src="../img/generos/${jugador.Genero}.png" alt="${jugador.Género}">
                     </div>
                     <div class="elemento">
                         <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
@@ -792,7 +792,7 @@ function agregarJugador(jugador) {
         </div>          
         <!-- Descripción del jugador -->
         <div class="juego">
-            <p class="descripcion">${jugador.Descripción}</p>
+            <p class="descripcion">${jugador.Descripcion}</p>
         </div>
     `;
     // Agregar el elemento del jugador al contenedor
