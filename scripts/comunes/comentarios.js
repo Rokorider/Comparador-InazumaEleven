@@ -46,3 +46,70 @@ obtenerDatosComentarios().then(function () {
     mostrarComentarios();
 
 });
+
+// JavaScript para ajustar automáticamente la altura del textarea
+let comentarioText = document.getElementById('comentario');
+let comentarioError = true;
+let nombreError = true;
+let cajaErrorComentario = document.getElementById('cajaErrorComentario');
+let cajaErrorNombre = document.getElementById('cajaErrorNombre');
+let boton = document.getElementById('boton');
+
+comentarioText.addEventListener('input', function () {
+    this.style.height = 'auto'; // Resetea la altura
+    this.style.height = (this.scrollHeight) + 'px'; // Ajusta la altura basada en el contenido
+    
+    if (this.value.length >= 2000) {
+        cajaErrorComentario.textContent = 'Se ha alcanzado el máximo de caracteres';
+        aplicarEstiloError(cajaErrorComentario);
+    } else {
+        limpiarEstiloError(cajaErrorComentario);
+    }
+});
+
+function validarComentario() {
+    if (comentarioText.value == '') {
+        cajaErrorComentario.textContent = 'Escribe un comentario';
+        aplicarEstiloError(cajaErrorComentario);
+        comentarioError = false;
+    } else {
+        limpiarEstiloError(cajaErrorComentario);
+        comentarioError = true;
+    }
+}
+
+function validarNombre() {
+    if (nombre.value == '') {
+        cajaErrorNombre.textContent = 'Escribe tu nombre';
+        aplicarEstiloError(cajaErrorNombre);
+        nombreError = false;
+    } else {
+        limpiarEstiloError(cajaErrorNombre);
+        nombreError = true;
+    }
+}
+
+
+function aplicarEstiloError(elemento) {
+    elemento.style.border = '3px solid #b15d654d';
+    elemento.style.backgroundColor = '#f99c9c';
+    elemento.style.color = '#380c10';
+}
+
+function limpiarEstiloError(elemento) {
+    elemento.style.border = ''; // Se elimina el borde personalizado
+    elemento.style.backgroundColor = ''; // Se elimina el color de fondo personalizado
+    elemento.style.color = ''; // Se restablece el color de texto original
+}
+
+boton.addEventListener('click', function () {
+    
+
+    validarComentario();
+    validarNombre();
+
+    if (comentarioError && nombreError == true) {
+        // Enviar formulario
+        document.getElementById("formComentario").submit(); // Envía el formulario
+    }
+});

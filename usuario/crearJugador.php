@@ -170,7 +170,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="campoEstadisticas">
                             <p class="tipoEstadistica">Rapidez:</p>
                             <input class="inputRango" type="range" id="rapidez" name="rapidez" min="0" max="100"
-                                value="1">
+                                value="0">
                             <p class="valor" id="rapidezValue">0</p>
                         </div>
                     </div>

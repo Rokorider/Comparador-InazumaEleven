@@ -25,21 +25,6 @@ if (!isset($_SESSION['usuario'])) {
 
 <body>
 
-    <!-- 
-        <h1>Sistema de Comentarios</h1>
-        <form id="formComentario" method="post" action="../php/usuario/procesar_comentario.php">
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" required><br><br>
-            <label for="comentario">Comentario:</label><br>
-            <textarea id="comentario" name="comentario" required></textarea><br><br>
-            <button type="submit">Enviar</button>
-        </form>
-        <h2>Comentarios:</h2>
-        <div id="comentarios">
-            
-        </div>
-    -->
-
     <?php include '../php/imports/header.php'; ?>
 
     <section class="main">
@@ -57,13 +42,19 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="contInputNombre">
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
+                    <div class="cajaError" id="cajaErrorNombre">
+                        <p></p>
+                    </div>
                 </div>
                 <div class="cajaAñadirComentario">
                     <div class="contNombre">
                         <p>Comentario</p>
                     </div>
                     <div class="contInputComentario">
-                        <input type="text" id="nombre" name="nombre" required>
+                        <textarea name="comentario" id="comentario" maxlength="2000" placeholder="Escribe tu comentario aquí..."></textarea>
+                    </div>
+                    <div class="cajaError" id="cajaErrorComentario">
+                        <p></p>
                     </div>
                 </div>
                 <div class="enviar" id="boton">
@@ -72,46 +63,14 @@ if (!isset($_SESSION['usuario'])) {
             </form>
         </div>
 
-
         <div class="tituloComent">
             <h1>Comentarios</h1>
         </div>
 
-        <div class="comentarios" id="comentarios">
-
-
-
-        </div>
+        <div class="comentarios" id="comentarios"></div>
 
     </section>
-
-
 
 </body>
 
 </html>
-
-<!--
-    <script>
-        // Código para cargar comentarios
-        async function cargarComentarios() {
-            const response = await fetch('../php/usuario/cargar_comentarios.php');
-            const comentarios = await response.json();
-            const contenedorComentarios = document.getElementById('comentarios');
-            contenedorComentarios.innerHTML = '';
-            comentarios.forEach(comentario => {
-                const divComentario = document.createElement('div');
-                divComentario.className = 'comentario';
-                divComentario.innerHTML = `
-                <div class="nombre">${comentario.nombre}</div>
-                <div class="fecha">${comentario.fecha}</div>
-                <div>${comentario.comentario}</div>
-                `;
-                contenedorComentarios.appendChild(divComentario);
-            });
-        }
-        
-        // Cargar los comentarios al cargar la página
-        document.addEventListener('DOMContentLoaded', cargarComentarios);
-    </script>
--->
