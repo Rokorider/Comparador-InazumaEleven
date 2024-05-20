@@ -1,6 +1,15 @@
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
 body{
     font-family: "Jersey 10", sans-serif;
+    background-image: url("../../img/Futblog/balones_naranjas_2.png");
+    background-size: 5%;
 }
 
 .tituloPrincipal{
@@ -67,7 +76,6 @@ input,select{
 .cajaNomApoGenPos{
     margin-block: 40px;
 }
-
 
 
 hr{

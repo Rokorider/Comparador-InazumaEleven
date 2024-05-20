@@ -2,8 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    letter-spacing: 2px;    
-
 }
 
 .main{
@@ -16,6 +14,7 @@
     flex-wrap: wrap;
     margin-bottom: 60px;
     gap: 40px;
+    letter-spacing: 2px;    
 }
 
 .titulo{

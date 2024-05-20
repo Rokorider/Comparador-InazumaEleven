@@ -178,8 +178,7 @@ function contenidoGrafica() {
 Se exporta a menuSeleccion.js para saber si se ha elegido al personaje 1 o 2
 */
 function establecerJugadores(jugadorApodo, personajeNum) {
-    console.log("DATOS DEL PERSONAJE OBTENIDO")
-
+    
     if (personajeNum === 1) {
         //Busco en el array modificado el personaje que coincida con el seleccionado para meterlo en el array "personajeElegidos[]"
         for (let i = 0; i < datasetss.length; i++) {

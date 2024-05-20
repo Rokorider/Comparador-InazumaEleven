@@ -573,21 +573,23 @@ body {
     width: 25%;
     position: relative;
     display: flex;
+    justify-content: center;
+}
+
+.flechasCont {
+    height: 67%;
+    width: 40%;
+    position: absolute;
+    bottom: 2%;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.flechasCont {
-    height: 65%;
-    width: 100%;
-    position: absolute;
-    bottom: 3%;
-}
-
 .flechaComp {
     height: 10%;
-    width: 40%;
-    margin: 10px 30% 15px 30%;
+    width: 100%;
+    margin: 5px 0 5px 0;
     justify-content: center;
     margin-top: 3.6%;
     image-rendering: pixelated;
@@ -612,7 +614,7 @@ body {
 }
 
 .seccionGraficaBarras{
-    height: 75%;
+    height: 80%;
     width: 45%;
     background-color: #2f477c;
     margin: auto;

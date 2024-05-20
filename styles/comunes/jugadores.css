@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Jersey 10", sans-serif;
     font-weight: 400;
     font-style: normal;
     /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
@@ -19,10 +18,13 @@ body{
     background-size: cover;
     background-position: right;
     margin-top: 200px;
+    font-family: "Jersey 10", sans-serif;
 }
+
 .contenedorJugadores{
     margin: auto;
     width: 100%;
+    min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -526,7 +528,6 @@ body{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin-bottom: 100px;
     }
 
     .contenedorBuscadores {

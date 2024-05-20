@@ -248,15 +248,12 @@ function crearJugadoresEquipo(
     // Verificar si es un equipo principal o jugadores personales
     if (juegoURL !== "JugadoresPersonales") {
         // Equipo principal
-        console.log("Equipo principal:", equipo);
         jugadoresEquipo = jugadores.filter((jugador) => jugador.Equipo === equipo);
     } else {
         // Jugadores personales
-        console.log("Equipo personales:", equipo);
         jugadoresEquipo = jugadoresPersonales.filter((jugador) => jugador.NombreEquipo === equipo);
         juegoURL="JugadorPersonal"
     }
-    console.log("Jugadores encontrados:", jugadoresEquipo);
 
     // Crear los contenedores para el contenido de los jugadores
     const contenidoJuegoContenedor = document.createElement("div");
@@ -340,7 +337,6 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
         personajeNum = 2;
         establecerJugadores(jugador.Apodo, personajeNum);
     }
-    console.log("Valor de personajeNum:", personajeNum);
 
 
     const personajeIconoImg = document.querySelector(
@@ -349,7 +345,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
         
         if (personajeIconoImg) {
             if (juegoURL === "JugadorPersonal") {
-                personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/equipooooo/Pedroooo.png`;
+                personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo}.png`;
             } else {
                 personajeIconoImg.src = jugador.Imagenes;
             }
@@ -383,7 +379,7 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const tiro = document.querySelector(`.tiro_${personajeNum}`);
     tiro.textContent = jugador.Tiro;
     const fisico = document.querySelector(`.fisico_${personajeNum}`);
-    fisico.textContent = jugador.Físico;
+    fisico.textContent = jugador.Fisico;
     const control = document.querySelector(`.control_${personajeNum}`);
     control.textContent = jugador.Control;
     const defensa = document.querySelector(`.defensa_${personajeNum}`);

@@ -14,6 +14,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    font-family: "Pixelify Sans", sans-serif;
 }
 .footer{
     display: flex;
@@ -37,7 +38,6 @@ footer {
     width: 35%;
     margin: 0 15% 0 1%;
     text-align: left;
-    font-family: "Pixelify Sans", sans-serif;
     font-size: 1.2rem;
 }
 .enlacesFooter{
