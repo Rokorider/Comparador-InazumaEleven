@@ -36,17 +36,6 @@ if (!isset($_SESSION['usuario'])) {
 
         <div class="contSubirComentario">
             <form class="formulario" id="formComentario" method="post" action="../php/usuario/procesar_comentario.php">
-                <div class="cajaNombre">
-                    <div class="contNombre">
-                        <p>Nombre</p>
-                    </div>
-                    <div class="contInputNombre">
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="cajaError" id="cajaErrorNombre">
-                        <p></p>
-                    </div>
-                </div>
                 <div class="cajaAñadirComentario">
                     <div class="contNombre">
                         <p>Comentario</p>

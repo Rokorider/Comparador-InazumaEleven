@@ -50,9 +50,7 @@ obtenerDatosComentarios().then(function () {
 // JavaScript para ajustar automáticamente la altura del textarea
 let comentarioText = document.getElementById('comentario');
 let comentarioError = true;
-let nombreError = true;
 let cajaErrorComentario = document.getElementById('cajaErrorComentario');
-let cajaErrorNombre = document.getElementById('cajaErrorNombre');
 let boton = document.getElementById('boton');
 
 comentarioText.addEventListener('input', function () {
@@ -78,17 +76,6 @@ function validarComentario() {
     }
 }
 
-function validarNombre() {
-    if (nombre.value == '') {
-        cajaErrorNombre.textContent = 'Escribe tu nombre';
-        aplicarEstiloError(cajaErrorNombre);
-        nombreError = false;
-    } else {
-        limpiarEstiloError(cajaErrorNombre);
-        nombreError = true;
-    }
-}
-
 
 function aplicarEstiloError(elemento) {
     elemento.style.border = '3px solid #b15d654d';
@@ -103,12 +90,10 @@ function limpiarEstiloError(elemento) {
 }
 
 boton.addEventListener('click', function () {
-    
 
     validarComentario();
-    validarNombre();
 
-    if (comentarioError && nombreError == true) {
+    if (comentarioError == true) {
         // Enviar formulario
         document.getElementById("formComentario").submit(); // Envía el formulario
     }

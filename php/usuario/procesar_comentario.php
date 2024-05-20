@@ -1,30 +1,20 @@
 <?php
-$servername = "localhost";
-$username = "comparador";
-$password = "1234";
-$dbname = "apiinazuma";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+require "../conexiones/comentariosBD.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $conn->real_escape_string($_POST["nombre"]);
-    $comentario = $conn->real_escape_string($_POST["comentario"]);
 
-    $sql = "INSERT INTO comentarios (nombre, comentario) VALUES ('$nombre', '$comentario')";
+    // Obtener el nombre del usuario de la sesión
+    session_start();
+    $nombre = $_SESSION['usuario'];
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Comentario añadido correctamente";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    // Obtener los datos del formulario
+    $comentario = $_POST["comentario"];
+
+    // Crear objeto de la clase ComentariosBD
+    $comentarios = new ComentariosBD();
+
+    $comentarios->subirComentarios($nombre, $comentario);
+
+    header("Location: ../../usuario/comentarios.php");
+    exit();
 }
-
-$conn->close();
-header("Location: ../../usuario/comentarios.php");
-exit();
