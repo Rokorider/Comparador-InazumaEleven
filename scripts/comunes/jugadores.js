@@ -96,81 +96,86 @@ function contenidoPantallaGrande() {
             contenedorJuego.appendChild(tituloJuego);
 
             // Agregar evento clic al título del juego para crear o eliminar los escudos
+
+            let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
+
+            let contenedorEscudos2 = document.createElement('div');
+            contenedorEscudos2.className = 'contenedorEscudos'; // Agregando clase para los escudos
+            contenedorEscudos2.style.display = 'none'; // Inicialmente oculto
+
+            if (contenedorEscudos) {
+                contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
+            } else {
+
+                // Filtrar jugadores por el juego actual
+                let jugadoresDeEsteJuego = jugadores.filter(jugador => jugador.Juego === juego);
+
+                // Crear un conjunto para evitar equipos duplicados
+                let equiposUnicos = new Set();
+
+                // Iterar sobre cada jugador de este juego
+                jugadoresDeEsteJuego.forEach(jugador => {
+                    // Agregar equipo al conjunto de equipos únicos
+                    equiposUnicos.add(jugador.Equipo);
+                });
+
+                // Iterar sobre cada equipo único
+                equiposUnicos.forEach(equipo => {
+                    let escudo = document.createElement('div');
+                    escudo.className = 'escudo';
+                    escudo.id = equipo; // Usar el nombre del equipo como ID
+
+                    let imagenEscudo = document.createElement('div');
+                    imagenEscudo.className = 'imagenEscudo';
+                    let imagen = document.createElement('img');
+
+                    // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
+                    equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+                    equipoModificado = equipoModificado.replace(/'/g, '');
+                    equipoModificado = equipoModificado.replace(/\s+/g, '_');
+
+
+                    imagen.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
+
+                    imagen.onerror = function () {
+                        this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
+                        this.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
+                    };
+
+                    imagen.alt = equipo;
+
+                    imagenEscudo.appendChild(imagen);
+
+                    let nombreEscudo = document.createElement('div');
+                    nombreEscudo.className = 'nombreEscudo';
+                    let nombre = document.createElement('p');
+                    nombre.textContent = equipo;
+                    nombreEscudo.appendChild(nombre);
+
+                    escudo.appendChild(imagenEscudo);
+                    escudo.appendChild(nombreEscudo);
+
+                    contenedorEscudos2.appendChild(escudo);
+                });
+
+                contenedorJuego.appendChild(contenedorEscudos2); // Agregar contenedor de escudos
+                // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
+
+            }
+
             tituloJuego.addEventListener('click', function () {
-                if(flecha.style.rotate==="180deg"){
-                    flecha.style.rotate="0deg";
-                }else{
-                    flecha.style.rotate="180deg";
-                }
-                
-
-                let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
-                if (contenedorEscudos) {
-                    contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
+                if (contenedorEscudos2.style.display === 'none') {
+                    contenedorEscudos2.style.display = 'flex';
+                    flecha.style.rotate = '180deg';
                 } else {
-                    // Crear un contenedor para los escudos de este juego
-                    contenedorEscudos = document.createElement('div');
-                    contenedorEscudos.className = 'contenedorEscudos'; // Agregando clase para los escudos
-
-                    // Filtrar jugadores por el juego actual
-                    let jugadoresDeEsteJuego = jugadores.filter(jugador => jugador.Juego === juego);
-
-                    // Crear un conjunto para evitar equipos duplicados
-                    let equiposUnicos = new Set();
-
-                    // Iterar sobre cada jugador de este juego
-                    jugadoresDeEsteJuego.forEach(jugador => {
-                        // Agregar equipo al conjunto de equipos únicos
-                        equiposUnicos.add(jugador.Equipo);
-                    });
-
-                    // Iterar sobre cada equipo único
-                    equiposUnicos.forEach(equipo => {
-                        let escudo = document.createElement('div');
-                        escudo.className = 'escudo';
-                        escudo.id = equipo; // Usar el nombre del equipo como ID
-
-                        let imagenEscudo = document.createElement('div');
-                        imagenEscudo.className = 'imagenEscudo';
-                        let imagen = document.createElement('img');
-
-                        // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
-                        equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
-                        equipoModificado = equipoModificado.replace(/'/g, '');
-                        equipoModificado = equipoModificado.replace(/\s+/g, '_');
-
-
-                        imagen.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
-
-                        imagen.onerror = function () {
-                            this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
-                            this.src = `../img/imgJugadores/${juego.replace(/\s+/g, "")}/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
-                        };
-
-                        imagen.alt = equipo;
-
-                        imagenEscudo.appendChild(imagen);
-
-                        let nombreEscudo = document.createElement('div');
-                        nombreEscudo.className = 'nombreEscudo';
-                        let nombre = document.createElement('p');
-                        nombre.textContent = equipo;
-                        nombreEscudo.appendChild(nombre);
-
-                        escudo.appendChild(imagenEscudo);
-                        escudo.appendChild(nombreEscudo);
-
-                        contenedorEscudos.appendChild(escudo);
-                    });
-
-                    contenedorJuego.appendChild(contenedorEscudos); // Agregar contenedor de escudos
-                    // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
-                    obtnerIdsYcomprobarJugadores();
+                    contenedorEscudos2.style.display = 'none';
+                    flecha.style.rotate = '0deg';
                 }
             });
 
             // Agregar el contenedor del juego al contenedor principal
             contenedorJugadores.appendChild(contenedorJuego);
+            obtnerIdsYcomprobarJugadores();
         });
     });
 
@@ -181,86 +186,84 @@ function contenidoPantallaGrande() {
             let tituloJuego = document.createElement('div');
             tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
             tituloJuego.innerHTML = `<h1>Jugadores Personales</h1>`; // Rellenando el título con el nombre del juego
+            let flecha = document.createElement('img');
+            flecha.className = 'flecha'; // Agregando clase para la flecha
+            flecha.src = "../img/trianguloRelleno.png";
+            tituloJuego.appendChild(flecha);
             contenedorJuego.appendChild(tituloJuego);
 
-            // Agregar evento clic al título del juego para crear o eliminar los escudos
-            tituloJuego.addEventListener('click', function () {
-                let contenedorEscudos = contenedorJuego.querySelector('.contenedorEscudos');
-                if (contenedorEscudos) {
-                    contenedorJuego.removeChild(contenedorEscudos); // Eliminar contenedor de escudos si ya existe
-                } else {
-                    // Crear un contenedor para los escudos de este juego
-                    contenedorEscudos = document.createElement('div');
-                    contenedorEscudos.className = 'contenedorEscudos'; // Agregando clase para los escudos
+            // Crear un contenedor para los escudos de este juego
+            let contenedorEscudos = document.createElement('div');
+            contenedorEscudos.className = 'contenedorEscudos'; // Agregando clase para los escudos
+            contenedorEscudos.style.display = 'none'; // Inicialmente oculto
+            contenedorJuego.appendChild(contenedorEscudos); // Agregar contenedor de escudos
 
-                    // Crear un conjunto para evitar equipos duplicados
-                    let equiposUnicos = new Set();
+            // Crear un conjunto para evitar equipos duplicados
+            let equiposUnicos = new Set();
 
+            // Iterar sobre cada equipo de estos jugadores
+            jugadoresPersonales.forEach(jugadorPersonal => {
+                // Agregar equipo al conjunto de equipos únicos
+                equiposUnicos.add(jugadorPersonal.NombreEquipo);
+            });
 
-                    // Iterar sobre cada equipo de estos jugadores
-                    jugadoresPersonales.forEach(jugadorPersonal => {
-                        // Agregar equipo al conjunto de equipos únicos
-                        equiposUnicos.add(jugadorPersonal.NombreEquipo);
-                    });
+            // Iterar sobre cada equipo único
+            equiposUnicos.forEach(equipo => {
+                let escudo = document.createElement('div');
+                escudo.className = 'escudo';
+                escudo.id = equipo; // Usar el nombre del equipo como ID
 
-                    // Iterar sobre cada equipo único
-                    equiposUnicos.forEach(equipo => {
-                        let escudo = document.createElement('div');
-                        escudo.className = 'escudo';
-                        escudo.id = equipo; // Usar el nombre del equipo como ID
+                let imagenEscudo = document.createElement('div');
+                imagenEscudo.className = 'imagenEscudo';
+                let imagen = document.createElement('img');
 
-                        let imagenEscudo = document.createElement('div');
-                        imagenEscudo.className = 'imagenEscudo';
-                        let imagen = document.createElement('img');
+                // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
+                let equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+                equipoModificado = equipoModificado.replace(/'/g, '');
+                equipoModificado = equipoModificado.replace(/\s+/g, '_');
 
-                        console.log(equipo);
+                imagen.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
 
-                        // Modificar el nombre del equipo para que coincida con el nombre del archivo de imagen
-                        equipoModificado = equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
-                        equipoModificado = equipoModificado.replace(/'/g, '');
-                        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+                imagen.onerror = function () {
+                    this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
+                    this.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
+                };
 
-                        console.log(equipoModificado);
+                imagen.alt = equipo;
 
-                        imagen.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.png`; // Intenta cargar la imagen en formato png
-                        
-                        imagen.onerror = function () {
-                            this.onerror = null; // Elimina el controlador de errores actual para evitar bucles infinitos
-                            this.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoModificado}.jpg`; // Intenta cargar la imagen en formato jpg si la PNG no está disponible
-                        };
-                        
+                imagenEscudo.appendChild(imagen);
 
-                        imagen.alt = equipo;
+                let nombreEscudo = document.createElement('div');
+                nombreEscudo.className = 'nombreEscudo';
+                let nombre = document.createElement('p');
+                nombre.textContent = equipo;
+                nombreEscudo.appendChild(nombre);
 
-                        imagenEscudo.appendChild(imagen);
+                escudo.appendChild(imagenEscudo);
+                escudo.appendChild(nombreEscudo);
 
-                        let nombreEscudo = document.createElement('div');
-                        nombreEscudo.className = 'nombreEscudo';
-                        let nombre = document.createElement('p');
-                        nombre.textContent = equipo;
-                        nombreEscudo.appendChild(nombre);
-
-                        escudo.appendChild(imagenEscudo);
-                        escudo.appendChild(nombreEscudo);
-
-                        contenedorEscudos.appendChild(escudo);
-                    });
-
-                    contenedorJuego.appendChild(contenedorEscudos); // Agregar contenedor de escudos
-                    // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
-                    obtnerIdsYcomprobarJugadoresPersonales();
-
-                }
-
+                contenedorEscudos.appendChild(escudo);
             });
 
             // Agregar el contenedor del juego al contenedor principal
             contenedorJugadores.appendChild(contenedorJuego);
+
+            // Llamar a la función para agregar event listeners después de que los escudos estén agregados al DOM
+            obtnerIdsYcomprobarJugadoresPersonales();
+
+            tituloJuego.addEventListener('click', function () {
+                if (contenedorEscudos.style.display === 'none') {
+                    contenedorEscudos.style.display = 'flex';
+                    flecha.style.transform = 'rotate(180deg)';
+                } else {
+                    contenedorEscudos.style.display = 'none';
+                    flecha.style.transform = 'rotate(0deg)';
+                }
+            });
         } else {
             console.log("No se encontraron jugadores personales.");
         }
     });
-
 }
 
 // Función para obtener los IDs de los escudos y comprobar los jugadores correspondientes
@@ -660,6 +663,9 @@ function agregarJugador(jugador) {
 
     let jugadores = document.getElementById('jugadores');
 
+    let apodoModificado = jugador.Apodo;
+    apodoModificado = apodoModificado.replace(/\s+/g, '_');
+
     // Crear un elemento div que represente al jugador
     const jugadorItem = document.createElement('div');
     jugadorItem.className = 'jugador';
@@ -667,8 +673,8 @@ function agregarJugador(jugador) {
         <div class="infoJugador">
             <!-- Sección para mostrar la imagen del jugador -->
             <div class="imgJugador">
-                <img src="../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.png" 
-                onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.jpg';"
+                <img src="../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.png" 
+                onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.jpg';"
                 alt="${jugador.Nombre_Real}">
             </div>
             <!-- Sección para mostrar los datos del jugador -->
