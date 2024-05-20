@@ -11,6 +11,7 @@ const grafica = document.getElementById("grafica");
 
 
 let jugadores;
+let jugadoresPersonales;
 
 let datasetss = [];
 //Array con los 2 personajes para la configuración de la gráfica
@@ -35,7 +36,28 @@ function obtenerDatos() {
             console.error("Error al obtener los datos de jugadores:", error);
         });
 }
+
+function obtenerDatosPersonales() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
+    return fetch('../php/conexiones/conexionBDJugadoresPersonales.php')
+        // Procesar la respuesta como JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // Manejar los datos obtenidos
+        .then(function (data) {
+            // Asignar los datos de los jugadores a la variable global 'jugadores'
+            jugadoresPersonales = data;
+            console.log(jugadoresPersonales);
+        })
+        // Manejar errores en caso de que la solicitud falle
+        .catch(function (error) {
+            console.error('Error al obtener los datos de jugadores:', error);
+        });
+}
+
 obtenerDatos();
+obtenerDatosPersonales();
 
 
 // Función para generar un color RGB aleatorio
@@ -84,6 +106,32 @@ function objetosStatsJugadores() {
         };
         datasetss.push(dataset);
     });
+    jugadoresPersonales.forEach(function (jugador) {
+        // Generar colores aleatorios hasta que no se repitan
+        let borderColor = generarColorRGBBorde();
+        let backgroundColor = generarColorRGBFondo();
+        while (coloresAsignados.includes(borderColor) || coloresAsignados.includes(backgroundColor)) {
+            borderColor = generarColorRGBBorde();
+            backgroundColor = generarColorRGBFondo();
+        }
+        coloresAsignados.push(borderColor, backgroundColor);
+
+        let dataset = {
+            label: jugador.Apodo,
+            data: [
+                jugador.Tiro,
+                jugador.Físico,
+                jugador.Control,
+                jugador.Defensa,
+                jugador.Rapidez,
+                jugador.Aguante,
+                jugador.Valor,
+            ],
+            borderColor: borderColor,
+            backgroundColor: backgroundColor,
+        };
+        datasetss.push(dataset);
+    });
 }
 
 const options = {
@@ -100,6 +148,7 @@ const options = {
 
 // Función para establecer contenido de la gráfica
 function contenidoGrafica() {
+
     // Verificar si ambos personajes están seleccionados
     if (personajeElegidos[0] && personajeElegidos[1]) {
         const datos = {
@@ -129,6 +178,8 @@ function contenidoGrafica() {
 Se exporta a menuSeleccion.js para saber si se ha elegido al personaje 1 o 2
 */
 function establecerJugadores(jugadorApodo, personajeNum) {
+    console.log("DATOS DEL PERSONAJE OBTENIDO")
+
     if (personajeNum === 1) {
         //Busco en el array modificado el personaje que coincida con el seleccionado para meterlo en el array "personajeElegidos[]"
         for (let i = 0; i < datasetss.length; i++) {
