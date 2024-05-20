@@ -143,12 +143,16 @@ function mostrarJugador(jugador) {
     let equipoModificado = jugador.Equipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/'/g, '').replace(/\s+/g, '_');
     let juegoModificado = jugador.Juego.replace(/\s+/g, "");
 
+    let apodoModificado = jugador.Apodo;
+
+    apodoModificado = apodoModificado.replace(/\s+/g, '_');
+
     contenedorJugador.innerHTML = `
         <div class="cajaJugador">
             <div class="cajaImagen">
                 <figure class="imagen">
-                <img src="../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.png" 
-                onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${jugador.Apodo}.jpg';"
+                <img src="../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.png" 
+                onerror="this.onerror=null; this.src='../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.jpg';"
                 alt="${jugador.Nombre_Real}">
                 </figure>
                 <div class="apodo">
