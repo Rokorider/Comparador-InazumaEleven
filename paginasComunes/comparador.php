@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
     <link rel="stylesheet" href="../styles/comunes/scrollbar.css">
+    <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
     <link rel="stylesheet" href="../styles/comunes/comparador.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

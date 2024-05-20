@@ -8,6 +8,7 @@
     <link rel="icon" href="../img/Favicons/BalonCatNoir.png">
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
+    <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />

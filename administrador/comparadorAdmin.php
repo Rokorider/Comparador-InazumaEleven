@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="../img/Favicons/BalonGriego.png" />
     <link rel="stylesheet" href="../styles/comunes/normalize.css" />
+    <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
     <link rel="stylesheet" href="../styles/comunes/scrollbar.css">

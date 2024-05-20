@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/comunes/jugadores.js" defer></script>
+    <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
     <script src="../scripts/comunes/footer.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <link rel="icon" type="image/x-icon" href="../img/Favicons/BalonCatNoir.png" />
