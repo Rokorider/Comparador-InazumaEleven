@@ -25,6 +25,9 @@ function mostrarComentarios() {
     for (let i = 0; i < comentario.length; i++) {
         comentarios.innerHTML += `
         <div class="comentario">
+        <div calss="cajaFoto">
+        <img src="../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/Canon.png" alt="Foto de perfil">
+         </div>
             <div class="cajaDatos">
                 <div class="nombre">
                     <p>${comentario[i].nombre}</p>
