@@ -129,6 +129,7 @@ body {
     margin-top: 6%;
     filter: drop-shadow(5px 5px 0px black);
     transition: all 0.1s ease;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .personajeIcono1Img:hover,
 .personajeIcono2Img:hover {
@@ -202,7 +203,7 @@ body {
     width: 100%;
     padding: 10px;
     font-size: 2rem;
-    cursor: pointer;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .tituloJuego:hover{
     transition: all 0.2s ease;
@@ -237,7 +238,7 @@ body {
     margin: auto;
     image-rendering: pixelated;
     transition: all 0.1s ease;
-    cursor: pointer;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .equipoImg:hover{
     transform: scale(1.05);
@@ -298,7 +299,8 @@ body {
     align-items: center;
 }
 .personajeImg{
-    height: 100%
+    height: 100%;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .personajeCont:hover .personajeImg{
     transition: all 0.1s ease;
@@ -466,6 +468,7 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 
 .descripcionTxt {
@@ -473,6 +476,7 @@ body {
     left: 50%;
     top: 35%;
     transform: translate(-50%, -50%);
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 
 @keyframes moveArrow {
@@ -698,6 +702,7 @@ body {
 .btnMusica img {
     width: 100%;
     height: 100%;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 
 /* Keyframes es una regla que permite crear animaciones en CSS */

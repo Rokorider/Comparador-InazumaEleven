@@ -33,6 +33,7 @@ footer {
 }
 .logoFooter img{
     width: 75%;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .textoFooter{
     width: 35%;
@@ -59,6 +60,7 @@ footer {
 }
 .red img {
     height: 90%;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 
 .github {

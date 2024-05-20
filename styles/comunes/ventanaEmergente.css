@@ -61,6 +61,7 @@
 .cruz img {
     width: 80%;
     height: auto;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .cruz img:hover{
     filter: hue-rotate(145deg);

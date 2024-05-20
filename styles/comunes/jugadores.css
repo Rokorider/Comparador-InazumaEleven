@@ -11,8 +11,8 @@
     font-weight: 400;
     font-style: normal;
     /*font-size: 20px;  He quitado el font size de toda la página lo dejo comentado por si acaso*/
-    
 }
+
 body{
     background-image: url('../../img/bg_movie_pc.jpg');
     background-size: cover;
@@ -84,6 +84,7 @@ body{
     border-radius: 5px;
     padding: 10px;
     transition: all 0.1s ease;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 .tituloJuego h1{
     width: 100%;
@@ -147,6 +148,7 @@ body{
     display: flex;
     height: 75%;
     width: 100%;
+    cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
 }
 
 .escudo img {
