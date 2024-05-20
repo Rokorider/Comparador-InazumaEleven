@@ -699,7 +699,7 @@ function agregarJugador(jugador) {
                         <p>${jugador.Apodo}</p>
                     </div>
                     <div class="genero">
-                        <img src="../img/generos/${jugador.Genero}.png" alt="${jugador.Género}">
+                        <img src="../img/generos/${jugador.Genero}.png" alt="${jugador.Genero}">
                     </div>
                     <div class="elemento">
                         <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
@@ -743,7 +743,7 @@ function agregarJugador(jugador) {
                         <p>Físico</p>
                     </div>
                     <div class="unidad">
-                        <p>${jugador.Físico}</p>
+                        <p>${jugador.Fisico}</p>
                     </div>
                 </div>
             </div>
