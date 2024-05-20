@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/comunes/ventanaEmergente.css">    <link rel="stylesheet" href="../styles/comunes/normalize.css" />
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/CammyGrande.png" />
     <link rel="stylesheet" href="../styles/administrador/eliminarJugador.css" />
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/administrador/eliminarJugador.js" defer></script>

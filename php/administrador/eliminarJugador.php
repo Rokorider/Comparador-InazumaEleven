@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/plus_sign.png" />
+    </head>
+
+
 <?php
 
 require "../conexiones/conexionBDJugadores.php";

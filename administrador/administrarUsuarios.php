@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/comunes/ventanaEmergente.css">
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/CeliaGrande.png" />
     <link rel="stylesheet" href="../styles/administrador/administrarUsuarios.css" />
     <script src="../scripts/administrador/administrarUsuarios.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
