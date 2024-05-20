@@ -7,11 +7,8 @@
     <link rel="icon" type="image/png" href="../img/Favicons/Willy.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
     <!-- Estilos -->
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
@@ -74,8 +71,7 @@ if (!isset($_SESSION['usuario'])) {
 
         <div class="contenedorFormulario" id="contenedorFormulario">
 
-            <form class="formulario" id="formDatos" action="../php/administrador/actualizarJugador.php" method="post"
-                enctype="multipart/form-data">
+            <form class="formulario" id="formDatos" action="../php/administrador/actualizarJugador.php" method="post" enctype="multipart/form-data">
 
                 <div class="contenedorTitulo">
                     <div class="titulo">
@@ -102,8 +98,7 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
                         <div class="cajaPregunta">
                             <p class="tipo2">Descripción</p>
-                            <input type="text" id="descripcion" name="descripcion" class="selector"
-                                placeholder="Descripción">
+                            <input type="text" id="descripcion" name="descripcion" class="selector" placeholder="Descripción">
                             <p class="tipoError" id="errorDescripcion"></p>
                         </div>
                         <div class="cajaPregunta">
@@ -158,56 +153,49 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Tiro:</p>
-                                <input class="inputRango" type="range" id="tiro" name="tiro" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="tiro" name="tiro" min="0" max="100" value="0">
                                 <p class="valor2" id="tiroValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Físico:</p>
-                                <input class="inputRango" type="range" id="fisico" name="fisico" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="fisico" name="fisico" min="0" max="100" value="0">
                                 <p class="valor2" id="fisicoValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Control:</p>
-                                <input class="inputRango" type="range" id="control" name="control" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="control" name="control" min="0" max="100" value="0">
                                 <p class="valor2" id="controlValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Defensa:</p>
-                                <input class="inputRango" type="range" id="defensa" name="defensa" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="defensa" name="defensa" min="0" max="100" value="0">
                                 <p class="valor2" id="defensaValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Rapidez:</p>
-                                <input class="inputRango" type="range" id="rapidez" name="rapidez" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="rapidez" name="rapidez" min="0" max="100" value="0">
                                 <p class="valor2" id="rapidezValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Aguante:</p>
-                                <input class="inputRango" type="range" id="aguante" name="aguante" min="0" max="100"
-                                    value="0">
+                                <input class="inputRango" type="range" id="aguante" name="aguante" min="0" max="100" value="0">
                                 <p class="valor2" id="aguanteValue">0</p>
                             </div>
                         </div>
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Valor:</p>
-                                <input class="inputRango" type="range" id="valor" name="valor" min="0" max="100"
-                                    value="1">
+                                <input class="inputRango" type="range" id="valor" name="valor" min="0" max="100" value="1">
                                 <p class="valor2" id="valorValue">0</p>
                             </div>
                         </div>
