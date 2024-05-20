@@ -40,7 +40,7 @@ body{
 
 .titulo {
     width: 90%;
-    height: 15%;
+    height: 17%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -61,7 +61,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 50px;
+    gap:40px;
     padding: 30px 50px 30px 50px;
     background-color: #78aaca;
     border-radius: 5px;

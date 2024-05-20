@@ -90,7 +90,7 @@ function contenidoPantallaGrande() {
             tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
             tituloJuego.innerHTML = `<h1>${juego}</h1>`; // Rellenando el título con el nombre del juego
             let flecha = document.createElement('img');
-            flecha.className = 'flecha'; // Agregando clase para el título
+            flecha.className = 'flecha'; 
             flecha.src = "../img/trianguloRelleno.png";
             tituloJuego.appendChild(flecha);
             contenedorJuego.appendChild(tituloJuego);
@@ -187,7 +187,7 @@ function contenidoPantallaGrande() {
             tituloJuego.className = 'tituloJuego'; // Agregando clase para el título
             tituloJuego.innerHTML = `<h1>Jugadores Personales</h1>`; // Rellenando el título con el nombre del juego
             let flecha = document.createElement('img');
-            flecha.className = 'flecha'; // Agregando clase para la flecha
+            flecha.className = 'flecha'; 
             flecha.src = "../img/trianguloRelleno.png";
             tituloJuego.appendChild(flecha);
             contenedorJuego.appendChild(tituloJuego);
