@@ -61,6 +61,8 @@ if (!isset($_SESSION['usuario'])) {
 
     </section>
 
+    <?php include '../php/imports/footer.php'; ?>
+
 </body>
 
 </html>
