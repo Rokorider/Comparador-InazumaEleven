@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../scripts/comunes/jugadores.js" defer></script>
     <link rel="icon" href="../img/Favicons/BalonCatNoir.png">
-    <link rel="stylesheet" href="../styles/header_footer/headerAdmin.css" />
+    <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -13,7 +13,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
     <!-- Estilos -->
-    <link rel="stylesheet" type="text/css" href="../styles/header_footer/headerAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/administrador/actualizarJugador.css">
     <link rel="stylesheet" href="../styles/comunes/slider.css">

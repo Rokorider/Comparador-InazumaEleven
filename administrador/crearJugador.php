@@ -18,7 +18,7 @@
     <script src="../scripts/comunes/footer.js" defer></script>
     <link rel="stylesheet" type="text/css" href="../styles/usuario/crearJugador.css">
     <link rel="stylesheet" type="text/css" href="../styles/administrador/crearJugadorAdmin.css">
-    <link rel="stylesheet" type="text/css" href="../styles/header_footer/headerAdmin.css">
+    <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/comunes/slider.css">
     <title>Crear Jugador</title>

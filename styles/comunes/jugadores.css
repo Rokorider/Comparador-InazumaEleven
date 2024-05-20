@@ -20,9 +20,11 @@ body{
     background-position: right;
     margin-top: 200px;
 }
+
 .contenedorJugadores{
     margin: auto;
     width: 100%;
+    min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -526,7 +528,6 @@ body{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin-bottom: 100px;
     }
 
     .contenedorBuscadores {

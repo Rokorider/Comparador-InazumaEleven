@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/usuario/comentarios.css">
+    <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/comentarios.js" defer></script>
     <title>Comentarios</title>
 </head>

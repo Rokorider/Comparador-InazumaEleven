@@ -5,17 +5,25 @@
     </figure>
 
     <nav>
-        <ul>
-            <li>
-                <a href="../paginasComunes/jugadores.php">Jugadores</a>
-            </li>
-            <li>
-                <a href="../usuario/crearJugador.php">Crear Jugador</a>
-            </li>
-            <li>
-                <a href="../usuario/comentarios.php">Comentarios</a>
-            </li>
-        </ul>
+        <div class="desplegable">
+            <div class="botonDesplegable" id="botonDesplegable">
+                <p>[ Otras Páginas ]</p>
+            </div>
+            <div class="menuNavegador" id="menuNavegador">
+                <ul>
+                    <li>
+                        <a href="../paginasComunes/jugadores.php">Jugadores</a>
+                    </li>
+                    <li>
+                        <a href="../usuario/crearJugador.php">Crear Jugador</a>
+                    </li>
+                    <li>
+                        <a href="../usuario/comentarios.php">Comentarios</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
     </nav>
 
     <figure class="user">
