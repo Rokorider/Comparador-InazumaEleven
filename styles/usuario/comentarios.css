@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    letter-spacing: 2px;    
+
 }
 
 .main{
     margin-top: 80px;
     width: 100%;
-    border: 1px solid black;
+    border: 5px solid #f89000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +21,7 @@
 .titulo{
     width: 80%;
     border: 5px solid #282855;
-    border-radius: 5px;
+    border-radius: 0px;
     font-size: 1.6rem;
     background-color: #2f477c;
     color: white;
@@ -30,6 +32,7 @@
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
     margin-top: 40px;
+    text-shadow: 2px 2px black;
 }
 
 .contSubirComentario{
@@ -87,7 +90,7 @@
     height: 30px;
     font-size: 1.2rem;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 0px;
     padding: 10px;
 }
 
@@ -114,7 +117,7 @@ textarea {
     resize: none; /* Evita el redimensionamiento por el usuario */
     overflow: hidden; /* Oculta las barras de desplazamiento */
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 .cajaError {
@@ -151,15 +154,15 @@ textarea {
     flex-wrap: wrap;
     margin-top: 40px;
     gap: 60px;
-    background-color: antiquewhite;
+    background-color: #f8e068;
 }
 
 .tituloComent {
-    width: 260px;
-    border: 5px solid #282855;
-    border-radius: 5px;
+    width: 100%;
+    border: 5px solid #f89000;
+    border-radius: 0px;
     font-size: 1.6rem;
-    background-color: #2f477c;
+    background-color: #f8a850;
     color: white;
     display: flex;
     justify-content: center;
@@ -167,6 +170,7 @@ textarea {
     text-align: center;
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
+    text-shadow: 2px 2px #f89000;
 }
 
 .comentario {
@@ -175,45 +179,45 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid #f89000;
+    border-radius: 0px;
     gap: 20px;
     padding: 10px;
 }
 
 .cajaDatos {
-    border: 1px solid black;
-    width: 98%;
+    border: 1px solid #f89000;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
 }
 
 .nombre {
-    width: 100%;
+    width: 50%;
     height: 40px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgb(255, 130, 130);
-    border: 1px solid black;
+    background-color: #f89000;
+    border: 1px solid #f89000;
 }
 
 .fecha {
-    width: 100%;
+    width: 50%;
     height: 40px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgb(255, 228, 130);
+    background-color: #f05000;
 }
 
 .cajaComentario {
-    width: 98%;
+    width: 75%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 1px solid #f89000;
+    border-radius: 0px;
     padding: 20px;
 }
 

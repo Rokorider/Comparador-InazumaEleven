@@ -64,7 +64,7 @@ if (!isset($_SESSION['usuario'])) {
         </div>
 
         <div class="tituloComent">
-            <h1>Comentarios</h1>
+            <h1>Futblog</h1>
         </div>
 
         <div class="comentarios" id="comentarios"></div>
