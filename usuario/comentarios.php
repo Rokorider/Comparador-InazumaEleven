@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />    <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/usuario/comentarios.css">
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/CeliaGrande.png" />
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/comentarios.js" defer></script>
     <title>Comentarios</title>

@@ -14,6 +14,7 @@
     <script src="../scripts/comunes/slider.js" defer></script>
     <script src="../scripts/comunes/footer.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="../img/Favicons/plus_sign.png" />
     <link rel="stylesheet" type="text/css" href="../styles/usuario/crearJugador.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">

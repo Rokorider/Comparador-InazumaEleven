@@ -223,3 +223,17 @@ textarea {
 @media screen and (max-width: 675px){
     
 }
+.cajaFoto{  
+    width: 300%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.cajaFoto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
