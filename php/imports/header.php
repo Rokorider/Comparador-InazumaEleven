@@ -27,11 +27,11 @@
     </nav>
 
     <figure class="user">
-        <a href="../paginasComunes/paginasErrores/mantenimiento.html"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
+        <img src="../img/user-circle-svgrepo-com.svg" alt="icono sesión">
         <p><?php echo ($_SESSION['usuario']); ?></p>
     </figure>
     <figure class="cerrarSesion">
-        <a id="cerrarSesion"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
+        <a id="cerrarSesion" href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
     </figure>
 
 </header>
