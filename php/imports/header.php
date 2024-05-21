@@ -18,7 +18,7 @@
                         <a href="../usuario/crearJugador.php">Crear Jugador</a>
                     </li>
                     <li>
-                        <a href="../usuario/comentarios.php">Comentarios</a>
+                        <a href="../usuario/comentarios.php">Futblog</a>
                     </li>
                 </ul>
             </div>
