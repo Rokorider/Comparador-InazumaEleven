@@ -31,7 +31,7 @@
         <p><?php echo ($_SESSION['usuario']); ?></p>
     </figure>
     <figure class="cerrarSesion">
-        <a href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
+        <a id="cerrarSesion"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
     </figure>
 
 </header>
