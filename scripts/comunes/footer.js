@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         '"La victoria no existe para quien no sabe perder."',
         '"Nuestra verdadera técnica especial es mantener la esperanza hasta el final."',
         '"Tengo que ser perfecto. - Shawn."',
-        '"Somos ogros que comén diosecillos."',
+        '"Somos ogros que comen diosecillos."',
         '"Eso no es nada comparado con la inmensidad del océano - Hurley."',
         '"Vamos a enfrentar el espíritu con el espíritu. Eso es lo que significa luchar."',
         '"Nadie puede ganar la verdadera victoria sin saber cómo es la derrota."',

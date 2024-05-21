@@ -94,7 +94,7 @@ function objetosStatsJugadores() {
             label: jugador.Apodo,
             data: [
                 jugador.Tiro,
-                jugador.Físico,
+                jugador.Fisico,
                 jugador.Control,
                 jugador.Defensa,
                 jugador.Rapidez,
@@ -120,7 +120,7 @@ function objetosStatsJugadores() {
             label: jugador.Apodo,
             data: [
                 jugador.Tiro,
-                jugador.Físico,
+                jugador.Fisico,
                 jugador.Control,
                 jugador.Defensa,
                 jugador.Rapidez,
@@ -151,6 +151,7 @@ function contenidoGrafica() {
 
     // Verificar si ambos personajes están seleccionados
     if (personajeElegidos[0] && personajeElegidos[1]) {
+        console.log("Jugadores a comparar " + personajeElegidos[0].label + " y " + personajeElegidos[1].label);
         const datos = {
             labels: etiquetas,
             datasets: [personajeElegidos[0], personajeElegidos[1]],
@@ -169,7 +170,9 @@ function contenidoGrafica() {
 
         // Crear una nueva instancia de Chart
         window.myChart = new Chart(grafica, configuracion);
-        
+
+        // LLamar a la función para enviar los jugadores comparados
+        guardarTodosLosJugadoresComparados(personajeElegidos);
     }
 }
 
@@ -178,7 +181,7 @@ function contenidoGrafica() {
 Se exporta a menuSeleccion.js para saber si se ha elegido al personaje 1 o 2
 */
 function establecerJugadores(jugadorApodo, personajeNum) {
-    
+
     if (personajeNum === 1) {
         //Busco en el array modificado el personaje que coincida con el seleccionado para meterlo en el array "personajeElegidos[]"
         for (let i = 0; i < datasetss.length; i++) {
@@ -192,6 +195,47 @@ function establecerJugadores(jugadorApodo, personajeNum) {
                 personajeElegidos[1] = datasetss[i];
             }
         }
+    }
+}
+
+//Array para guardar los jugadores comparados
+let jugadoresComparados = [];
+
+// Escuchar el evento de clic en el botón de cerrar sesión
+let cerrarSesion = document.getElementById("cerrarSesion");
+cerrarSesion.addEventListener("click", enviarJugadoresComparados);
+
+function guardarTodosLosJugadoresComparados(personajeElegidos) {
+    // Obtener solo los labels de los personajes y añadirlos al array
+    const labels = [personajeElegidos[0].label, personajeElegidos[1].label];
+    jugadoresComparados.push(labels);
+    console.log("Jugadores comparados:");
+    console.log(jugadoresComparados);
+}
+
+function enviarJugadoresComparados() {
+    // Verificar si hay jugadores comparados para enviar
+    if (jugadoresComparados.length > 0) {
+        // Crear una nueva instancia de XMLHttpRequest
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../php/login_logout/logout.php", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Convertir el array jugadoresComparados a JSON y enviarlo como datos
+        xhr.send(JSON.stringify(jugadoresComparados));
+
+        // Escuchar el evento "load" para manejar la respuesta del servidor
+        xhr.onload = function () {
+            // Verificar si la solicitud se completó exitosamente
+            if (xhr.status === 200) {
+                // Redirigir después de recibir la respuesta del servidor
+                window.location.href = "comparador.php";
+            } else {
+                console.error("Error al enviar jugadores comparados:", xhr.statusText);
+            }
+        };
+    } else {
+        console.log("No hay jugadores comparados para enviar.");
     }
 }
 

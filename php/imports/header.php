@@ -18,7 +18,7 @@
                         <a href="../usuario/crearJugador.php">Crear Jugador</a>
                     </li>
                     <li>
-                        <a href="../usuario/comentarios.php">Comentarios</a>
+                        <a href="../usuario/comentarios.php">Futblog</a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
         <p><?php echo ($_SESSION['usuario']); ?></p>
     </figure>
     <figure class="cerrarSesion">
-        <a href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
+        <a id="cerrarSesion"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
     </figure>
 
 </header>

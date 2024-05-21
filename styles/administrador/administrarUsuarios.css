@@ -13,7 +13,7 @@ body{
     width: 100%;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     font-family: "Jersey 10", sans-serif;
@@ -142,6 +142,9 @@ body{
     }
     .contenedorUsuarios{
         padding: 35px
+    }
+    .input{
+        font-size: 16px;
     }
 }
 

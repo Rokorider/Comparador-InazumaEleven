@@ -6,12 +6,6 @@
     
 }
 
-body{
-    font-family: "Jersey 10", sans-serif;
-    background-image: url("../../img/Futblog/balones_naranjas_2.png");
-    background-size: 5%;
-}
-
 .tituloPrincipal{
     display: flex;
     justify-content: center;
