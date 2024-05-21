@@ -94,7 +94,7 @@ function objetosStatsJugadores() {
             label: jugador.Apodo,
             data: [
                 jugador.Tiro,
-                jugador.Físico,
+                jugador.Fisico,
                 jugador.Control,
                 jugador.Defensa,
                 jugador.Rapidez,
@@ -120,7 +120,7 @@ function objetosStatsJugadores() {
             label: jugador.Apodo,
             data: [
                 jugador.Tiro,
-                jugador.Físico,
+                jugador.Fisico,
                 jugador.Control,
                 jugador.Defensa,
                 jugador.Rapidez,

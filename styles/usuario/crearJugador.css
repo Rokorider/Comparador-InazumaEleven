@@ -6,8 +6,10 @@
 }
 
 body{
-    background-color: #fceda3;
     font-family: "Jersey 10", sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("../../img/BGicons5.png");
+    background-size: 7%;
+    color: #282855;
 }
 
 .main {
