@@ -182,15 +182,30 @@ textarea {
     border-radius: 0px;
     gap: 20px;
     padding: 10px;
+    flex-direction: row;
 }
-
+.cajaGeneral{
+    width: 75%;
+    
+}
 .cajaDatos {
     border: 1px solid #f89000;
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-
+.cajaComentario {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #f89000;
+    border-radius: 0px;
+    padding: 20px;
+    word-wrap: break-word;
+}
+.cajaComentario p{
+    word-wrap: break-word;
+}
 .nombre {
     width: 50%;
     height: 40px;
@@ -210,22 +225,15 @@ textarea {
     background-color: #f05000;
 }
 
-.cajaComentario {
-    width: 75%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    border: 1px solid #f89000;
-    border-radius: 0px;
-    padding: 20px;
-}
+
 
 @media screen and (max-width: 675px){
     
 }
-/*
-.cajaFoto{  
-    width: 200px;
+
+.cajaFoto{
+    height: 100%;  
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,9 +241,8 @@ textarea {
     gap: 20px;
 }
 .cajaFoto img{
-    width: 300px;
-    height: 100px;
+    width: 100%;
     border-radius: 50%;
     border: 1px solid black;
+    image-rendering: pixelated;
 }
-*/
