@@ -133,6 +133,7 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
     // Si es un "Jugadores personales"
     if (juego === "Jugadores personales") {
+        
         jugadoresPersonales.forEach((jugadorPersonal) => {
             const equipoDiv = document.createElement("div");
             equipoDiv.classList.add("equipo");

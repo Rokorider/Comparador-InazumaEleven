@@ -9,11 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($action == "eliminar") {
         // Crear Objeto login
-        $login = new loginBD();
+        $login = new LoginBD();
         $login->eliminarUsuario($userId);
     } elseif ($action == "conceder") {
         // Crear Objeto login
-        $login = new loginBD();
+        $login = new LoginBD();
         $login->concederPermisos($userId);
     }
 

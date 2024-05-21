@@ -1,5 +1,5 @@
 <?php
-class loginBD
+class LoginBD
 {
     private $conexion;
     private $dbname = "apiinazuma"; // Nombre de la base de datos
