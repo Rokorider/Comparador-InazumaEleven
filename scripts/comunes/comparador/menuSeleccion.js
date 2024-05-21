@@ -126,60 +126,70 @@ function crearCajaJuegos(personaje) {
 function crearContenidoJuego(juego, equiposContenedor, personaje) {
     // Limpiar el contenido anterior de equiposContenedor
     equiposContenedor.innerHTML = "";
-
-    // Crear un contenedor para los equipos
-    const contenidoEquipos = document.createElement("div");
-    contenidoEquipos.classList.add("contenidoEquipos");
-
-    // Si es un "Jugadores personales"
-    if (juego === "Jugadores personales") {
-        
-        jugadoresPersonales.forEach((jugadorPersonal) => {
-            const equipoDiv = document.createElement("div");
-            equipoDiv.classList.add("equipo");
-
-            const imgEquipo = document.createElement("img");
-            imgEquipo.classList.add("equipoImg");
-            imgEquipo.alt = jugadorPersonal.NombreEquipo + " Escudo"; 
-            imgEquipo.src= "#";
-
-            const nombreEquipo = document.createElement("div");
-            nombreEquipo.classList.add("equipoNombre");
-            nombreEquipo.textContent = jugadorPersonal.NombreEquipo;
-
-            equipoDiv.appendChild(imgEquipo);
-            equipoDiv.appendChild(nombreEquipo);
-            contenidoEquipos.appendChild(equipoDiv);
-
-            equipoDiv.addEventListener("click", () => {
-                // Abrir o cerrar el equipo al hacer clic en el equipoDiv
-                if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
-                    // Cerrar si ya está abierto
-                    equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
-                    equipoDiv.style.width = "auto";
-                } else {
-                    // Pasar los datos del jugador a la función de creación de jugadores
-                    crearJugadoresEquipo(
-                        jugadorPersonal.NombreEquipo,
-                        jugadorPersonal.NombreEquipo,
-                        "JugadoresPersonales", 
-                        equipoDiv,
-                        personaje
-                    );
-                    equipoDiv.style.width = "100%";
-                    contenidoEquipos.style.padding = "0 10% 0 10%";
-                }
-            });
-        });
-    } else {
-        // Obtener equipos únicos del juego específico
-        const equiposUnicos = [
+    let equiposUnicos;
+    // Obtener equipos únicos del juego específico
+    if(juego !== "Jugadores personales"){
+        equiposUnicos= [
             ...new Set(
                 jugadores
                     .filter((jugador) => jugador.Juego === juego)
                     .map((jugador) => jugador.Equipo)
             ),
         ];
+    }else{
+        equiposUnicos= [
+            ...new Set(jugadoresPersonales.map((jugador) => jugador.NombreEquipo)),];
+        console.log(equiposUnicos)
+    }
+    
+    
+    // Crear un contenedor para los equipos
+    const contenidoEquipos = document.createElement("div");
+    contenidoEquipos.classList.add("contenidoEquipos");
+
+    // Si es un "Jugadores personales"
+    if (juego === "Jugadores personales") {
+        jugadoresPersonales.forEach((jugadorPersonal) => {
+            const equipoDiv = document.createElement("div");
+            equipoDiv.classList.add("equipo");
+
+        const imgEquipo = document.createElement("img");
+        imgEquipo.classList.add("equipoImg");
+        imgEquipo.alt = equipo + " Escudo";
+        // Supongamos que tienes un campo 'EscudoURL' en tus datos de jugador personal para la URL del escudo
+        imgEquipo.src = "#";
+
+        const nombreEquipo = document.createElement("div");
+        nombreEquipo.classList.add("equipoNombre");
+        nombreEquipo.textContent = equipo;
+
+        equipoDiv.appendChild(imgEquipo);
+        equipoDiv.appendChild(nombreEquipo);
+        contenidoEquipos.appendChild(equipoDiv);
+
+        equipoDiv.addEventListener("click", () => {
+            // Abrir o cerrar el equipo al hacer clic en el equipoDiv
+            if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
+                // Cerrar si ya está abierto
+                equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
+                equipoDiv.style.width = "auto";
+            } else {
+                // Pasar los datos del jugador a la función de creación de jugadores
+                const jugadorPersonal = jugadoresPersonales.find(jugador => jugador.NombreEquipo === equipo);
+                crearJugadoresEquipo(
+                    jugadorPersonal.NombreEquipo,
+                    jugadorPersonal.NombreEquipo,
+                    "JugadoresPersonales",
+                    equipoDiv,
+                    personaje
+                );
+                equipoDiv.style.width = "100%";
+                contenidoEquipos.style.padding = "0 10% 0 10%";
+            }
+        });
+    });
+} else {
+        
 
         equiposUnicos.forEach((equipo) => {
             const equipoURL = equipo
@@ -231,7 +241,6 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
             });
         });
     }
-
     equiposContenedor.appendChild(contenidoEquipos);
 }
 
@@ -279,7 +288,11 @@ function crearJugadoresEquipo(
         if (juegoURL !== "JugadorPersonal") {
             personajeImg.src = jugador.Imagenes;
         } else {
-            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/equipooooo/Pedroooo.png`;
+            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo.replace(" ", "")}.png`;
+            personajeImg.onerror = function() {
+                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo.replace(" ", "")}.jpg`;
+            };
+            
         }
 
         
