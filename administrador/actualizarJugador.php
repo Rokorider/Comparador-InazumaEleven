@@ -50,18 +50,21 @@ if (!isset($_SESSION['usuario'])) {
                 <select id="juego" name="juego" class="selector">
                     <option value="">Selecciona un juego</option>
                 </select>
+                <p class="tipoError" id="errorJuego"></p>
             </div>
             <div class="cajaPregunta" id="buscadorEquipos">
                 <p class="tipo2">Equipo</p>
                 <select id="equipo" name="equipo" class="selector">
                     <option value="">Selecciona un jugador</option>
                 </select>
+                <p class="tipoError" id="errorEquipo"></p>
             </div>
             <div class="cajaPregunta" id="buscadorJugador">
                 <p class="tipo2">Jugador</p>
                 <select id="jugador" name="jugador" class="selector">
                     <option value="">Selecciona un jugador</option>
                 </select>
+                <p class="tipoError" id="errorJugador"></p>
             </div>
         </div>
 
@@ -111,6 +114,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <option value="Aire">Aire</option>
                                 <option value="Montaña">Montaña</option>
                             </select>
+                            <p class="tipoError" id="errorElemento"></p>
                         </div>
                         <div class="cajaPregunta">
                             <p class="tipo2">Género</p>
@@ -120,6 +124,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <option value="Femenino">Femenino</option>
                                 <option value="otro">Otro</option>
                             </select>
+                            <p class="tipoError" id="errorGenero"></p>
                         </div>
                         <div class="cajaPregunta">
                             <p class="tipo2">Posición</p>
@@ -130,6 +135,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <option value="MD">Mediocampista</option>
                                 <option value="DL">Delantero</option>
                             </select>
+                            <p class="tipoError" id="errorPosicion"></p>
                         </div>
 
                         <div class="cajaImagen">
@@ -200,7 +206,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="valor2" id="valorValue">0</p>
                             </div>
                         </div>
-                        <div class="estadistica2">
+                        <div class="estadistica2 puntoRestante">
                             <div class="campoEstadisticas">
                                 <p class="textoPuntos">Puntos restantes:</p>
                                 <p class="valorPuntos" id="puntosRestantes">440</p>
@@ -227,7 +233,7 @@ if (!isset($_SESSION['usuario'])) {
                                 <p class="valor2" id="ptValue">0</p>
                             </div>
                         </div>
-                        <div class="estadistica2">
+                        <div class="estadistica2 puntoRestante">
                             <div class="campoEstadisticas">
                                 <p class="textoPuntos">Puntos restantes:</p>
                                 <p class="valorPuntos" id="puntosRestantesPePt">250</p>
