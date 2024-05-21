@@ -203,9 +203,12 @@ textarea {
     padding: 20px;
     word-wrap: break-word;
 }
-.cajaComentario p{
-    word-wrap: break-word;
+
+.cajaComentario p {
+    word-break: break-all; /* Divide las palabras largas para ajustarlas dentro del contenedor /
+    white-space: normal; / Asegura que el texto se ajuste al ancho del contenedor */
 }
+
 .nombre {
     width: 50%;
     height: 40px;
