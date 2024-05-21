@@ -149,9 +149,9 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
     // Si es un "Jugadores personales"
     if (juego === "Jugadores personales") {
-        jugadoresPersonales.forEach((jugadorPersonal) => {
-            const equipoDiv = document.createElement("div");
-            equipoDiv.classList.add("equipo");
+    equiposUnicos.forEach((equipo) => {
+        const equipoDiv = document.createElement("div");
+        equipoDiv.classList.add("equipo");
 
         const imgEquipo = document.createElement("img");
         imgEquipo.classList.add("equipoImg");
@@ -578,6 +578,3 @@ document.addEventListener("click", function(event) {
         menuSeleccion.style.display = "none";
     }
 });
-
-
-

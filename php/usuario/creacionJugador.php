@@ -26,6 +26,7 @@ if (isset($_SESSION['usuario'])) {
         $equipo = $_POST['nombreEquipo'];
         // Nombre del equipo del input de texto
         $nombreEquipoModificado = $_POST['nombreEquipoModificado'];
+        $equipoModificado = $nombreEquipoModificado;
         $imagenEquipo = $_FILES['imagenEquipo'];
 
         $carpeta = "../../img/imgJugadores/JugadoresPersonales/Escudos/";
