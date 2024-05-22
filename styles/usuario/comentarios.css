@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
+html{
+    border: 5px solid #f8910060; 
+    background-color: #f8e068; 
+}
+
 .main{
     margin-top: 80px;
     width: 100%;
-    border: 5px solid #f8910060;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,6 +21,12 @@
     background-color: #f8e068;    
     font-family: "Jersey 10", sans-serif;
 }
+header{
+background-color:#cd841d86;
+}
+footer{
+    background-color:#d58009;
+    }
 
 .titulo{
     width: 40%;
