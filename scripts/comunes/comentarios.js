@@ -48,6 +48,7 @@ function mostrarComentarios() {
         <img src="${imagenAleatoria}" alt="Foto de perfil">
          </div>
          <div class="cajaGeneral">
+
             <div class="cajaDatos">
                 <div class="nombre">
                     <p>${comentario[i].nombre}</p>

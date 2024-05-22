@@ -18,7 +18,24 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 40px;
+    padding: 40px 0 50px 0;
+}
+
+.tituloPrincipal{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 10px solid #2f477c;
+    border-radius: 5px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    background-color: #539eb5;
+    color: white;
+    padding: 1% 5% 1% 5%;
+    filter: drop-shadow(5px 5px 0px #23345c);
 }
 
 .contenedorTitulo{
@@ -26,6 +43,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 
 .titulo {
@@ -36,7 +54,7 @@ body{
     align-items: center;
     border: 10px solid #2f477c;
     border-radius: 5px;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
     background-color: #539eb5;
     color: white;
@@ -129,6 +147,7 @@ input,select{
     justify-content: center;
     align-items: center;
     gap: 10%;
+    margin-top: 50px;
 }
 
 .cajaPregunta {
@@ -299,7 +318,7 @@ input,select{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .estadisticas {
@@ -307,7 +326,7 @@ input,select{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 50px;
     background-color: #78aaca;
     border: 20px solid #99c9e2;
     border-radius: 5px;
@@ -487,6 +506,10 @@ input,select{
 /* Estilos para movil */
 
 @media screen and (max-width: 426px) {
+    .tituloPrincipal{
+        font-size: 1.4rem;
+        margin: 5%;
+    }
 
     .titulo {
         width: 75%;
@@ -515,12 +538,34 @@ input,select{
         margin-top: 20px;
     }
 
+    .cajaImagen{
+        width: 90%;
+    }
     .subirImagen{
-        width: 80%;
+        width: 90%;
     }
 
     .cajaImagenEquipo{
         width: 100%;
+    }
+    .tipoImagen{
+        text-align: center;
+        font-size: 2rem;
+    }
+    .imagen{
+        font-size: 0.8rem;
+    }
+    .datos{
+        gap: 20px;
+    }
+    .cajaBoton{
+        width: 60%;
+    }
+    .boton{
+        text-align: center;
+    }
+    .boton p{
+        font-size: 1.5rem;
     }
 
 }

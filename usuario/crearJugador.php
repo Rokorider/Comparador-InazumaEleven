@@ -39,8 +39,8 @@ if (!isset($_SESSION['usuario'])) {
     <?php include '../php/imports/header.php'; ?>
 
     <section class="main" id="main">
-        <div class="titulo">
-            <h1>Datos del Equipo</h1>
+    <div class="tituloPrincipal">
+            <h1>Crear Jugador Personalizado</h1>
         </div>
         <form class="formulario" id="formDatos" action="../php/usuario/creacionJugador.php" method="post"
             enctype="multipart/form-data">
