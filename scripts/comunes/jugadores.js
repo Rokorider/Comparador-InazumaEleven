@@ -666,6 +666,10 @@ function agregarJugador(jugador) {
     let apodoModificado = jugador.Apodo;
     apodoModificado = apodoModificado.replace(/\s+/g, '_');
 
+    if (/^Robot [^S]/.test(jugador.Apodo)) {
+        apodoModificado = "Robot";
+    }
+
     // Crear un elemento div que represente al jugador
     const jugadorItem = document.createElement('div');
     jugadorItem.className = 'jugador';

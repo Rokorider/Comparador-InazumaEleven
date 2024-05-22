@@ -147,6 +147,10 @@ function mostrarJugador(jugador) {
 
     apodoModificado = apodoModificado.replace(/\s+/g, '_');
 
+    if (/^Robot [^S]/.test(jugador.Apodo)) {
+        apodoModificado = "Robot";
+    }
+    
     contenedorJugador.innerHTML = `
         <div class="cajaJugador">
             <div class="cajaImagen">
@@ -162,7 +166,7 @@ function mostrarJugador(jugador) {
             <div class="datos">
                 <div class="fila">
                     <div class="id">
-                        <p>835</p>
+                        <p>${jugador.ID}</p>
                     </div>
                     <div class="nombre">
                         <p>${jugador.Nombre_Real}</p>
