@@ -55,7 +55,7 @@ body{
     border: 10px solid #2f477c;
     border-radius: 5px;
     font-size: 1.5rem;
-    margin-bottom: 30px;
+    margin: 40px 0 30px 0;
     background-color: #539eb5;
     color: white;
     padding: 1% 5% 1% 5%;
@@ -65,6 +65,7 @@ body{
 input,select{
     border: none;
     font-size: 10px;
+    color: #282855;
 }
 
 
@@ -147,7 +148,6 @@ input,select{
     justify-content: center;
     align-items: center;
     gap: 10%;
-    margin-top: 50px;
 }
 
 .cajaPregunta {

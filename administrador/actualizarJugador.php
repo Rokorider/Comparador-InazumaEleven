@@ -40,7 +40,7 @@ if (!isset($_SESSION['usuario'])) {
     <?php include '../php/imports/headerAdmin.php'; ?>
 
     <section class="main">
-        <div class="cajaTitulo">
+        <div class="tituloPrincipal">
             <h1>Actualizar Jugador</h1>
         </div>
 

@@ -39,7 +39,7 @@ if (!isset($_SESSION['usuario'])) {
     <?php include '../php/imports/header.php'; ?>
 
     <section class="main" id="main">
-    <div class="tituloPrincipal">
+        <div class="tituloPrincipal">
             <h1>Crear Jugador Personalizado</h1>
         </div>
         <form class="formulario" id="formDatos" action="../php/usuario/creacionJugador.php" method="post"
