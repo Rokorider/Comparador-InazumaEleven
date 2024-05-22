@@ -1,21 +1,37 @@
 let comentarios = document.getElementById('comentarios');
 let comentario = [];
 
+const ImagenJugador = [
+    'Canon.png',
+    'Mark_(IJ).png',
+    'Darren_(IJ).png',
+    'Jack_(IJ).png',
+    'Scotty_(IJ).png',
+    'Archer.png',
+    'Tod_(IJ).png',
+    'Nathan_(IJ).png',
+    'Hurley_(IJ).png',
+    'Thor.png',
+    'Jordan.png',
+    'Caleb_(IJ).png',
+    'Jude_(IJ).png',
+    'Samford_(IJ).png',
+    'Shawn_(IJ).png',
+    'Xavier.png',
+    'Kevin_(IJ).png',
+    'Austin.png',
+    'Axel_(IJ).png',
+    'Canon.png'
+];
+
 function obtenerDatosComentarios() {
     return fetch('../php/usuario/cargar_comentarios.php')
-        // Procesar la respuesta como JSON
-        .then(function (response) {
-            return response.json();
-        })
-        // Manejar los datos obtenidos
-        .then(function (data) {
-            // Asignar los datos de los jugadores a la variable global 'jugadores'
+        .then(response => response.json())
+        .then(data => {
             comentario = data;
-            // Devolver los datos de los jugadores
             return comentario;
         })
-        // Manejar errores en caso de que la solicitud falle
-        .catch(function (error) {
+        .catch(error => {
             console.error('Error al obtener los datos de jugadores:', error);
         });
 }
@@ -23,10 +39,13 @@ function obtenerDatosComentarios() {
 function mostrarComentarios() {
     comentarios.innerHTML = '';
     for (let i = 0; i < comentario.length; i++) {
+        // Selecciona una imagen al azar
+        const imagenAleatoria = ImagenJugador[Math.floor(Math.random() * ImagenJugador.length)];
+
         comentarios.innerHTML += `
         <div class="comentario">
         <div class="cajaFoto">
-        <img src="../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/Canon.png" alt="Foto de perfil">
+        <img src="../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/${imagenAleatoria}" alt="Foto de perfil">
          </div>
          <div class="cajaGeneral">
             <div class="cajaDatos">
@@ -46,11 +65,7 @@ function mostrarComentarios() {
     }
 }
 
-obtenerDatosComentarios().then(function () {
-
-    mostrarComentarios();
-
-});
+obtenerDatosComentarios().then(mostrarComentarios);
 
 // JavaScript para ajustar automáticamente la altura del textarea
 let comentarioText = document.getElementById('comentario');
@@ -71,7 +86,7 @@ comentarioText.addEventListener('input', function () {
 });
 
 function validarComentario() {
-    if (comentarioText.value == '') {
+    if (comentarioText.value === '') {
         cajaErrorComentario.textContent = 'Escribe un comentario';
         aplicarEstiloError(cajaErrorComentario);
         comentarioError = false;
@@ -80,7 +95,6 @@ function validarComentario() {
         comentarioError = true;
     }
 }
-
 
 function aplicarEstiloError(elemento) {
     elemento.style.border = '3px solid #b15d654d';
@@ -95,10 +109,9 @@ function limpiarEstiloError(elemento) {
 }
 
 boton.addEventListener('click', function () {
-
     validarComentario();
 
-    if (comentarioError == true) {
+    if (comentarioError) {
         // Enviar formulario
         document.getElementById("formComentario").submit(); // Envía el formulario
     }

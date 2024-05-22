@@ -7,7 +7,7 @@
 .main{
     margin-top: 80px;
     width: 100%;
-    border: 5px solid #f89000;
+    border: 5px solid #f8910060;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .titulo{
-    width: 80%;
+    width: 40%;
     border: 5px solid #f89000;
     background-color: #f8a850;
     border-radius: 0px;
@@ -32,7 +32,8 @@
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
     margin-top: 40px;
-    text-shadow: 2px 2px #f89000;
+        text-shadow: 2px 2px #f89000;
+        border-radius: 5px;
 }
 
 .contSubirComentario{
@@ -51,6 +52,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 15px;
+    border-radius: 5px;
 }
 
 .cajaNombre {
@@ -171,6 +173,7 @@ textarea {
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
     text-shadow: 2px 2px #f89000;
+    border-radius: 5px;
 }
 
 .comentario {
