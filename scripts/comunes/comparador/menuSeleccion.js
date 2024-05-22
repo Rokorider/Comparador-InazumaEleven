@@ -155,7 +155,6 @@ function crearCajaJuegos(personaje) {
         }
     });
 
-
 }
 
 function crearContenidoPersonal(equiposContenedor, personaje, jugadoresPersonales) {
@@ -174,7 +173,7 @@ function crearContenidoPersonal(equiposContenedor, personaje, jugadoresPersonale
     equiposUnicos.forEach(equipo => {
         const equipoDiv = document.createElement("div");
         equipoDiv.classList.add("equipo");
-    
+
         const imgEquipo = document.createElement("img");
         imgEquipo.classList.add("equipoImg");
         imgEquipo.alt = equipo + " Escudo";
@@ -225,7 +224,7 @@ function crearContenidoPersonal(equiposContenedor, personaje, jugadoresPersonale
 }
 
 
-function crearJugadoresPersonales(equipo, equipoModificado, contenidoEquipos, jugadoresPersonales, personaje){
+function crearJugadoresPersonales(equipo, equipoModificado, contenidoEquipos, jugadoresPersonales, personaje) {
 
     console.log(jugadoresPersonales);
 
@@ -287,7 +286,7 @@ function crearJugadoresPersonales(equipo, equipoModificado, contenidoEquipos, ju
 
         //cerrar el pop up cuando seleccione el personaje
         let juegoURL = "JugadoresPersonales";
-        
+
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display = "none";
             seleccionPersonaje(jugador, juegoURL, equipoModificado, personaje);
@@ -307,77 +306,77 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
     equiposContenedor.innerHTML = "";
     let equiposUnicos;
     // Obtener equipos únicos del juego específico
-    if(juego !== "Jugadores personales"){
-        equiposUnicos= [
+    if (juego !== "Jugadores personales") {
+        equiposUnicos = [
             ...new Set(
                 jugadores
                     .filter((jugador) => jugador.Juego === juego)
                     .map((jugador) => jugador.Equipo)
             ),
         ];
-    }else{
-        equiposUnicos= [
+    } else {
+        equiposUnicos = [
             ...new Set(jugadoresPersonales.map((jugador) => jugador.NombreEquipo)),];
     }
-    
-    
+
+
     // Crear un contenedor para los equipos
     const contenidoEquipos = document.createElement("div");
     contenidoEquipos.classList.add("contenidoEquipos");
 
     // Si es un "Jugadores personales"
     if (juego === "Jugadores personales") {
-    equiposUnicos.forEach((equipo) => {
+        equiposUnicos.forEach((equipo) => {
 
-        const equipoURL = equipo
+            const equipoURL = equipo
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, "")
                 .replace(/\s+/g, "_")
                 .replace("'", "");
 
-        const equipoDiv = document.createElement("div");
-        equipoDiv.classList.add("equipo");
+            const equipoDiv = document.createElement("div");
+            equipoDiv.classList.add("equipo");
 
-        const imgEquipo = document.createElement("img");
-        imgEquipo.classList.add("equipoImg");
-        imgEquipo.alt = equipo + " Escudo";
-        
-        imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.png`;
-                imgEquipo.onerror = function() {
-                    imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.jpg`;
-                }
+            const imgEquipo = document.createElement("img");
+            imgEquipo.classList.add("equipoImg");
+            imgEquipo.alt = equipo + " Escudo";
 
-        const nombreEquipo = document.createElement("div");
-        nombreEquipo.classList.add("equipoNombre");
-        nombreEquipo.textContent = equipo;
-
-        equipoDiv.appendChild(imgEquipo);
-        equipoDiv.appendChild(nombreEquipo);
-        contenidoEquipos.appendChild(equipoDiv);
-
-        equipoDiv.addEventListener("click", () => {
-            // Abrir o cerrar el equipo al hacer clic en el equipoDiv
-            if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
-                // Cerrar si ya está abierto
-                equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
-                equipoDiv.style.width = "auto";
-            } else {
-                // Pasar los datos del jugador a la función de creación de jugadores
-                const jugadorPersonal = jugadoresPersonales.find(jugador => jugador.NombreEquipo === equipo);
-                crearJugadoresEquipo(
-                    jugadorPersonal.NombreEquipo,
-                    jugadorPersonal.NombreEquipo,
-                    "JugadoresPersonales",
-                    equipoDiv,
-                    personaje
-                );
-                equipoDiv.style.width = "100%";
-                contenidoEquipos.style.padding = "0 10% 0 10%";
+            imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.png`;
+            imgEquipo.onerror = function () {
+                imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.jpg`;
             }
+
+            const nombreEquipo = document.createElement("div");
+            nombreEquipo.classList.add("equipoNombre");
+            nombreEquipo.textContent = equipo;
+
+            equipoDiv.appendChild(imgEquipo);
+            equipoDiv.appendChild(nombreEquipo);
+            contenidoEquipos.appendChild(equipoDiv);
+
+            equipoDiv.addEventListener("click", () => {
+                // Abrir o cerrar el equipo al hacer clic en el equipoDiv
+                if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
+                    // Cerrar si ya está abierto
+                    equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
+                    equipoDiv.style.width = "auto";
+                } else {
+                    // Pasar los datos del jugador a la función de creación de jugadores
+                    const jugadorPersonal = jugadoresPersonales.find(jugador => jugador.NombreEquipo === equipo);
+                    crearJugadoresEquipo(
+                        jugadorPersonal.NombreEquipo,
+                        jugadorPersonal.NombreEquipo,
+                        "JugadoresPersonales",
+                        equipoDiv,
+                        personaje
+                    );
+                    equipoDiv.style.width = "100%";
+                    contenidoEquipos.style.padding = "0 10% 0 10%";
+                }
+            });
         });
-    });
-} else {
-        
+    } else {
+
 
         equiposUnicos.forEach((equipo) => {
             const equipoURL = equipo
@@ -395,11 +394,13 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
             imgEquipo.classList.add("equipoImg");
             imgEquipo.alt = equipo + " Escudo";
 
-            if (equipoURL === "Layton_Team") {
-                imgEquipo.src = "../img/Layton_Team.png";
-            } else {
-                imgEquipo.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png`;
-            }
+
+            imgEquipo.src = `../img/imgJugadores/${juegoURL}/Escudos/${equipoURL}.png`;
+
+            imgEquipo.onerror = function () {
+                imgEquipo.src = `../img/imgJugadores/${juegoURL}/Escudos/${equipoURL}.jpg`;
+            };
+
 
             const nombreEquipo = document.createElement("div");
             nombreEquipo.classList.add("equipoNombre");
@@ -448,7 +449,7 @@ function crearJugadoresEquipo(
     } else {
         // Jugadores personales
         jugadoresEquipo = jugadoresPersonales.filter((jugador) => jugador.NombreEquipo === equipo);
-        juegoURL="JugadorPersonal"
+        juegoURL = "JugadorPersonal"
     }
 
     // Crear los contenedores para el contenido de los jugadores
@@ -471,20 +472,41 @@ function crearJugadoresEquipo(
         personajeImgCont.classList.add("personajeImgCont");
 
         const personajeImg = document.createElement("img");
-        if (juegoURL !== "JugadorPersonal") {
-            personajeImg.src = jugador.Imagenes;
-        } else {
-            let equipoModificado = jugador.NombreEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
-                equipoModificado = jugador.NombreEquipo.replace(/'/g, '');
-                equipoModificado = jugador.NombreEquipo.replace(/\s+/g, '_');
-            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.png`;
-            personajeImg.onerror = function() {
-                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.jpg`;
-            };
-            
+
+        let equipoModificado = jugador.Equipo;
+
+        equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        equipoModificado = equipoModificado.replace(/'/g, '');
+        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+
+        let apodoModificado = jugador.Apodo;
+        apodoModificado = apodoModificado.replace(/\s+/g, '_');
+
+        let juegoModificado;
+        juegoModificado = jugador.Juego.replace(/\s+/g, "");
+
+        if (/^Robot [^S]/.test(jugador.Apodo)) {
+            apodoModificado = "Robot";
         }
 
-        
+        if (juegoURL !== "JugadorPersonal") {
+            personajeImg.src = `../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.png`;
+            personajeImg.onerror = function () {
+                personajeImg.src = `../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.jpg`;
+            };
+        } else {
+            let equipoModificado = jugador.NombreEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+            equipoModificado = jugador.NombreEquipo.replace(/'/g, '');
+            equipoModificado = jugador.NombreEquipo.replace(/\s+/g, '_');
+
+            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.png`;
+            personajeImg.onerror = function () {
+                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.jpg`;
+            };
+
+        }
+
+
         personajeImg.alt = jugador.Apodo;
         personajeImg.classList.add("personajeImg");
         personajeImgCont.appendChild(personajeImg);
@@ -543,19 +565,19 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
 
 
     const personajeIconoImg = document.querySelector(
-            `.personajeIcono${personajeNum}Img`
-        );
-        
-        if (personajeIconoImg) {
-            if (juegoURL === "JugadorPersonal") {
-                personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo}.png`;
-            } else {
-                personajeIconoImg.src = jugador.Imagenes;
-            }
+        `.personajeIcono${personajeNum}Img`
+    );
+
+    if (personajeIconoImg) {
+        if (juegoURL === "JugadorPersonal") {
+            personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo}.png`;
         } else {
-            console.error("El elemento personajeIconoImg es nulo. Verifica que exista y haya sido inicializado correctamente.");
+            personajeIconoImg.src = jugador.Imagenes;
         }
-    
+    } else {
+        console.error("El elemento personajeIconoImg es nulo. Verifica que exista y haya sido inicializado correctamente.");
+    }
+
     const nombrePersonajeContenedor = document.querySelector(
         `.nombrePersonajeContenedor${personajeNum} p`
     );
