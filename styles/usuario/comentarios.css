@@ -211,6 +211,7 @@ textarea {
 .cajaComentario p {
     word-break: break-all; 
     font-family: "Pixelify Sans", sans-serif;
+    width: 100%;
 }
 
 .nombre {
