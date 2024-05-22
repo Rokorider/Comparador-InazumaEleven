@@ -483,9 +483,9 @@ boton.addEventListener('click', function (event) {
         equipoModificado = equipoModificado.replace(/\s+/g, '_');
         document.getElementById("equipoModificado").value = equipoModificado;
 
-        console.log(document.getElementById('equipoModificado').value);
+        console.log("Equipo Modificado" + document.getElementById('equipoModificado').value);
 
-        console.log(document.getElementById('nombreEquipoModificado').value);
+        console.log("Nombre del equipo modificado" + document.getElementById('nombreEquipoModificado').value);
 
         document.getElementById("formDatos").submit(); // Envía el formulario
     }

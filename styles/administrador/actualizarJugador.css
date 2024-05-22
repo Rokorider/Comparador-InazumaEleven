@@ -8,7 +8,7 @@ body{
     font-family: "Jersey 10", sans-serif;
     background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("../../img/BGicons5.png");
     background-size: 7%;
-    color: white;
+    color: #282855;
 }
 
 .main {
@@ -23,17 +23,19 @@ body{
 }
 
 .cajaTitulo {
-    width: 40%;
-    padding: 1% 5% 1% 5%;
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid #282855;
-    border-radius: 10px;
-    background-color: #2f477c;
+    border: 10px solid #2f477c;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    background-color: #539eb5;
     color: white;
-    font-size: 24px;
-    margin-block: 40px;
+    padding: 1% 5% 1% 5%;
+    filter: drop-shadow(5px 5px 0px #23345c);
 }
 
 .contenedorSelects {
@@ -43,6 +45,7 @@ body{
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 40px;
+    gap: 10%;
 }
 
 .selector2 {
@@ -395,18 +398,19 @@ body{
 }
 
 .titulo {
-    width: 40%;
-    padding: 1% 5% 1% 5%;
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid #282855;
+    border: 10px solid #2f477c;
     border-radius: 5px;
-    font-size: 24px;
-    margin-bottom: 10px;
-    background-color: #2f477c;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    background-color: #539eb5;
     color: white;
-    text-align: center;
+    padding: 1% 5% 1% 5%;
+    filter: drop-shadow(5px 5px 0px #23345c);
 }
 
 .formulario {
@@ -436,24 +440,34 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: 10%;
 }
 
 .cajaPregunta {
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin-block: 20px;
+    padding-top: 5px;
+    background-color: #78aaca;
+    filter: drop-shadow(5px 5px 0px #689dbe);
+    border-radius: 5px;
 }
 
 .cajaImagen {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-top: 50px;
+    background-color: #99c9e2;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+    border-radius: 5px;
+    padding: 15px;
 }
 
 .cajaImagenEquipo {
@@ -466,19 +480,25 @@ body{
 }
 
 .tipoImagen {
-    font-size: 24px;
+    font-size: 2.5rem;
     margin-block: 10px;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
+    background-color: #78aaca;
+    padding: 10px;
+    border-radius: 3px;
 }
 
 .subirImagen {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    background-color: #78aaca;
+    padding: 20px;
+    border-radius: 3px;
 }
 
 .cajaInput {
@@ -491,11 +511,13 @@ body{
 
 .imagen {
     /* Estilo para el contenedor del input personalizado */
-    background-color: #888aab;
-    border: 1px solid #0b0749d0;
-    padding: 20px;
-    border-radius: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
     cursor: pointer;
+    font-size: 1.2rem;
+    color: black;
 }
 
 
@@ -510,10 +532,15 @@ body{
 }
 
 .tipo2 {
-    font-size: 20px;
+    font-size: 2rem;
     margin-block: 10px;
-    width: 70%;
-    display: flex;
+    width: 90%;
+    background-color: #2f477c;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    border-bottom: 10px solid #282855;
+    border-radius: 3px;
 }
 
 .tipoError {
@@ -531,15 +558,15 @@ input{
     border: 1px solid #0b0749d0;
     color: white;
 }
-
+select{
+    border: none;
+}
 .selector {
-    width: 70%;
-    height: 40px;
-    border-radius: 10px;
+    width: 90%;
+    height: 50px;
     font-size: 1.2rem;
     padding-left: 10px;
-    background-color: rgba(149, 151, 196, 0.733);
-    border-color: #0b0749d0;
+    border-radius: 3px;
 }
 
 .cajaEstadisticas {
@@ -548,15 +575,19 @@ input{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .estadisticas {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-top: 10px;
+    background-color: #78aaca;
+    border: 20px solid #99c9e2;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #5096b5);
 }
 
 .estadistica2 {
@@ -577,12 +608,13 @@ input{
 
 .tipoEstadistica {
     width: 100%;
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-bottom: 5px;
 }
 
 .inputRango {
     width: 80%;
+    border: none;
 }
 
 .valor2 {
@@ -597,7 +629,7 @@ input{
     width: 50%;
     display: flex;
     flex-wrap: wrap;
-    font-size: 20px;
+    font-size: 1.5rem;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -613,11 +645,15 @@ input{
 }
 
 .cajaPePt{
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background-color: #78aaca;
+    border: 15px solid #99c9e2;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #5096b5);
 }
 
 .errorEstadisticas {
@@ -627,6 +663,10 @@ input{
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.puntoRestante{
+    width: 100%;
 }
 
 .campoErrorEstadisticas {
@@ -668,7 +708,7 @@ input{
 
 .boton {
     width: 100%;
-    height: 70px;
+    height: 100px;
     background-image: url('../../img/botonGrande.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -680,7 +720,7 @@ input{
 }
 
 .boton p {
-    font-size: 20px;
+    font-size: 2rem;
     color: white;
 }
 

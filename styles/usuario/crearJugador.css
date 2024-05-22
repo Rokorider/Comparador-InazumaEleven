@@ -37,7 +37,7 @@ body{
     border: 10px solid #2f477c;
     border-radius: 5px;
     font-size: 1.6rem;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background-color: #539eb5;
     color: white;
     padding: 1% 5% 1% 5%;
@@ -118,7 +118,8 @@ input,select{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 150px;
+    gap: 10%;
 }
 
 .datos {
@@ -139,16 +140,22 @@ input,select{
     margin-block: 20px;
     padding-top: 5px;
     background-color: #78aaca;
+    filter: drop-shadow(5px 5px 0px #689dbe);
     border-radius: 5px;
 }
 
 .cajaImagen {
-    width: 100%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 5px;
+    margin-top: 50px;
+    background-color: #99c9e2;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+    border-radius: 5px;
+    padding: 15px;
 }
 
 .cajaImagenEquipo {
@@ -161,21 +168,25 @@ input,select{
 }
 
 .tipoImagen {
-    font-size: 24px;
+    font-size: 2.5rem;
     margin-block: 10px;
-    width: 60%;
+    width: 90%;
     display: flex;
     justify-content: center;
-    background-color: #539eb5;
+    background-color: #78aaca;
+    padding: 10px;
+    border-radius: 3px;
 }
 
 .subirImagen {
-    width: 50%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #23345c;
+    background-color: #78aaca;
+    padding: 20px;
+    border-radius: 3px;
 }
 
 .cajaInput {
@@ -191,8 +202,9 @@ input,select{
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
 .imagen:hover {
@@ -227,6 +239,8 @@ input,select{
     text-align: center;
     padding: 5px;
     color: white;
+    border-bottom: 10px solid #282855;
+    border-radius: 3px;
 }
 
 .tipoError {
@@ -244,6 +258,7 @@ input,select{
     height: 50px;
     font-size: 1.2rem;
     padding-left: 10px;
+    border-radius: 3px;
 }
 
 @media screen and (max-width: 630px) {
@@ -284,7 +299,7 @@ input,select{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 150px;
 }
 
 .estadisticas {
@@ -294,6 +309,9 @@ input,select{
     align-items: center;
     margin-top: 10px;
     background-color: #78aaca;
+    border: 20px solid #99c9e2;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #5096b5);
 }
 
 .estadistica {
@@ -361,6 +379,9 @@ input,select{
     justify-content: center;
     align-items: center;
     background-color: #78aaca;
+    border: 15px solid #99c9e2;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #5096b5);
 }
 
 
@@ -447,7 +468,7 @@ input,select{
 
 .boton {
     width: 100%;
-    height: 60px;
+    height: 100px;
     background-image: url('../../img/botonGrande.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -459,7 +480,7 @@ input,select{
 }
 
 .boton p {
-    font-size: 20px;
+    font-size: 2rem;
     color: white;
 }
 

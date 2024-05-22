@@ -139,7 +139,6 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
     }else{
         equiposUnicos= [
             ...new Set(jugadoresPersonales.map((jugador) => jugador.NombreEquipo)),];
-        console.log(equiposUnicos)
     }
     
     
@@ -149,15 +148,25 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
     // Si es un "Jugadores personales"
     if (juego === "Jugadores personales") {
-        jugadoresPersonales.forEach((jugadorPersonal) => {
-            const equipoDiv = document.createElement("div");
-            equipoDiv.classList.add("equipo");
+    equiposUnicos.forEach((equipo) => {
+
+        const equipoURL = equipo
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "_")
+                .replace("'", "");
+
+        const equipoDiv = document.createElement("div");
+        equipoDiv.classList.add("equipo");
 
         const imgEquipo = document.createElement("img");
         imgEquipo.classList.add("equipoImg");
         imgEquipo.alt = equipo + " Escudo";
-        // Supongamos que tienes un campo 'EscudoURL' en tus datos de jugador personal para la URL del escudo
-        imgEquipo.src = "#";
+        
+        imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.png`;
+                imgEquipo.onerror = function() {
+                    imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.jpg`;
+                }
 
         const nombreEquipo = document.createElement("div");
         nombreEquipo.classList.add("equipoNombre");
@@ -288,9 +297,12 @@ function crearJugadoresEquipo(
         if (juegoURL !== "JugadorPersonal") {
             personajeImg.src = jugador.Imagenes;
         } else {
-            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo.replace(" ", "")}.png`;
+            let equipoModificado = jugador.NombreEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+                equipoModificado = jugador.NombreEquipo.replace(/'/g, '');
+                equipoModificado = jugador.NombreEquipo.replace(/\s+/g, '_');
+            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.png`;
             personajeImg.onerror = function() {
-                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo.replace(" ", "")}.jpg`;
+                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.jpg`;
             };
             
         }
@@ -578,6 +590,3 @@ document.addEventListener("click", function(event) {
         menuSeleccion.style.display = "none";
     }
 });
-
-
-
