@@ -31,9 +31,11 @@ if (!isset($_SESSION['usuario'])) {
 
 <body>
 
-    <?php include '../php/imports/header.php'; ?>
+    
 
     <section class="main">
+
+    <?php include '../php/imports/header.php'; ?>
 
         <div class="titulo">
             <h1>Comparte tus pensamientos</h1>
@@ -63,8 +65,10 @@ if (!isset($_SESSION['usuario'])) {
 
     </section>
 
-    <?php include '../php/imports/footer.php'; ?>
+    
 
 </body>
+
+<?php include '../php/imports/footer.php'; ?>
 
 </html>

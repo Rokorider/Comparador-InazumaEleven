@@ -4,13 +4,9 @@
     box-sizing: border-box;
 }
 
-html{
-    border: 5px solid #f8910060; 
-    background-color: #f8e068; 
-}
 
 .main{
-    margin-top: 80px;
+    background-color: #f9e57f;  
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,21 +14,22 @@ html{
     flex-wrap: wrap;
     gap: 40px;
     letter-spacing: 2px;
-    background-color: #f8e068;    
+    background-color: #f9e57f;    
     font-family: "Jersey 10", sans-serif;
+    border: 5px solid #f8910060; 
 }
 header{
 background-color:#cd841d86;
 }
 footer{
     background-color:#d58009;
+    
     }
 
 .titulo{
     width: 40%;
     border: 5px solid #f89000;
     background-color: #f8a850;
-    border-radius: 0px;
     font-size: 1.6rem;
     color: white;
     display: flex;
@@ -41,7 +38,7 @@ footer{
     text-align: center;
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
-    margin-top: 40px;
+    margin-top: 110px;
         text-shadow: 2px 2px #f89000;
         border-radius: 5px;
 }
@@ -166,7 +163,7 @@ textarea {
     margin-top: 40px;
     margin-bottom: 20px;
     gap: 60px;
-    background-color: #f8e068;
+    background-color: #f7e174; 
 }
 
 .tituloComent {
