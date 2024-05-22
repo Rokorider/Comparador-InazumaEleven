@@ -2,29 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 100%;
 }
 
 .main{
     margin-top: 80px;
     width: 100%;
-    border: 5px solid #f89000;
+    border: 5px solid #f8910060;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 60px;
     gap: 40px;
     letter-spacing: 2px;
-    background-color: #f7e380;    
+    background-color: #f8e068;    
+    font-family: "Jersey 10", sans-serif;
 }
 
 .titulo{
-    width: 80%;
-    border: 5px solid #282855;
+    width: 40%;
+    border: 5px solid #f89000;
+    background-color: #f8a850;
     border-radius: 0px;
     font-size: 1.6rem;
-    background-color: #2f477c;
     color: white;
     display: flex;
     justify-content: center;
@@ -33,12 +32,12 @@
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
     margin-top: 40px;
-    text-shadow: 2px 2px black;
+        text-shadow: 2px 2px #f89000;
+        border-radius: 5px;
 }
 
 .contSubirComentario{
     width: 100%;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,13 +45,14 @@
 }
 
 .formulario {
-    background-color: aquamarine;
-    width: 100%;
+    background-color: #f8c858;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 40px;
+    padding: 15px;
+    border-radius: 5px;
 }
 
 .cajaNombre {
@@ -101,7 +101,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
 }
 
 .contInputComentario {
@@ -133,7 +133,7 @@ textarea {
 }
 
 .enviar {
-    width: 10%;
+    width: 20%;
     height: 60px;
     background-image: url(../../img/botonGrande.png);
     background-size: contain;
@@ -144,7 +144,7 @@ textarea {
     align-items: center;
     cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .comentarios{
@@ -154,16 +154,17 @@ textarea {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 40px;
+    margin-bottom: 20px;
     gap: 60px;
     background-color: #f8e068;
 }
 
 .tituloComent {
-    width: 100%;
+    width: 40%;
     border: 5px solid #f89000;
+    background-color: #f8a850;
     border-radius: 0px;
     font-size: 1.6rem;
-    background-color: #f8a850;
     color: white;
     display: flex;
     justify-content: center;
@@ -172,6 +173,7 @@ textarea {
     padding: 1% 5% 1% 5%;
     font-family: "Jersey 10", sans-serif;
     text-shadow: 2px 2px #f89000;
+    border-radius: 5px;
 }
 
 .comentario {
@@ -180,8 +182,8 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 3px solid #f89000;
-    border-radius: 0px;
+    border: 6px solid #f89000;
+    border-radius: 10px;
     gap: 20px;
     padding: 10px;
     flex-direction: row;
@@ -209,8 +211,9 @@ textarea {
 }
 
 .cajaComentario p {
-    word-break: break-all; /* Divide las palabras largas para ajustarlas dentro del contenedor /
-    white-space: normal; / Asegura que el texto se ajuste al ancho del contenedor */
+    word-break: break-all; 
+    font-family: "Pixelify Sans", sans-serif;
+    width: 100%;
 }
 
 .nombre {
@@ -218,6 +221,7 @@ textarea {
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     border: 4px solid #f8c858;
     background-color: #f8e068;
@@ -228,6 +232,7 @@ textarea {
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     border: 4px solid #f8c858;
     background-color: #f8c858;
