@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 100%;
 }
 
 .main{
@@ -17,6 +16,7 @@
     gap: 40px;
     letter-spacing: 2px;
     background-color: #f7e380;    
+    font-family: "Jersey 10", sans-serif;
 }
 
 .titulo{
@@ -180,8 +180,8 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 3px solid #f89000;
-    border-radius: 0px;
+    border: 6px solid #f89000;
+    border-radius: 10px;
     gap: 20px;
     padding: 10px;
     flex-direction: row;
@@ -209,8 +209,8 @@ textarea {
 }
 
 .cajaComentario p {
-    word-break: break-all; /* Divide las palabras largas para ajustarlas dentro del contenedor /
-    white-space: normal; / Asegura que el texto se ajuste al ancho del contenedor */
+    word-break: break-all; 
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 .nombre {
