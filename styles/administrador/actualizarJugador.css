@@ -23,6 +23,23 @@ body{
     padding: 40px 0 50px 0;
 }
 
+.tituloPrincipal{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 10px solid #2f477c;
+    border-radius: 5px;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    background-color: #539eb5;
+    color: white;
+    padding: 1% 5% 1% 5%;
+    filter: drop-shadow(5px 5px 0px #23345c);
+}
+
 .cajaTitulo {
     width: auto;
     height: auto;
@@ -45,7 +62,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 40px;
     gap: 10%;
 }
 
@@ -406,8 +422,8 @@ body{
     align-items: center;
     border: 10px solid #2f477c;
     border-radius: 5px;
-    font-size: 1.6rem;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    margin: 40px 0 30px 0;
     background-color: #539eb5;
     color: white;
     padding: 1% 5% 1% 5%;
@@ -559,6 +575,7 @@ input{
     border: none;
     border: 1px solid #0b0749d0;
     color: white;
+    color: #282855;
 }
 select{
     border: none;
@@ -569,6 +586,7 @@ select{
     font-size: 1.2rem;
     padding-left: 10px;
     border-radius: 3px;
+    color: #282855;
 }
 
 .cajaEstadisticas {
@@ -729,7 +747,7 @@ select{
 @media screen and (max-width: 1000px) {
 
     .titulo {
-        font-size: 20px;
+        font-size: 1.5rem;
     }
 
 }
