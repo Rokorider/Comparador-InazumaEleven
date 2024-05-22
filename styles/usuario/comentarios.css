@@ -27,9 +27,9 @@ footer{
     }
 
 .titulo{
-    width: 40%;
-    border: 5px solid #f89000;
-    background-color: #f8a850;
+    width: auto;
+    border-bottom: 10px solid #f89000;
+    background-color: #ffa500;
     font-size: 1.6rem;
     color: white;
     display: flex;
@@ -49,6 +49,7 @@ footer{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .formulario {
@@ -58,8 +59,9 @@ footer{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 15px;
+    padding: 20px;
     border-radius: 5px;
+    gap: 20px;
 }
 
 .cajaNombre {
@@ -121,11 +123,12 @@ footer{
 
 textarea {
     width: 80%;
-    height: 50px; /* Altura inicial */
-    resize: none; /* Evita el redimensionamiento por el usuario */
-    overflow: hidden; /* Oculta las barras de desplazamiento */
+    height: 80px;
+    resize: none;
+    overflow: hidden; 
     padding: 10px;
-    border-radius: 0px;
+    border-radius: 3px;
+    border: none;
 }
 
 .cajaError {
@@ -140,9 +143,10 @@ textarea {
 }
 
 .enviar {
-    width: 20%;
-    height: 60px;
-    background-image: url(../../img/botonGrande.png);
+    width: 30%;
+    height: 45px;
+    background: linear-gradient(140deg, #ffa500 50%, #f89000 50%);
+    border-radius: 3px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -154,6 +158,10 @@ textarea {
     font-size: 1.4rem;
 }
 
+.enviar:hover{
+    transform: scale(1.05);
+    filter: drop-shadow(3px 3px 0px #cb7e13);
+}
 .comentarios{
     width: 100%;
     display: flex;
@@ -168,8 +176,8 @@ textarea {
 
 .tituloComent {
     width: 40%;
-    border: 5px solid #f89000;
-    background-color: #f8a850;
+    border-bottom: 10px solid #f89000;
+    background-color: #ffa500;
     border-radius: 0px;
     font-size: 1.6rem;
     color: white;
@@ -189,32 +197,35 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    border: 6px solid #f89000;
+    border: 5px solid #f89000;
     border-radius: 10px;
     gap: 20px;
-    padding: 10px;
+    padding: 30px;
     flex-direction: row;
     background-image: url(../../img/Futblog/balones_naranjas_2.png);
 }
 .cajaGeneral{
     width: 75%;
+    border-radius:5px ;
     
 }
 .cajaDatos {
-
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    border: 5px solid #f89000;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
 }
 .cajaComentario {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    border-radius: 0px;
+    border-radius: 0px 0px 5px 5px;
     padding: 20px;
     word-wrap: break-word;
-    border: 4px solid #f8c858;
-    background-color: #f8e06858;
+    border: 5px solid #f89000;
+    backdrop-filter: blur(3px);
 }
 
 .cajaComentario p {
@@ -230,8 +241,8 @@ textarea {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    border: 4px solid #f8c858;
-    background-color: #f8e068;
+    font-size: 2rem;
+    backdrop-filter: blur(3px);
 }
 
 .fecha {
@@ -241,14 +252,7 @@ textarea {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    border: 4px solid #f8c858;
-    background-color: #f8c858;
-}
-
-
-
-@media screen and (max-width: 675px){
-    
+    background-color: #f89000;
 }
 
 .cajaFoto{
@@ -259,11 +263,45 @@ textarea {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    background: linear-gradient(135deg, #f8c858  50%, #ffa500 50%);
+    border-radius: 5px;
+    border: 5px solid #f89000;
 }
 .cajaFoto img{
     width: 100%;
-    border-radius: 20%;
-    border: 6px solid #f8c858;
-    background-color: #f8e068;
     image-rendering: pixelated;
 }
+
+
+@media screen and (max-width: 675px){
+    .titulo{
+        width: 80%;
+        font-size: 1.4rem;
+    }
+    .tituloComent{
+        width: 80%;
+        font-size: 1.4rem;
+    }
+    .formulario{
+        width: 80%;
+    }
+    textarea{
+        width: 100%;
+    }
+    .enviar{
+        width: 60%;
+    }
+    .nombre{
+        font-size: 1.5rem ;
+    }
+    .fecha{
+        text-align: center;
+    }
+    .cajaGeneral{
+        width: 100%;
+    }
+    .cajaFoto{
+        width: 40%;
+    }
+}
+

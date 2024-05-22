@@ -7,8 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />   
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Jersey+10&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/usuario/comentarios.css">
@@ -31,11 +34,10 @@ if (!isset($_SESSION['usuario'])) {
 
 <body>
 
-    
-
-    <section class="main">
 
     <?php include '../php/imports/header.php'; ?>
+
+    <section class="main">
 
         <div class="titulo">
             <h1>Comparte tus pensamientos</h1>
@@ -45,7 +47,8 @@ if (!isset($_SESSION['usuario'])) {
             <form class="formulario" id="formComentario" method="post" action="../php/usuario/procesar_comentario.php">
                 <div class="cajaAñadirComentario">
                     <div class="contInputComentario">
-                        <textarea name="comentario" id="comentario" maxlength="2000" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <textarea name="comentario" id="comentario" maxlength="2000"
+                            placeholder="Escribe tu comentario aquí..."></textarea>
                     </div>
                     <div class="cajaError" id="cajaErrorComentario">
                         <p></p>
@@ -65,7 +68,7 @@ if (!isset($_SESSION['usuario'])) {
 
     </section>
 
-    
+
 
 </body>
 
