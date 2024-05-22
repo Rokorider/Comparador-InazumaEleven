@@ -6,21 +6,10 @@
     
 }
 
-.tituloPrincipal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #282855;
-    border-radius: 10px;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    background-color: #2f477c;
-    color: white;
-    padding: 1% 5% 1% 5%;
-}
+
 
 .titulo{
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     width: auto;
     height: auto;
 }

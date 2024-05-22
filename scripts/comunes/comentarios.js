@@ -27,8 +27,8 @@ function mostrarComentarios() {
         <div class="comentario">
         <div class="cajaFoto">
         <img src="../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/Canon.png" alt="Foto de perfil">
-         </div>
-         <div class="cajaGeneral">
+        </div>
+        <div class="cajaGeneral">
             <div class="cajaDatos">
                 <div class="nombre">
                     <p>${comentario[i].nombre}</p>
