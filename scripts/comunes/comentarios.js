@@ -2,7 +2,7 @@ let comentarios = document.getElementById('comentarios');
 let comentario = [];
 
 const ImagenJugador = [
-    'Canon.png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/Canon.png',
     'Mark_(IJ).png',
     'Darren_(IJ).png',
     'Jack_(IJ).png',
@@ -45,7 +45,7 @@ function mostrarComentarios() {
         comentarios.innerHTML += `
         <div class="comentario">
         <div class="cajaFoto">
-        <img src="../img/imgJugadores/InazumaEleven3/Jugadores/Inazuma_Japon/${imagenAleatoria}" alt="Foto de perfil">
+        <img src="${imagenAleatoria}" alt="Foto de perfil">
          </div>
          <div class="cajaGeneral">
             <div class="cajaDatos">

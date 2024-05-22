@@ -133,7 +133,7 @@ textarea {
 }
 
 .enviar {
-    width: 10%;
+    width: 20%;
     height: 60px;
     background-image: url(../../img/botonGrande.png);
     background-size: contain;
@@ -144,7 +144,7 @@ textarea {
     align-items: center;
     cursor: url(https://cdn.custom-cursor.com/db/8838/32/anime-inazuma-eleven-endou-mamoru-cursor.png), pointer;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .comentarios{
