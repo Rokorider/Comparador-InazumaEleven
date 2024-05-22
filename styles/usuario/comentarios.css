@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .main{
@@ -205,8 +206,8 @@ textarea {
 }
 
 .cajaComentario p {
-    word-break: break-all; /* Divide las palabras largas para ajustarlas dentro del contenedor /
-    white-space: normal; / Asegura que el texto se ajuste al ancho del contenedor */
+    word-break: break-all; /* Divide las palabras largas para ajustarlas dentro del contenedor */
+    white-space: normal; /* Asegura que el texto se ajuste al ancho del contenedor */
 }
 
 .nombre {
