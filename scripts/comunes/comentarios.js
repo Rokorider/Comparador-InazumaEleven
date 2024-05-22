@@ -23,8 +23,17 @@ const ImagenJugador = [
     '../img/imgJugadores/InazumaEleven1/Jugadores/Zeus/Aphrodite.png',
     '../img/imgJugadores/InazumaEleven2/Jugadores/Servicio_Secreto/Tori.png',
     '../img/imgJugadores/InazumaEleven2/Jugadores/Triple_C/Sue.png',
+    '../img/imgJugadores/InazumaEleven2/Jugadores/Mary_Times/Shark.png',
+    '../img/imgJugadores/InazumaEleven2/Jugadores/Mary_Times/Soundtown.png',
     '../img/imgJugadores/InazumaEleven3/Jugadores/Neo_Japon/King_(NJ).png',
     '../img/imgJugadores/InazumaEleven3/Jugadores/Neo_Japon/Zell_(NJ).png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Unicorn/Bobby_(U).png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Unicorn/Erick_(U).png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/The_Little_Giants/Hector.png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Unicorn/Erick_(U).png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Orfeo/Bianchi.png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Los_emperadores/Torres.png',
+    '../img/imgJugadores/InazumaEleven3/Jugadores/Equipo_Ogro/Lancer.png',
 ];
 
 function obtenerDatosComentarios() {
@@ -51,7 +60,6 @@ function mostrarComentarios() {
         <img src="${imagenAleatoria}" alt="Foto de perfil">
          </div>
          <div class="cajaGeneral">
-
             <div class="cajaDatos">
                 <div class="nombre">
                     <p>${comentario[i].nombre}</p>
