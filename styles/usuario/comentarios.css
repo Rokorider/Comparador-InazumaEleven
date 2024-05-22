@@ -221,6 +221,7 @@ textarea {
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     border: 4px solid #f8c858;
     background-color: #f8e068;
@@ -231,6 +232,7 @@ textarea {
     height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     border: 4px solid #f8c858;
     background-color: #f8c858;
