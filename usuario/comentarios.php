@@ -35,15 +35,12 @@ if (!isset($_SESSION['usuario'])) {
     <section class="main">
 
         <div class="titulo">
-            <h1>Comparte con Nosotros tu pasión por Inazuma Eleven</h1>
+            <h1>Comparte tus pensamientos</h1>
         </div>
 
         <div class="contSubirComentario">
             <form class="formulario" id="formComentario" method="post" action="../php/usuario/procesar_comentario.php">
                 <div class="cajaAñadirComentario">
-                    <div class="contNombre">
-                        <p>Comentario</p>
-                    </div>
                     <div class="contInputComentario">
                         <textarea name="comentario" id="comentario" maxlength="2000" placeholder="Escribe tu comentario aquí..."></textarea>
                     </div>
