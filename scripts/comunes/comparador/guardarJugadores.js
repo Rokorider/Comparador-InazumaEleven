@@ -18,6 +18,7 @@ function guardarTodosLosJugadoresComparados(personajeElegidos) {
     console.log("Jugadores comparados:", jugadoresComparados);
 }
 
+// Función para enviar los jugadores comparados
 function enviarJugadoresComparados() {
     let jugadoresComparados = JSON.parse(localStorage.getItem('jugadoresComparados')) || [];
     if (jugadoresComparados.length > 0) {
@@ -25,32 +26,16 @@ function enviarJugadoresComparados() {
         xhr.open("POST", "../php/login_logout/logout.php", true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(jugadoresComparados));
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                // Limpiar localStorage después de enviar los datos
-                console.log("Datos antes de borrar:", localStorage.getItem('jugadoresComparados'), localStorage.getItem('personajeElegidos'));
-                localStorage.removeItem('jugadoresComparados');
-                localStorage.removeItem('personajeElegidos'); // Borra también los personajes elegidos
-                console.log("Datos después de borrar:", localStorage.getItem('jugadoresComparados'), localStorage.getItem('personajeElegidos'));
-                window.location.href = "comparador.php";
-            } else {
-                console.error("Error al enviar jugadores comparados:", xhr.statusText);
-            }
-        };
     } else {
         console.log("No hay jugadores comparados para enviar.");
     }
 }
-
-
 
 // Función para inicializar el evento de cerrar sesión
 function inicializarCerrarSesion() {
     let cerrarSesion = document.getElementById("cerrarSesion");
     if (cerrarSesion) {
         cerrarSesion.addEventListener("click", enviarJugadoresComparados);
-        localStorage.removeItem('jugadoresComparados');
-        localStorage.removeItem('personajeElegidos');
     } else {
         console.error("No se encontró el botón de cerrar sesión");
     }

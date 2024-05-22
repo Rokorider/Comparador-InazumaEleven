@@ -43,6 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Decodificar los datos JSON en un array asociativo de PHP
     $jugadoresComparados = json_decode($json_data, true);
 
+    // Borrar los jugadores comparados del usuario actual
+    $sql = "DELETE FROM consultas WHERE usuario_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $usuario_id);
+    if ($stmt->execute() === false) {
+        die("Error al borrar jugadores comparados: " . $stmt->error);
+    }
+
     // Verificar si se decodificaron correctamente los datos
     if ($jugadoresComparados !== null) {
 
