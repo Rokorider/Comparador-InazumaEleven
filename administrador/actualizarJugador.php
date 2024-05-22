@@ -202,7 +202,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">Valor:</p>
-                                <input class="inputRango" type="range" id="valor" name="valor" min="0" max="100" value="1">
+                                <input class="inputRango" type="range" id="valor" name="valor" min="0" max="100" value="0">
                                 <p class="valor2" id="valorValue">0</p>
                             </div>
                         </div>
@@ -229,7 +229,7 @@ if (!isset($_SESSION['usuario'])) {
                         <div class="estadistica2">
                             <div class="campoEstadisticas">
                                 <p class="tipoEstadistica">PT:</p>
-                                <input class="inputRango" type="range" id="pt" name="pt" min="0" max="100" value="1">
+                                <input class="inputRango" type="range" id="pt" name="pt" min="0" max="100" value="0">
                                 <p class="valor2" id="ptValue">0</p>
                             </div>
                         </div>

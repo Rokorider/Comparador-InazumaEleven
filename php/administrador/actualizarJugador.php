@@ -1,8 +1,8 @@
 <?php
 
 require "../conexiones/conexionBdJugadores.php";
-require "fotos/actualizarFotoAdmin.php";
-require "fotos/actualizarFotoConApodoAdmin.php";
+require "../fotos/actualizarFotoAdmin.php";
+require "../fotos/actualizarFotoConApodoAdmin.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($_POST['descripcion'])) {
         $descripcion = $_POST['descripcion'];
-        $campos_actualizados[] = "Descripción = '$descripcion'";
+        $campos_actualizados[] = "Descripcion = '$descripcion'";
     }
 
     if (!empty($_POST['elemento'])) {
@@ -37,12 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($_POST['genero'])) {
         $genero = $_POST['genero'];
-        $campos_actualizados[] = "Género = '$genero'";
+        $campos_actualizados[] = "Genero = '$genero'";
     }
 
     if (!empty($_POST['posicion'])) {
         $posicion = $_POST['posicion'];
-        $campos_actualizados[] = "Posición = '$posicion'";
+        $campos_actualizados[] = "Posicion = '$posicion'";
     }
 
     if (!empty($_FILES['foto'])) {
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($_POST['fisico'])) {
         $fisico = $_POST['fisico'];
-        $campos_actualizados[] = "Físico = '$fisico'";
+        $campos_actualizados[] = "Fisico = '$fisico'";
     }
 
     if (!empty($_POST['control'])) {

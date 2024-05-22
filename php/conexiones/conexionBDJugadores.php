@@ -40,7 +40,7 @@ class JugadoresBD
         $valor = $jugador->getValor();
         $juego = $jugador->getJuego();
 
-        $sql = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripción, Imagenes, Posición, Elemento, Género, Equipo, PE, PT, Tiro, Físico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ( '$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
+        $sql = "INSERT INTO api_inazuma_eleven___hoja_1 (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor, Juego) VALUES ( '$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor', '$juego')";
 
         $stmt = $this->conexion->prepare($sql);
         $result = $stmt->execute();

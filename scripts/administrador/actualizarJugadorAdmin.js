@@ -194,7 +194,7 @@ function mostrarJugador(jugador) {
                             </div>
                             <div class="posicion">
                                 <div class="posicionTexto">
-                                    <p>${jugador.Posición}</p>
+                                    <p>${jugador.Posicion}</p>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@ function mostrarJugador(jugador) {
                                 <p>${jugador.Apodo}</p>
                             </div>
                             <div class="genero">
-                                <img src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                                <img src="../img/generos/${jugador.Genero}.png" alt="${jugador.Genero}">
                             </div>
                             <div class="elemento">
                                 <img src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
@@ -244,7 +244,7 @@ function mostrarJugador(jugador) {
                                 <p>Físico</p>
                             </div>
                             <div class="unidad">
-                                <p>${jugador.Físico}</p>
+                                <p>${jugador.Fisico}</p>
                             </div>
                         </div>
                     </div>
@@ -297,7 +297,7 @@ function mostrarJugador(jugador) {
                     </div>
                 </div>
                 <div class="juego">
-                    <p class="descripcion">${jugador.Descripción}</p>
+                    <p class="descripcion">${jugador.Descripcion}</p>
                 </div>
             </div>
 
@@ -322,7 +322,7 @@ function mostrarJugador(jugador) {
                             </div>
                             <div class="posicion">
                                 <div class="posicionTexto">
-                                    <p id="posicionActualizado">${jugador.Posición}</p>
+                                    <p id="posicionActualizado">${jugador.Posicion}</p>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +331,7 @@ function mostrarJugador(jugador) {
                                 <p>${jugador.Apodo}</p>
                             </div>
                             <div class="genero">
-                                <img id="generoActualizado" src="../img/generos/${jugador.Género}.png" alt="${jugador.Género}">
+                                <img id="generoActualizado" src="../img/generos/${jugador.Genero}.png" alt="${jugador.Genero}">
                             </div>
                             <div class="elemento">
                                 <img id="elementoActualizado" src="../img/Elementos/${jugador.Elemento}.png" alt="${jugador.Elemento}">
@@ -372,7 +372,7 @@ function mostrarJugador(jugador) {
                                 <p>Físico</p>
                             </div>
                             <div class="unidad">
-                                <p id="fisicoActualizado">${jugador.Físico}</p>
+                                <p id="fisicoActualizado">${jugador.Fisico}</p>
                             </div>
                         </div>
                     </div>
@@ -424,10 +424,19 @@ function mostrarJugador(jugador) {
                     </div>
                 </div>
                 <div class="juego">
-                    <p class="descripcion" id="descripcionActualizado">${jugador.Descripción}</p>
+                    <p class="descripcion" id="descripcionActualizado">${jugador.Descripcion}</p>
                 </div>
             </div>
     `;
+
+    // Limpiar todos los inputs
+    document.getElementById('imagen').value = '';
+    document.getElementById('nombre').value = '';
+    document.getElementById('apodo').value = '';
+    document.getElementById('descripcion').value = '';
+    document.getElementById('elemento').value = '';
+    document.getElementById('posicion').value = '';
+    document.getElementById('genero').value = '';
 
     // LLamar a la función para actualizar los datos del jugador
     actualizarDatosJugador(jugador);
@@ -615,7 +624,12 @@ function validarTodosLosDatos() {
 
     let errorEstadisticasTodas = document.getElementById('errorEstadisticasTodas');
 
-    if (nombre.value === '' && apodo.value === '' && imagen.files.length === 0 && puntosRestantes.textContent === '440' && puntosRestantesPePt.textContent === '250') {
+    // Si el jugador aun no ha sido seleccionado
+    if (document.getElementById('buscadorJugador').querySelector('select').value === '') {
+        errorEstadisticasTodas.textContent = 'Debes de seleccionar un jugador primero para actualizar';
+        aplicarEstiloError(errorEstadisticasTodas);
+        todosLosDatosCorrectos = false;
+    }else if (nombre.value === '' && apodo.value === '' && imagen.files.length === 0 && puntosRestantes.textContent === '440' && puntosRestantesPePt.textContent === '250') {
         errorEstadisticasTodas.textContent = 'Para actualizar un jugador debes de completar al menos un campo o modificar las estadísticas';
         aplicarEstiloError(errorEstadisticasTodas);
         todosLosDatosCorrectos = false;
