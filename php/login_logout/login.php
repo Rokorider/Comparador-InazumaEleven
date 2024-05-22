@@ -14,7 +14,7 @@ $contrasena = $_POST['contrasena'];
 
 // Crear objeto de la clase loginBD
 try {
-    $login = new loginBD();
+    $login = new LoginBD();
 } catch (Exception $e) {
     // Redirigir a la página de mantenimiento si falla la conexión
     header("Location: ../../paginasComunes/paginasErrores/mantenimiento.html");

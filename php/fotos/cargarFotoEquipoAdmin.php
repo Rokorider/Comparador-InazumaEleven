@@ -1,6 +1,6 @@
 <?php
 
-function cargarFotoEquipoAdmin($carpeta, $imagenEquipo, $equipoModificado)
+function cargarFotoEquipo($carpeta, $imagenEquipo, $equipoModificado)
 {
     // Obtener la extensión de la imagen
     $extension = pathinfo($imagenEquipo['name'], PATHINFO_EXTENSION);

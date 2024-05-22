@@ -1,3 +1,6 @@
+let jugadores = [];
+let jugadoresPersonales = [];
+
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
     return fetch('../php/conexiones/conexionBD.php')
@@ -11,6 +14,25 @@ function obtenerDatos() {
             jugadores = data;
             // Devolver los datos de los jugadores
             return jugadores;
+        })
+        // Manejar errores en caso de que la solicitud falle
+        .catch(function (error) {
+            console.error('Error al obtener los datos de jugadores:', error);
+        });
+}
+
+function obtenerDatosPersonales() {
+    // Realizar una solicitud a la API 'prueba.php' utilizando fetch
+    return fetch('../php/conexiones/conexionBDJugadoresPersonales.php')
+        // Procesar la respuesta como JSON
+        .then(function (response) {
+            return response.json();
+        })
+        // Manejar los datos obtenidos
+        .then(function (data) {
+            jugadoresPersonales = data;
+            // Devolver los datos de los jugadores
+            return jugadoresPersonales;
         })
         // Manejar errores en caso de que la solicitud falle
         .catch(function (error) {
@@ -65,6 +87,20 @@ let ImagenCorrecta = true;
 let EstadisticasCorrectas = true;
 let EquipoCorrecto = true;
 let ImagenEquipoCorrecta = true;
+
+let apodosJugadores = [];
+obtenerDatos().then(function (jugadores) {
+    jugadores.forEach(function (jugador) {
+        apodosJugadores.push(jugador.Apodo);
+    });
+});
+
+let apodosJugadoresPersonales = [];
+obtenerDatosPersonales().then(function (jugadoresPersonales) {
+    jugadoresPersonales.forEach(function (jugador) {
+        apodosJugadoresPersonales.push(jugador.Apodo);
+    });
+});
 
 const letrasRegex = /^[A-Za-záéíóúÁÉÍÓÚ\s]+$/;
 
@@ -142,6 +178,11 @@ function validarApodo() {
         ApodoCorrecto = false;
     } else if (nuevoApodo.length > 10) { // Validación para verificar si el apodo tiene más de 10 letras
         errorApodo.textContent = 'El apodo no puede tener más de 10 letras';
+        aplicarEstiloError(errorApodo);
+        main.scrollIntoView({ behavior: "smooth" });
+        ApodoCorrecto = false;
+    } else if (apodosJugadores.includes(nuevoApodo) || apodosJugadoresPersonales.includes(nuevoApodo)) {
+        errorApodo.textContent = 'Ya existe un jugador con ese apodo';
         aplicarEstiloError(errorApodo);
         main.scrollIntoView({ behavior: "smooth" });
         ApodoCorrecto = false;
@@ -363,6 +404,15 @@ function validarNombreEquipo() {
             }
         }
     }
+
+    let nombreEquipoModificado = document.getElementById('nombreEquipo').value;
+    nombreEquipoModificado = nombreEquipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+    nombreEquipoModificado = nombreEquipoModificado.replace(/'/g, '');
+    nombreEquipoModificado = nombreEquipoModificado.replace(/\s+/g, '_');
+    document.getElementById("nombreEquipoModificado").value = nombreEquipoModificado;
+
+    console.log(document.getElementById('nombreEquipoModificado').value);
+
 }
 
 function validarImagenEquipo() {
@@ -423,6 +473,20 @@ boton.addEventListener('click', function (event) {
     }
 
     if (NombreCorrecto && ApodoCorrecto && GeneroCorrecto && PosicionCorrecta && ImagenCorrecta && EstadisticasCorrectas && EquipoCorrecto && ImagenEquipoCorrecta === true) {
+
+
+        let equipo = document.getElementById('equipo').value;
+        let equipoModificado = document.getElementById('equipoModificado').value;
+        equipoModificado = equipo;
+        equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+        equipoModificado = equipoModificado.replace(/'/g, '');
+        equipoModificado = equipoModificado.replace(/\s+/g, '_');
+        document.getElementById("equipoModificado").value = equipoModificado;
+
+        console.log("Equipo Modificado" + document.getElementById('equipoModificado').value);
+
+        console.log("Nombre del equipo modificado" + document.getElementById('nombreEquipoModificado').value);
+
         document.getElementById("formDatos").submit(); // Envía el formulario
     }
 

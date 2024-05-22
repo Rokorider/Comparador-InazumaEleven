@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url("../../img/BGicons5.png");
+    background-size: 7%;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8%;
+    font-family: "Jersey 10", sans-serif;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.contenedorSelects{
+    margin-top: 70px;
+    width: 480px;
+    height: 620px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #99c9e2;
+    filter: drop-shadow(5px 5px 0px #5096b5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.titulo {
+    width: 90%;
+    height: 18%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid #539eb5;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: #2f477c;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.cajaSelects{
+    width: 90%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:40px;
+    padding: 30px 50px 30px 50px;
+    background-color: #78aaca;
+    border-radius: 5px;
+    filter: drop-shadow(5px 5px 0px #689dbe);
+}
+
+.selector {
+    width: 100%;
+    height: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 10px solid #539eb5;
+    background-color: #539eb5;
+    gap: 10px;
+    border-radius: 10px;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+}
+
+.tipo{
+    width: 100%;
+    height: 50%;
+    background-color: #284880;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 3px;
+    border-top: 10px solid #282855;
+    border-bottom: 5px solid #2f91ae;
+}
+
+.cajaSelector{
+    width: 100%;
+    height: 35%;
+}
+
+select{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.contenedorJugador{
+    margin-top: 70px;
+    width: 650px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #78aaca;
+    filter: drop-shadow(5px 5px 0px #689dbe);
+    border-radius: 5px;
+}
+
+.cajaJugador{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    
+
+}
+
+.cajaImagen{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #539eb5;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius:  5px 0px 0px 5px ;
+}
+
+.imagen{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #99c9e2;
+    border-radius: 5px;
+    border: 10px solid #2f91ae;
+    overflow: hidden;
+}
+
+.imagen img{
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+.apodo {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    font-size: 22px;
+}
+
+.datos{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color:#539eb5 ;
+    filter: drop-shadow(5px 5px 0px #2f91ae);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.fila{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.id {
+    width: 20%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nombre{
+    width: 75%;
+    height: 60%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.juego {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.equipo {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.apodo,.nombre,.id,.juego,.equipo{
+    background-color: #284880 ;
+    border-bottom: 5px solid #2f91ae;
+    border-top: 15px solid #282855;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.filaBoton{
+    background-color: #78aaca;
+    border-radius: 5px;
+}
+
+.boton {
+    width: 80%;
+    height: 60%;
+    background-image: url('../../img/boton.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    margin: auto;
+}
+
+.boton:hover{
+    transition: all 0.2s ease;
+    transform: scale(1.05);
+}
+
+
+@media only screen and (max-width: 640px)  {
+    .titulo{
+        font-size: 1rem;
+    }
+    .contenedorSelects {
+        width: 90%;
+        height: 550px;
+        margin-top: 150px;
+    }
+    .cajaSelects{
+        padding: 30px 20px 30px 20px;
+    }
+    .tipo{
+        font-size:1.5rem;
+    }
+    select{
+        font-size: 1.2rem;
+    }
+
+    .contenedorJugador{
+        width: 90%;
+        height: 550px;
+    }
+    .cajaImagen{
+        width: 100%;
+        height: 50%;
+        border-radius: 5px 5px 0 0;
+    }
+    .datos{
+        width: 100%;
+        height: 50%;
+        padding: 0 20px 10px 20px;
+        border-radius: 0px 0px 5px 5px;
+    }
+    .apodo{
+        height: 25%;
+    }
+    .nombre,.id,.juego,.equipo{
+        font-size: 1.7rem;
+        height: 80%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+
+}

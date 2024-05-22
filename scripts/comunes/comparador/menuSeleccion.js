@@ -3,7 +3,7 @@ import { establecerJugadores } from "./grafica.js";
 
 // Definir variable global para almacenar los datos de los jugadores
 let jugadores;
-let jugadoresPersonales = [];
+let jugadoresPersonales;
 // Función para obtener los datos de la API
 function obtenerDatos() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
@@ -23,6 +23,7 @@ function obtenerDatos() {
         });
 }
 
+
 function obtenerDatosPersonales() {
     // Realizar una solicitud a la API 'prueba.php' utilizando fetch
     return fetch('../php/conexiones/conexionBDJugadoresPersonales.php')
@@ -35,8 +36,6 @@ function obtenerDatosPersonales() {
             // Asignar los datos de los jugadores a la variable global 'jugadores'
             jugadoresPersonales = data;
             console.log(jugadoresPersonales);
-            // Devolver los datos de los jugadores
-            return jugadoresPersonales;
         })
         // Manejar errores en caso de que la solicitud falle
         .catch(function (error) {
@@ -46,6 +45,8 @@ function obtenerDatosPersonales() {
 
 
 obtenerDatos();
+obtenerDatosPersonales();
+
 const primerPersonaje = document.getElementById("personaje1");
 const segundoPersonaje = document.getElementById("personaje2");
 const menuSeleccion = document.getElementById("menuPopUp");
@@ -91,6 +92,31 @@ function crearCajaJuegos(personaje) {
                     crearContenidoJuego(juego, equiposContenedor, personaje);
                 }
             });
+        });
+
+        // Crear el div adicional para "Jugadores personales"
+        const tituloJuegoPersonal = document.createElement("div");
+        tituloJuegoPersonal.classList.add("tituloJuego");
+        tituloJuegoPersonal.textContent = "Jugadores Personales";
+
+        const juegoContenedorPersonal = document.createElement("div");
+        juegoContenedorPersonal.id = `juegoPersonales`;
+        juegoContenedorPersonal.classList.add("juegoContenedor");
+
+        juegoContenedorPersonal.appendChild(tituloJuegoPersonal);
+        menuSeleccion.appendChild(juegoContenedorPersonal);
+
+        const equiposContenedorPersonal = document.createElement("div");
+        equiposContenedorPersonal.classList.add("equiposContenedor");
+        juegoContenedorPersonal.appendChild(equiposContenedorPersonal);
+
+        tituloJuegoPersonal.addEventListener("click", () => {
+            if (equiposContenedorPersonal.style.display === "block") {
+                equiposContenedorPersonal.style.display = "none";
+            } else {
+                equiposContenedorPersonal.style.display = "block";
+                crearContenidoJuego("Jugadores personales", equiposContenedorPersonal, personaje);
+            }
         });
     } else {
         console.log("No se han cargado los datos de los jugadores aún.");
@@ -279,26 +305,35 @@ function crearJugadoresPersonales(equipo, equipoModificado, contenidoEquipos, ju
 function crearContenidoJuego(juego, equiposContenedor, personaje) {
     // Limpiar el contenido anterior de equiposContenedor
     equiposContenedor.innerHTML = "";
-
-    const equiposUnicos = [
-        ...new Set(
-            jugadores
-                .filter((jugador) => jugador.Juego === juego)
-                .map((jugador) => jugador.Equipo)
-        ),
-    ];
-
+    let equiposUnicos;
+    // Obtener equipos únicos del juego específico
+    if(juego !== "Jugadores personales"){
+        equiposUnicos= [
+            ...new Set(
+                jugadores
+                    .filter((jugador) => jugador.Juego === juego)
+                    .map((jugador) => jugador.Equipo)
+            ),
+        ];
+    }else{
+        equiposUnicos= [
+            ...new Set(jugadoresPersonales.map((jugador) => jugador.NombreEquipo)),];
+    }
+    
+    
+    // Crear un contenedor para los equipos
     const contenidoEquipos = document.createElement("div");
     contenidoEquipos.classList.add("contenidoEquipos");
 
+    // Si es un "Jugadores personales"
+    if (juego === "Jugadores personales") {
     equiposUnicos.forEach((equipo) => {
-        const equipoURL = equipo
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/\s+/g, "_")
-            .replace("'", "");
 
-        const juegoURL = juego.replace(/\s+/g, "");
+        const equipoURL = equipo
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "_")
+                .replace("'", "");
 
         const equipoDiv = document.createElement("div");
         equipoDiv.classList.add("equipo");
@@ -306,9 +341,11 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
         const imgEquipo = document.createElement("img");
         imgEquipo.classList.add("equipoImg");
         imgEquipo.alt = equipo + " Escudo";
-
         
-        imgEquipo.src = `../img/imgJugadores/${juegoURL}/Escudos/${equipoURL}.png`;
+        imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.png`;
+                imgEquipo.onerror = function() {
+                    imgEquipo.src = `../img/imgJugadores/JugadoresPersonales/Escudos/${equipoURL}.jpg`;
+                }
 
         const nombreEquipo = document.createElement("div");
         nombreEquipo.classList.add("equipoNombre");
@@ -316,7 +353,6 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
 
         equipoDiv.appendChild(imgEquipo);
         equipoDiv.appendChild(nombreEquipo);
-
         contenidoEquipos.appendChild(equipoDiv);
 
         equipoDiv.addEventListener("click", () => {
@@ -326,10 +362,12 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
                 equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
                 equipoDiv.style.width = "auto";
             } else {
+                // Pasar los datos del jugador a la función de creación de jugadores
+                const jugadorPersonal = jugadoresPersonales.find(jugador => jugador.NombreEquipo === equipo);
                 crearJugadoresEquipo(
-                    equipo,
-                    equipoURL,
-                    juegoURL,
+                    jugadorPersonal.NombreEquipo,
+                    jugadorPersonal.NombreEquipo,
+                    "JugadoresPersonales",
                     equipoDiv,
                     personaje
                 );
@@ -338,7 +376,59 @@ function crearContenidoJuego(juego, equiposContenedor, personaje) {
             }
         });
     });
+} else {
+        
 
+        equiposUnicos.forEach((equipo) => {
+            const equipoURL = equipo
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "_")
+                .replace("'", "");
+
+            const juegoURL = juego.replace(/\s+/g, "");
+
+            const equipoDiv = document.createElement("div");
+            equipoDiv.classList.add("equipo");
+
+            const imgEquipo = document.createElement("img");
+            imgEquipo.classList.add("equipoImg");
+            imgEquipo.alt = equipo + " Escudo";
+
+            if (equipoURL === "Layton_Team") {
+                imgEquipo.src = "../img/Layton_Team.png";
+            } else {
+                imgEquipo.src = `https://raw.githubusercontent.com/ggdsrll/API-Inazuma-Eleven/main/${juegoURL}/Escudos/${equipoURL}.png`;
+            }
+
+            const nombreEquipo = document.createElement("div");
+            nombreEquipo.classList.add("equipoNombre");
+            nombreEquipo.textContent = equipo;
+
+            equipoDiv.appendChild(imgEquipo);
+            equipoDiv.appendChild(nombreEquipo);
+            contenidoEquipos.appendChild(equipoDiv);
+
+            equipoDiv.addEventListener("click", () => {
+                // Abrir o cerrar el equipo al hacer clic en el equipoDiv
+                if (equipoDiv.querySelector(".contenidoJuegoContenedor")) {
+                    // Cerrar si ya está abierto
+                    equipoDiv.querySelector(".contenidoJuegoContenedor").remove();
+                    equipoDiv.style.width = "auto";
+                } else {
+                    crearJugadoresEquipo(
+                        equipo,
+                        equipoURL,
+                        juegoURL,
+                        equipoDiv,
+                        personaje
+                    );
+                    equipoDiv.style.width = "100%";
+                    contenidoEquipos.style.padding = "0 10% 0 10%";
+                }
+            });
+        });
+    }
     equiposContenedor.appendChild(contenidoEquipos);
 }
 
@@ -350,9 +440,18 @@ function crearJugadoresEquipo(
     contenidoEquipos,
     personaje
 ) {
-    const jugadoresEquipo = jugadores.filter(
-        (jugador) => jugador.Equipo === equipo
-    );
+    let jugadoresEquipo;
+    // Verificar si es un equipo principal o jugadores personales
+    if (juegoURL !== "JugadoresPersonales") {
+        // Equipo principal
+        jugadoresEquipo = jugadores.filter((jugador) => jugador.Equipo === equipo);
+    } else {
+        // Jugadores personales
+        jugadoresEquipo = jugadoresPersonales.filter((jugador) => jugador.NombreEquipo === equipo);
+        juegoURL="JugadorPersonal"
+    }
+
+    // Crear los contenedores para el contenido de los jugadores
     const contenidoJuegoContenedor = document.createElement("div");
     contenidoJuegoContenedor.classList.add("contenidoJuegoContenedor");
 
@@ -360,11 +459,10 @@ function crearJugadoresEquipo(
     contenidoJuegoContenedor2.classList.add("contenidoJuegoContenedor2");
 
     const contenidoJuego_personajesCont = document.createElement("div");
-    contenidoJuego_personajesCont.classList.add(
-        "contenidoJuego_personajesCont"
-    );
+    contenidoJuego_personajesCont.classList.add("contenidoJuego_personajesCont");
     contenidoJuegoContenedor2.appendChild(contenidoJuego_personajesCont);
 
+    // Iterar sobre cada jugador y crear su representación visual
     jugadoresEquipo.forEach((jugador) => {
         const personajeCont = document.createElement("div");
         personajeCont.classList.add("personajeCont");
@@ -372,9 +470,21 @@ function crearJugadoresEquipo(
         const personajeImgCont = document.createElement("div");
         personajeImgCont.classList.add("personajeImgCont");
 
-
         const personajeImg = document.createElement("img");
-        personajeImg.src = `../img/imgJugadores/${juegoURL}/Jugadores/${equipoURL}/${jugador.Apodo}.png`;
+        if (juegoURL !== "JugadorPersonal") {
+            personajeImg.src = jugador.Imagenes;
+        } else {
+            let equipoModificado = jugador.NombreEquipo.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+                equipoModificado = jugador.NombreEquipo.replace(/'/g, '');
+                equipoModificado = jugador.NombreEquipo.replace(/\s+/g, '_');
+            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.png`;
+            personajeImg.onerror = function() {
+                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo.replace(" ", "")}.jpg`;
+            };
+            
+        }
+
+        
         personajeImg.alt = jugador.Apodo;
         personajeImg.classList.add("personajeImg");
         personajeImgCont.appendChild(personajeImg);
@@ -386,10 +496,9 @@ function crearJugadoresEquipo(
         personajeInfo_elemento.classList.add("personajeInfo_elemento");
         personajeInfo_elemento.src = `../img/Elementos/${jugador.Elemento}.png`;
 
-
         const personajeInfo_posicion = document.createElement("div");
         personajeInfo_posicion.classList.add("personajeInfo_posicion");
-        personajeInfo_posicion.textContent = jugador.Posición;
+        personajeInfo_posicion.textContent = jugador.Posicion;
 
         const personajeInfo_nombre = document.createElement("div");
         personajeInfo_nombre.classList.add("personajeInfo_nombre");
@@ -405,22 +514,23 @@ function crearJugadoresEquipo(
         personajeCont.appendChild(personajeInfo);
         contenidoJuego_personajesCont.appendChild(personajeCont);
 
-        //cerrar el pop up cuando seleccione el personaje
+        // Cerrar el pop-up cuando se seleccione el personaje
         personajeCont.addEventListener("click", () => {
             menuSeleccion.style.display = "none";
             seleccionPersonaje(jugador, juegoURL, equipoURL, personaje);
         });
     });
 
+    // Agregar el contenido del juego al contenedor de equipos
     contenidoJuegoContenedor.appendChild(contenidoJuegoContenedor2);
-
-    // Añadir el contenido del juego al contenedor de equipos
     contenidoEquipos.appendChild(contenidoJuegoContenedor);
 }
 
 
+
 //función para cambiar el contenido del contenedor de personaje1 y 2
 function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
+
     let personajeNum;
     if (personaje === "primer") {
         personajeNum = 1;
@@ -430,14 +540,22 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
         personajeNum = 2;
         establecerJugadores(jugador.Apodo, personajeNum);
     }
-    const personajeIconoImg = document.querySelector(
-        `.personajeIcono${personajeNum}Img`
-    );
 
-    if (juegoURL === "JugadoresPersonales") {
-        personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoURL}/${jugador.Apodo}.jpg`;
-    }
-    personajeIconoImg.src = jugador.Imagenes;
+
+    const personajeIconoImg = document.querySelector(
+            `.personajeIcono${personajeNum}Img`
+        );
+        
+        if (personajeIconoImg) {
+            if (juegoURL === "JugadorPersonal") {
+                personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${jugador.NombreEquipo}/${jugador.Apodo}.png`;
+            } else {
+                personajeIconoImg.src = jugador.Imagenes;
+            }
+        } else {
+            console.error("El elemento personajeIconoImg es nulo. Verifica que exista y haya sido inicializado correctamente.");
+        }
+    
     const nombrePersonajeContenedor = document.querySelector(
         `.nombrePersonajeContenedor${personajeNum} p`
     );
@@ -447,11 +565,11 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const personajeDescripcion = document.querySelector(
         `.descripcion_${personajeNum} `
     );
-    personajeDescripcion.textContent = jugador.Descripción;
+    personajeDescripcion.textContent = jugador.Descripcion;
     const sexoPersonaje = document.querySelector(
         `.sexoPersonaje_${personajeNum} `
     );
-    sexoPersonaje.src = `../img/generos/${jugador.Género}.png`;
+    sexoPersonaje.src = `../img/generos/${jugador.Genero}.png`;
     const elementoPersonaje = document.querySelector(
         `.elemento_${personajeNum} `
     );
@@ -459,12 +577,12 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
     const personajePosicion = document.querySelector(
         `.posicion_${personajeNum} `
     );
-    personajePosicion.textContent = jugador.Posición;
+    personajePosicion.textContent = jugador.Posicion;
 
     const tiro = document.querySelector(`.tiro_${personajeNum}`);
     tiro.textContent = jugador.Tiro;
     const fisico = document.querySelector(`.fisico_${personajeNum}`);
-    fisico.textContent = jugador.Físico;
+    fisico.textContent = jugador.Fisico;
     const control = document.querySelector(`.control_${personajeNum}`);
     control.textContent = jugador.Control;
     const defensa = document.querySelector(`.defensa_${personajeNum}`);
@@ -649,6 +767,3 @@ document.addEventListener("click", function (event) {
         menuSeleccion.style.display = "none";
     }
 });
-
-
-

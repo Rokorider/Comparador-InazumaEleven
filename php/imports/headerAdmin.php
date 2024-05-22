@@ -21,10 +21,10 @@
                         <a href="actualizarJugador.php">Actualizar Jugador</a>
                     </li>
                     <li>
-                        <a href="actualizarJugador.php">Eliminar Jugador</a>
+                        <a href="eliminarJugador.php">Eliminar Jugador</a>
                     </li>
                     <li>
-                        <a href="actualizarJugador.php">Gestión de Usarios</a>
+                        <a href="administrarUsuarios.php">Gestión de Usarios</a>
                     </li>
                 </ul>
             </div>
@@ -34,11 +34,11 @@
     </nav>
 
     <figure class="user">
-        <a href="../paginasComunes/paginasErrores/mantenimiento.html"><img src="../img/user-circle-svgrepo-com.svg" alt=""></a>
+        <img src="../img/user-circle-svgrepo-com.svg" alt="icono sesión">
         <p><?php echo ($_SESSION['usuario']); ?></p>
     </figure>
     <figure class="cerrarSesion">
-        <a href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
+        <a id="cerrarSesion" href="../php/login_logout/logout.php"><img src="../img/exit.svg" alt="Cerrar Sesión" /></a>
     </figure>
 
 </header>

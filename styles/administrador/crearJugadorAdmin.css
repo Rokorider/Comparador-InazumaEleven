@@ -1,18 +1,41 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
 .tituloPrincipal{
-    width: 85%;
-    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 5px solid #282855;
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 1.8rem;
     margin-bottom: 10px;
     background-color: #2f477c;
     color: white;
-    padding: 10px;
+    padding: 1% 5% 1% 5%;
 }
 
+.titulo{
+    font-size: 1.6rem;
+    width: auto;
+    height: auto;
+}
+
+input,select{
+    border: none;
+}
+.puntoRestante{
+    width: 100%;
+}
+
+.valorPuntos{
+    width: 10%;
+
+}
 .contenedorSelects{
     border: 1px solid black;
     width: 80%;
@@ -48,7 +71,33 @@
     margin-block: 40px;
 }
 
+
+hr{
+    background-color: black;
+    width: 75%;
+    height: 2px;
+}
+
 .boton{
     background-image: url('../../img/boton.png');
 }
 
+@media only screen and (max-width: 640px)  {
+
+    .tituloPrincipal{
+        font-size: 1.4rem;
+        margin: 5%;
+    }
+    .titulo{
+        font-size: 1.2rem;
+    }
+    .textoPuntos{
+        width: 80%;
+    }
+    .valorPuntos{
+        width: 20%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}

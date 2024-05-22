@@ -52,6 +52,27 @@ class JugadoresBD
         }
     }
 
+    public function eliminarJugador($idJugador)
+    {
+        // Eliminar el jugador
+        $query = "DELETE FROM api_inazuma_eleven___hoja_1 WHERE id = '$idJugador'";
+        $result = mysqli_query($this->conexion, $query);
+    
+        if ($result) {
+            // Reiniciar el valor de auto incremento
+            $resetQuery = "ALTER TABLE api_inazuma_eleven___hoja_1 AUTO_INCREMENT = 1";
+    
+            // Ejecutar la consulta de reinicio
+            mysqli_query($this->conexion, $resetQuery);
+    
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+
     public function actualizarJugador($campos_actualizados, $idJugador)
     {
 
@@ -66,7 +87,6 @@ class JugadoresBD
 
     public function crearJugadorUsuario($usuario, $equipo, $jugador, $fotoEquipo)
     {
-
         
         $sql = "SELECT id FROM usuarios WHERE nombre = '{$usuario}'";
         $resultado = mysqli_query($this->conexion, $sql);
@@ -141,7 +161,7 @@ class JugadoresBD
         $valor = $jugador->getValor();
 
         // Insertar datos del jugador
-        $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
+        $sqlInsertarJugador = "INSERT INTO jugadoresDeEquipo (Apodo, Nombre_Real, Descripcion, Imagenes, Posicion, Elemento, Genero, NombreEquipo, Equipo_id, PE, PT, Tiro, Fisico, Control, Defensa, Rapidez, Aguante, Valor) VALUES ('$apodo', '$nombre', '$descripcion', '$imagen', '$posicion', '$elemento', '$genero', '$equipo', '$idEquipo', '$pe', '$pt', '$tiro', '$fisico', '$control', '$defensa', '$rapidez', '$aguante', '$valor')";
 
         $stmt = $this->conexion->prepare($sqlInsertarJugador);
         $result = $stmt->execute();

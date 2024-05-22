@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/header_footer/header.css" />
     <link rel="stylesheet" href="../styles/header_footer/footer.css" />
     <link rel="stylesheet" href="../styles/comunes/scrollbar.css">
+    <link rel="stylesheet" href="../styles/comunes/scrollbarGeneral.css">
     <link rel="stylesheet" href="../styles/comunes/comparador.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,8 @@
     <script src="../scripts/comunes/ventanaEmergente.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <script type="module" src="../scripts/comunes/comparador/grafica.js" defer></script>
-    <script src="../scripts/comunes/comparador/flechasComparacion.js" defer></script>
+    <script src="../scripts/comunes/footer.js" defer></script>
+    <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <title>Comparador Inazuma ELeven</title>
 </head>
 
