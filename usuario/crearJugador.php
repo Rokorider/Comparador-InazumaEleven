@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/header.css">
     <link rel="stylesheet" type="text/css" href="../styles/header_footer/footer.css">
     <link rel="stylesheet" type="text/css" href="../styles/comunes/slider.css">
+    <script type="module" src="../scripts/comunes/comparador/guardarJugadores.js" defer></script>
     <title>Crear Jugador</title>
 </head>
 

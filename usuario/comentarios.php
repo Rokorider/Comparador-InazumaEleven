@@ -18,6 +18,7 @@
     <link rel="icon" type="image/x-icon" href="../img/Favicons/SilviaGrande.png" />
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/comentarios.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/guardarJugadores.js" defer></script>
     <title>Comentarios</title>
 </head>
 

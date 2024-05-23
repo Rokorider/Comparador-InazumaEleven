@@ -24,6 +24,7 @@
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/comparador/flechasComparacion.js" defer></script>
     <script src="../scripts/comunes/footer.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/guardarJugadores.js" defer></script>
     <title>Comparador Inazuma ELeven</title>
 </head>
 

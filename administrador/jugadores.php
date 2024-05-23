@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../styles/comunes/jugadores.css">
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/footer.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/guardarJugadores.js" defer></script>
     <title>Jugadores</title>
 </head>
 

@@ -17,6 +17,7 @@
     <script src="../scripts/administrador/administrarUsuarios.js" defer></script>
     <script src="../scripts/administrador/headerDesplegable.js" defer></script>
     <script src="../scripts/comunes/footer.js" defer></script>
+    <script type="module" src="../scripts/comunes/comparador/guardarJugadores.js" defer></script>
     <title>Administrar Usuarios</title>
 </head>
 
