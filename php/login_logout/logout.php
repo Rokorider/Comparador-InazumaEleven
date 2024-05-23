@@ -79,10 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Cerrar la conexión a la base de datos
     $conn->close();
-} else {
-    // Solicitud no válida
-    http_response_code(405);
-    echo "Error: Método no permitido.";
 }
 
 // Si el usuario está logueado y tiene jugadores comparados y creados en la sesión 
