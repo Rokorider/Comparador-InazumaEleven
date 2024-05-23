@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: url("../../img/Futblog/balones_naranjas_2.png");
     background-size: 5%;
 }
+
 .main {
     margin-top: 80px;
     width: 100%;
@@ -18,6 +19,15 @@ body{
     flex-wrap: wrap;
     font-family: "Jersey 10", sans-serif;
     padding-bottom: 150px;
+
+}
+
+header {
+    background-color: #cd841d86;
+}
+
+footer {
+    background-color: #d58009;
 
 }
 
@@ -90,7 +100,7 @@ body{
     border-bottom: 3px dotted #f89000;
 }
 
-.correo{
+.correo {
     width: 100%;
     height: 100%;
     display: flex;
@@ -111,7 +121,7 @@ body{
 
 }
 
-.formulario{
+.formulario {
     width: 50%;
     height: 100%;
     display: flex;
@@ -119,35 +129,36 @@ body{
     align-items: center;
 }
 
-.input{
+.input {
     width: 80%;
     height: 40px;
     font-size: 18px;
     margin: 10px;
     cursor: pointer;
     background: linear-gradient(140deg, #ffa500 50%, #f89000 50%);
-    border: none ;
+    border: none;
     border-radius: 5px;
 }
-.input:hover{
+
+.input:hover {
     transform: scale(1.01);
     filter: drop-shadow(3px 3px 0px #c27100);
 }
 
-@media only screen and (max-width: 640px)  {
+@media only screen and (max-width: 640px) {
     .titulo {
         width: 85%;
         font-size: 1.3rem;
         height: 100px;
     }
-    .contenedorUsuarios{
+
+    .contenedorUsuarios {
         padding: 35px
     }
-    .input{
+
+    .input {
         font-size: 16px;
     }
 }
 
-@media (min-width: 640px) and (max-width: 1024px) {
-
-}
+@media (min-width: 640px) and (max-width: 1024px) {}
