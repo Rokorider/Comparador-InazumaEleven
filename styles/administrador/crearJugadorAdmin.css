@@ -71,6 +71,10 @@ hr{
     background-image: url('../../img/boton.png');
 }
 
+.cajaImagenEquipo{
+    width: 55%;
+}
+
 @media only screen and (max-width: 640px)  {
 
     .tituloPrincipal{
