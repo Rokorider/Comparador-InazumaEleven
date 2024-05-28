@@ -45,13 +45,13 @@ if (mysqli_num_rows($check_query_usuarios) > 0) {
 
 // Mostrar mensajes de alerta según el caso y redirigir
 if ($usuario_duplicado && $correo_duplicado) {
-    header("Location: ../../paginasComunes/registro.php");
+    header("Location: ../../paginasComunes/registro.php?error=usuario_y_correo");
     exit();
 } elseif ($usuario_duplicado) {
-    header("Location: ../../paginasComunes/registro.php");
+    header("Location: ../../paginasComunes/registro.php?error=usuario");
     exit();
 } elseif ($correo_duplicado) {
-    header("Location: ../../paginasComunes/registro.php");
+    header("Location: ../../paginasComunes/registro.php?error=correo");
     exit();
 } else {
     // Insertar el usuario en la base de datos

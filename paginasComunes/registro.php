@@ -1,5 +1,4 @@
 <?php
-
 // Verificar si hay un parámetro de error en la URL
 if (isset($_GET['error'])) {
     $error = $_GET['error'];
