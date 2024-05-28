@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../Comparador-InazumaEleven/img/Favicons/BalonMark.png">
+    <link rel="stylesheet" type="text/css" href="../styles/comunes/sesion.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap&family=Pixelify+Sans:wght@400..700&display=swap" />
+    <script src="../scripts/registro.js" defer></script>
+    <title>Registro de Usuario</title>
+</head>
+<body>
+    <div class="caja">
+        <div class="tituloCaja">
+            <img src="../img/logo/InazumaElevenComparadorLogo2.png" alt="" class="logoInazuma">
+        </div>
+        
+        <audio id="cancion2" src="../img/audio/cancionReves.mp3" preload="auto" loop="true"></audio>
+
+        <div class="cajaInicio">
+
+            <form action="../php/registro/registrarse.php" method="post" id="formularioRegistro">
+
+                <div class="formContenedor">
+                    <div class="usuario">
+                        <h2>Nombre de Usuario</h2>
+                        <input type="text" name="usuario" id="usuario">
+                    </div>
+                    <div class="usuarioMalo">
+                    </div>
+                    <div class="correo">
+                        <h2>Correo electrónico</h2>
+                        <input type="email" name="email" id="correo">
+                    </div>
+                    <div class="correoMalo">
+                    </div>
+
+                    <div class="contrasena">
+                        <h2>Contraseña</h2>
+                        <input type="password" name="contrasena" id="contrasena">
+                    </div>
+                    <div class="contrasenaMala">
+                    </div>
+                </div>
+
+                <div class="iniciarSesion">
+                    <input type="button" name="boton" id="btnRegistro" value="Registrarse">
+                </div>               
+
+            </form>
+            
+        </div>
+
+    </div>
+
+</body>
+
+</html>
