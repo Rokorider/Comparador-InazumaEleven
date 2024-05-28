@@ -79,4 +79,61 @@ form{
     align-items: center;
     color: #6e2110;
     font-size:1rem;
+    text-align: center;
 }
+
+@media (min-width: 640px) and (max-width: 1024px) {
+    form{
+        height: 80%;
+    }
+    .tituloRegistrar{
+        font-size: 2.5rem;
+    }
+    .cajaInicio {
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 0;
+        border-radius: 0;
+    }
+    .boton{
+        font-size: 2rem;
+        height: 9%;
+    }
+    .mensaje{
+        font-size: 1.2rem;
+        padding: 20px
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .tituloRegistrar{
+        margin-top: 30px;
+        font-size: 1.8rem;
+    }
+    
+    .cajaInicio {
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 0;
+        border-radius: 0;
+    }
+
+    .formContenedor{
+        margin-bottom: 0px;
+    }
+    .boton{
+        height: 10%;
+    }
+    .iniciarSesion{
+        height: 15%;
+    }
+    .mensaje{
+        font-size: 0.9rem;
+        padding: 20px
+    }
+}
+
