@@ -1,9 +1,9 @@
 <?php
 // Credenciales de la base de datos
-$dbhost = "localhost"; // Servidor de la base de datos
-$dbuser = "comparador"; // Usuario de la base de datos
-$dbpassword = "1234"; // Contraseña de la base de datos
-$dbname = "apiinazuma"; // Nombre de la base de datos
+$dbhost = "localhost";
+$dbuser = "comparador";
+$dbpassword = "1234";
+$dbname = "apiinazuma";
 
 // Conexión a la base de datos
 $connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
@@ -32,7 +32,6 @@ $correo_duplicado = false;
 
 // Verificar si ya existe un usuario o correo registrado
 if (mysqli_num_rows($check_query_usuarios) > 0) {
-    // Verificar que el usuario y el correo no existan
     while ($row = mysqli_fetch_assoc($check_query_usuarios)) {
         if ($row['nombre'] == $usuario) {
             $usuario_duplicado = true;
@@ -44,15 +43,13 @@ if (mysqli_num_rows($check_query_usuarios) > 0) {
 }
 
 // Mostrar mensajes de alerta según el caso
+// Mostrar mensajes de alerta según el caso
 if ($usuario_duplicado && $correo_duplicado) {
-    echo "<script>alert('El usuario y el correo ya están registrados, pruebe con otros')</script>";
-    header("Location: registro.html");
+    echo "<p> El usuario y el correo ya están registrados, pruebe con otros </p>";
 } elseif ($usuario_duplicado) {
-    echo "<script>alert('El usuario ya está registrado, pruebe con otro')</script>";
-    header("Location: registro.html");
+    echo "<p> El usuario ya está registrado, pruebe con otro </p>";
 } elseif ($correo_duplicado) {
-    echo "<script>alert('El correo ya está registrado, pruebe con otro')</script>";
-    header("Location: registro.html");
+    echo "<p> El correo ya está registrado, pruebe con otro </p";
 } else {
     // Insertar el usuario en la base de datos
     $query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");
@@ -65,4 +62,5 @@ if ($usuario_duplicado && $correo_duplicado) {
         header("Location: registro.html");
     }
 }
+
 ?>
