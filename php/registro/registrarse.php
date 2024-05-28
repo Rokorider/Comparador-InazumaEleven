@@ -18,7 +18,7 @@ if (!isset($_POST['usuario']) || !isset($_POST['email']) || !isset($_POST['contr
     die("Por favor, ingrese un usuario, correo y contraseña");
 }
 
-// Obtener usuario y contraseña del post
+// Obtener usuario, correo y contraseña del post
 $usuario = $_POST['usuario'];
 $correo = $_POST['email'];
 $contrasena = $_POST['contrasena'];
@@ -42,27 +42,28 @@ if (mysqli_num_rows($check_query_usuarios) > 0) {
     }
 }
 
-// Mostrar mensajes de alerta según el caso
+
+// Mostrar mensajes de alerta según el caso y redirigir
 if ($usuario_duplicado && $correo_duplicado) {
-    echo "<p> El usuario y el correo ya están registrados, pruebe con otros </p>";
-    header("Location:  ../../paginasComunes/registro.html");
+    header("Location: ../../paginasComunes/registro.php");
+    exit();
 } elseif ($usuario_duplicado) {
-    echo "<p> El usuario ya está registrado, pruebe con otro </p>";
-    header("Location:  ../../paginasComunes/registro.html");
+    header("Location: ../../paginasComunes/registro.php");
+    exit();
 } elseif ($correo_duplicado) {
-    echo "<p> El correo ya está registrado, pruebe con otro </p";
-    header("Location:  ../../paginasComunes/registro.html");
+    header("Location: ../../paginasComunes/registro.php");
+    exit();
 } else {
     // Insertar el usuario en la base de datos
-    $query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$usuario', '$correo', '$contrasena')");
+    $query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena, ultimaConexion) VALUES ('$usuario', '$correo', '$contrasena', NOW())");
 
     // Comprobación
-    // Si hay al menos un resultado
     if ($query) {
         header("Location: ../../index.html");
+        exit();
     } else {
-        header("Location:  ../../paginasComunes/registro.html");
+        header("Location: ../../paginasComunes/registro.php?error=insert");
+        exit();
     }
 }
-
 ?>

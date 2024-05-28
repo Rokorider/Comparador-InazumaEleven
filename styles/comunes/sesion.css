@@ -84,7 +84,7 @@ form {
     flex-wrap: wrap;
 }
 
-.usuario h2{
+.usuario h2, .contrasena h2{
     margin-top: 10px;
     width: 100%;
 }
@@ -99,12 +99,6 @@ form {
     border: none;
 }
 
-.contrasena h2{
-    margin-top: 10px;
-    width: 100%;
-}
-
-
 
 .iniciarSesion{
     width: 100%;
@@ -117,11 +111,9 @@ form {
 .boton{
     background-color: #e2550b;
     width: 80%;
-    height: 10%;
     padding: 10px;
     margin: auto;
     cursor: pointer;
-    position: absolute;
     font-size: 1.6rem;
     border-radius: 10px;
     color: white;
