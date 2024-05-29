@@ -5,35 +5,34 @@ let alertaCorreo=document.getElementById("alertaCorreo")
 let alertaContrasena=document.getElementById("alertaContrasena")
 
 const imagenes = [
-    "img/fondos/fondo1.png",
-    "img/fondos/fondo2.png",
-    "img/fondos/fondo3.png",
-    "img/fondos/fondo4.png",
+    "../img/fondos/fondo1.png",
+    "../img/fondos/fondo2.png",
+    "../img/fondos/fondo3.png",
+    "../img/fondos/fondo4.png",
 ]; // Array con las URLs de las imágenes
 
 let indiceImagen = 0; // Índice de la imagen actual
 
 const imagenesFunciones = {
-    "img/fondos/fondo1.png": function () {
+    "../img/fondos/fondo1.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#f59701";
-        // Pon aqui el codigo para cambiar los colores de la caja
         document.querySelector(".cajaInicio").style.backgroundColor = "#006265";
         document.querySelector(".boton").style.backgroundColor = "#e2550b";
         document.querySelector(".registroEnlace").style.color = "#f59701";
     },
-    "img/fondos/fondo2.png": function () {
+    "../img/fondos/fondo2.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#ffb831";
         document.querySelector(".cajaInicio").style.backgroundColor = "#1264a3";
         document.querySelector(".boton").style.backgroundColor = "#7c8ea4"; //#9d5735 antiguo
         document.querySelector(".registroEnlace").style.color = "#ffb831";
     },
-    "img/fondos/fondo3.png": function () {
+    "../img/fondos/fondo3.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#fce13a";
         document.querySelector(".cajaInicio").style.backgroundColor = "#297891";
         document.querySelector(".boton").style.backgroundColor = "#3e3a3d";
         document.querySelector(".registroEnlace").style.color = "#a5c9d2";
     },
-    "img/fondos/fondo4.png": function () {
+    "../img/fondos/fondo4.png": function () {
         document.querySelector(".caja").style.backgroundColor = "#457e8e";
         document.querySelector(".cajaInicio").style.backgroundColor = "#304547";
         document.querySelector(".boton").style.backgroundColor = "#021a58";
@@ -75,7 +74,7 @@ document.addEventListener("keydown", function (event) {
                 if (numeroSecuencia === 3) {
                     document.querySelector(
                         ".caja"
-                    ).style.backgroundImage = `url('img/fondos/image0.jpeg')`;
+                    ).style.backgroundImage = `url('../img/fondos/image0.jpeg')`;
                     document.querySelector(".caja").style.backgroundColor =
                         "#292929";
                     document.querySelector(
@@ -90,7 +89,7 @@ document.addEventListener("keydown", function (event) {
                 } else if (numeroSecuencia === 2) {
                     document.querySelector(
                         ".caja"
-                    ).style.backgroundImage = `url('img/fondos/image2.jpeg')`;
+                    ).style.backgroundImage = `url('../img/fondos/image2.jpeg')`;
                     document.querySelector(".caja").style.backgroundColor =
                         "#f59701";
                     document.querySelector(
@@ -101,7 +100,7 @@ document.addEventListener("keydown", function (event) {
                 } else if (numeroSecuencia === 1) {
                     document.querySelector(
                         ".caja"
-                    ).style.backgroundImage = `url('img/fondos/image3.png')`;
+                    ).style.backgroundImage = `url('../img/fondos/image3.png')`;
                     document.querySelector(".caja").style.backgroundColor =
                         "#f59701";
                     document.querySelector(

@@ -108,6 +108,7 @@ form {
     align-items: center;
 }
 
+
 .boton{
     background-color: #e2550b;
     width: 80%;
@@ -120,10 +121,12 @@ form {
     display: flex;
     justify-content: center;
     text-align: center;
+    transition: all 0.1s ease;
 }
 
 .boton:hover {
-    background-color: #ff6c40;
+    transform: scale(1.02);
+    filter: drop-shadow(3px 3px 0px #424242);
 }
 
 .registro {
@@ -140,6 +143,10 @@ form {
     color: #f59701;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.15s ease;
+}
+.registroEnlace:hover{
+    color: white;
 }
 
 

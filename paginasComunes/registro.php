@@ -36,7 +36,9 @@ if (isset($_GET['error'])) {
 
         <audio id="cancion2" src="../img/audio/cancionReves.mp3" preload="auto" loop="true"></audio>
 
-        <a href="../index.html"><div class="botonAtras"><</div></a>
+        <a href="../index.html">
+            <img src="../img/flechaSalida.png" alt="flecha salir" class="botonAtras" id="botonAtras">
+        </a>
         <div class="cajaInicio">
         <div class="tituloRegistrar">
             <h2>Regístrate</h2>

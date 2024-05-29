@@ -60,10 +60,6 @@ form{
     padding: 15px;
 }
 
-.boton:hover {
-    background-color: #ff6c40;
-}
-
 .iniciarSesion{
     height: 10%;
 }
@@ -79,20 +75,18 @@ form{
 }
 
 .botonAtras{
-    background-color: #006265;
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    z-index: 3;
     height: 70px;
     width: 70px;
-    position: absolute;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    top: 4%;
-    left: 3%;
-    font-size: 1.7rem;
-    z-index: 3;
+    transition: all 0.2s ease;
 }
+.botonAtras:hover{
+    filter: drop-shadow(3px 3px 1px black);
+}
+
 @media (min-width: 640px) and (max-width: 1024px) {
     form{
         height: 80%;
