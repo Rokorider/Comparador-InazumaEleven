@@ -199,7 +199,7 @@ document
         if (contrasena.value.trim() === "") {
             alertaContrasena.innerText = "Ingrese una contraseña.";
             valid = false;
-        } else if(contrasena.value.length<=6){
+        } else if(contrasena.value.length<=5){
             alertaContrasena.innerText = "Mínimo 6 dígitos.";
             valid = false;
         }else {

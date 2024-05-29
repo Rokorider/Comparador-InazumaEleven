@@ -16,7 +16,7 @@ form{
     height: 65%;
 }
 .cajaInicio {
-    height: 80%;
+    height: 79%;
     margin-top: 8%;
     margin-left: 10%;
     width: 35%
@@ -49,7 +49,7 @@ form{
     border: none;
 }
 #alertaNombre,#alertaCorreo,#alertaContrasena{
-    color: #6e2110;
+    color: red;
     height: 15%;
     width: 100%;
     padding: 0 5px 0 5px;
@@ -69,7 +69,7 @@ form{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #6e2110;
+    color: red;
     font-size:1rem;
     text-align: center;
 }
