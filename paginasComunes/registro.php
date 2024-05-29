@@ -36,8 +36,8 @@ if (isset($_GET['error'])) {
 
         <audio id="cancion2" src="../img/audio/cancionReves.mp3" preload="auto" loop="true"></audio>
 
+        <a href="../index.html"><div class="botonAtras"><</div></a>
         <div class="cajaInicio">
-
         <div class="tituloRegistrar">
             <h2>Regístrate</h2>
         </div>
@@ -47,20 +47,17 @@ if (isset($_GET['error'])) {
                     <div class="usuario">
                         <h2>Nombre de Usuario</h2>
                         <input type="text" name="usuario" id="usuario" required>
-                    </div>
-                    <div class="usuarioMalo">
+                        <p id="alertaNombre"></p>
                     </div>
                     <div class="correo">
                         <h2>Correo electrónico</h2>
                         <input type="email" name="email" id="correo" required>
-                    </div>
-                    <div class="correoMalo">
+                        <p id="alertaCorreo"></p>
                     </div>
                     <div class="contrasena">
                         <h2>Contraseña</h2>
                         <input type="password" name="contrasena" id="contrasena" required>
-                    </div>
-                    <div class="contrasenaMala">
+                        <p id="alertaContrasena"></p>
                     </div>
                 </div>
 
@@ -70,9 +67,12 @@ if (isset($_GET['error'])) {
                 </div>
 
                 <div class="mensaje">
+                    <p id="mensajeAlerta">
                     <?php if (isset($mensaje_error)): ?>
-                        <p><?php echo $mensaje_error; ?></p>
+                        <?php echo $mensaje_error; ?>
                     <?php endif; ?>
+                    </p>
+                    
                 </div>
 
             </form>

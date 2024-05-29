@@ -17,20 +17,23 @@ form{
 }
 .cajaInicio {
     height: 80%;
-    margin-top: 5%;
+    margin-top: 8%;
+    margin-left: 10%;
+    width: 35%
 }
+
 .correo {
     width: 80%;
     height: 50%;
     color: white;
-}
-
-.correo  {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
 
+.correo, .usuario,.contrasena{
+    height: 60%;
+}
 .correo h2{
     margin-top: 10px;
     width: 100%;
@@ -41,27 +44,20 @@ form{
     height: 40%;
     border-radius: 10px;
     font-size: 1.7rem;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding: 0 20px 0 20px;
     border: none;
 }
-
+#alertaNombre,#alertaCorreo,#alertaContrasena{
+    color: #6e2110;
+    height: 15%;
+    width: 100%;
+    padding: 0 5px 0 5px;
+}
 .boton{
-    background-color: #e2550b;
-    width: 80%;
-    height: 10%;
-    padding: 10px;
-    margin: auto;
-    cursor: pointer;
-    position: absolute;
-    font-size: 1.6rem;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
     border: none;
     font-family: "Pixelify Sans", sans-serif;
+    padding: 15px;
 }
 
 .boton:hover {
@@ -82,6 +78,21 @@ form{
     text-align: center;
 }
 
+.botonAtras{
+    background-color: #006265;
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    top: 4%;
+    left: 3%;
+    font-size: 1.7rem;
+    z-index: 3;
+}
 @media (min-width: 640px) and (max-width: 1024px) {
     form{
         height: 80%;
@@ -99,7 +110,6 @@ form{
     }
     .boton{
         font-size: 2rem;
-        height: 9%;
     }
     .mensaje{
         font-size: 1.2rem;
@@ -125,15 +135,24 @@ form{
     .formContenedor{
         margin-bottom: 0px;
     }
-    .boton{
-        height: 10%;
-    }
-    .iniciarSesion{
-        height: 15%;
-    }
+
     .mensaje{
         font-size: 0.9rem;
         padding: 20px
+    }
+
+    .botonAtras{
+        top: 1%;
+        left: 1%;
+        height: 50px;
+        width: 50px;
+        font-size: 1.5rem;
+        background-color: none;
+    }
+    #alertaNombre,#alertaCorreo,#alertaContrasena{
+        color: #6e2110;
+        height: 15%;
+        width: 100%;
     }
 }
 
