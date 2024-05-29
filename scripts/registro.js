@@ -174,14 +174,17 @@ document
         let valid = true;
         
         // Validate username
-        if (nombre.value.trim() === "") {
-            alertaNombre.innerText = "Ingrese un nombre de usuario.";
+        if (correo.value.trim() === "") {
+            alertaCorreo.innerText = "Ingrese un correo electrónico.";
             valid = false;
-        } else if (/\s/.test(nombre.value)) {
-            alertaNombre.innerText = "No puede contener espacios.";
+        } else if (!emailPattern.test(correo.value.trim())) {
+            alertaCorreo.innerText = "Ingrese un correo electrónico válido.";
+            valid = false;
+        } else if (/[A-ZÁÉÍÓÚ]/i.test(correo.value)) {
+            alertaCorreo.innerText = "El correo electrónico no puede contener letras mayúsculas o tildes.";
             valid = false;
         } else {
-            alertaNombre.innerText = "";
+            alertaCorreo.innerText = "";
         }
     
         // Validate email
