@@ -185,6 +185,7 @@ document
             valid = false;
         } else {
             alertaCorreo.innerText = "";
+            valid = true;
         }
     
         // Validate email
@@ -196,6 +197,7 @@ document
             valid = false;
         } else {
             alertaCorreo.innerText = "";
+            valid = true;
         }
     
         // Validate password
@@ -207,10 +209,12 @@ document
             valid = false;
         }else {
             alertaContrasena.innerText = "";
+            valid = true;
         }
     
         // If all fields are valid, submit the form
         if (valid) {
+            console.log("Formulario válido");
             document.getElementById("formularioRegistro").submit();
         }
     });

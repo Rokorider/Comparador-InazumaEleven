@@ -1,4 +1,5 @@
 <?php
+
 class LoginBD
 {
     private $conexion;
@@ -54,44 +55,46 @@ class LoginBD
     }
 
 
-    public function registro($nombre, $email, $contrasena)
+    public function registro($usuario)
     {
-        // Verificar si ya existe un usuario con el mismo correo electrónico
-        $sql_verificar = "SELECT * FROM usuarios WHERE email = '$email'";
-        $result_verificar = $this->conexion->query($sql_verificar);
-
-        if ($result_verificar->num_rows > 0) {
-            // Ya existe un usuario con ese correo electrónico
-            return false;
+        // Obtiene las propiedades del objeto Usuario
+        $nombre = $usuario->getNombre();
+        $email = $usuario->getEmail();
+        $contrasena = $usuario->getContrasena();
+    
+        // Prepara la consulta SQL utilizando sentencias preparadas para evitar inyecciones SQL
+        $sql_insertar = $this->conexion->prepare("INSERT INTO usuarios (nombre, email, contrasena, permisos) VALUES (?, ?, ?, 0)");
+        
+        // Asigna los parámetros a la consulta
+        $sql_insertar->bind_param("sss", $nombre, $email, $contrasena);
+    
+        // Ejecuta la consulta
+        $result_insertar = $sql_insertar->execute();
+    
+        // Verifica el resultado de la ejecución
+        if ($result_insertar) {
+            // Registro exitoso
+            return true;
         } else {
-            // No hay ningún usuario con ese correo electrónico, procede con el registro
-            $sql_insertar = "INSERT INTO usuarios (nombre, email, contrasena) VALUES ('$nombre', '$email', '$contrasena')";
-            $result_insertar = $this->conexion->query($sql_insertar);
-
-            if ($result_insertar) {
-                // Registro exitoso
-                return true;
-            } else {
-                // Error al registrar
-                return false;
-            }
+            // Error al registrar
+            return false;
         }
     }
+    
 
-    public function eliminarUsuario($idUsuario){
+    public function eliminarUsuario($idUsuario)
+    {
         $sql = "DELETE FROM usuarios WHERE id = $idUsuario";
         $result = $this->conexion->query($sql);
 
         $this->conexion->close();
     }
 
-    public function concederPermisos($idUsuario){
+    public function concederPermisos($idUsuario)
+    {
         $sql = "UPDATE usuarios SET permisos = 1 WHERE id = $idUsuario";
         $result = $this->conexion->query($sql);
 
         $this->conexion->close();
-
     }
-
-
 }

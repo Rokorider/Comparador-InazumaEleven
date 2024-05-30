@@ -1,4 +1,8 @@
 <?php
+
+require '../comunes/Usuario.php';
+require '../conexiones/conexionBdLogin.php';
+
 // Credenciales de la base de datos
 $dbhost = "localhost";
 $dbuser = "comparador";
@@ -54,16 +58,30 @@ if ($usuario_duplicado && $correo_duplicado) {
     header("Location: ../../paginasComunes/registro.php?error=correo");
     exit();
 } else {
-    // Insertar el usuario en la base de datos
-    $query = mysqli_query($connection, "INSERT INTO usuarios (nombre, email, contrasena, ultimaConexion) VALUES ('$usuario', '$correo', '$contrasena', NOW())");
+
+    // Crear Objeto Usuario
+    $usuario = new Usuario($usuario, $correo, $contrasena);
+
+    // Crear objeto de la clase loginBD
+    try {
+        $registro = new LoginBD();
+    } catch (Exception $e) {
+        // Redirigir a la página de mantenimiento si falla la conexión
+        header("Location: ../../paginasComunes/paginasErrores/mantenimiento.html");
+        exit(); // Salir del script después de redirigir
+    }
+
+    // LLamada a la función para registrar usuario
+    $query = $registro->registro($usuario);
 
     // Comprobación
     if ($query) {
         header("Location: ../../index.html");
         exit();
     } else {
-        header("Location: ../../paginasComunes/registro.php?error=insert");
+        echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        //header("Location: ../../paginasComunes/registro.php?error=insert");
         exit();
     }
 }
-?>
+
