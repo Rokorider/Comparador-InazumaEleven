@@ -19,7 +19,7 @@ if (isset($_GET['error'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../Comparador-InazumaEleven/img/Favicons/BalonMark.png">
+    <link rel="icon" href="../img/Favicons/BalonMark.png">
     <link rel="stylesheet" type="text/css" href="../styles/comunes/sesion.css">
     <link rel="stylesheet" type="text/css" href="../styles/comunes/registro.css">
     <link rel="stylesheet"
