@@ -760,7 +760,7 @@ function validarDatos(jugadores) {
             EstadisticasCorrectas = false;
         } else {
             errorEstadisticas.textContent = '';
-            limpiarEstiloError(errorImagen);
+            limpiarEstiloError(campoErrorEstadisticas);
             EstadisticasCorrectas = true;
         }
     }
