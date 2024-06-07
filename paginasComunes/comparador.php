@@ -54,7 +54,7 @@ echo("El usuario " . $_SESSION['usuario'] . " ha iniciado sesión en comparador.
 
         <div class="btnMusica" id="btnMusica">
             <img src="../img/cd-furbol.png" alt="Logo Inazuma Eleven" id="imagenMusica"/>
-            <audio id="cancion" src="../img/audio/cancion2.mp3" loop="true"></audio>
+            <audio id="cancion" src=""></audio>
         </div>
         
     </section>
