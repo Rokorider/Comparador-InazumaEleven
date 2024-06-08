@@ -84,11 +84,17 @@ class LoginBD
 
     public function eliminarUsuario($idUsuario)
     {
+        // Eliminar las filas relacionadas en la tabla consultas
+        $sql = "DELETE FROM consultas WHERE usuario_id = $idUsuario";
+        $result = $this->conexion->query($sql);
+    
+        // Luego eliminar el usuario
         $sql = "DELETE FROM usuarios WHERE id = $idUsuario";
         $result = $this->conexion->query($sql);
-
+    
         $this->conexion->close();
     }
+    
 
     public function concederPermisos($idUsuario)
     {
