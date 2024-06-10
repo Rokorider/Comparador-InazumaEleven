@@ -935,6 +935,11 @@ select{
         font-size: 18px;
     }
 
+    .tituloPrincipal{
+        width: 85%;
+        font-size: 1.8rem;
+    }
+
     .cajaPregunta {
         width: 90%;
         margin: 0;
