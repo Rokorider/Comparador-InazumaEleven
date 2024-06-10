@@ -160,20 +160,20 @@ function validarApodo() {
 
 
 function validarDescripcion() {
-
     const descripcionInput = descripcion.value.trim(); // Elimina los espacios en blanco al principio y al final
+    const letrasRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ.,\s]*$/; // Permite letras, espacios, puntos y comas
 
-    if (descripcion.value === '') {
+    if (descripcionInput === '') {
         errorDescripcion.textContent = 'La descripción es obligatoria';
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
         DescripcionCorrecta = false;
     } else if (!letrasRegex.test(descripcionInput)) {
-        errorDescripcion.textContent = 'La descripción solo puede contener letras';
+        errorDescripcion.textContent = 'La descripción solo puede contener letras, puntos y comas';
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
         DescripcionCorrecta = false;
-    } else if (descripcionInput.length > 80) { 
+    } else if (descripcionInput.length > 80) {
         errorDescripcion.textContent = 'La descripción no puede tener más de 80 letras';
         aplicarEstiloError(errorDescripcion);
         main.scrollIntoView({ behavior: "smooth" });
@@ -184,6 +184,7 @@ function validarDescripcion() {
         DescripcionCorrecta = true;
     }
 }
+
 
 function validarElemento() {
     if (elemento.value === '') {

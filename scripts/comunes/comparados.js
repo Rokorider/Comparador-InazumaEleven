@@ -18,6 +18,7 @@ let canciones = [
 // Función para reproducir la canción actual
 function reproducirCancionActual() {
     cancion.src = canciones[indiceCancion];
+    console.log(cancion.src);
     cancion.play();
     reproduciendo = true;
     imagenMusica.classList.add('rotating'); // Iniciar la rotación cuando se reproduce la canción

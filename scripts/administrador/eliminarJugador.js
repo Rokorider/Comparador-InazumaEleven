@@ -166,7 +166,7 @@ function mostrarJugador(jugador) {
             <div class="datos">
                 <div class="fila">
                     <div class="id">
-                        <p>${jugador.ID}</p>
+                        <p>${jugador.id}</p>
                     </div>
                     <div class="nombre">
                         <p>${jugador.Nombre_Real}</p>
@@ -189,7 +189,7 @@ function mostrarJugador(jugador) {
                 </div>
             </div>
             <form id="eliminarJugador" action="../php/administrador/eliminarJugador.php" method="POST">
-                <input type="hidden" id="idJugador" name="idJugador" value="${jugador.ID}">  
+                <input type="hidden" id="idJugador" name="idJugador" value="${jugador.id}">  
             </form>
         </div>
     `;
