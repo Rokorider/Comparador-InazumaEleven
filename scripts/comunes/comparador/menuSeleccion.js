@@ -253,7 +253,7 @@ function crearJugadoresPersonales(equipo, equipoModificado, contenidoEquipos, ju
 
 
         const personajeImg = document.createElement("img");
-        personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.jpg`;
+        personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.png`;
         personajeImg.alt = jugador.Apodo;
         personajeImg.classList.add("personajeImg");
         personajeImgCont.appendChild(personajeImg);
@@ -504,10 +504,7 @@ function crearJugadoresEquipo(
 
             apodoModificado = apodoModificado.replace(/\s+/g, '_');
 
-            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${apodoModificado}.png`;
-            personajeImg.onerror = function () {
-                personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${apodoModificado}.jpg`;
-            };
+            personajeImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.png`;
 
         }
 
@@ -580,14 +577,8 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
             equipoModificado = equipoModificado.replace(/'/g, '');
             equipoModificado = equipoModificado.replace(/\s+/g, '_');
 
-            let apodoModificado = jugador.Apodo;
-            apodoModificado = apodoModificado.replace(/\s+/g, '_');
+            personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${jugador.Apodo}.png`;
 
-            personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${apodoModificado}.png`;
-
-            personajeIconoImg.onerror = function () {
-                personajeIconoImg.src = `../img/imgJugadores/JugadoresPersonales/Jugadores/${equipoModificado}/${apodoModificado}.jpg`;
-            };
         } else {
             let equipoModificado = jugador.Equipo;
             equipoModificado = equipoModificado.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
@@ -602,9 +593,6 @@ function seleccionPersonaje(jugador, juegoURL, equipoURL, personaje) {
             juegoModificado = juegoModificado.replace(/\s+/g, "");
 
             personajeIconoImg.src = `../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.png`;
-            personajeIconoImg.onerror = function () {
-                personajeIconoImg.src = `../img/imgJugadores/${juegoModificado}/Jugadores/${equipoModificado}/${apodoModificado}.jpg`;
-            };
         }
     } else {
         console.error("El elemento personajeIconoImg es nulo. Verifica que exista y haya sido inicializado correctamente.");

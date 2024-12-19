@@ -5,8 +5,8 @@ let reproduciendo = false;
 let indiceCancion = 0;
 
 let canciones = [
-    "../img/audio/cancion2.mp3", 
     "../img/audio/Holy Ground.mp3",
+    "../img/audio/cancion2.mp3", 
     "../img/audio/Inazuma11 OST 3 - Epsilon's Attack_XngLChWsZaU.mp3", 
     "../img/audio/Inazuma11 OST 2 - Mou Hitori no Ace Striker_Zt2nfGJ4utE.mp3", 
     "../img/audio/Inazuma11 OST 3 - Blast_1Hw7Z1Nr7hY.mp3", 
